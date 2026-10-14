@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -397,6 +397,17 @@
                                                             <li><a href="login.html">Login</a></li>
                                                         </ul>
                                                     </li>
+                                                    <li class="dropdown drop-list">
+                                                        <a class="dropdown-arrow" href="javascript:void(0)">
+                                                            Vendors
+                                                            <i class="ri-arrow-down-s-line"></i>
+                                                        </a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="vendor-list.html">All Vendors</a></li>
+                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -499,6 +510,14 @@
                                                         </a>
                                                     </li>
                                                     <li><a href="blog-detail-full-width.html">Detail Full Width</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">Vendors</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="vendor-list.html">All Vendors</a></li>
+                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -871,6 +890,69 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- Multivendor Store Info Box -->
+                                                        <div class="mn-single-vendor-box">
+                                                            <div
+                                                                class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                                                <div class="d-flex align-items-center gap-3">
+                                                                    <img
+                                                                        src="assets/img/vendor/1.jpg"
+                                                                        alt="Ocean Crate"
+                                                                        style="
+                                                                            width: 48px;
+                                                                            height: 48px;
+                                                                            border-radius: 50%;
+                                                                            object-fit: cover;
+                                                                            border: 2px solid #eef0f2;
+                                                                        " />
+                                                                    <div>
+                                                                        <div class="d-flex align-items-center gap-1">
+                                                                            <span
+                                                                                class="text-muted"
+                                                                                style="
+                                                                                    font-size: 12px;
+                                                                                    font-weight: 500;
+                                                                                ">
+                                                                                Sold by
+                                                                            </span>
+                                                                            <a
+                                                                                href="vendor-store.html"
+                                                                                class="fw-bold text-dark text-decoration-none"
+                                                                                style="font-size: 15px">
+                                                                                Ocean Crate
+                                                                            </a>
+                                                                            <i
+                                                                                class="ri-checkbox-circle-fill text-success"
+                                                                                title="Verified Seller"
+                                                                                style="font-size: 14px"></i>
+                                                                        </div>
+                                                                        <div
+                                                                            class="d-flex align-items-center gap-2 mt-1">
+                                                                            <span
+                                                                                class="badge bg-light text-warning border px-2 py-1"
+                                                                                style="font-size: 11px">
+                                                                                <i class="ri-star-fill"></i>
+                                                                                4.8 / 5.0
+                                                                            </span>
+                                                                            <span
+                                                                                class="text-muted"
+                                                                                style="font-size: 12px">
+                                                                                (98% Positive Feedback)
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <a
+                                                                        href="vendor-store.html"
+                                                                        class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1"
+                                                                        style="font-size: 13px">
+                                                                        <i class="ri-store-2-line me-1"></i>
+                                                                        Visit Store
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1104,41 +1186,111 @@
                                                 <div class="tab-pane fade" id="mn-spt-nav-vendor">
                                                     <div class="mn-single-pro-tab-moreinfo">
                                                         <div class="mn-product-vendor">
-                                                            <div class="mn-vendor-info">
-                                                                <span>
-                                                                    <img alt="vendor" src="assets/img/vendor/1.jpg" />
-                                                                </span>
-                                                                <div>
-                                                                    <h5>Ocean Crate</h5>
-                                                                    <p>Products : 358</p>
-                                                                    <p>Sales : 5587</p>
+                                                            <div
+                                                                class="mn-vendor-info d-flex align-items-center justify-content-between flex-wrap gap-3 pb-3 border-bottom">
+                                                                <div class="d-flex align-items-center gap-3">
+                                                                    <span>
+                                                                        <img
+                                                                            alt="vendor"
+                                                                            src="assets/img/vendor/1.jpg"
+                                                                            style="
+                                                                                width: 70px;
+                                                                                height: 70px;
+                                                                                border-radius: 50%;
+                                                                                object-fit: cover;
+                                                                                border: 2px solid #eef0f2;
+                                                                            " />
+                                                                    </span>
+                                                                    <div>
+                                                                        <h5
+                                                                            class="mb-1 d-flex align-items-center gap-2">
+                                                                            <a
+                                                                                href="vendor-store.html"
+                                                                                class="text-dark text-decoration-none">
+                                                                                Ocean Crate
+                                                                            </a>
+                                                                            <i
+                                                                                class="ri-checkbox-circle-fill text-success"
+                                                                                title="Verified Seller"></i>
+                                                                        </h5>
+                                                                        <div
+                                                                            class="d-flex align-items-center gap-2 mb-2">
+                                                                            <span
+                                                                                class="badge bg-light text-warning border px-2 py-1">
+                                                                                <i class="ri-star-fill"></i>
+                                                                                4.8 / 5.0
+                                                                            </span>
+                                                                            <span
+                                                                                class="text-muted"
+                                                                                style="font-size: 13px">
+                                                                                (120 store ratings)
+                                                                            </span>
+                                                                        </div>
+                                                                        <div
+                                                                            class="d-flex gap-3 text-muted flex-wrap"
+                                                                            style="font-size: 13px">
+                                                                            <span>
+                                                                                <strong>358</strong>
+                                                                                Products
+                                                                            </span>
+                                                                            <span>&bull;</span>
+                                                                            <span>
+                                                                                <strong>5,587</strong>
+                                                                                Sales
+                                                                            </span>
+                                                                            <span>&bull;</span>
+                                                                            <span>
+                                                                                <strong>98%</strong>
+                                                                                Positive Feedback
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex gap-2">
+                                                                    <a
+                                                                        href="vendor-store.html"
+                                                                        class="btn btn-primary mn-btn-2">
+                                                                        <span>
+                                                                            <i class="ri-store-2-line me-1"></i>
+                                                                            Visit Store
+                                                                        </span>
+                                                                    </a>
+                                                                    <a
+                                                                        href="contact-us.html"
+                                                                        class="btn btn-outline-secondary"
+                                                                        style="
+                                                                            border-radius: 12px;
+                                                                            font-size: 14px;
+                                                                            font-weight: 600;
+                                                                            padding: 10px 18px;
+                                                                        ">
+                                                                        <i class="ri-chat-3-line me-1"></i>
+                                                                        Contact
+                                                                    </a>
                                                                 </div>
                                                             </div>
-                                                            <div class="mn-detail">
+                                                            <div class="mn-detail pt-3">
                                                                 <ul>
                                                                     <li>
                                                                         <span>Phone No. :</span>
                                                                         +00 987654321
                                                                     </li>
                                                                     <li>
-                                                                        <span>Email. :</span>
-                                                                        Example@gmail.com
+                                                                        <span>Email :</span>
+                                                                        support@oceancrate.com
                                                                     </li>
                                                                     <li>
-                                                                        <span>Address. :</span>
+                                                                        <span>Address :</span>
                                                                         2548 Broaddus Maple Court, Madisonville KY 4783,
                                                                         USA.
                                                                     </li>
                                                                 </ul>
                                                                 <p class="mb-0">
-                                                                    Lorem Ipsum is simply dummy text of the printing and
-                                                                    typesetting industry. Lorem Ipsum has been the
-                                                                    industry's standard dummy text ever since the 1500s,
-                                                                    when an unknown printer took a galley of type and
-                                                                    scrambled it to make a type specimen book. It has
-                                                                    survived not only five centuries, but also the leap
-                                                                    into electronic typesetting, remaining essentially
-                                                                    unchanged.
+                                                                    Ocean Crate is a premier marketplace merchant
+                                                                    dedicated to bringing high-quality fashion, organic
+                                                                    lifestyle goods, and smart essentials directly to
+                                                                    consumers. All orders are packed and shipped within
+                                                                    24 hours with dedicated seller customer support.
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -2401,7 +2553,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="shop-right-sidebar.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Vendor</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>

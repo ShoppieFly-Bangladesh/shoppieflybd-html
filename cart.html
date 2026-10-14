@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -397,6 +397,17 @@
                                                             <li><a href="login.html">Login</a></li>
                                                         </ul>
                                                     </li>
+                                                    <li class="dropdown drop-list">
+                                                        <a class="dropdown-arrow" href="javascript:void(0)">
+                                                            Vendors
+                                                            <i class="ri-arrow-down-s-line"></i>
+                                                        </a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="vendor-list.html">All Vendors</a></li>
+                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -499,6 +510,14 @@
                                                         </a>
                                                     </li>
                                                     <li><a href="blog-detail-full-width.html">Detail Full Width</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">Vendors</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="vendor-list.html">All Vendors</a></li>
+                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -646,148 +665,218 @@
                                 <div class="mn-cart-inner cart_list">
                                     <div class="row">
                                         <form action="#">
-                                            <div class="table-content cart-table-content">
-                                                <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Product</th>
-                                                            <th>Price</th>
-                                                            <th style="text-align: center">Quantity</th>
-                                                            <th>Total</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr class="mn-cart-product">
-                                                            <td class="mn-cart-pro-name" data-label="Product">
-                                                                <a href="product-detail.html">
-                                                                    <img
-                                                                        alt=""
-                                                                        class="mn-cart-pro-img"
-                                                                        src="assets/img/product/11.jpg" />
-                                                                    Mantu smart watch
-                                                                </a>
-                                                            </td>
-                                                            <td class="mn-cart-pro-price" data-label="Price">
-                                                                <span class="amount">$516.00</span>
-                                                            </td>
-                                                            <td
-                                                                class="mn-cart-pro-qty"
-                                                                data-label="Quantity"
-                                                                style="text-align: center">
-                                                                <div class="cart-qty-plus-minus">
-                                                                    <input
-                                                                        class="cart-plus-minus"
-                                                                        name="cartqtybutton"
-                                                                        type="text"
-                                                                        value="1" />
-                                                                </div>
-                                                            </td>
-                                                            <td class="mn-cart-pro-subtotal" data-label="Total">
-                                                                $516.00
-                                                            </td>
-                                                            <td class="mn-cart-pro-remove" data-label="Remove">
-                                                                <a href="#"><i class="ri-delete-bin-line"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="mn-cart-product">
-                                                            <td class="mn-cart-pro-name" data-label="Product">
-                                                                <a href="product-detail.html">
-                                                                    <img
-                                                                        alt=""
-                                                                        class="mn-cart-pro-img"
-                                                                        src="assets/img/product/15.jpg" />
-                                                                    Leather bag
-                                                                </a>
-                                                            </td>
-                                                            <td class="mn-cart-pro-price" data-label="Price">
-                                                                <span class="amount">$75.00</span>
-                                                            </td>
-                                                            <td
-                                                                class="mn-cart-pro-qty"
-                                                                data-label="Quantity"
-                                                                style="text-align: center">
-                                                                <div class="cart-qty-plus-minus">
-                                                                    <input
-                                                                        class="cart-plus-minus"
-                                                                        name="cartqtybutton"
-                                                                        type="text"
-                                                                        value="1" />
-                                                                </div>
-                                                            </td>
-                                                            <td class="mn-cart-pro-subtotal" data-label="Total">
-                                                                $75.00
-                                                            </td>
-                                                            <td class="mn-cart-pro-remove" data-label="Remove">
-                                                                <a href="#"><i class="ri-delete-bin-line"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="mn-cart-product">
-                                                            <td class="mn-cart-pro-name" data-label="Product">
-                                                                <a href="product-detail.html">
-                                                                    <img
-                                                                        alt=""
-                                                                        class="mn-cart-pro-img"
-                                                                        src="assets/img/product/21.jpg" />
-                                                                    Cotton fabric T-shirt
-                                                                </a>
-                                                            </td>
-                                                            <td class="mn-cart-pro-price" data-label="Price">
-                                                                <span class="amount">$48.00</span>
-                                                            </td>
-                                                            <td
-                                                                class="mn-cart-pro-qty"
-                                                                data-label="Quantity"
-                                                                style="text-align: center">
-                                                                <div class="cart-qty-plus-minus">
-                                                                    <input
-                                                                        class="cart-plus-minus"
-                                                                        name="cartqtybutton"
-                                                                        type="text"
-                                                                        value="1" />
-                                                                </div>
-                                                            </td>
-                                                            <td class="mn-cart-pro-subtotal" data-label="Total">
-                                                                $48.00
-                                                            </td>
-                                                            <td class="mn-cart-pro-remove" data-label="Remove">
-                                                                <a href="#"><i class="ri-delete-bin-line"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="mn-cart-product">
-                                                            <td class="mn-cart-pro-name" data-label="Product">
-                                                                <a href="product-detail.html">
-                                                                    <img
-                                                                        alt=""
-                                                                        class="mn-cart-pro-img"
-                                                                        src="assets/img/product/9.jpg" />
-                                                                    Special sport shoes
-                                                                </a>
-                                                            </td>
-                                                            <td class="mn-cart-pro-price" data-label="Price">
-                                                                <span class="amount">$95.00</span>
-                                                            </td>
-                                                            <td
-                                                                class="mn-cart-pro-qty"
-                                                                data-label="Quantity"
-                                                                style="text-align: center">
-                                                                <div class="cart-qty-plus-minus">
-                                                                    <input
-                                                                        class="cart-plus-minus"
-                                                                        name="cartqtybutton"
-                                                                        type="text"
-                                                                        value="1" />
-                                                                </div>
-                                                            </td>
-                                                            <td class="mn-cart-pro-subtotal" data-label="Total">
-                                                                $95.00
-                                                            </td>
-                                                            <td class="mn-cart-pro-remove" data-label="Remove">
-                                                                <a href="#"><i class="ri-delete-bin-line"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <!-- Multivendor Package 1 -->
+                                            <div class="mn-cart-package">
+                                                <div class="mn-cart-package-header">
+                                                    <div class="mn-package-vendor-title">
+                                                        <i
+                                                            class="ri-store-2-line text-primary"
+                                                            style="font-size: 18px"></i>
+                                                        <span>
+                                                            Package 1 of 2: Fulfilled by
+                                                            <a
+                                                                href="vendor-store.html"
+                                                                class="fw-bold text-dark text-decoration-none">
+                                                                Ocean Crate
+                                                            </a>
+                                                        </span>
+                                                        <i
+                                                            class="ri-checkbox-circle-fill text-success"
+                                                            title="Verified Seller"></i>
+                                                    </div>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="mn-package-shipping-badge">
+                                                            <i class="ri-truck-line me-1"></i>
+                                                            Shipping: $5.00 (Est. 2-3 Days)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="table-content cart-table-content mb-0">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Product</th>
+                                                                <th>Price</th>
+                                                                <th style="text-align: center">Quantity</th>
+                                                                <th>Total</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="mn-cart-product">
+                                                                <td class="mn-cart-pro-name" data-label="Product">
+                                                                    <a href="product-detail.html">
+                                                                        <img
+                                                                            alt=""
+                                                                            class="mn-cart-pro-img"
+                                                                            src="assets/img/product/11.jpg" />
+                                                                        Mantu smart watch
+                                                                    </a>
+                                                                </td>
+                                                                <td class="mn-cart-pro-price" data-label="Price">
+                                                                    <span class="amount">$516.00</span>
+                                                                </td>
+                                                                <td
+                                                                    class="mn-cart-pro-qty"
+                                                                    data-label="Quantity"
+                                                                    style="text-align: center">
+                                                                    <div class="cart-qty-plus-minus">
+                                                                        <input
+                                                                            class="cart-plus-minus"
+                                                                            name="cartqtybutton"
+                                                                            type="text"
+                                                                            value="1" />
+                                                                    </div>
+                                                                </td>
+                                                                <td class="mn-cart-pro-subtotal" data-label="Total">
+                                                                    $516.00
+                                                                </td>
+                                                                <td class="mn-cart-pro-remove" data-label="Remove">
+                                                                    <a href="#"><i class="ri-delete-bin-line"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="mn-cart-product">
+                                                                <td class="mn-cart-pro-name" data-label="Product">
+                                                                    <a href="product-detail.html">
+                                                                        <img
+                                                                            alt=""
+                                                                            class="mn-cart-pro-img"
+                                                                            src="assets/img/product/15.jpg" />
+                                                                        Leather bag
+                                                                    </a>
+                                                                </td>
+                                                                <td class="mn-cart-pro-price" data-label="Price">
+                                                                    <span class="amount">$75.00</span>
+                                                                </td>
+                                                                <td
+                                                                    class="mn-cart-pro-qty"
+                                                                    data-label="Quantity"
+                                                                    style="text-align: center">
+                                                                    <div class="cart-qty-plus-minus">
+                                                                        <input
+                                                                            class="cart-plus-minus"
+                                                                            name="cartqtybutton"
+                                                                            type="text"
+                                                                            value="1" />
+                                                                    </div>
+                                                                </td>
+                                                                <td class="mn-cart-pro-subtotal" data-label="Total">
+                                                                    $75.00
+                                                                </td>
+                                                                <td class="mn-cart-pro-remove" data-label="Remove">
+                                                                    <a href="#"><i class="ri-delete-bin-line"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <!-- Multivendor Package 2 -->
+                                            <div class="mn-cart-package">
+                                                <div class="mn-cart-package-header">
+                                                    <div class="mn-package-vendor-title">
+                                                        <i
+                                                            class="ri-store-2-line text-primary"
+                                                            style="font-size: 18px"></i>
+                                                        <span>
+                                                            Package 2 of 2: Fulfilled by
+                                                            <a
+                                                                href="vendor-store.html"
+                                                                class="fw-bold text-dark text-decoration-none">
+                                                                Fashion Hub
+                                                            </a>
+                                                        </span>
+                                                        <i
+                                                            class="ri-checkbox-circle-fill text-success"
+                                                            title="Verified Seller"></i>
+                                                    </div>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="mn-package-shipping-badge">
+                                                            <i class="ri-truck-line me-1 text-success"></i>
+                                                            Free Delivery (Est. 3-5 Days)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="table-content cart-table-content mb-0">
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Product</th>
+                                                                <th>Price</th>
+                                                                <th style="text-align: center">Quantity</th>
+                                                                <th>Total</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="mn-cart-product">
+                                                                <td class="mn-cart-pro-name" data-label="Product">
+                                                                    <a href="product-detail.html">
+                                                                        <img
+                                                                            alt=""
+                                                                            class="mn-cart-pro-img"
+                                                                            src="assets/img/product/21.jpg" />
+                                                                        Cotton fabric T-shirt
+                                                                    </a>
+                                                                </td>
+                                                                <td class="mn-cart-pro-price" data-label="Price">
+                                                                    <span class="amount">$48.00</span>
+                                                                </td>
+                                                                <td
+                                                                    class="mn-cart-pro-qty"
+                                                                    data-label="Quantity"
+                                                                    style="text-align: center">
+                                                                    <div class="cart-qty-plus-minus">
+                                                                        <input
+                                                                            class="cart-plus-minus"
+                                                                            name="cartqtybutton"
+                                                                            type="text"
+                                                                            value="1" />
+                                                                    </div>
+                                                                </td>
+                                                                <td class="mn-cart-pro-subtotal" data-label="Total">
+                                                                    $48.00
+                                                                </td>
+                                                                <td class="mn-cart-pro-remove" data-label="Remove">
+                                                                    <a href="#"><i class="ri-delete-bin-line"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="mn-cart-product">
+                                                                <td class="mn-cart-pro-name" data-label="Product">
+                                                                    <a href="product-detail.html">
+                                                                        <img
+                                                                            alt=""
+                                                                            class="mn-cart-pro-img"
+                                                                            src="assets/img/product/9.jpg" />
+                                                                        Special sport shoes
+                                                                    </a>
+                                                                </td>
+                                                                <td class="mn-cart-pro-price" data-label="Price">
+                                                                    <span class="amount">$95.00</span>
+                                                                </td>
+                                                                <td
+                                                                    class="mn-cart-pro-qty"
+                                                                    data-label="Quantity"
+                                                                    style="text-align: center">
+                                                                    <div class="cart-qty-plus-minus">
+                                                                        <input
+                                                                            class="cart-plus-minus"
+                                                                            name="cartqtybutton"
+                                                                            type="text"
+                                                                            value="1" />
+                                                                    </div>
+                                                                </td>
+                                                                <td class="mn-cart-pro-subtotal" data-label="Total">
+                                                                    $95.00
+                                                                </td>
+                                                                <td class="mn-cart-pro-remove" data-label="Remove">
+                                                                    <a href="#"><i class="ri-delete-bin-line"></i></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="mn-cart-update-bottom">
@@ -866,7 +955,12 @@
                                                 </div>
                                                 <div>
                                                     <span class="text-left">Delivery Charges</span>
-                                                    <span class="text-right">$80.00</span>
+                                                    <span class="text-right">
+                                                        $5.00
+                                                        <small class="text-muted d-block" style="font-size: 11px">
+                                                            (Ocean Crate: $5.00 | Fashion Hub: Free)
+                                                        </small>
+                                                    </span>
                                                 </div>
                                                 <div>
                                                     <span class="text-left">Coupan Discount</span>
@@ -898,7 +992,7 @@
                                                 </div>
                                                 <div class="mn-cart-summary-total">
                                                     <span class="text-left">Total Amount</span>
-                                                    <span class="text-right">$814.00</span>
+                                                    <span class="text-right">$739.00</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1005,7 +1099,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="shop-right-sidebar.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Vendor</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -397,6 +397,17 @@
                                                             <li><a href="login.html">Login</a></li>
                                                         </ul>
                                                     </li>
+                                                    <li class="dropdown drop-list">
+                                                        <a class="dropdown-arrow" href="javascript:void(0)">
+                                                            Vendors
+                                                            <i class="ri-arrow-down-s-line"></i>
+                                                        </a>
+                                                        <ul class="sub-menu">
+                                                            <li><a href="vendor-list.html">All Vendors</a></li>
+                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -499,6 +510,14 @@
                                                         </a>
                                                     </li>
                                                     <li><a href="blog-detail-full-width.html">Detail Full Width</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)">Vendors</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="vendor-list.html">All Vendors</a></li>
+                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
+                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -830,7 +849,12 @@
                                             </div>
                                             <div>
                                                 <span class="text-left">Delivery Charges</span>
-                                                <span class="text-right">$80.00</span>
+                                                <span class="text-right">
+                                                    $5.00
+                                                    <small class="text-muted d-block" style="font-size: 11px">
+                                                        (Ocean Crate: $5.00 | Fashion Hub: Free)
+                                                    </small>
+                                                </span>
                                             </div>
                                             <div>
                                                 <span class="text-left">Coupan Discount</span>
@@ -862,45 +886,23 @@
                                             </div>
                                             <div class="mn-checkout-summary-total">
                                                 <span class="text-left">Total Amount</span>
-                                                <span class="text-right">$375.00</span>
+                                                <span class="text-right">$300.00</span>
                                             </div>
                                         </div>
                                         <div class="mn-checkout-pro">
-                                            <div class="col-sm-12 mb-6">
-                                                <div class="mn-product-inner">
-                                                    <div class="mn-pro-image-outer">
-                                                        <div class="mn-pro-image">
-                                                            <a class="image" href="product-detail.html">
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="main-image"
-                                                                    src="assets/img/product/1.jpg" />
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="hover-image"
-                                                                    src="assets/img/product/2.jpg" />
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mn-pro-content">
-                                                        <h5 class="mn-pro-title">
-                                                            <a href="product-detail.html">Round neck cotton t-shirt</a>
-                                                        </h5>
-                                                        <div class="mn-pro-rating">
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill grey"></i>
-                                                        </div>
-                                                        <span class="mn-price">
-                                                            <span class="old-price">$58.00</span>
-                                                            <span class="new-price">$45.00</span>
-                                                        </span>
-                                                    </div>
+                                            <div class="col-sm-12 mb-3">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between mb-2 pb-1 border-bottom">
+                                                    <span style="font-size: 13px; font-weight: 600; color: #181e28">
+                                                        <i class="ri-store-2-line text-primary me-1"></i>
+                                                        Ocean Crate
+                                                    </span>
+                                                    <span
+                                                        class="badge bg-light text-muted border"
+                                                        style="font-size: 11px">
+                                                        Ship: $5.00
+                                                    </span>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-12 mb-0">
                                                 <div class="mn-product-inner">
                                                     <div class="mn-pro-image-outer">
                                                         <div class="mn-pro-image">
@@ -930,6 +932,52 @@
                                                         <span class="mn-price">
                                                             <span class="old-price">$265.00</span>
                                                             <span class="new-price">$250.00</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 mb-0">
+                                                <div
+                                                    class="d-flex align-items-center justify-content-between mb-2 pb-1 border-bottom">
+                                                    <span style="font-size: 13px; font-weight: 600; color: #181e28">
+                                                        <i class="ri-store-2-line text-primary me-1"></i>
+                                                        Fashion Hub
+                                                    </span>
+                                                    <span
+                                                        class="badge bg-light text-success border"
+                                                        style="font-size: 11px">
+                                                        Free Ship
+                                                    </span>
+                                                </div>
+                                                <div class="mn-product-inner">
+                                                    <div class="mn-pro-image-outer">
+                                                        <div class="mn-pro-image">
+                                                            <a class="image" href="product-detail.html">
+                                                                <img
+                                                                    alt="Product"
+                                                                    class="main-image"
+                                                                    src="assets/img/product/1.jpg" />
+                                                                <img
+                                                                    alt="Product"
+                                                                    class="hover-image"
+                                                                    src="assets/img/product/2.jpg" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mn-pro-content">
+                                                        <h5 class="mn-pro-title">
+                                                            <a href="product-detail.html">Round neck cotton t-shirt</a>
+                                                        </h5>
+                                                        <div class="mn-pro-rating">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill grey"></i>
+                                                        </div>
+                                                        <span class="mn-price">
+                                                            <span class="old-price">$58.00</span>
+                                                            <span class="new-price">$45.00</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1120,7 +1168,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="shop-right-sidebar.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Vendor</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>

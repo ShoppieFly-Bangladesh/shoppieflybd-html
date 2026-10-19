@@ -1,9 +1,7 @@
 /*-----------------------------------------------------------------------------------
 
-    Item Name: Mantu - eCommerce HTML Template
-    Author: Maraviya Infotech
+    Project: ShoppieFlyBD - Multi-Store eCommerce Platform
     Version: 1.0
-    Copyright 2025
 
 -----------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------
@@ -1368,6 +1366,11 @@ textarea {
     border-radius: 50%;
     position: relative;
 }
+#mn-overlay .loader img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
 #mn-overlay .loader span {
     color: #ffd783;
 }
@@ -2064,7 +2067,9 @@ header {
     margin-right: 20px;
 }
 .mn-header .mn-header-items .left-header .logo img {
-    width: 110px;
+    width: 125px;
+    height: auto;
+    object-fit: contain;
 }
 .mn-header .mn-header-items .left-header .mn-toggle-menu {
     line-height: 30px;
@@ -3142,11 +3147,15 @@ footer {
 }
 .mn-footer .footer-top .mn-footer-widget .mn-footer-logo {
     max-width: 144px;
+    height: auto;
+    object-fit: contain;
     margin-bottom: 30px;
     display: none;
 }
 .mn-footer .footer-top .mn-footer-widget .mn-footer-dark-logo {
     max-width: 144px;
+    height: auto;
+    object-fit: contain;
     margin-bottom: 30px;
 }
 .mn-footer .footer-top .mn-footer-widget .mn-footer-detail {

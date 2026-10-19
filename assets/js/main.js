@@ -114,7 +114,7 @@
         $(".mn-side-cart-overlay").fadeOut();
         $(".mn-side-cart").removeClass("mn-open-cart");
     });
-    $(".cart-remove-item").on("click", function (e) {
+    $(document).on("click", ".cart-remove-item", function (e) {
         $(this).parents(".cart-sidebar-list").remove();
         var cart_product_count = $(".cart-sidebar-list").length;
         if (cart_product_count == 0) {
@@ -123,7 +123,7 @@
     });
 
     /*== Remove Product (Cart page) ==*/
-    $(".mn-cart-pro-remove a").on("click", function () {
+    $(document).on("click", ".mn-cart-pro-remove a", function () {
         $(this).parents(".mn-cart-product").remove();
         var cart_page_count = $(".mn-cart-product").length;
         if (cart_page_count == 0) {
@@ -142,7 +142,7 @@
         $(".mn-side-wishlist-overlay").fadeOut();
         $(".mn-side-wishlist").removeClass("mn-open-wishlist");
     });
-    $(".wishlist-remove-item").on("click", function (e) {
+    $(document).on("click", ".wishlist-remove-item", function (e) {
         $(this).parents(".wishlist-sidebar-list").remove();
         var wishlist_product_count = $(".wishlist-sidebar-list").length;
         if (wishlist_product_count == 0) {
@@ -172,7 +172,7 @@
         }, 2000);
     });
 
-    $(".mn-remove-wish").on("click", function () {
+    $(document).on("click", ".mn-remove-wish", function () {
         $(this).parents(".pro-gl-content").remove();
 
         var wishlist_page_count = $(".pro-gl-content").length;
@@ -227,12 +227,12 @@
     });
 
     /*== Remove Product (Compare page) ==*/
-    $(".remove-compare-product").on("click", function () {
+    $(document).on("click", ".remove-compare-product", function () {
         $(this).parents(".product-col").remove();
         var compare_page_count = $(".product-col").length;
         if (compare_page_count == 0) {
-            $(this).parents(".title-col").remove();
-            $(".mn-compare-box").html('<p class="mn-compare-page-msg">Your Wishlist is empty!</p>');
+            $(".title-col").remove();
+            $(".mn-compare-box").html('<p class="mn-compare-page-msg">Your Compare list is empty!</p>');
         }
     });
 
@@ -608,23 +608,23 @@
     });
 
     /*== Cart Page Qty Plus Minus Button ==*/
-    var CartQtyPlusMinus = $(".cart-qty-plus-minus");
-    CartQtyPlusMinus.append(
-        '<div class="mn_cart_qtybtn"><div class="inc mn_qtybtn">+</div><div class="dec mn_qtybtn">-</div></div>',
-    );
-    $(".cart-qty-plus-minus .mn_cart_qtybtn .mn_qtybtn").on("click", function () {
-        var $cartqtybutton = $(this);
-        var CartQtyoldValue = $cartqtybutton.parent().parent().find("input").val();
-        if ($cartqtybutton.text() === "+") {
-            var CartQtynewVal = parseFloat(CartQtyoldValue) + 1;
-        } else {
-            if (CartQtyoldValue > 1) {
-                var CartQtynewVal = parseFloat(CartQtyoldValue) - 1;
-            } else {
-                CartQtynewVal = 1;
-            }
+    $(".cart-qty-plus-minus").each(function () {
+        if (!$(this).find(".mn_cart_qtybtn").length) {
+            $(this).append(
+                '<div class="mn_cart_qtybtn"><div class="inc mn_qtybtn">+</div><div class="dec mn_qtybtn">-</div></div>',
+            );
         }
-        $cartqtybutton.parent().parent().find("input").val(CartQtynewVal);
+    });
+    $(document).on("click", ".cart-qty-plus-minus .mn_cart_qtybtn .mn_qtybtn", function () {
+        var $cartqtybutton = $(this);
+        var $input = $cartqtybutton.closest(".cart-qty-plus-minus").find("input");
+        var CartQtyoldValue = parseFloat($input.val()) || 1;
+        if ($cartqtybutton.text().trim() === "+") {
+            var CartQtynewVal = CartQtyoldValue + 1;
+        } else {
+            var CartQtynewVal = CartQtyoldValue > 1 ? CartQtyoldValue - 1 : 1;
+        }
+        $input.val(CartQtynewVal).trigger("change");
     });
 
     /*== Accordians toggle (faq page) ==*/
@@ -641,7 +641,11 @@
             clone: 10,
         });
 
-        $('[data-toggle="tooltip"]').tooltip();
+        if (typeof bootstrap !== "undefined" && bootstrap.Tooltip) {
+            document.querySelectorAll('[data-bs-toggle="tooltip"], [data-toggle="tooltip"]').forEach(function (el) {
+                new bootstrap.Tooltip(el);
+            });
+        }
     });
 
     /*== Tooltips ==*/
@@ -743,7 +747,6 @@
             $optImgWrapper = $this.closest(".mn-product-card").find(".mn-product-img"),
             $optImgMain = $optImgWrapper.find(".image img.main-img"),
             $optImgMainHover = $optImgWrapper.find(".image img.hover-img");
-        // alert();
         if ($opImg.length) {
             $optImgMain.attr("src", $opImg);
         }
@@ -831,23 +834,23 @@
     });
 
     /*== Qty Plus Minus Button ==*/
-    var QtyPlusMinus = $(".qty-plus-minus");
-    QtyPlusMinus.prepend('<div class="dec mn-qtybtn">-</div>');
-    QtyPlusMinus.append('<div class="inc mn-qtybtn">+</div>');
-
-    $("body").on("click", ".mn-qtybtn", function () {
-        var $qtybutton = $(this);
-        var QtyoldValue = $qtybutton.parent().find("input").val();
-        if ($qtybutton.text() === "+") {
-            var QtynewVal = parseFloat(QtyoldValue) + 1;
-        } else {
-            if (QtyoldValue > 1) {
-                var QtynewVal = parseFloat(QtyoldValue) - 1;
-            } else {
-                QtynewVal = 1;
-            }
+    $(".qty-plus-minus").each(function () {
+        if (!$(this).find(".mn-qtybtn").length) {
+            $(this).prepend('<div class="dec mn-qtybtn">-</div>');
+            $(this).append('<div class="inc mn-qtybtn">+</div>');
         }
-        $qtybutton.parent().find("input").val(QtynewVal);
+    });
+
+    $(document).on("click", ".mn-qtybtn", function () {
+        var $qtybutton = $(this);
+        var $input = $qtybutton.closest(".qty-plus-minus").find("input");
+        var QtyoldValue = parseFloat($input.val()) || 1;
+        if ($qtybutton.text().trim() === "+") {
+            var QtynewVal = QtyoldValue + 1;
+        } else {
+            var QtynewVal = QtyoldValue > 1 ? QtyoldValue - 1 : 1;
+        }
+        $input.val(QtynewVal).trigger("change");
     });
 
     /*  Product Weight & Size select JS  */

@@ -1,80 +1,49 @@
-function updateTimer1() {
-    var date = $('.timer1').data('date');
-    futuretime = Date.parse(date);
-    now = new Date();
-    diff = futuretime - now;
+(function ($) {
+    "use strict";
 
-    days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hours = Math.floor(diff / (1000 * 60 * 60));
-    mins = Math.floor(diff / (1000 * 60));
-    secs = Math.floor(diff / 1000);
+    function initTimer(selector) {
+        var $elements = $(selector);
+        if (!$elements.length) return;
 
-    d = days;
-    h = hours - days * 24;
-    m = mins - hours * 60;
-    s = secs - mins * 60;
+        var rawDate = $elements.first().data("date");
+        if (!rawDate) return;
 
-    let timers = document.querySelectorAll('.timer1')
-    timers.forEach((e) => {
-        e.innerHTML =
-            '<div class="dealend-timer"><div class="time-block"><div class="time">' + d + '</div><span class="day">Days</span></div>' +
-            '<div class="time-block"><div class="time">' + h + '</div><span class="dots">:</span></div>' +
-            '<div class="time-block"><div class="time">' + m + '</div><span class="dots">:</span></div>' +
-            '<div class="time-block"><div class="time">' + s + '</div></div></div>';
-    })
-}
-setInterval('updateTimer1()', 1000);
+        var futureTime = Date.parse(rawDate);
+        if (isNaN(futureTime)) return;
 
-function updateTimer2() {
-    var date = $('.timer2').data('date');
-    futuretime = Date.parse(date);
-    now = new Date();
-    diff = futuretime - now;
+        function update() {
+            var now = new Date().getTime();
+            var diff = futureTime - now;
 
-    days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hours = Math.floor(diff / (1000 * 60 * 60));
-    mins = Math.floor(diff / (1000 * 60));
-    secs = Math.floor(diff / 1000);
+            if (diff <= 0) {
+                $elements.html('<div class="dealend-timer expired">Deal Ended</div>');
+                clearInterval(timerInterval);
+                return;
+            }
 
-    d = days;
-    h = hours - days * 24;
-    m = mins - hours * 60;
-    s = secs - mins * 60;
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-    let timers = document.querySelectorAll('.timer2')
-    timers.forEach((e) => {
-        e.innerHTML =
-        '<div class="dealend-timer"><div class="time-block"><div class="time">' + d + '</div><span class="day">Days</span></div>' +
-        '<div class="time-block"><div class="time">' + h + '</div><span class="dots">:</span></div>' +
-        '<div class="time-block"><div class="time">' + m + '</div><span class="dots">:</span></div>' +
-        '<div class="time-block"><div class="time">' + s + '</div></div></div>';
-})
-}
-setInterval('updateTimer2()', 1000);
+            var html =
+                '<div class="dealend-timer">' +
+                '<div class="time-block"><div class="time">' + days + '</div><span class="day">Days</span></div>' +
+                '<div class="time-block"><div class="time">' + (hours < 10 ? '0' + hours : hours) + '</div><span class="dots">:</span></div>' +
+                '<div class="time-block"><div class="time">' + (mins < 10 ? '0' + mins : mins) + '</div><span class="dots">:</span></div>' +
+                '<div class="time-block"><div class="time">' + (secs < 10 ? '0' + secs : secs) + '</div></div>' +
+                '</div>';
 
-function updateTimer3() {
-    var date = $('.timer3').data('date');
-    futuretime = Date.parse(date);
-    now = new Date();
-    diff = futuretime - now;
+            $elements.html(html);
+        }
 
-    days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    hours = Math.floor(diff / (1000 * 60 * 60));
-    mins = Math.floor(diff / (1000 * 60));
-    secs = Math.floor(diff / 1000);
+        update();
+        var timerInterval = setInterval(update, 1000);
+    }
 
-    d = days;
-    h = hours - days * 24;
-    m = mins - hours * 60;
-    s = secs - mins * 60;
-
-    let timers = document.querySelectorAll('.timer3')
-    timers.forEach((e) => {
-        e.innerHTML =
-        '<div class="dealend-timer"><div class="time-block"><div class="time">' + d + '</div><span class="day">Days</span></div>' +
-        '<div class="time-block"><div class="time">' + h + '</div><span class="dots">:</span></div>' +
-        '<div class="time-block"><div class="time">' + m + '</div><span class="dots">:</span></div>' +
-        '<div class="time-block"><div class="time">' + s + '</div></div></div>';
-})
-}
-setInterval('updateTimer3()', 1000);
+    $(document).ready(function () {
+        initTimer(".timer1");
+        initTimer(".timer2");
+        initTimer(".timer3");
+    });
+})(jQuery);

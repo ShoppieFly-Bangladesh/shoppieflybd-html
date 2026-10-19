@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -14,14 +14,12 @@
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
         <!-- Icon CSS -->
-        <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/remixicon.css" rel="stylesheet" />
         <!-- Vendor -->
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/animate.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/slick.min.css" rel="stylesheet" />
-        <link href="assets/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/nouislider.css" rel="stylesheet" />
         <!-- Main CSS -->
         <link href="assets/css/style.css" id="mainCss" rel="stylesheet" />
@@ -698,22 +696,24 @@
                             </div>
                         </div>
                         <div class="col-md-6 m-t-767">
-                            <form>
-                                <div class="form-group">
-                                    <input class="form-control" id="fname" placeholder="Full Name" type="text" />
+                            <form action="#" method="post">
+                                <div class="form-group mb-3">
+                                    <input class="form-control" id="fname" name="name" placeholder="Full Name" type="text" required="" />
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="umail" placeholder="Email" type="email" />
+                                <div class="form-group mb-3">
+                                    <input class="form-control" id="umail" name="email" placeholder="Email" type="email" required="" />
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" placeholder="Phone" type="text" />
+                                <div class="form-group mb-3">
+                                    <input class="form-control" id="phone" name="phone" placeholder="Phone" type="tel" required="" />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <textarea
                                         class="form-control"
                                         id="message"
+                                        name="message"
                                         placeholder="Message"
-                                        rows="5"></textarea>
+                                        rows="5"
+                                        required=""></textarea>
                                 </div>
                                 <button class="mn-btn-2" type="submit"><span>Submit</span></button>
                             </form>
@@ -1406,11 +1406,9 @@
         <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script src="assets/js/vendor/owl.carousel.min.js"></script>
         <script src="assets/js/vendor/slick.min.js"></script>
-        <script src="assets/js/vendor/swiper-bundle.min.js"></script>
         <script src="assets/js/vendor/countdownTimer.js"></script>
         <script src="assets/js/vendor/infiniteslidev2.js"></script>
         <script src="assets/js/vendor/nouislider.js"></script>
-        <script src="assets/js/vendor/smoothscroll.min.js"></script>
         <script src="assets/js/vendor/jquery.zoom.min.js"></script>
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>

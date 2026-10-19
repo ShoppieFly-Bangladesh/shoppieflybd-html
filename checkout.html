@@ -14,14 +14,12 @@
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
         <!-- Icon CSS -->
-        <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/remixicon.css" rel="stylesheet" />
         <!-- Vendor -->
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/animate.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/slick.min.css" rel="stylesheet" />
-        <link href="assets/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/nouislider.css" rel="stylesheet" />
         <!-- Main CSS -->
         <link href="assets/css/style.css" id="mainCss" rel="stylesheet" />
@@ -740,95 +738,70 @@
                                                     </span>
                                                 </span>
                                                 <div class="mn-check-bill-form">
-                                                    <form action="#" method="post">
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>First Name*</label>
-                                                            <input
-                                                                name="firstname"
-                                                                placeholder="Enter your first name"
-                                                                required=""
-                                                                type="text" />
-                                                        </span>
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>Last Name*</label>
-                                                            <input
-                                                                name="lastname"
-                                                                placeholder="Enter your last name"
-                                                                required=""
-                                                                type="text" />
-                                                        </span>
-                                                        <span class="mn-bill-wrap">
-                                                            <label>Address</label>
-                                                            <input
-                                                                name="address"
-                                                                placeholder="Address Line 1"
-                                                                type="text" />
-                                                        </span>
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>City *</label>
-                                                            <span class="mn-bl-select-inner">
-                                                                <select
-                                                                    class="mn-bill-select"
-                                                                    id="mn-select-city"
-                                                                    name="gi_select_city">
-                                                                    <option disabled="" selected="">City</option>
-                                                                    <option value="1">City 1</option>
-                                                                    <option value="2">City 2</option>
-                                                                    <option value="3">City 3</option>
-                                                                    <option value="4">City 4</option>
-                                                                    <option value="5">City 5</option>
+                                                    <div class="row">
+                                                        <div class="col-md-6 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">First Name *</label>
+                                                                <input name="firstname" placeholder="Enter your first name" required="" type="text" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Last Name *</label>
+                                                                <input name="lastname" placeholder="Enter your last name" required="" type="text" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Phone / Mobile Number *</label>
+                                                                <input name="phone" placeholder="e.g. 017XXXXXXXX" required="" type="tel" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Email Address</label>
+                                                                <input name="email" placeholder="Enter your email" type="email" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-12 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Full Delivery Address *</label>
+                                                                <input name="address" placeholder="House / Holding, Road, Area" required="" type="text" />
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">District / City *</label>
+                                                                <select class="mn-bill-select form-select" name="district" required="" style="border-radius: 10px; height: 48px;">
+                                                                    <option value="" disabled="" selected="">Select District</option>
+                                                                    <option value="Dhaka">Dhaka</option>
+                                                                    <option value="Chittagong">Chittagong</option>
+                                                                    <option value="Sylhet">Sylhet</option>
+                                                                    <option value="Rajshahi">Rajshahi</option>
+                                                                    <option value="Khulna">Khulna</option>
+                                                                    <option value="Barisal">Barisal</option>
+                                                                    <option value="Rangpur">Rangpur</option>
+                                                                    <option value="Mymensingh">Mymensingh</option>
                                                                 </select>
                                                             </span>
-                                                        </span>
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>Post Code</label>
-                                                            <input
-                                                                name="postalcode"
-                                                                placeholder="Post Code"
-                                                                type="text" />
-                                                        </span>
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>Country *</label>
-                                                            <span class="mn-bl-select-inner">
-                                                                <select
-                                                                    class="mn-bill-select"
-                                                                    id="mn-select-country"
-                                                                    name="gi_select_country">
-                                                                    <option disabled="" selected="">Country</option>
-                                                                    <option value="1">Country 1</option>
-                                                                    <option value="2">Country 2</option>
-                                                                    <option value="3">Country 3</option>
-                                                                    <option value="4">Country 4</option>
-                                                                    <option value="5">Country 5</option>
-                                                                </select>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Thana / Upazila *</label>
+                                                                <input name="upazila" placeholder="Enter Thana / Upazila" required="" type="text" />
                                                             </span>
-                                                        </span>
-                                                        <span class="mn-bill-wrap mn-bill-half">
-                                                            <label>Region State</label>
-                                                            <span class="mn-bl-select-inner">
-                                                                <select
-                                                                    class="mn-bill-select"
-                                                                    id="mn-select-state"
-                                                                    name="gi_select_state">
-                                                                    <option disabled="" selected="">
-                                                                        Region/State
-                                                                    </option>
-                                                                    <option value="1">Region/State 1</option>
-                                                                    <option value="2">Region/State 2</option>
-                                                                    <option value="3">Region/State 3</option>
-                                                                    <option value="4">Region/State 4</option>
-                                                                    <option value="5">Region/State 5</option>
-                                                                </select>
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                            <span class="mn-bill-wrap">
+                                                                <label class="fw-bold small">Postal Code</label>
+                                                                <input name="postalcode" placeholder="Postal Code" type="text" />
                                                             </span>
-                                                        </span>
-                                                    </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <span class="mn-check-order-btn m-t-30">
-                                        <a class="mn-btn-2" href="#"><span>Place Order</span></a>
-                                    </span>
                                 </div>
                             </div>
                             <!--cart content End -->
@@ -995,78 +968,76 @@
                                     </div>
                                     <div class="mn-sb-block-content">
                                         <div class="mn-checkout-del">
-                                            <div class="mn-del-desc">
-                                                Please select the preferred shipping method to use on this order.
+                                            <div class="mn-del-desc mb-3">
+                                                Please select your preferred shipping method.
                                             </div>
-                                            <form action="#">
-                                                <span class="mn-del-option">
-                                                    <span>
-                                                        <span class="mn-del-opt-head">Free Shipping</span>
-                                                        <input checked="" id="del1" name="radio-group" type="radio" />
-                                                        <label for="del1">Rate - $0 .00</label>
-                                                    </span>
-                                                    <span>
-                                                        <span class="mn-del-opt-head">Flat Rate</span>
-                                                        <input id="del2" name="radio-group" type="radio" />
-                                                        <label for="del2">Rate - $5.00</label>
-                                                    </span>
+                                            <span class="mn-del-option">
+                                                <span class="d-block mb-2">
+                                                    <input checked="" id="del1" name="shipping_method" value="standard" type="radio" />
+                                                    <label for="del1" class="ms-1 cursor-pointer">
+                                                        <span class="mn-del-opt-head fw-bold">Regular Delivery</span> (2-3 Days) - <strong>$5.00</strong>
+                                                    </label>
                                                 </span>
-                                            </form>
+                                                <span class="d-block">
+                                                    <input id="del2" name="shipping_method" value="express" type="radio" />
+                                                    <label for="del2" class="ms-1 cursor-pointer">
+                                                        <span class="mn-del-opt-head fw-bold">Express Delivery</span> (24 Hours) - <strong>$10.00</strong>
+                                                    </label>
+                                                </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Sidebar Summary Block -->
                             </div>
-                            <div class="mn-sidebar-wrap mn-checkout-del-wrap">
-                                <!-- Sidebar Payment Block -->
+                            <div class="mn-sidebar-wrap mn-checkout-del-wrap mt-3">
                                 <div class="mn-sidebar-block">
                                     <div class="mn-sb-title">
                                         <h3 class="mn-sidebar-title">Payment Method</h3>
                                     </div>
                                     <div class="mn-sb-block-content">
                                         <div class="mn-checkout-pay">
-                                            <div class="mn-pay-desc">
-                                                Please select the preferred payment method to use on this order.
+                                            <div class="mn-pay-desc mb-3">
+                                                Choose your preferred payment method.
                                             </div>
-                                            <form action="#">
-                                                <span class="mn-pay-option m-b-15">
-                                                    <span>
-                                                        <input checked="" id="pay1" name="radio-group" type="radio" />
-                                                        <label for="pay1">Cash On Delivery</label>
-                                                    </span>
+                                            <div class="mn-pay-option mb-3">
+                                                <div class="mb-2">
+                                                    <input checked="" id="pay1" name="payment_method" value="cod" type="radio" />
+                                                    <label for="pay1" class="ms-1 cursor-pointer fw-bold">Cash On Delivery (COD)</label>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <input id="pay2" name="payment_method" value="bkash" type="radio" />
+                                                    <label for="pay2" class="ms-1 cursor-pointer fw-bold text-danger">bKash Online</label>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <input id="pay3" name="payment_method" value="nagad" type="radio" />
+                                                    <label for="pay3" class="ms-1 cursor-pointer fw-bold text-warning">Nagad Online</label>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <input id="pay4" name="payment_method" value="card" type="radio" />
+                                                    <label for="pay4" class="ms-1 cursor-pointer fw-bold text-primary">Debit / Credit Card</label>
+                                                </div>
+                                            </div>
+                                            <div class="mn-pay-commemt mb-3">
+                                                <span class="mn-pay-opt-head fw-bold small d-block mb-1">Order Notes (Optional)</span>
+                                                <textarea name="order_note" placeholder="Special instructions for delivery (e.g. deliver after 2 PM)..." class="form-control" rows="2" style="border-radius: 10px; font-size: 13px;"></textarea>
+                                            </div>
+                                            <div class="mn-pay-agree mb-3">
+                                                <label class="d-flex align-items-center gap-2 cursor-pointer small text-muted">
+                                                    <input type="checkbox" name="agree_terms" value="1" required="" />
+                                                    <span>I agree with the <a href="terms.html" class="text-primary text-decoration-underline">Terms & Conditions</a>.</span>
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mn-btn-2 w-100 py-3 rounded-pill" id="btn-place-order">
+                                                <span class="d-flex align-items-center justify-content-center gap-2 fw-bold">
+                                                    <i class="ri-shield-check-line" style="font-size: 18px;"></i> Confirm & Place Order
                                                 </span>
-                                                <span class="mn-pay-commemt">
-                                                    <span class="mn-pay-opt-head">Add extra note</span>
-                                                    <textarea name="your-commemt" placeholder="Comments"></textarea>
-                                                </span>
-                                                <span class="mn-pay-agree">
-                                                    <input type="checkbox" value="" />
-
-                                                    I have agree with
-                                                    <a href="#">Terms &amp; Conditions.</a>
-                                                    <span class="checked"></span>
-                                                </span>
-                                            </form>
+                                            </button>
+                                            <div class="text-center mt-3 text-muted small">
+                                                <i class="ri-lock-line me-1 text-success"></i> 100% Secure Checkout Guaranteed
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Sidebar Payment Block -->
-                            </div>
-                            <div class="mn-sidebar-wrap mn-checkout-del-wrap">
-                                <!-- Sidebar Payment Block -->
-                                <div class="mn-sidebar-block">
-                                    <div class="mn-sb-title">
-                                        <h3 class="mn-sidebar-title">Payment Method</h3>
-                                    </div>
-                                    <div class="mn-sb-block-content">
-                                        <div class="mn-check-pay-img-inner">
-                                            <div class="mn-check-pay-img">
-                                                <img alt="payment" src="assets/img/footer/payment.png" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Sidebar Payment Block -->
                             </div>
                         </div>
                     </div>
@@ -1757,11 +1728,9 @@
         <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script src="assets/js/vendor/owl.carousel.min.js"></script>
         <script src="assets/js/vendor/slick.min.js"></script>
-        <script src="assets/js/vendor/swiper-bundle.min.js"></script>
         <script src="assets/js/vendor/countdownTimer.js"></script>
         <script src="assets/js/vendor/infiniteslidev2.js"></script>
         <script src="assets/js/vendor/nouislider.js"></script>
-        <script src="assets/js/vendor/smoothscroll.min.js"></script>
         <script src="assets/js/vendor/jquery.zoom.min.js"></script>
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>

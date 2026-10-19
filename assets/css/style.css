@@ -51,58 +51,63 @@
     - Track Order Page
     - Wishlist Page
 -----------------------------------------------------------------------------------*/
+/*=== Root Behavior ===*/
+html {
+    scroll-behavior: smooth;
+}
+
 /*=== Typography ===*/
 /*--  Poppins font  --*/
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Thin.ttf") format("truetype");
     font-weight: 100;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
     font-weight: 200;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Light.ttf");
     font-weight: 300;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
 }
 @font-face {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins";
     src: url("../fonts/poppins/Poppins-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
@@ -155,7 +160,7 @@
     color: #313b50;
     display: block;
     font-size: 15px;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     line-height: 22px;
     font-weight: 600;
     margin: 0 auto;
@@ -312,7 +317,7 @@
 .mn-side-cart .mn-cart-inner .mn-cart-title .cart_title {
     font-size: 15px;
     color: #313b50;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 .mn-side-cart .mn-cart-inner .mn-cart-title .mn-cart-close {
@@ -608,7 +613,7 @@
 .mn-side-wishlist .mn-wishlist-inner .mn-wishlist-title .wishlist_title {
     font-size: 15px;
     color: #313b50;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 .mn-side-wishlist .mn-wishlist-inner .mn-wishlist-title .mn-wishlist-close {
@@ -824,7 +829,7 @@
 .mn-side-search .mn-search-inner .mn-search-title .search_title {
     font-size: 15px;
     color: #313b50;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 .mn-side-search .mn-search-inner .mn-search-title .mn-search-close {
@@ -995,7 +1000,7 @@
 /** General **/
 body {
     margin: 0;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     letter-spacing: 0.03rem;
     background-color: #f1f4f7;
     overflow-x: hidden;
@@ -3968,7 +3973,7 @@ button.btn-close.qty_close {
     -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-size: 17px !important;
     font-weight: 500;
     color: #313b50;
@@ -5448,7 +5453,7 @@ button.btn-close.qty_close {
     font-weight: 500;
     line-height: 24px;
     color: #313b50;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Limit to 2 lines */
     -webkit-box-orient: vertical;
@@ -6193,7 +6198,7 @@ button.btn-close.qty_close {
 }
 .mn-blog .blog-info .detail h3 a,
 .mn-blog-section .blog-info .detail h3 a {
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     color: #313b50;
     font-size: 17px;
     font-weight: 500;
@@ -6316,7 +6321,7 @@ button.btn-close.qty_close {
     -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     font-weight: 500;
 }
@@ -6867,7 +6872,7 @@ button.btn-close.qty_close {
     font-weight: 500;
     color: #313b50;
     letter-spacing: 0.6px;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
 }
 .mn-service-desc p {
     margin: 0;
@@ -7672,7 +7677,7 @@ button.btn-close.qty_close {
     text-transform: capitalize;
     text-decoration: none;
     display: block;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     line-height: 35px;
     letter-spacing: 0.02rem;
@@ -7732,7 +7737,7 @@ button.btn-close.qty_close {
     letter-spacing: 0;
     word-break: break-all;
     line-height: 26px;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
 }
 .mn-single-product .single-pro-content .mn-single-list ul {
     margin-bottom: 30px;
@@ -7839,7 +7844,7 @@ button.btn-close.qty_close {
     font-weight: 600;
     font-size: 22px;
     line-height: 32px;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     letter-spacing: 0;
 }
 .mn-single-product .single-pro-content .mn-single-price .final-price .price-des {
@@ -7879,7 +7884,7 @@ button.btn-close.qty_close {
     line-height: 1.1;
     letter-spacing: 0.04rem;
     text-transform: uppercase;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
 }
 .mn-single-product .single-pro-content .mn-pro-variation .mn-pro-variation-inner .mn-pro-variation-content li {
     -webkit-transition: all 0.3s ease-in-out;
@@ -8127,7 +8132,7 @@ button.btn-close.qty_close {
     font-weight: 500;
     letter-spacing: 0.85px;
     text-transform: capitalize;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
 }
 .mn-single-product .single-add-more .add-more-item .add-more-info .mn-pro-rating {
     margin-bottom: 5px;
@@ -8220,7 +8225,7 @@ button.btn-close.qty_close {
 }
 .mn-single-product .tab-pane p {
     color: #777;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 500;
 }
@@ -8272,7 +8277,7 @@ button.btn-close.qty_close {
 }
 .mn-single-product .mn-single-pro-tab-content .mn-single-pro-tab-moreinfo p {
     color: #777;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
@@ -8366,7 +8371,7 @@ button.btn-close.qty_close {
     font-size: 20px;
     font-weight: 600;
     line-height: 1;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     color: #313b50;
 }
 .mn-single-product .mn-single-pro-tab-content .mn-ratting-content .mn-ratting-star {
@@ -8787,7 +8792,7 @@ button.btn-close.qty_close {
     line-height: 28px;
     font-weight: 500;
     position: relative;
-    font-family: "Poppins, sans-serif";
+    font-family: "Poppins", sans-serif;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
 }
@@ -8970,10 +8975,48 @@ button.btn-close.qty_close {
 }
 /* Cart Page CSS */
 .cart-table-content {
-    overflow: auto;
+    overflow-x: auto;
 }
 .cart-table-content table {
     min-width: 700px;
+}
+@media (max-width: 767px) {
+    .cart-table-content table {
+        min-width: 100%;
+    }
+    .cart-table-content table thead {
+        display: none;
+    }
+    .cart-table-content table tbody > tr {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 10px;
+        border-bottom: 2px solid #eef2f5;
+        position: relative;
+    }
+    .cart-table-content table tbody > tr td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 5px;
+    }
+    .cart-table-content table tbody > tr td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 13px;
+        color: #777;
+    }
+    .cart-table-content table tbody > tr td.mn-cart-pro-name::before {
+        display: none;
+    }
+    .cart-table-content table tbody > tr td.mn-cart-pro-remove {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .cart-table-content table tbody > tr td.mn-cart-pro-remove::before {
+        display: none;
+    }
 }
 
 .mn-cart-section .shop-all-btn {

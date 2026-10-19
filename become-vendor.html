@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -14,14 +14,12 @@
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
         <!-- Icon CSS -->
-        <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/remixicon.css" rel="stylesheet" />
         <!-- Vendor -->
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/animate.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/slick.min.css" rel="stylesheet" />
-        <link href="assets/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/nouislider.css" rel="stylesheet" />
         <!-- Main CSS -->
         <link href="assets/css/style.css" id="mainCss" rel="stylesheet" />
@@ -760,7 +758,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold" style="font-size: 14px;">Phone / Mobile Number *</label>
-                                <input type="tel" class="form-control" name="seller_phone" placeholder="+1 (555) 000-0000" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
+                                <input type="tel" class="form-control" name="seller_phone" placeholder="+880 1XXXXXXXXX" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold" style="font-size: 14px;">Account Password *</label>
@@ -776,13 +774,6 @@
                                 <input type="text" class="form-control" name="shop_name" placeholder="e.g. Ocean Crate" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label fw-bold" style="font-size: 14px;">Store URL Slug (Preview)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-muted" style="font-size: 13px;">mantu.com/store/</span>
-                                    <input type="text" class="form-control" name="shop_slug" placeholder="ocean-crate" required="" style="border-radius: 0 10px 10px 0; font-size: 14px; padding: 12px;" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
                                 <label class="form-label fw-bold" style="font-size: 14px;">Primary Product Category *</label>
                                 <select class="form-select" name="shop_category" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;">
                                     <option value="" disabled="" selected="">Select your store category</option>
@@ -794,30 +785,30 @@
                                     <option value="sports">Sports, Outdoors & Fitness</option>
                                 </select>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label class="form-label fw-bold" style="font-size: 14px;">Business / Warehouse Address *</label>
-                                <input type="text" class="form-control" name="shop_address" placeholder="Street, City, State, Zip" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
+                                <input type="text" class="form-control" name="shop_address" placeholder="Holding/Road, Ward, Thana, District" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                         </div>
 
                         <!-- Section 3: Verification & Payout Details -->
-                        <h5 class="fw-bold text-primary mb-3"><i class="ri-bank-line me-1"></i> 3. Verification & Bank Payout Details</h5>
+                        <h5 class="fw-bold text-primary mb-3"><i class="ri-bank-line me-1"></i> 3. Verification & Payout Details</h5>
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <label class="form-label fw-bold" style="font-size: 14px;">National ID or Trade License Number *</label>
-                                <input type="text" class="form-control" name="tax_id" placeholder="Official Business / Tax ID" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
+                                <input type="text" class="form-control" name="tax_id" placeholder="NID or Trade License No." required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label fw-bold" style="font-size: 14px;">Payout Bank Name *</label>
-                                <input type="text" class="form-control" name="bank_name" placeholder="e.g. Chase, Wells Fargo, etc." required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
+                                <label class="form-label fw-bold" style="font-size: 14px;">Payout Bank / MFS Provider *</label>
+                                <input type="text" class="form-control" name="bank_name" placeholder="e.g. City Bank, BRAC Bank, or bKash Merchant" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label fw-bold" style="font-size: 14px;">Account Holder Name *</label>
+                                <label class="form-label fw-bold" style="font-size: 14px;">Account / Wallet Holder Name *</label>
                                 <input type="text" class="form-control" name="bank_holder" placeholder="Matches company or owner name" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label fw-bold" style="font-size: 14px;">Bank Account / Routing / IBAN Number *</label>
-                                <input type="text" class="form-control" name="bank_account" placeholder="Account Number" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
+                                <label class="form-label fw-bold" style="font-size: 14px;">Bank Account / Routing / Wallet Number *</label>
+                                <input type="text" class="form-control" name="bank_account" placeholder="Account / Wallet Number" required="" style="border-radius: 10px; font-size: 14px; padding: 12px;" />
                             </div>
                         </div>
 
@@ -1584,11 +1575,9 @@
         <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script src="assets/js/vendor/owl.carousel.min.js"></script>
         <script src="assets/js/vendor/slick.min.js"></script>
-        <script src="assets/js/vendor/swiper-bundle.min.js"></script>
         <script src="assets/js/vendor/countdownTimer.js"></script>
         <script src="assets/js/vendor/infiniteslidev2.js"></script>
         <script src="assets/js/vendor/nouislider.js"></script>
-        <script src="assets/js/vendor/smoothscroll.min.js"></script>
         <script src="assets/js/vendor/jquery.zoom.min.js"></script>
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -14,14 +14,12 @@
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
         <!-- Icon CSS -->
-        <link href="assets/css/vendor/materialdesignicons.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/remixicon.css" rel="stylesheet" />
         <!-- Vendor -->
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/animate.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/slick.min.css" rel="stylesheet" />
-        <link href="assets/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/nouislider.css" rel="stylesheet" />
         <!-- Main CSS -->
         <link href="assets/css/style.css" id="mainCss" rel="stylesheet" />
@@ -699,7 +697,23 @@
                                                 name="phonenumber"
                                                 placeholder="Enter your phone number"
                                                 required=""
-                                                type="text" />
+                                                type="tel" />
+                                        </span>
+                                        <span class="mn-register-wrap mn-register-half">
+                                            <label>Password*</label>
+                                            <input
+                                                name="password"
+                                                placeholder="Create a password"
+                                                required=""
+                                                type="password" />
+                                        </span>
+                                        <span class="mn-register-wrap mn-register-half">
+                                            <label>Confirm Password*</label>
+                                            <input
+                                                name="password_confirmation"
+                                                placeholder="Confirm your password"
+                                                required=""
+                                                type="password" />
                                         </span>
                                         <span class="mn-register-wrap">
                                             <label>Address</label>
@@ -711,13 +725,16 @@
                                                 <select
                                                     class="mn-register-select"
                                                     id="mn-select-city"
-                                                    name="gi_select_city">
-                                                    <option disabled="" selected="">City</option>
-                                                    <option value="1">City 1</option>
-                                                    <option value="2">City 2</option>
-                                                    <option value="3">City 3</option>
-                                                    <option value="4">City 4</option>
-                                                    <option value="5">City 5</option>
+                                                    name="city">
+                                                    <option disabled="" selected="">Select City</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Chittagong">Chittagong</option>
+                                                    <option value="Sylhet">Sylhet</option>
+                                                    <option value="Rajshahi">Rajshahi</option>
+                                                    <option value="Khulna">Khulna</option>
+                                                    <option value="Barisal">Barisal</option>
+                                                    <option value="Rangpur">Rangpur</option>
+                                                    <option value="Mymensingh">Mymensingh</option>
                                                 </select>
                                             </span>
                                         </span>
@@ -725,50 +742,11 @@
                                             <label>Post Code</label>
                                             <input name="postalcode" placeholder="Post Code" type="text" />
                                         </span>
-                                        <span class="mn-register-wrap mn-register-half">
-                                            <label>Country *</label>
-                                            <span class="mn-rg-select-inner">
-                                                <select
-                                                    class="mn-register-select"
-                                                    id="mn-select-country"
-                                                    name="gi_select_country">
-                                                    <option disabled="" selected="">Country</option>
-                                                    <option value="1">Country 1</option>
-                                                    <option value="2">Country 2</option>
-                                                    <option value="3">Country 3</option>
-                                                    <option value="4">Country 4</option>
-                                                    <option value="5">Country 5</option>
-                                                </select>
-                                            </span>
-                                        </span>
-                                        <span class="mn-register-wrap mn-register-half">
-                                            <label>Region State</label>
-                                            <span class="mn-rg-select-inner">
-                                                <select
-                                                    class="mn-register-select"
-                                                    id="mn-select-state"
-                                                    name="gi_select_state">
-                                                    <option disabled="" selected="">Region/State</option>
-                                                    <option value="1">Region/State 1</option>
-                                                    <option value="2">Region/State 2</option>
-                                                    <option value="3">Region/State 3</option>
-                                                    <option value="4">Region/State 4</option>
-                                                    <option value="5">Region/State 5</option>
-                                                </select>
-                                            </span>
-                                        </span>
                                         <span class="mn-register-wrap mn-recaptcha">
-                                            <span
-                                                class="g-recaptcha"
-                                                data-callback="verifyRecaptchaCallback"
-                                                data-expired-callback="expiredRecaptchaCallback"
-                                                data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"></span>
-                                            <input
-                                                class="form-control d-none"
-                                                data-error="Please complete the Captcha"
-                                                data-recaptcha="true"
-                                                required="" />
-                                            <span class="help-block with-errors"></span>
+                                            <label class="d-flex align-items-center gap-2 cursor-pointer">
+                                                <input name="terms" type="checkbox" required="" />
+                                                <span>I agree to the <a href="terms.html" class="text-primary">Terms & Conditions</a> and Privacy Policy</span>
+                                            </label>
                                         </span>
                                         <span class="mn-register-wrap mn-register-btn">
                                             <span>
@@ -1469,11 +1447,9 @@
         <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script src="assets/js/vendor/owl.carousel.min.js"></script>
         <script src="assets/js/vendor/slick.min.js"></script>
-        <script src="assets/js/vendor/swiper-bundle.min.js"></script>
         <script src="assets/js/vendor/countdownTimer.js"></script>
         <script src="assets/js/vendor/infiniteslidev2.js"></script>
         <script src="assets/js/vendor/nouislider.js"></script>
-        <script src="assets/js/vendor/smoothscroll.min.js"></script>
         <script src="assets/js/vendor/jquery.zoom.min.js"></script>
         <!-- Main Custom -->
         <script src="assets/js/main.js"></script>

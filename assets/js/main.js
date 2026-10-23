@@ -6,6 +6,16 @@
         $("#mn-overlay").fadeOut("slow");
     });
 
+    /*== Sticky Header ==*/
+    function handleStickyHeader() {
+        if ($(window).scrollTop() > 15) {
+            $("header").addClass("header-sticky");
+        } else {
+            $("header").removeClass("header-sticky");
+        }
+    }
+    $(window).on("scroll load", handleStickyHeader);
+
     /*== Sidebar ==*/
     $(".mn-toggle-sidebar").on("click", function () {
         $(".mn-sidebar-overlay").fadeIn();

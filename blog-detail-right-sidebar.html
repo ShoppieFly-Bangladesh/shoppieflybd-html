@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -8,8 +8,8 @@
         <meta
             content="ecommerce, store, mart, fashion, grocery, super store, market, organic food, super market"
             name="keywords" />
-        <meta content="Best multipurpose ecommerce html template for your online store." name="description" />
-        <meta content="Maraviya Infotech" name="author" />
+        <meta content="ShoppieFlyBD - Leading multi-store eCommerce ecosystem in Bangladesh offering fashion, gadgets, groceries and fast delivery." name="description" />
+        <meta content="ShoppieFlyBD" name="author" />
         <title>Blog Details - ShoppieFlyBD</title>
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
@@ -402,9 +402,9 @@
                                                             <i class="ri-arrow-down-s-line"></i>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="vendor-list.html">All Vendors</a></li>
-                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                            <li><a href="vendor-list.html">All Stores</a></li>
+                                                            <li><a href="vendor-store.html">Store Profile</a></li>
+                                                            <li><a href="become-vendor.html">Become a Seller</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -514,9 +514,9 @@
                                             <li>
                                                 <a href="javascript:void(0)">Vendors</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="vendor-list.html">All Vendors</a></li>
-                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                    <li><a href="vendor-list.html">All Stores</a></li>
+                                                    <li><a href="vendor-store.html">Store Profile</a></li>
+                                                    <li><a href="become-vendor.html">Become a Seller</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -640,13 +640,13 @@
                         <div class="col-12">
                             <div class="row gi_breadcrumb_inner">
                                 <div class="col-md-6 col-sm-12">
-                                    <h2 class="mn-breadcrumb-title">Blog Page</h2>
+                                    <h2 class="mn-breadcrumb-title">Blog Details</h2>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <!-- mn-breadcrumb-list start -->
                                     <ul class="mn-breadcrumb-list">
                                         <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="mn-breadcrumb-item active">Blog Page</li>
+                                        <li class="mn-breadcrumb-item active">Blog Details</li>
                                     </ul>
                                     <!-- mn-breadcrumb-list end -->
                                 </div>
@@ -669,7 +669,7 @@
                                                 June 30, 2026 -
                                                 <a href="#">Fashion</a>
                                             </label>
-                                            <h3>Marketing Guide: 5 Steps to Success.</h3>
+                                            <h1 class="mn-blog-detail-title">Marketing Guide: 5 Steps to Success.</h1>
                                             <p class="mn-text">
                                                 "Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -779,22 +779,22 @@
                                 <div class="mn-blog-cmt-form">
                                     <div class="mn-blog-reply-wrapper mt-50">
                                         <h4 class="mn-blog-dmn-title">Leave A Reply</h4>
-                                        <form action="#" class="mn-blog-form">
+                                        <form action="#" method="post" class="mn-blog-form">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mn-leave-form">
-                                                        <input placeholder="Full Name" type="text" />
+                                                        <input name="author_name" id="comment_author_sb" placeholder="Full Name" type="text" required="" aria-label="Your full name" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mn-leave-form">
-                                                        <input placeholder="Email Address " type="email" />
+                                                        <input name="author_email" id="comment_email_sb" placeholder="Email Address" type="email" required="" aria-label="Your email address" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="mn-text-leave">
-                                                        <textarea placeholder="Message"></textarea>
-                                                        <a class="mn-btn-2" href="#"><span>Submit</span></a>
+                                                        <textarea name="comment" id="comment_message_sb" placeholder="Message" required="" aria-label="Your comment"></textarea>
+                                                        <button type="submit" class="btn btn-primary mn-btn-2 border-0"><span>Submit</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -808,9 +808,9 @@
                     <!-- Sidebar Area Start -->
                     <div class="mn-blogs-sidebar mn-blogs-leftside col-lg-4 col-md-12 m-t-991">
                         <div class="mn-blog-search">
-                            <form action="#" class="mn-blog-search-form">
-                                <input class="form-control" placeholder="Search Our Blog" type="text" />
-                                <button class="submit" type="submit"><i class="ri-search-line"></i></button>
+                            <form action="blog-full-width.html" method="get" class="mn-blog-search-form">
+                                <input class="form-control" name="q" placeholder="Search Our Blog" type="text" aria-label="Search blog posts" />
+                                <button class="submit" type="submit" aria-label="Search blog"><i class="ri-search-line"></i></button>
                             </form>
                         </div>
                         <div class="mn-blog-sidebar-wrap">
@@ -1079,7 +1079,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="become-vendor.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Seller</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>
@@ -1334,8 +1334,8 @@
                                             1900s.
                                         </div>
                                         <div class="mn-quickview-price">
-                                            <span class="new-price">$50.00</span>
-                                            <span class="old-price">$62.00</span>
+                                            <span class="new-price">৳50.00</span>
+                                            <span class="old-price">৳62.00</span>
                                         </div>
                                         <div class="mn-pro-variations">
                                             <ul>
@@ -1398,9 +1398,9 @@
                         </a>
                     </div>
                     <div class="mn-search">
-                        <form>
-                            <input placeholder="Search here..." type="text" />
-                            <a href="javascript:void(0)"><i class="ri-search-line"></i></a>
+                        <form action="shop-full-width.html" method="get">
+                            <input name="q" placeholder="Search here..." type="text" aria-label="Search products" />
+                            <button type="submit" aria-label="Submit search"><i class="ri-search-line"></i></button>
                         </form>
                     </div>
                     <div class="mn-search-list">
@@ -1420,7 +1420,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         <span class="stock">- 11 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1441,7 +1441,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1462,7 +1462,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1502,7 +1502,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Smart watch</a>
                                     <span class="cart-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1518,7 +1518,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="cart-price">
-                                        <span>$64.00</span>
+                                        <span>৳64.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1534,7 +1534,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="cart-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1550,7 +1550,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for girls</a>
                                     <span class="cart-price">
-                                        <span>$39.00</span>
+                                        <span>৳39.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1567,15 +1567,15 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-left">Sub-Total :</td>
-                                        <td class="text-right">$417.00</td>
+                                        <td class="text-right">৳417.00</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">VAT (20%) :</td>
-                                        <td class="text-right">$83.40</td>
+                                        <td class="text-right">৳83.40</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">Total :</td>
-                                        <td class="text-right primary-color">$500.40</td>
+                                        <td class="text-right primary-color">৳500.40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1616,7 +1616,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather bag</a>
                                     <span class="wishlist-price">
-                                        <span>$499.00</span>
+                                        <span>৳499.00</span>
                                         <span class="stock">- 9 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -1629,7 +1629,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="wishlist-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -1642,7 +1642,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="wishlist-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>

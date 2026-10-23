@@ -8,8 +8,8 @@
         <meta
             content="ecommerce, store, mart, fashion, grocery, super store, market, organic food, super market"
             name="keywords" />
-        <meta content="Best multipurpose ecommerce html template for your online store." name="description" />
-        <meta content="Maraviya Infotech" name="author" />
+        <meta content="ShoppieFlyBD - Leading multi-store eCommerce ecosystem in Bangladesh offering fashion, gadgets, groceries and fast delivery." name="description" />
+        <meta content="ShoppieFlyBD" name="author" />
         <title>Checkout - ShoppieFlyBD</title>
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
@@ -402,9 +402,9 @@
                                                             <i class="ri-arrow-down-s-line"></i>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="vendor-list.html">All Vendors</a></li>
-                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                            <li><a href="vendor-list.html">All Stores</a></li>
+                                                            <li><a href="vendor-store.html">Store Profile</a></li>
+                                                            <li><a href="become-vendor.html">Become a Seller</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -514,9 +514,9 @@
                                             <li>
                                                 <a href="javascript:void(0)">Vendors</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="vendor-list.html">All Vendors</a></li>
-                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                    <li><a href="vendor-list.html">All Stores</a></li>
+                                                    <li><a href="vendor-store.html">Store Profile</a></li>
+                                                    <li><a href="become-vendor.html">Become a Seller</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -640,13 +640,13 @@
                         <div class="col-12">
                             <div class="row gi_breadcrumb_inner">
                                 <div class="col-md-6 col-sm-12">
-                                    <h2 class="mn-breadcrumb-title">Checkout Page</h2>
+                                    <h1 class="mn-breadcrumb-title">Checkout</h1>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <!-- mn-breadcrumb-list start -->
                                     <ul class="mn-breadcrumb-list">
                                         <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="mn-breadcrumb-item active">Checkout Page</li>
+                                        <li class="mn-breadcrumb-item active">Checkout</li>
                                     </ul>
                                     <!-- mn-breadcrumb-list end -->
                                 </div>
@@ -698,16 +698,18 @@
                                             <div class="mn-check-login-form">
                                                 <form action="#" method="post">
                                                     <span class="mn-check-login-wrap">
-                                                        <label>Email Address</label>
+                                                        <label for="login_email">Email Address</label>
                                                         <input
-                                                            name="name"
+                                                            id="login_email"
+                                                            name="email"
                                                             placeholder="Enter your email address"
                                                             required=""
-                                                            type="text" />
+                                                            type="email" />
                                                     </span>
                                                     <span class="mn-check-login-wrap">
-                                                        <label>Password</label>
+                                                        <label for="login_password">Password</label>
                                                         <input
+                                                            id="login_password"
                                                             name="password"
                                                             placeholder="Enter your password"
                                                             required=""
@@ -742,38 +744,38 @@
                                                     <div class="row">
                                                         <div class="col-md-6 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">First Name *</label>
-                                                                <input name="firstname" placeholder="Enter your first name" required="" type="text" />
+                                                                <label for="billing_firstname" class="fw-bold small">First Name *</label>
+                                                                <input id="billing_firstname" name="firstname" placeholder="Enter your first name" required="" type="text" />
                                                             </span>
                                                         </div>
                                                         <div class="col-md-6 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Last Name *</label>
-                                                                <input name="lastname" placeholder="Enter your last name" required="" type="text" />
+                                                                <label for="billing_lastname" class="fw-bold small">Last Name *</label>
+                                                                <input id="billing_lastname" name="lastname" placeholder="Enter your last name" required="" type="text" />
                                                             </span>
                                                         </div>
                                                         <div class="col-md-6 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Phone / Mobile Number *</label>
-                                                                <input name="phone" placeholder="e.g. 017XXXXXXXX" required="" type="tel" />
+                                                                <label for="billing_phone" class="fw-bold small">Phone / Mobile Number *</label>
+                                                                <input id="billing_phone" name="phone" placeholder="e.g. 017XXXXXXXX" required="" type="tel" />
                                                             </span>
                                                         </div>
                                                         <div class="col-md-6 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Email Address</label>
-                                                                <input name="email" placeholder="Enter your email" type="email" />
+                                                                <label for="billing_email" class="fw-bold small">Email Address</label>
+                                                                <input id="billing_email" name="email" placeholder="Enter your email" type="email" />
                                                             </span>
                                                         </div>
                                                         <div class="col-12 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Full Delivery Address *</label>
-                                                                <input name="address" placeholder="House / Holding, Road, Area" required="" type="text" />
+                                                                <label for="billing_address" class="fw-bold small">Full Delivery Address *</label>
+                                                                <input id="billing_address" name="address" placeholder="House / Holding, Road, Area" required="" type="text" />
                                                             </span>
                                                         </div>
                                                         <div class="col-md-4 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">District / City *</label>
-                                                                <select class="mn-bill-select form-select" name="district" required="" style="border-radius: 10px; height: 48px;">
+                                                                <label for="billing_district" class="fw-bold small">District / City *</label>
+                                                                <select id="billing_district" class="mn-bill-select form-select" name="district" required="" style="border-radius: 10px; height: 48px;">
                                                                     <option value="" disabled="" selected="">Select District</option>
                                                                     <option value="Dhaka">Dhaka</option>
                                                                     <option value="Chittagong">Chittagong</option>
@@ -788,14 +790,14 @@
                                                         </div>
                                                         <div class="col-md-4 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Thana / Upazila *</label>
-                                                                <input name="upazila" placeholder="Enter Thana / Upazila" required="" type="text" />
+                                                                <label for="billing_upazila" class="fw-bold small">Thana / Upazila *</label>
+                                                                <input id="billing_upazila" name="upazila" placeholder="Enter Thana / Upazila" required="" type="text" />
                                                             </span>
                                                         </div>
                                                         <div class="col-md-4 mb-3">
                                                             <span class="mn-bill-wrap">
-                                                                <label class="fw-bold small">Postal Code</label>
-                                                                <input name="postalcode" placeholder="Postal Code" type="text" />
+                                                                <label for="billing_postalcode" class="fw-bold small">Postal Code</label>
+                                                                <input id="billing_postalcode" name="postalcode" placeholder="Postal Code" type="text" />
                                                             </span>
                                                         </div>
                                                     </div>
@@ -819,14 +821,14 @@
                                         <div class="mn-checkout-summary">
                                             <div>
                                                 <span class="text-left">Sub-Total</span>
-                                                <span class="text-right">$295.00</span>
+                                                <span class="text-right">৳295.00</span>
                                             </div>
                                             <div>
                                                 <span class="text-left">Delivery Charges</span>
                                                 <span class="text-right">
-                                                    $5.00
+                                                    ৳5.00
                                                     <small class="text-muted d-block" style="font-size: 11px">
-                                                        (Ocean Crate: $5.00 | Fashion Hub: Free)
+                                                        (Ocean Crate: ৳5.00 | Fashion Hub: Free)
                                                     </small>
                                                 </span>
                                             </div>
@@ -860,7 +862,7 @@
                                             </div>
                                             <div class="mn-checkout-summary-total">
                                                 <span class="text-left">Total Amount</span>
-                                                <span class="text-right">$300.00</span>
+                                                <span class="text-right">৳300.00</span>
                                             </div>
                                         </div>
                                         <div class="mn-checkout-pro">
@@ -874,7 +876,7 @@
                                                     <span
                                                         class="badge bg-light text-muted border"
                                                         style="font-size: 11px">
-                                                        Ship: $5.00
+                                                        Ship: ৳5.00
                                                     </span>
                                                 </div>
                                                 <div class="mn-product-inner">
@@ -904,8 +906,8 @@
                                                             <i class="ri-star-fill"></i>
                                                         </div>
                                                         <span class="mn-price">
-                                                            <span class="old-price">$265.00</span>
-                                                            <span class="new-price">$250.00</span>
+                                                            <span class="old-price">৳265.00</span>
+                                                            <span class="new-price">৳250.00</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -950,8 +952,8 @@
                                                             <i class="ri-star-fill grey"></i>
                                                         </div>
                                                         <span class="mn-price">
-                                                            <span class="old-price">$58.00</span>
-                                                            <span class="new-price">$45.00</span>
+                                                            <span class="old-price">৳58.00</span>
+                                                            <span class="new-price">৳45.00</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -976,13 +978,13 @@
                                                 <span class="d-block mb-2">
                                                     <input checked="" id="del1" name="shipping_method" value="standard" type="radio" />
                                                     <label for="del1" class="ms-1 cursor-pointer">
-                                                        <span class="mn-del-opt-head fw-bold">Regular Delivery</span> (2-3 Days) - <strong>$5.00</strong>
+                                                        <span class="mn-del-opt-head fw-bold">Regular Delivery</span> (2-3 Days) - <strong>৳5.00</strong>
                                                     </label>
                                                 </span>
                                                 <span class="d-block">
                                                     <input id="del2" name="shipping_method" value="express" type="radio" />
                                                     <label for="del2" class="ms-1 cursor-pointer">
-                                                        <span class="mn-del-opt-head fw-bold">Express Delivery</span> (24 Hours) - <strong>$10.00</strong>
+                                                        <span class="mn-del-opt-head fw-bold">Express Delivery</span> (24 Hours) - <strong>৳10.00</strong>
                                                     </label>
                                                 </span>
                                             </span>
@@ -1023,8 +1025,8 @@
                                                 <textarea name="order_note" placeholder="Special instructions for delivery (e.g. deliver after 2 PM)..." class="form-control" rows="2" style="border-radius: 10px; font-size: 13px;"></textarea>
                                             </div>
                                             <div class="mn-pay-agree mb-3">
-                                                <label class="d-flex align-items-center gap-2 cursor-pointer small text-muted">
-                                                    <input type="checkbox" name="agree_terms" value="1" required="" />
+                                                <label class="d-flex align-items-center gap-2 cursor-pointer small text-muted" for="agree_terms">
+                                                    <input type="checkbox" name="agree_terms" id="agree_terms" value="1" required="" />
                                                     <span>I agree with the <a href="terms.html" class="text-primary text-decoration-underline">Terms & Conditions</a>.</span>
                                                 </label>
                                             </div>
@@ -1137,7 +1139,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="become-vendor.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Seller</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>
@@ -1392,8 +1394,8 @@
                                             1900s.
                                         </div>
                                         <div class="mn-quickview-price">
-                                            <span class="new-price">$50.00</span>
-                                            <span class="old-price">$62.00</span>
+                                            <span class="new-price">৳50.00</span>
+                                            <span class="old-price">৳62.00</span>
                                         </div>
                                         <div class="mn-pro-variations">
                                             <ul>
@@ -1456,9 +1458,9 @@
                         </a>
                     </div>
                     <div class="mn-search">
-                        <form>
-                            <input placeholder="Search here..." type="text" />
-                            <a href="javascript:void(0)"><i class="ri-search-line"></i></a>
+                        <form action="shop-full-width.html" method="get">
+                            <input name="q" placeholder="Search here..." type="text" aria-label="Search products" />
+                            <button type="submit" aria-label="Submit search"><i class="ri-search-line"></i></button>
                         </form>
                     </div>
                     <div class="mn-search-list">
@@ -1478,7 +1480,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         <span class="stock">- 11 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1499,7 +1501,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1520,7 +1522,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -1560,7 +1562,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Smart watch</a>
                                     <span class="cart-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1576,7 +1578,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="cart-price">
-                                        <span>$64.00</span>
+                                        <span>৳64.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1592,7 +1594,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="cart-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1608,7 +1610,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for girls</a>
                                     <span class="cart-price">
-                                        <span>$39.00</span>
+                                        <span>৳39.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -1625,15 +1627,15 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-left">Sub-Total :</td>
-                                        <td class="text-right">$417.00</td>
+                                        <td class="text-right">৳417.00</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">VAT (20%) :</td>
-                                        <td class="text-right">$83.40</td>
+                                        <td class="text-right">৳83.40</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">Total :</td>
-                                        <td class="text-right primary-color">$500.40</td>
+                                        <td class="text-right primary-color">৳500.40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1674,7 +1676,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather bag</a>
                                     <span class="wishlist-price">
-                                        <span>$499.00</span>
+                                        <span>৳499.00</span>
                                         <span class="stock">- 9 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -1687,7 +1689,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="wishlist-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -1700,7 +1702,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="wishlist-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>

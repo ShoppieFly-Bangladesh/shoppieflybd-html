@@ -8,8 +8,8 @@
         <meta
             content="ecommerce, store, mart, fashion, grocery, super store, market, organic food, super market"
             name="keywords" />
-        <meta content="Best multipurpose ecommerce html template for your online store." name="description" />
-        <meta content="Maraviya Infotech" name="author" />
+        <meta content="ShoppieFlyBD - Leading multi-store eCommerce ecosystem in Bangladesh offering fashion, gadgets, groceries and fast delivery." name="description" />
+        <meta content="ShoppieFlyBD" name="author" />
         <title>Product Details - ShoppieFlyBD</title>
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
@@ -402,9 +402,9 @@
                                                             <i class="ri-arrow-down-s-line"></i>
                                                         </a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="vendor-list.html">All Vendors</a></li>
-                                                            <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                            <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                            <li><a href="vendor-list.html">All Stores</a></li>
+                                                            <li><a href="vendor-store.html">Store Profile</a></li>
+                                                            <li><a href="become-vendor.html">Become a Seller</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -514,9 +514,9 @@
                                             <li>
                                                 <a href="javascript:void(0)">Vendors</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="vendor-list.html">All Vendors</a></li>
-                                                    <li><a href="vendor-store.html">Vendor Store</a></li>
-                                                    <li><a href="become-vendor.html">Become a Vendor</a></li>
+                                                    <li><a href="vendor-list.html">All Stores</a></li>
+                                                    <li><a href="vendor-store.html">Store Profile</a></li>
+                                                    <li><a href="become-vendor.html">Become a Seller</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -640,13 +640,13 @@
                         <div class="col-12">
                             <div class="row gi_breadcrumb_inner">
                                 <div class="col-md-6 col-sm-12">
-                                    <h2 class="mn-breadcrumb-title">Product Page</h2>
+                                    <h2 class="mn-breadcrumb-title">Product Details</h2>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <!-- mn-breadcrumb-list start -->
                                     <ul class="mn-breadcrumb-list">
                                         <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="mn-breadcrumb-item active">Product Page</li>
+                                        <li class="mn-breadcrumb-item active">Product Details</li>
                                     </ul>
                                     <!-- mn-breadcrumb-list end -->
                                 </div>
@@ -733,10 +733,10 @@
                                                 </div>
                                                 <div class="single-pro-desc m-t-991">
                                                     <div class="single-pro-content">
-                                                        <h5 class="mn-single-title">
+                                                        <h1 class="mn-single-title">
                                                             Women's Solid Slim Fit Classic Round Neck Cotton
                                                             fabric T-Shirt.
-                                                        </h5>
+                                                        </h1>
                                                         <div class="mn-single-rating-wrap">
                                                             <div class="mn-single-rating mn-pro-rating">
                                                                 <i class="ri-star-fill"></i>
@@ -753,12 +753,12 @@
                                                         <div class="mn-single-price-stoke">
                                                             <div class="mn-single-price">
                                                                 <div class="final-price">
-                                                                    $664.00
+                                                                    ৳664.00
                                                                     <span class="price-des">-78%</span>
                                                                 </div>
                                                                 <div class="mrp">
                                                                     M.R.P. :
-                                                                    <span>$2,999.00</span>
+                                                                    <span>৳2,999.00</span>
                                                                 </div>
                                                             </div>
                                                             <div class="mn-single-stoke">
@@ -811,84 +811,91 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="mn-pro-variation">
-                                                            <div
-                                                                class="mn-pro-variation-inner mn-pro-variation-size m-b-24">
-                                                                <span>Size</span>
-                                                                <div class="mn-pro-variation-content">
-                                                                    <ul>
-                                                                        <li class="active"><span>s</span></li>
-                                                                        <li><span>m</span></li>
-                                                                        <li><span>l</span></li>
-                                                                        <li><span>xl</span></li>
-                                                                    </ul>
+                                                        <form class="mn-product-form" action="cart.html" method="POST">
+                                                            <input type="hidden" name="product_id" value="1" />
+                                                            <input type="hidden" name="size" id="selected_size" value="s" />
+                                                            <input type="hidden" name="color" id="selected_color" value="#1b4a87" />
+                                                            <div class="mn-pro-variation">
+                                                                <div
+                                                                    class="mn-pro-variation-inner mn-pro-variation-size m-b-24">
+                                                                    <span>Size</span>
+                                                                    <div class="mn-pro-variation-content">
+                                                                        <ul>
+                                                                            <li class="active"><span>s</span></li>
+                                                                            <li><span>m</span></li>
+                                                                            <li><span>l</span></li>
+                                                                            <li><span>xl</span></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mn-pro-variation-inner mn-pro-variation-color">
+                                                                    <span>Colors</span>
+                                                                    <div class="mn-pro-variation-content">
+                                                                        <ul>
+                                                                            <li class="active" data-color="#1b4a87">
+                                                                                <span
+                                                                                    style="
+                                                                                        background-color: #1b4a87;
+                                                                                    "></span>
+                                                                            </li>
+                                                                            <li data-color="#5f94d6">
+                                                                                <span
+                                                                                    style="
+                                                                                        background-color: #5f94d6;
+                                                                                    "></span>
+                                                                            </li>
+                                                                            <li data-color="#72aea2">
+                                                                                <span
+                                                                                    style="
+                                                                                        background-color: #72aea2;
+                                                                                    "></span>
+                                                                            </li>
+                                                                            <li data-color="#c79782">
+                                                                                <span
+                                                                                    style="
+                                                                                        background-color: #c79782;
+                                                                                    "></span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="mn-pro-variation-inner mn-pro-variation-color">
-                                                                <span>Colors</span>
-                                                                <div class="mn-pro-variation-content">
-                                                                    <ul>
-                                                                        <li class="active">
-                                                                            <span
-                                                                                style="
-                                                                                    background-color: #1b4a87;
-                                                                                "></span>
-                                                                        </li>
-                                                                        <li>
-                                                                            <span
-                                                                                style="
-                                                                                    background-color: #5f94d6;
-                                                                                "></span>
-                                                                        </li>
-                                                                        <li>
-                                                                            <span
-                                                                                style="
-                                                                                    background-color: #72aea2;
-                                                                                "></span>
-                                                                        </li>
-                                                                        <li>
-                                                                            <span
-                                                                                style="
-                                                                                    background-color: #c79782;
-                                                                                "></span>
-                                                                        </li>
-                                                                    </ul>
+                                                            <div class="mn-single-qty">
+                                                                <div class="qty-plus-minus">
+                                                                    <input
+                                                                        class="qty-input"
+                                                                        name="quantity"
+                                                                        id="product_quantity"
+                                                                        type="text"
+                                                                        value="1" />
+                                                                </div>
+                                                                <div class="mn-btns">
+                                                                    <div class="mn-single-cart">
+                                                                        <button
+                                                                            type="submit"
+                                                                            class="btn btn-primary mn-btn-2 mn-add-cart">
+                                                                            <span>Add To Cart</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="mn-single-wishlist">
+                                                                        <button
+                                                                            type="button"
+                                                                            class="mn-btn-group wishlist mn-wishlist border-0 bg-transparent"
+                                                                            title="Wishlist">
+                                                                            <i class="ri-heart-line"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="mn-single-mn-compare">
+                                                                        <button
+                                                                            type="button"
+                                                                            class="mn-btn-group mn-compare border-0 bg-transparent"
+                                                                            title="Compare">
+                                                                            <i class="ri-repeat-line"></i>
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="mn-single-qty">
-                                                            <div class="qty-plus-minus">
-                                                                <input
-                                                                    class="qty-input"
-                                                                    name="ms_qtybtn"
-                                                                    type="text"
-                                                                    value="1" />
-                                                            </div>
-                                                            <div class="mn-btns">
-                                                                <div class="mn-single-cart">
-                                                                    <button
-                                                                        class="btn btn-primary mn-btn-2 mn-add-cart">
-                                                                        <span>Add To Cart</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="mn-single-wishlist">
-                                                                    <a
-                                                                        class="mn-btn-group wishlist mn-wishlist"
-                                                                        href="javascript:void(0)"
-                                                                        title="Wishlist">
-                                                                        <i class="ri-heart-line"></i>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="mn-single-mn-compare">
-                                                                    <a
-                                                                        class="mn-btn-group mn-compare"
-                                                                        href="javascript:void(0)"
-                                                                        title="Quick view">
-                                                                        <i class="ri-repeat-line"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </form>
                                                         <!-- Multivendor Store Info Box -->
                                                         <div class="mn-single-vendor-box">
                                                             <div
@@ -976,8 +983,8 @@
                                                         <i class="ri-star-fill grey"></i>
                                                     </span>
                                                     <span class="mn-price">
-                                                        <span class="new-price">$32.00</span>
-                                                        <span class="old-price">$45.00</span>
+                                                        <span class="new-price">৳32.00</span>
+                                                        <span class="old-price">৳45.00</span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -996,8 +1003,8 @@
                                                         <i class="ri-star-fill"></i>
                                                     </span>
                                                     <span class="mn-price">
-                                                        <span class="new-price">$56.00</span>
-                                                        <span class="old-price">$60.00</span>
+                                                        <span class="new-price">৳56.00</span>
+                                                        <span class="old-price">৳60.00</span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -1016,8 +1023,8 @@
                                                         <i class="ri-star-fill grey"></i>
                                                     </span>
                                                     <span class="mn-price">
-                                                        <span class="new-price">$28.00</span>
-                                                        <span class="old-price">$35.00</span>
+                                                        <span class="new-price">৳28.00</span>
+                                                        <span class="old-price">৳35.00</span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -1036,8 +1043,8 @@
                                                         <i class="ri-star-fill"></i>
                                                     </span>
                                                     <span class="mn-price">
-                                                        <span class="new-price">$16.00</span>
-                                                        <span class="old-price">$23.00</span>
+                                                        <span class="new-price">৳16.00</span>
+                                                        <span class="old-price">৳23.00</span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -1471,8 +1478,8 @@
                                                     </div>
                                                     <h5><a href="">Cotton fabric T-shirt</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$120</div>
-                                                        <div class="mn-price-old">$130</div>
+                                                        <div class="mn-price-new">৳120</div>
+                                                        <div class="mn-price-old">৳130</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -1595,7 +1602,7 @@
                                                     </div>
                                                     <h5><a href="">Special sport shoes</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$55</div>
+                                                        <div class="mn-price-new">৳55</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -1694,8 +1701,8 @@
                                                     </div>
                                                     <h5><a href="">Cotton fabric Top</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$120</div>
-                                                        <div class="mn-price-old">$130</div>
+                                                        <div class="mn-price-new">৳120</div>
+                                                        <div class="mn-price-old">৳130</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -1790,8 +1797,8 @@
                                                     </div>
                                                     <h5><a href="">ShoppieFly Smart Watch</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$955</div>
-                                                        <div class="mn-price-old">$999</div>
+                                                        <div class="mn-price-new">৳955</div>
+                                                        <div class="mn-price-old">৳999</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -1886,8 +1893,8 @@
                                                     </div>
                                                     <h5><a href="">Premium Leather Belt</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$10</div>
-                                                        <div class="mn-price-old">$12</div>
+                                                        <div class="mn-price-new">৳10</div>
+                                                        <div class="mn-price-old">৳12</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -1983,7 +1990,7 @@
                                                     </div>
                                                     <h5><a href="">Leather bag</a></h5>
                                                     <div class="mn-price">
-                                                        <div class="mn-price-new">$66</div>
+                                                        <div class="mn-price-new">৳66</div>
                                                     </div>
                                                     <div class="mn-pro-option">
                                                         <div class="mn-pro-color">
@@ -2549,7 +2556,7 @@
                                                     <a href="faq.html">Return Policy</a>
                                                 </li>
                                                 <li class="mn-footer-link">
-                                                    <a href="become-vendor.html">Become a Vendor</a>
+                                                    <a href="become-vendor.html">Become a Seller</a>
                                                 </li>
                                                 <li class="mn-footer-link">
                                                     <a href="product-detail.html">Affiliate Program</a>
@@ -2804,8 +2811,8 @@
                                             1900s.
                                         </div>
                                         <div class="mn-quickview-price">
-                                            <span class="new-price">$50.00</span>
-                                            <span class="old-price">$62.00</span>
+                                            <span class="new-price">৳50.00</span>
+                                            <span class="old-price">৳62.00</span>
                                         </div>
                                         <div class="mn-pro-variations">
                                             <ul>
@@ -2868,9 +2875,9 @@
                         </a>
                     </div>
                     <div class="mn-search">
-                        <form>
-                            <input placeholder="Search here..." type="text" />
-                            <a href="javascript:void(0)"><i class="ri-search-line"></i></a>
+                        <form action="shop-full-width.html" method="get">
+                            <input name="q" placeholder="Search here..." type="text" aria-label="Search products" />
+                            <button type="submit" aria-label="Submit search"><i class="ri-search-line"></i></button>
                         </form>
                     </div>
                     <div class="mn-search-list">
@@ -2890,7 +2897,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         <span class="stock">- 11 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -2911,7 +2918,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -2932,7 +2939,7 @@
                                         <li><i class="ri-star-fill grey"></i></li>
                                     </ul>
                                     <span class="search-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="search-remove-item" href="javascript:void(0)">&times;</a>
@@ -2972,7 +2979,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Smart watch</a>
                                     <span class="cart-price">
-                                        <span>$255.00</span>
+                                        <span>৳255.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -2988,7 +2995,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="cart-price">
-                                        <span>$64.00</span>
+                                        <span>৳64.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -3004,7 +3011,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="cart-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -3020,7 +3027,7 @@
                                 <div class="mn-pro-content">
                                     <a class="cart-pro-title" href="product-detail.html">T-Shirt for girls</a>
                                     <span class="cart-price">
-                                        <span>$39.00</span>
+                                        <span>৳39.00</span>
                                         x 1
                                     </span>
                                     <div class="qty-plus-minus">
@@ -3037,15 +3044,15 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-left">Sub-Total :</td>
-                                        <td class="text-right">$417.00</td>
+                                        <td class="text-right">৳417.00</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">VAT (20%) :</td>
-                                        <td class="text-right">$83.40</td>
+                                        <td class="text-right">৳83.40</td>
                                     </tr>
                                     <tr>
                                         <td class="text-left">Total :</td>
-                                        <td class="text-right primary-color">$500.40</td>
+                                        <td class="text-right primary-color">৳500.40</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -3086,7 +3093,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather bag</a>
                                     <span class="wishlist-price">
-                                        <span>$499.00</span>
+                                        <span>৳499.00</span>
                                         <span class="stock">- 9 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -3099,7 +3106,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">Leather Belt</a>
                                     <span class="wishlist-price">
-                                        <span>$59.00</span>
+                                        <span>৳59.00</span>
                                         <span class="stock">- 4 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>
@@ -3112,7 +3119,7 @@
                                 <div class="mn-pro-content">
                                     <a class="wishlist-pro-title" href="product-detail.html">T-Shirt for men</a>
                                     <span class="wishlist-price">
-                                        <span>$65.00</span>
+                                        <span>৳65.00</span>
                                         <span class="stock">- 54 in Stock</span>
                                     </span>
                                     <a class="wishlist-remove-item" href="javascript:void(0)">&times;</a>

@@ -845,18 +845,25 @@ html {
     margin-bottom: 30px;
     position: relative;
 }
-.mn-side-search .mn-search-inner .mn-search form a {
+.mn-side-search .mn-search-inner .mn-search form a,
+.mn-side-search .mn-search-inner .mn-search form button {
     position: absolute;
     top: 50%;
     right: 15px;
     color: #313b50;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-.mn-side-search .mn-search-inner .mn-search form a i {
+.mn-side-search .mn-search-inner .mn-search form a i,
+.mn-side-search .mn-search-inner .mn-search form button i {
     font-size: 20px;
 }
-.mn-side-search .mn-search-inner .mn-search form a:hover {
+.mn-side-search .mn-search-inner .mn-search form a:hover,
+.mn-side-search .mn-search-inner .mn-search form button:hover {
     color: #3a4ee5;
 }
 .mn-side-search .mn-search-inner .mn-search form input {
@@ -1028,7 +1035,7 @@ p {
 }
 
 .main-bg {
-    background-image: url("../img/bg/bg.png");
+    background-color: #f7f7f7;
 }
 
 .mn-btn-1 {
@@ -1587,14 +1594,15 @@ textarea {
 .mn-wish-notify a,
 .mn-compare-notify a,
 .mn-cart-notify a {
-    color: #ffd783;
+    color: #3a4ee5;
+    font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 .mn-wish-notify a:hover,
 .mn-compare-notify a:hover,
 .mn-cart-notify a:hover {
-    color: rgba(72, 85, 104, 0.1);
+    color: #2b3bb3;
 }
 
 /* Custom Tooltips css */
@@ -2224,7 +2232,6 @@ header {
     height: auto;
 }
 .mn-header .mn-header-items .right-header .mn-main-menu ul li .mega-menu.bg {
-    background-image: url(../img/bg/3.png);
     background-size: 300px;
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -3372,20 +3379,6 @@ footer {
     }
 }
 @media only screen and (max-width: 1199px) {
-    .mn-footer:before {
-        width: 30px;
-        height: 30px;
-        top: -30px;
-        background-image: url("../img/footer/1.png");
-        background-size: 30px;
-    }
-    .mn-footer:after {
-        width: 30px;
-        height: 30px;
-        top: -30px;
-        background-image: url("../img/footer/1.png");
-        background-size: 30px;
-    }
     .mn-footer .footer-top .mn-footer-widget .mn-footer-links .mn-footer-link a {
         font-size: 14px;
     }
@@ -3404,20 +3397,6 @@ footer {
 @media screen and (max-width: 991px) {
     .mn-footer {
         padding: 0 15px;
-    }
-    .mn-footer:before {
-        width: 15px;
-        height: 15px;
-        top: -15px;
-        background-image: url("../img/footer/1.png");
-        background-size: 15px;
-    }
-    .mn-footer:after {
-        width: 15px;
-        height: 15px;
-        top: -15px;
-        background-image: url("../img/footer/1.png");
-        background-size: 15px;
     }
     .mn-footer .footer-top .mn-footer-company {
         margin-bottom: 30px;
@@ -4585,7 +4564,7 @@ button.btn-close.qty_close {
     border-radius: 5px;
 }
 .mn-banner-side .mn-banner-block-side-2 {
-    background-image: url(../img/banner/7.jpg);
+    background-image: url(../img/banner/6.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -8607,10 +8586,13 @@ button.btn-close.qty_close {
 .mn-single-blog-item .single-blog-info .single-blog-detail label a:hover {
     color: #ffd783;
 }
+.mn-single-blog-item .single-blog-info .single-blog-detail h1,
 .mn-single-blog-item .single-blog-info .single-blog-detail h3 {
     font-size: 22px;
     font-weight: 600;
     color: #313b50;
+    line-height: 1.4;
+    margin-bottom: 15px;
 }
 .mn-single-blog-item .single-blog-info .single-blog-detail p {
     color: #777;
@@ -8724,6 +8706,7 @@ button.btn-close.qty_close {
     }
 }
 @media only screen and (max-width: 1199px) {
+    .mn-single-blog-item .single-blog-info .single-blog-detail h1,
     .mn-single-blog-item .single-blog-info .single-blog-detail h3 {
         font-size: 21px;
     }
@@ -8743,6 +8726,7 @@ button.btn-close.qty_close {
     }
 }
 @media only screen and (max-width: 767px) {
+    .mn-single-blog-item .single-blog-info .single-blog-detail h1,
     .mn-single-blog-item .single-blog-info .single-blog-detail h3 {
         font-size: 20px;
     }
@@ -8751,6 +8735,7 @@ button.btn-close.qty_close {
     .mn-blogs-sidebar .mn-blog-sidebar-wrap {
         padding: 15px;
     }
+    .mn-single-blog-item .single-blog-info .single-blog-detail h1,
     .mn-single-blog-item .single-blog-info .single-blog-detail h3 {
         font-size: 19px;
     }

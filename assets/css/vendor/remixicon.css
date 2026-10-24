@@ -2,6 +2,7 @@
   font-family: "remixicon";
   src: url("../../fonts/icon/remixicon.eot"); /* IE9*/
   src: url("../../fonts/icon/remixicon.eot") format('embedded-opentype'), url("../../fonts/icon/remixicon.woff2") format("woff2"), url("../../fonts/icon/remixicon.woff") format("woff"), url("../../fonts/icon/remixicon.ttf") format('truetype'), url("../../fonts/icon/remixicon.svg") format('svg'); /* iOS 4.1- */
+  font-display: swap;
 }
 [class^="ri-"],
 [class*=" ri-"] {

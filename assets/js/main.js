@@ -33,15 +33,18 @@
         $("footer").removeClass("sb-hide");
         $(".mn-toggle-sidebar").removeClass("active-toggle");
     });
-    $(".mn-drop-toggle").on("click", function () {
-        if ($(this).hasClass("active-nav")) {
-            $(".mn-drop-toggle").removeClass("active-nav");
-            $(".mn-drop-toggle").siblings(".mn-sb-drop").slideUp();
-        } else {
-            $(".mn-drop-toggle").removeClass("active-nav");
-            $(".mn-drop-toggle").siblings(".mn-sb-drop").slideUp();
-            $(this).addClass("active-nav");
-            $(this).siblings(".mn-sb-drop").slideDown();
+    $(".mn-drop-toggle").on("click", function (e) {
+        if ($(this).siblings(".mn-sb-drop").length > 0) {
+            e.preventDefault();
+            if ($(this).hasClass("active-nav")) {
+                $(this).removeClass("active-nav");
+                $(this).siblings(".mn-sb-drop").slideUp();
+            } else {
+                $(".mn-drop-toggle").removeClass("active-nav");
+                $(".mn-drop-toggle").siblings(".mn-sb-drop").slideUp();
+                $(this).addClass("active-nav");
+                $(this).siblings(".mn-sb-drop").slideDown();
+            }
         }
     });
 
@@ -62,7 +65,7 @@
 
         $msNav.on("click", "li a, .menu-toggle", function (e) {
             var $this = $(this);
-            if ($this.attr("href") === "#" || $this.hasClass("menu-toggle")) {
+            if ($this.attr("href") === "#" || $this.attr("href") === "javascript:void(0)" || $this.hasClass("menu-toggle")) {
                 e.preventDefault();
                 if ($this.siblings("ul:visible").length) {
                     $this.parent("li").removeClass("active");
@@ -105,6 +108,7 @@
         $(".mn-side-cart").removeClass("mn-open-cart");
     });
     $(document).on("click", ".cart-remove-item", function (e) {
+        e.preventDefault();
         $(this).parents(".cart-sidebar-list").remove();
         var cart_product_count = $(".cart-sidebar-list").length;
         if (cart_product_count == 0) {
@@ -133,6 +137,7 @@
         $(".mn-side-wishlist").removeClass("mn-open-wishlist");
     });
     $(document).on("click", ".wishlist-remove-item", function (e) {
+        e.preventDefault();
         $(this).parents(".wishlist-sidebar-list").remove();
         var wishlist_product_count = $(".wishlist-sidebar-list").length;
         if (wishlist_product_count == 0) {
@@ -241,6 +246,7 @@
         $(".mn-side-search").removeClass("mn-open-search");
     });
     $(document).on("click", ".search-remove-item", function (e) {
+        e.preventDefault();
         $(this).parents(".search-sidebar-list").remove();
         var search_product_count = $(".search-sidebar-list").length;
         if (search_product_count == 0) {
@@ -909,4 +915,20 @@
         var date = new Date().getFullYear();
         document.getElementById("copyright_year").innerHTML = date;
     }
+
+    /*== Accessible Owl Carousel Controls ==*/
+    function updateOwlControlsAria() {
+        $(".owl-dot").each(function (i) {
+            if (!$(this).attr("aria-label")) {
+                $(this).attr("aria-label", "Slide " + (i + 1));
+            }
+        });
+        $(".owl-prev").removeAttr("role").attr("aria-label", "Previous slide");
+        $(".owl-next").removeAttr("role").attr("aria-label", "Next slide");
+    }
+    updateOwlControlsAria();
+    $(document).on("refreshed.owl.carousel initialized.owl.carousel", ".owl-carousel", function () {
+        updateOwlControlsAria();
+    });
+    setTimeout(updateOwlControlsAria, 400);
 })(jQuery);

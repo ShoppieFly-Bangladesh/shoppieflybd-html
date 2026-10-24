@@ -1,0 +1,39 @@
+name: Deploy HTML Template to cPanel
+
+on:
+    push:
+        branches:
+            - master
+            - main
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        name: 🚀 Deploy to cPanel (Live)
+        runs-on: ubuntu-latest
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        steps:
+            - name: 🚚 Checkout Code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 2 # Required for git-ftp diff calculation
+
+            - name: 📂 Sync files to cPanel via FTP
+              uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+              with:
+                  server: ${{ secrets.FTP_SERVER }}
+                  username: ${{ secrets.FTP_USERNAME }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  server-dir: ${{ secrets.FTP_SERVER_DIR || 'template.businesszonebd.com/' }}
+                  port: ${{ secrets.FTP_PORT || 21 }}
+                  protocol: ${{ secrets.FTP_PROTOCOL || 'ftp' }}
+                  timeout: 600000
+                  exclude: |
+                      **/.git*
+                      **/.git*/**
+                      **/.github/**
+                      .prettier*
+                      **/*.md
+                      **/.DS_Store
+                      **/Thumbs.db
+                      *.log

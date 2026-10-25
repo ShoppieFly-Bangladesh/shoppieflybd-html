@@ -1,10 +1,20 @@
 (function ($) {
     "use strict";
 
-    /*== Loader ==*/
-    $(window).on("load", function () {
-        $("#mn-overlay").fadeOut("slow");
+    /*== Fast Non-Blocking Loader ==*/
+    function dismissLoader() {
+        var $overlay = $("#mn-overlay");
+        if ($overlay.length && $overlay.is(":visible")) {
+            $overlay.fadeOut(200, function () {
+                $(this).remove();
+            });
+        }
+    }
+    $(document).ready(function () {
+        setTimeout(dismissLoader, 200);
     });
+    $(window).on("load", dismissLoader);
+    setTimeout(dismissLoader, 800);
 
     /*== Sticky Header ==*/
     function handleStickyHeader() {
@@ -15,6 +25,11 @@
         }
     }
     $(window).on("scroll load", handleStickyHeader);
+
+    /*== Prevent hash jump on button anchors ==*/
+    $(document).on("click", 'a[href="#!"]', function (e) {
+        e.preventDefault();
+    });
 
     /*== Sidebar ==*/
     $(".mn-toggle-sidebar").on("click", function () {

@@ -294,7 +294,7 @@ img {
     position: absolute;
     right: 0;
     bottom: 200px;
-    background-image: url("../img/icons/bg-icon-dark.png");
+    background-image: url("../img/icons/bg-icon-dark.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: -1;
@@ -590,7 +590,7 @@ img {
     position: absolute;
     right: 0;
     bottom: 50px;
-    background-image: url("../img/icons/bg-icon-dark.png");
+    background-image: url("../img/icons/bg-icon-dark.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: -1;
@@ -809,7 +809,7 @@ img {
     position: absolute;
     right: 0;
     bottom: 0;
-    background-image: url("../img/icons/bg-icon-dark.png");
+    background-image: url("../img/icons/bg-icon-dark.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: -1;
@@ -2921,7 +2921,7 @@ header.header-sticky .mn-header {
     position: absolute;
     right: 0;
     bottom: 0;
-    background-image: url("../img/icons/bg-icon.png");
+    background-image: url("../img/icons/bg-icon.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: -1;
@@ -4594,7 +4594,7 @@ button.btn-close.qty_close {
     border-radius: 5px;
 }
 .mn-banner-side .mn-banner-block-side-2 {
-    background-image: url(../img/banner/6.jpg);
+    background-image: url(../img/banner/6.webp);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4709,7 +4709,7 @@ button.btn-close.qty_close {
     position: absolute;
     top: 50%;
     left: 0;
-    background-image: url("../img/hero/shape-1.png");
+    background-image: url("../img/hero/shape-1.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%);
@@ -4730,7 +4730,7 @@ button.btn-close.qty_close {
     position: absolute;
     top: 50%;
     right: 0;
-    background-image: url("../img/hero/shape-1.png");
+    background-image: url("../img/hero/shape-1.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%) rotate(180deg);
@@ -4757,7 +4757,7 @@ button.btn-close.qty_close {
     position: absolute;
     left: -15px;
     bottom: -6px;
-    background-image: url("../img/hero/shape-2.png");
+    background-image: url("../img/hero/shape-2.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%) rotate(270deg);
@@ -4770,7 +4770,7 @@ button.btn-close.qty_close {
     position: absolute;
     right: -17px;
     bottom: -8px;
-    background-image: url("../img/hero/shape-2.png");
+    background-image: url("../img/hero/shape-2.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%);
@@ -4810,16 +4810,16 @@ button.btn-close.qty_close {
     overflow-y: hidden;
 }
 .mn-hero .slide-1 {
-    background-image: url("../img/hero/1.jpg");
+    background-image: url("../img/hero/1.webp");
 }
 .mn-hero .slide-2 {
-    background-image: url("../img/hero/2.jpg");
+    background-image: url("../img/hero/2.webp");
 }
 .mn-hero .slide-3 {
-    background-image: url("../img/hero/3.jpg");
+    background-image: url("../img/hero/3.webp");
 }
 .mn-hero .slide-4 {
-    background-image: url("../img/hero/4.jpg");
+    background-image: url("../img/hero/4.webp");
 }
 .mn-hero .mn-hero-slider .mn-hero-slide {
     display: -webkit-box;
@@ -5358,7 +5358,7 @@ button.btn-close.qty_close {
     position: absolute;
     left: -16px;
     bottom: -8px;
-    background-image: url("../img/product/bg/shape-2.png");
+    background-image: url("../img/product/bg/shape-2.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%) rotate(180deg);
@@ -5371,7 +5371,7 @@ button.btn-close.qty_close {
     position: absolute;
     right: -16px;
     bottom: -8px;
-    background-image: url("../img/product/bg/shape-2.png");
+    background-image: url("../img/product/bg/shape-2.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%) scaleX(-1) rotate(180deg);
@@ -5435,7 +5435,7 @@ button.btn-close.qty_close {
     position: absolute;
     left: -16px;
     bottom: -1px;
-    background-image: url("../img/product/bg/shape-1.png");
+    background-image: url("../img/product/bg/shape-1.webp");
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateY(-50%) rotate(270deg);
@@ -5448,7 +5448,7 @@ button.btn-close.qty_close {
     position: absolute;
     right: -18px;
     bottom: 5px;
-    background-image: url("../img/product/bg/shape-1.png");
+    background-image: url("../img/product/bg/shape-1.webp");
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -5780,10 +5780,10 @@ button.btn-close.qty_close {
     background-position: center;
 }
 .mn-modern-banner .modern-banner .mn-banner-img.img-1 {
-    background-image: url("../img/banner/1.jpg");
+    background-image: url("../img/banner/1.webp");
 }
 .mn-modern-banner .modern-banner .mn-banner-img.img-2 {
-    background-image: url("../img/banner/2.jpg");
+    background-image: url("../img/banner/2.webp");
 }
 .mn-modern-banner .modern-banner .mn-banner-contact {
     width: 370px;
@@ -6620,7 +6620,7 @@ button.btn-close.qty_close {
     content: "";
     width: 100%;
     height: 100%;
-    background-image: url("../img/testimonials/bg.png");
+    background-image: url("../img/testimonials/bg.webp");
     background-size: cover;
     background-position: bottom;
     position: absolute;

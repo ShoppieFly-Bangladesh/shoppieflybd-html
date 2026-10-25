@@ -11826,3 +11826,16 @@ ul.gi li {
     white-space: nowrap !important;
     border: 0 !important;
 }
+
+/* Performance: Skip layout & paint for offscreen sections until scroll */
+.mn-category,
+.mn-new-product,
+.mn-service,
+.mn-banner,
+.mn-testimonials,
+.mn-blog,
+.mn-instagram,
+footer.mn-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 600px;
+}

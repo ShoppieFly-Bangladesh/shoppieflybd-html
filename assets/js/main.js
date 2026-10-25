@@ -16,15 +16,19 @@
     $(window).on("load", dismissLoader);
     setTimeout(dismissLoader, 800);
 
-    /*== Sticky Header ==*/
+    /*== Sticky Header (High Performance Passive rAF) ==*/
+    var isSticky = false;
     function handleStickyHeader() {
-        if ($(window).scrollTop() > 15) {
-            $("header").addClass("header-sticky");
-        } else {
-            $("header").removeClass("header-sticky");
+        var shouldBeSticky = (window.pageYOffset || document.documentElement.scrollTop || 0) > 15;
+        if (shouldBeSticky !== isSticky) {
+            isSticky = shouldBeSticky;
+            $("header").toggleClass("header-sticky", isSticky);
         }
     }
-    $(window).on("scroll load", handleStickyHeader);
+    window.addEventListener("scroll", function () {
+        requestAnimationFrame(handleStickyHeader);
+    }, { passive: true });
+    window.addEventListener("DOMContentLoaded", handleStickyHeader);
 
     /*== Prevent hash jump on button anchors ==*/
     $(document).on("click", 'a[href="#!"]', function (e) {

@@ -288,30 +288,34 @@
     });
 
     /*== Product Image Zoom ==*/
-    $(".zoom-image-hover").zoom();
+    if ($.fn.zoom && $(".zoom-image-hover").length) {
+        $(".zoom-image-hover").zoom();
+    }
 
     /*== single product Slider ==*/
-    $(".single-product-cover").slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: false,
-        asNavFor: ".single-nav-thumb",
-        adaptiveHeight: true,
-    });
+    if ($.fn.slick && $(".single-product-cover").length) {
+        $(".single-product-cover").slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: false,
+            asNavFor: ".single-nav-thumb",
+            adaptiveHeight: true,
+        });
 
-    $(".single-nav-thumb").slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        asNavFor: ".single-product-cover",
-        dots: false,
-        arrows: true,
-        focusOnSelect: true,
-    });
+        $(".single-nav-thumb").slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            asNavFor: ".single-product-cover",
+            dots: false,
+            arrows: true,
+            focusOnSelect: true,
+        });
 
-    $(window).on("load resize", function () {
-        $(".single-product-cover").slick("setPosition");
-    });
+        $(window).on("load resize", function () {
+            $(".single-product-cover").slick("setPosition");
+        });
+    }
 
     /*== Add More Product slider section (Single Product Page) ==*/
     $(".mn-add-more-slider").owlCarousel({

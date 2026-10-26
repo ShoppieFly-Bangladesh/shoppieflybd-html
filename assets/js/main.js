@@ -35,23 +35,6 @@
         e.preventDefault();
     });
 
-    /*== Sidebar ==*/
-    $(".mn-toggle-sidebar").on("click", function () {
-        $(".mn-sidebar-overlay").fadeIn();
-        $(".mn-sidebar").toggleClass("sidebar-hide");
-        $("header").toggleClass("sb-hide");
-        $(".mn-main-content").toggleClass("sb-hide");
-        $("footer").toggleClass("sb-hide");
-        $(".mn-toggle-sidebar").toggleClass("active-toggle");
-    });
-    $(".mn-sidebar-overlay, .side-close").on("click", function (e) {
-        $(".mn-sidebar-overlay").fadeOut();
-        $(".mn-sidebar").removeClass("sidebar-hide");
-        $("header").removeClass("sb-hide");
-        $(".mn-main-content").removeClass("sb-hide");
-        $("footer").removeClass("sb-hide");
-        $(".mn-toggle-sidebar").removeClass("active-toggle");
-    });
     $(".mn-drop-toggle").on("click", function (e) {
         if ($(this).siblings(".mn-sb-drop").length > 0) {
             e.preventDefault();

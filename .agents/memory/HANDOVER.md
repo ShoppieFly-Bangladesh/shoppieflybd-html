@@ -59,8 +59,21 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
   - `product-detail.html`, `product-accordion.html`, `product-accordion-full-width.html`
   - `blog-full-width.html`, `blog-detail-full-width.html`
 - **Health & Quality Verification:**
-  - Navbar streamlined to 4 focused items across all 20 HTML files: `Home`, `Categories`, `Shop`, and standout CTA `Sell With Us`.
+  - Navbar streamlined to 3 focused items across all 20 HTML files: `Home`, `Categories`, and `Shop`.
+  - Moved `Sell With Us` button to mini topbar (`.sf-topbar-seller-btn`) with continuous 360° running gradient border animation (`#ff5722 -> #f59e0b -> #10b981 -> #00d2ff -> #3a4ee5 -> #ff5722`), store icon, and orange `FREE` badge.
+  - Upgraded search to modern interactive pill button:
+    - Dynamic typewriter animation cycling through popular keywords (`Search your product...`, `Search "Smart Watch"...`, `Search "Cotton T-Shirt"...`, `Search "Fresh Fruits"...`, etc.) with blinking cursor.
+    - Continuous 360° running gradient border animation (`conic-gradient` with Royal Blue, Cyan, Emerald, Coral Orange, Pink, Purple) at 2.8s/cycle and 1.8px inner pill mask. Fixed CSS cascade `!important` rule conflict on `transform` to ensure uninterrupted hardware-accelerated continuous flow.
+    - Mobile header optimization: user, wishlist, and cart icons hidden on mobile screen; full web-style search pill (with running gradient border, icon, and animated typewriter text) cleanly preserved alongside the mobile hamburger toggle.
+    - Zero layout shift (CLS = 0) with fixed min-width container.
+    - Preserves side search drawer trigger (`.mn-search-toggle`) and global `Ctrl+K` shortcut.
+  - Added sleek Independent Top Utility Bar (`.sf-topbar-wrap`) sitting directly on page background (`#f1f4f7`) separated from `<header>` across all 20 HTML files:
+    - Black background removed: fully transparent, blending naturally with the page body background.
+    - Left side: Click-to-call Hotline (`+880 9612-000222` with coral icon), Support Email (`support@shoppiefly.com`), and Flash Promo badge (`Free delivery on orders over ৳1,500!`).
+    - Right side: First item `Sell With Us` (`sf-topbar-seller-btn` with running gradient border), followed by `Track Order` (`track-order.html`), `Help & FAQs` (`faq.html`), and `Contact Us` (`contact-us.html`).
+    - Completely separate from main navbar (`<header>`), which retains its pure standalone card styling and sticky scroll behavior.
+    - Updated main navbar (`.mn-header`) with full `border-radius: 15px` across all 4 corners (top corners identically rounded matching bottom corners) and full perimeter border for a standalone floating island aesthetic.
   - Removed `Blog` and `Pages` from nav menu (files 100% preserved and accessible).
-  - 2,693 links verified: **0 broken links**.
+  - 2,712 links verified: **0 broken links**.
   - 1,047 images verified: **0 broken images**.
   - `sitemap.xml` updated to exactly 20 production URLs.

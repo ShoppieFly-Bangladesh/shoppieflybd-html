@@ -1964,15 +1964,14 @@ header {
 .mn-header {
     padding: 0 30px;
     background-color: #fff;
-    border-radius: 0 0 15px 15px;
+    border-radius: 15px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border: 1px solid #e5e5e5;
-    border-top: 0;
+    border: 1px solid #e5e5e5 !important;
     position: relative;
     -webkit-transition: -webkit-box-shadow 0.25s ease, border-color 0.25s ease;
     transition: box-shadow 0.25s ease, border-color 0.25s ease;
@@ -12429,4 +12428,440 @@ footer.mn-footer {
 .mn-menu-content .mobile-cta-seller a:hover {
     background: #3a4ee5;
     color: #ffffff !important;
+}
+
+/* ==========================================================
+   INSTANT SEARCH PILL BUTTON (Ctrl+K)
+========================================================== */
+.mn-header .mn-header-items .right-header .mn-tool-icons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search {
+    margin-right: 4px;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn {
+    position: relative !important;
+    width: auto !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    line-height: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 0 10px 0 14px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    text-decoration: none !important;
+    color: #475569 !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+}
+
+/* Running Gradient Border Animation */
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 420px !important;
+    height: 420px !important;
+    margin-top: -210px !important;
+    margin-left: -210px !important;
+    background: conic-gradient(from 0deg, #3a4ee5 0deg, #00d2ff 60deg, #10b981 120deg, #ff5722 180deg, #ec4899 240deg, #8b5cf6 300deg, #3a4ee5 360deg) !important;
+    animation: sfBorderSpin 2.8s linear infinite !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Inner Pill Surface */
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 1.8px !important;
+    background: #f8fafc !important;
+    border-radius: 23.2px !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    transition: background 0.2s ease !important;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover {
+    color: #1e293b !important;
+    box-shadow: 0 4px 15px rgba(58, 78, 229, 0.22) !important;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover::before {
+    animation-duration: 1.6s !important;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover::after {
+    background: #ffffff !important;
+}
+
+@keyframes sfBorderSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn i {
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: #64748b !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    transition: color 0.2s ease;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover i {
+    color: #3a4ee5 !important;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
+    position: relative !important;
+    z-index: 2 !important;
+    line-height: 1 !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.1px;
+    min-width: 175px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-align: left !important;
+}
+
+.sf-typewriter-cursor {
+    display: inline-block !important;
+    color: #3a4ee5 !important;
+    font-weight: 400 !important;
+    margin-left: 2px !important;
+    line-height: 1 !important;
+    animation: sfCursorBlink 0.85s infinite !important;
+}
+
+@keyframes sfCursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-kbd {
+    position: relative !important;
+    z-index: 2 !important;
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    padding: 3px 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    color: #64748b !important;
+    line-height: 1 !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Mobile responsive: hide user, wishlist, cart; keep full web-style search pill */
+@media (max-width: 991.98px) {
+    /* Hide user, wishlist, cart icons on mobile header */
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-user,
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-wish,
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-cart {
+        display: none !important;
+    }
+
+    .mn-header .mn-header-items .right-header .mn-tool-icons {
+        margin-left: 0 !important;
+        gap: 0 !important;
+    }
+
+    .mn-header .mn-header-items .right-header .mn-toggle-menu {
+        margin-left: 10px !important;
+    }
+
+    /* Web-style pill search on mobile */
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn {
+        width: auto !important;
+        height: 36px !important;
+        max-height: 36px !important;
+        border-radius: 25px !important;
+        padding: 0 10px 0 12px !important;
+        gap: 7px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
+        display: inline-flex !important;
+        min-width: 135px !important;
+        font-size: 12.5px !important;
+        line-height: 1 !important;
+    }
+
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn i {
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Compact shortcut hint on narrow mobile screens */
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-kbd {
+        display: none !important;
+    }
+
+    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
+        min-width: 120px !important;
+        font-size: 12px !important;
+    }
+}
+/*==================================================
+  Top Utility Bar (Independent on Page Background)
+==================================================*/
+.sf-topbar-wrap {
+    width: 100%;
+    padding: 10px 30px 6px 30px;
+    background: transparent !important;
+    position: relative;
+    z-index: 25;
+}
+
+.sf-topbar {
+    width: 100%;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 12.5px !important;
+    line-height: 1.2 !important;
+    color: #475569 !important;
+}
+
+.sf-topbar .sf-topbar-left,
+.sf-topbar .sf-topbar-right {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+}
+
+.sf-topbar .sf-topbar-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #475569 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    transition: color 0.2s ease !important;
+    white-space: nowrap !important;
+}
+
+.sf-topbar .sf-topbar-item:hover {
+    color: #3a4ee5 !important;
+}
+
+.sf-topbar .sf-topbar-item strong {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+.sf-topbar .sf-topbar-item i {
+    font-size: 14px !important;
+    line-height: 1 !important;
+    color: #3a4ee5 !important;
+}
+
+.sf-topbar .sf-topbar-item i.ri-phone-fill {
+    color: #ff5722 !important;
+}
+
+.sf-topbar .sf-topbar-promo {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+}
+
+.sf-topbar .sf-topbar-promo i {
+    color: #f59e0b !important;
+    font-size: 13px !important;
+}
+
+.sf-topbar .sf-topbar-divider {
+    display: inline-block !important;
+    width: 1px !important;
+    height: 12px !important;
+    background-color: #cbd5e1 !important;
+    margin: 0 2px !important;
+}
+
+.sf-topbar .sf-topbar-track {
+    color: #3a4ee5 !important;
+    font-weight: 600 !important;
+}
+
+.sf-topbar .sf-topbar-track:hover {
+    color: #1d4ed8 !important;
+}
+
+.sf-topbar .sf-topbar-track i {
+    color: #3a4ee5 !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991.98px) {
+    .sf-topbar-wrap {
+        padding: 6px 15px 4px 15px !important;
+    }
+    .sf-topbar {
+        font-size: 11.5px !important;
+        min-height: 24px !important;
+    }
+    .sf-topbar .sf-topbar-left,
+    .sf-topbar .sf-topbar-right {
+        gap: 10px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sf-topbar-wrap {
+        padding: 4px 12px 2px 12px !important;
+    }
+    .sf-topbar .sf-topbar-item {
+        font-size: 11px !important;
+        gap: 4px !important;
+    }
+    .sf-topbar .sf-topbar-item i {
+        font-size: 12px !important;
+    }
+}
+/*==================================================
+  Top Utility Bar Seller CTA Button (Running Gradient)
+==================================================*/
+.sf-topbar-seller-btn {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    height: 28px !important;
+    max-height: 28px !important;
+    line-height: 1 !important;
+    padding: 0 10px 0 10px !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    color: #1e293b !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-sizing: border-box !important;
+}
+
+/* Running Gradient Border Animation on Sell With Us */
+.sf-topbar-seller-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 260px !important;
+    height: 260px !important;
+    margin-top: -130px !important;
+    margin-left: -130px !important;
+    background: conic-gradient(from 0deg, #ff5722 0deg, #f59e0b 60deg, #10b981 120deg, #00d2ff 180deg, #3a4ee5 240deg, #8b5cf6 300deg, #ff5722 360deg) !important;
+    animation: sfBorderSpin 2.8s linear infinite !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Inner Pill Surface */
+.sf-topbar-seller-btn::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 1.5px !important;
+    background: #ffffff !important;
+    border-radius: 18.5px !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    transition: background 0.2s ease !important;
+}
+
+.sf-topbar-seller-btn:hover {
+    color: #0f172a !important;
+    box-shadow: 0 3px 12px rgba(255, 87, 34, 0.22) !important;
+    transform: translateY(-1px);
+}
+
+.sf-topbar-seller-btn:hover::before {
+    animation-duration: 1.6s !important;
+}
+
+.sf-topbar-seller-btn:hover::after {
+    background: #f8fafc !important;
+}
+
+.sf-topbar-seller-btn i {
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 13.5px !important;
+    line-height: 1 !important;
+    color: #ff5722 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    transition: transform 0.2s ease;
+}
+
+.sf-topbar-seller-btn:hover i {
+    transform: scale(1.15) rotate(-6deg);
+}
+
+.sf-topbar-seller-btn span {
+    position: relative !important;
+    z-index: 2 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.1px;
+}
+
+.sf-topbar-seller-btn .sf-seller-badge {
+    position: relative !important;
+    z-index: 2 !important;
+    background: #ff5722 !important;
+    color: #ffffff !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    padding: 2px 5px !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px;
+    margin-left: 2px !important;
 }

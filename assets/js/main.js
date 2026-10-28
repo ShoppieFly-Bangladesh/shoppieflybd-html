@@ -248,6 +248,11 @@
         $(".mn-sidebar").removeClass("mn-open-category");
     });
     $(document).on("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+            e.preventDefault();
+            $(".mn-search-toggle").first().trigger("click");
+            return;
+        }
         if (e.key === "Escape" && $(".mn-sidebar").hasClass("mn-open-category")) {
             $(".mn-sidebar-overlay").fadeOut();
             $(".mn-sidebar").removeClass("mn-open-category");
@@ -269,6 +274,11 @@
         $(".mn-side-search").removeClass("mn-open-search");
     });
     $(document).on("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+            e.preventDefault();
+            $(".mn-search-toggle").first().trigger("click");
+            return;
+        }
         if (e.key === "Escape" && $(".mn-side-search").hasClass("mn-open-search")) {
             $(".mn-side-search-overlay").fadeOut();
             $(".mn-side-search").removeClass("mn-open-search");
@@ -964,4 +974,62 @@
         updateOwlControlsAria();
     });
     setTimeout(updateOwlControlsAria, 400);
+
+    /*== Dynamic Search Input Typewriter Effect ==*/
+    (function () {
+        var words = [
+            'Search your product...',
+            'Search "Smart Watch"...',
+            'Search "Cotton T-Shirt"...',
+            'Search "Fresh Fruits"...',
+            'Search "Wireless Earbuds"...',
+            'Search "Organic Honey"...',
+            'Search "Sneakers"...',
+            'Search "Beauty Care"...'
+        ];
+        var wordIdx = 0;
+        var charIdx = 0;
+        var isDeleting = false;
+        var typeSpeed = 90;
+        var pauseEnd = 1600;
+        var pauseStart = 450;
+        var sfTypewriterRunning = true;
+
+        function runTypewriter() {
+            var targets = document.querySelectorAll('.sf-search-typewriter');
+            if (!targets.length) return;
+
+            var currentWord = words[wordIdx];
+
+            if (isDeleting) {
+                charIdx--;
+            } else {
+                charIdx++;
+            }
+
+            var text = currentWord.substring(0, charIdx);
+            for (var i = 0; i < targets.length; i++) {
+                targets[i].textContent = text;
+            }
+
+            var speed = isDeleting ? (typeSpeed / 2) : typeSpeed;
+
+            if (!isDeleting && charIdx === currentWord.length) {
+                speed = pauseEnd;
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                wordIdx = (wordIdx + 1) % words.length;
+                speed = pauseStart;
+            }
+
+            setTimeout(runTypewriter, speed);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runTypewriter);
+        } else {
+            runTypewriter();
+        }
+    })();
 })(jQuery);

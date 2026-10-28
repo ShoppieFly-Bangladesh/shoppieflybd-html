@@ -13,25 +13,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://template.businesszonebd.com/blog-detail-full-width.html</loc>
+        <loc>https://template.businesszonebd.com/blog-detail.html</loc>
         <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://template.businesszonebd.com/blog-detail-right-sidebar.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/blog-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/blog-right-sidebar.html</loc>
+        <loc>https://template.businesszonebd.com/blog.html</loc>
         <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -79,25 +67,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://template.businesszonebd.com/product-accordion-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/product-accordion.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/product-detail.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/product-full-width.html</loc>
+        <loc>https://template.businesszonebd.com/product.html</loc>
         <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -109,49 +79,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://template.businesszonebd.com/shop-banner-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-banner-right-sidebar.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-list-banner-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-list-banner-right-sidebar.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-list-full-width.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-list-right-sidebar.html</loc>
-        <lastmod>2026-10-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://template.businesszonebd.com/shop-right-sidebar.html</loc>
+        <loc>https://template.businesszonebd.com/shop.html</loc>
         <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -185,5 +113,11 @@
         <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://template.businesszonebd.com/categories.html</loc>
+        <lastmod>2026-10-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
 </urlset>

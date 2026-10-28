@@ -259,8 +259,8 @@
         }
     });
 
-    /*== Search sidebar JS ==*/
-    $(".mn-search-toggle").on("click", function (e) {
+    /*== Search sidebar JS (Event Delegation for all search toggles) ==*/
+    $(document).on("click", ".mn-search-toggle", function (e) {
         e.preventDefault();
         $(".mn-side-search-overlay").fadeIn();
         $(".mn-side-search").addClass("mn-open-search");
@@ -268,7 +268,7 @@
             $(".mn-side-search input[name='q']").trigger("focus");
         }, 300);
     });
-    $(".mn-side-search-overlay, .mn-search-close").on("click", function (e) {
+    $(document).on("click", ".mn-side-search-overlay, .mn-search-close", function (e) {
         e.preventDefault();
         $(".mn-side-search-overlay").fadeOut();
         $(".mn-side-search").removeClass("mn-open-search");

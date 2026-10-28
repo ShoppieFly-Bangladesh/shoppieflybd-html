@@ -2712,26 +2712,25 @@ header.header-sticky .mn-header {
 @media only screen and (max-width: 1399px) {
     header.sb-hide {
         width: 100%;
-    }
-    header.sb-hide {
-        padding: 0;
-    }
-    header {
-        padding: 0;
-    }
-    header .mn-header {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        border-left: 0;
-        border-right: 0;
+        padding: 0 30px;
     }
 }
 @media only screen and (max-width: 991px) {
+    header {
+        padding: 0 !important;
+        width: 100% !important;
+    }
     header .mn-header,
     .mn-header {
         padding: 0 15px;
         min-height: 70px;
+        border-radius: 0 !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 1px solid #e5e5e5 !important;
+        width: 100% !important;
+        margin: 0 !important;
     }
     .mn-header .mn-toggle-menu {
         display: -webkit-box !important;
@@ -2760,12 +2759,20 @@ header.header-sticky .mn-header {
         margin: 0;
         width: 100%;
     }
+    header {
+        padding: 0 !important;
+        width: 100% !important;
+    }
     header .mn-header,
     .mn-header {
         position: relative;
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 1px solid #e5e5e5 !important;
         min-height: 74px;
         padding: 0 16px;
     }
@@ -12431,34 +12438,49 @@ footer.mn-footer {
 }
 
 /* ==========================================================
-   INSTANT SEARCH PILL BUTTON (Ctrl+K)
+   INSTANT SEARCH PILL BUTTON (Ctrl+K) & DESKTOP CENTER SEARCH (SAMPLE 1)
 ========================================================== */
-.mn-header .mn-header-items .right-header .mn-tool-icons {
+.mn-header .mn-header-items .left-header {
     display: flex;
     align-items: center;
-    gap: 6px;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search {
-    margin-right: 4px;
+.mn-header .mn-header-items .left-header .logo {
+    margin-right: 0;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn {
+.mn-header .mn-header-items .desktop-center-search {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.mn-header .mn-header-items .desktop-center-search .mn-tool-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn {
     position: relative !important;
-    width: auto !important;
-    height: 38px !important;
-    max-height: 38px !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    height: 42px !important;
+    max-height: 42px !important;
     line-height: 1 !important;
     background: transparent !important;
     border: none !important;
     border-radius: 25px !important;
-    padding: 0 10px 0 14px !important;
+    padding: 0 16px !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 9px !important;
+    justify-content: space-between !important;
     text-decoration: none !important;
     color: #475569 !important;
-    font-size: 13.5px !important;
+    font-size: 14px !important;
     font-weight: 500 !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     cursor: pointer !important;
@@ -12468,15 +12490,15 @@ footer.mn-footer {
 }
 
 /* Running Gradient Border Animation */
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn::before {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::before {
     content: '' !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    width: 420px !important;
-    height: 420px !important;
-    margin-top: -210px !important;
-    margin-left: -210px !important;
+    width: 600px !important;
+    height: 600px !important;
+    margin-top: -300px !important;
+    margin-left: -300px !important;
     background: conic-gradient(from 0deg, #3a4ee5 0deg, #00d2ff 60deg, #10b981 120deg, #ff5722 180deg, #ec4899 240deg, #8b5cf6 300deg, #3a4ee5 360deg) !important;
     animation: sfBorderSpin 2.8s linear infinite !important;
     z-index: 0 !important;
@@ -12484,7 +12506,7 @@ footer.mn-footer {
 }
 
 /* Inner Pill Surface */
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn::after {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::after {
     content: '' !important;
     position: absolute !important;
     inset: 1.8px !important;
@@ -12495,29 +12517,20 @@ footer.mn-footer {
     transition: background 0.2s ease !important;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover {
     color: #1e293b !important;
     box-shadow: 0 4px 15px rgba(58, 78, 229, 0.22) !important;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover::before {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover::before {
     animation-duration: 1.6s !important;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover::after {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover::after {
     background: #ffffff !important;
 }
 
-@keyframes sfBorderSpin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn i {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn i {
     position: relative !important;
     z-index: 2 !important;
     font-size: 16px !important;
@@ -12529,40 +12542,26 @@ footer.mn-footer {
     transition: color 0.2s ease;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn:hover i {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover i {
     color: #3a4ee5 !important;
 }
 
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn .sf-search-text {
     position: relative !important;
     z-index: 2 !important;
     line-height: 1 !important;
     color: #475569 !important;
     font-weight: 500 !important;
-    font-size: 13.5px !important;
+    font-size: 14px !important;
     white-space: nowrap !important;
     letter-spacing: 0.1px;
-    min-width: 175px !important;
+    flex: 1 1 auto !important;
     display: inline-flex !important;
     align-items: center !important;
     text-align: left !important;
 }
 
-.sf-typewriter-cursor {
-    display: inline-block !important;
-    color: #3a4ee5 !important;
-    font-weight: 400 !important;
-    margin-left: 2px !important;
-    line-height: 1 !important;
-    animation: sfCursorBlink 0.85s infinite !important;
-}
-
-@keyframes sfCursorBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-kbd {
+.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn .sf-search-kbd {
     position: relative !important;
     z-index: 2 !important;
     background: #ffffff !important;
@@ -12578,59 +12577,192 @@ footer.mn-footer {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    margin-left: 8px !important;
 }
 
-/* Mobile responsive: hide user, wishlist, cart; keep full web-style search pill */
+.mn-header .mn-header-items .right-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.mn-header .mn-header-items .right-header .mn-main-menu ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mn-header .mn-header-items .right-header .mn-main-menu ul li {
+    margin: 0 0 0 20px;
+}
+
+.mn-header .mn-header-items .right-header .mn-main-menu ul li a {
+    font-size: 15px;
+    line-height: 70px;
+    text-decoration: none;
+    color: #313b50;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.mn-header .mn-header-items .right-header .mn-main-menu ul li:hover > a {
+    color: #3a4ee5;
+}
+
+.mn-header .mn-header-items .right-header .mn-tool-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+@media (max-width: 1199.98px) {
+    .mn-header .mn-header-items .desktop-center-search {
+        max-width: 360px;
+    }
+    .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn {
+        max-width: 360px !important;
+    }
+    .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn .sf-search-kbd {
+        display: none !important;
+    }
+    .mn-header .mn-header-items .right-header {
+        gap: 12px;
+    }
+    .mn-header .mn-header-items .right-header .mn-main-menu ul li {
+        margin: 0 0 0 14px;
+    }
+}
+
+.sf-mobile-search-bar {
+    display: none;
+}
+
+/* Mobile responsive: hide inline search from header; show separate floating search bar */
 @media (max-width: 991.98px) {
-    /* Hide user, wishlist, cart icons on mobile header */
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-user,
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-wish,
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-cart {
+    /* Hide desktop center search on mobile */
+    .mn-header .mn-header-items .desktop-center-search {
         display: none !important;
     }
 
+    /* Hide all tool icons from inside the header navbar on mobile */
     .mn-header .mn-header-items .right-header .mn-tool-icons {
-        margin-left: 0 !important;
-        gap: 0 !important;
+        display: none !important;
     }
 
     .mn-header .mn-header-items .right-header .mn-toggle-menu {
-        margin-left: 10px !important;
+        margin-left: auto !important;
     }
 
-    /* Web-style pill search on mobile */
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn {
-        width: auto !important;
-        height: 36px !important;
-        max-height: 36px !important;
+    /* Separate Mobile Search Bar (Sample 1 - Floating Gradient Bar below navbar) */
+    .sf-mobile-search-bar {
+        display: block !important;
+        width: 100% !important;
+        padding: 10px 16px 8px 16px !important;
+        background: #f1f4f7 !important;
+        box-sizing: border-box !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn {
+        position: relative !important;
+        width: 100% !important;
+        height: 44px !important;
+        max-height: 44px !important;
         border-radius: 25px !important;
-        padding: 0 10px 0 12px !important;
-        gap: 7px !important;
+        padding: 0 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-decoration: none !important;
+        background: transparent !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07) !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        z-index: 1 !important;
+        cursor: pointer !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    /* Running Gradient Border Animation for Mobile Bar */
+    .sf-mobile-search-bar > a.sf-instant-search-btn::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 600px !important;
+        height: 600px !important;
+        margin-top: -300px !important;
+        margin-left: -300px !important;
+        background: conic-gradient(from 0deg, #3a4ee5 0deg, #00d2ff 60deg, #10b981 120deg, #ff5722 180deg, #ec4899 240deg, #8b5cf6 300deg, #3a4ee5 360deg) !important;
+        animation: sfBorderSpin 2.8s linear infinite !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Inner Pill Surface */
+    .sf-mobile-search-bar > a.sf-instant-search-btn::after {
+        content: '' !important;
+        position: absolute !important;
+        inset: 1.8px !important;
+        background: #ffffff !important;
+        border-radius: 23.2px !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+        transition: background 0.2s ease !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn:hover {
+        box-shadow: 0 4px 20px rgba(58, 78, 229, 0.22) !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn:hover::before {
+        animation-duration: 1.6s !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn i {
+        position: relative !important;
+        z-index: 2 !important;
+        font-size: 18px !important;
+        line-height: 1 !important;
+        color: #3a4ee5 !important;
         display: inline-flex !important;
         align-items: center !important;
+        margin: 0 !important;
+        transition: color 0.2s ease;
     }
 
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
+    .sf-mobile-search-bar > a.sf-instant-search-btn .sf-search-text {
+        position: relative !important;
+        z-index: 2 !important;
         display: inline-flex !important;
-        min-width: 135px !important;
-        font-size: 12.5px !important;
-        line-height: 1 !important;
-    }
-
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn i {
-        font-size: 15px !important;
+        align-items: center !important;
+        flex: 1 !important;
+        margin-left: 10px !important;
+        font-size: 13.5px !important;
+        color: #64748b !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
     }
 }
 
-@media (max-width: 575.98px) {
-    /* Compact shortcut hint on narrow mobile screens */
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-kbd {
-        display: none !important;
+@media (max-width: 360px) {
+    .sf-mobile-search-bar {
+        padding: 8px 12px 4px 12px !important;
     }
-
-    .mn-header .mn-header-items .right-header .mn-tool-icons .mn-tool-search > a.sf-instant-search-btn .sf-search-text {
-        min-width: 120px !important;
-        font-size: 12px !important;
+    .sf-mobile-search-bar > a.sf-instant-search-btn {
+        height: 40px !important;
+        max-height: 40px !important;
+        padding: 0 14px !important;
+    }
+    .sf-mobile-search-bar > a.sf-instant-search-btn .sf-search-text {
+        font-size: 12.5px !important;
+    }
+    .sf-mobile-search-bar > a.sf-instant-search-btn i {
+        font-size: 16px !important;
     }
 }
 /*==================================================
@@ -12638,7 +12770,7 @@ footer.mn-footer {
 ==================================================*/
 .sf-topbar-wrap {
     width: 100%;
-    padding: 10px 30px 6px 30px;
+    padding: 12px 30px 8px 30px;
     background: transparent !important;
     position: relative;
     z-index: 25;
@@ -12650,11 +12782,11 @@ footer.mn-footer {
     border: none !important;
     border-radius: 0 !important;
     padding: 0 !important;
-    min-height: 28px !important;
+    min-height: 34px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    font-size: 12.5px !important;
+    font-size: 13px !important;
     line-height: 1.2 !important;
     color: #475569 !important;
 }
@@ -12663,17 +12795,17 @@ footer.mn-footer {
 .sf-topbar .sf-topbar-right {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 16px !important;
 }
 
 .sf-topbar .sf-topbar-item {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 7px !important;
     color: #475569 !important;
     text-decoration: none !important;
     font-weight: 500 !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
     transition: color 0.2s ease !important;
     white-space: nowrap !important;
 }
@@ -12688,7 +12820,7 @@ footer.mn-footer {
 }
 
 .sf-topbar .sf-topbar-item i {
-    font-size: 14px !important;
+    font-size: 15px !important;
     line-height: 1 !important;
     color: #3a4ee5 !important;
 }
@@ -12700,24 +12832,24 @@ footer.mn-footer {
 .sf-topbar .sf-topbar-promo {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    color: #64748b !important;
-    font-size: 12px !important;
+    gap: 7px !important;
+    color: #475569 !important;
+    font-size: 12.5px !important;
     font-weight: 500 !important;
     white-space: nowrap !important;
 }
 
 .sf-topbar .sf-topbar-promo i {
-    color: #f59e0b !important;
-    font-size: 13px !important;
+    color: #10b981 !important;
+    font-size: 16px !important;
 }
 
 .sf-topbar .sf-topbar-divider {
     display: inline-block !important;
     width: 1px !important;
-    height: 12px !important;
+    height: 14px !important;
     background-color: #cbd5e1 !important;
-    margin: 0 2px !important;
+    margin: 0 4px !important;
 }
 
 .sf-topbar .sf-topbar-track {
@@ -12733,33 +12865,18 @@ footer.mn-footer {
     color: #3a4ee5 !important;
 }
 
-/* Mobile responsive adjustments */
-@media (max-width: 991.98px) {
-    .sf-topbar-wrap {
-        padding: 6px 15px 4px 15px !important;
-    }
-    .sf-topbar {
-        font-size: 11.5px !important;
-        min-height: 24px !important;
-    }
-    .sf-topbar .sf-topbar-left,
-    .sf-topbar .sf-topbar-right {
-        gap: 10px !important;
-    }
+.sf-topbar .sf-topbar-desktop-only {
+    display: inline-flex !important;
 }
 
-@media (max-width: 575.98px) {
-    .sf-topbar-wrap {
-        padding: 4px 12px 2px 12px !important;
-    }
-    .sf-topbar .sf-topbar-item {
-        font-size: 11px !important;
-        gap: 4px !important;
-    }
-    .sf-topbar .sf-topbar-item i {
-        font-size: 12px !important;
-    }
+.sf-topbar .sf-topbar-divider.sf-topbar-desktop-only {
+    display: inline-block !important;
 }
+
+.sf-topbar .sf-topbar-mobile-only {
+    display: none !important;
+}
+
 /*==================================================
   Top Utility Bar Seller CTA Button (Running Gradient)
 ==================================================*/
@@ -12767,15 +12884,15 @@ footer.mn-footer {
     position: relative !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    height: 28px !important;
-    max-height: 28px !important;
+    gap: 7px !important;
+    height: 32px !important;
+    max-height: 32px !important;
     line-height: 1 !important;
-    padding: 0 10px 0 10px !important;
+    padding: 0 12px !important;
     border-radius: 20px !important;
     text-decoration: none !important;
     color: #1e293b !important;
-    font-size: 11.5px !important;
+    font-size: 12.5px !important;
     font-weight: 600 !important;
     background: transparent !important;
     border: none !important;
@@ -12831,7 +12948,7 @@ footer.mn-footer {
 .sf-topbar-seller-btn i {
     position: relative !important;
     z-index: 2 !important;
-    font-size: 13.5px !important;
+    font-size: 15px !important;
     line-height: 1 !important;
     color: #ff5722 !important;
     display: inline-flex !important;
@@ -12856,7 +12973,7 @@ footer.mn-footer {
     z-index: 2 !important;
     background: #ff5722 !important;
     color: #ffffff !important;
-    font-size: 9px !important;
+    font-size: 9.5px !important;
     font-weight: 700 !important;
     line-height: 1 !important;
     padding: 2px 5px !important;
@@ -12864,4 +12981,109 @@ footer.mn-footer {
     text-transform: uppercase !important;
     letter-spacing: 0.3px;
     margin-left: 2px !important;
+}
+
+/*==================================================
+  Top Utility Bar Responsive Adjustments
+==================================================*/
+@media (max-width: 991.98px) {
+    .sf-topbar-wrap {
+        padding: 8px 15px 6px 15px !important;
+    }
+    .sf-topbar {
+        font-size: 12px !important;
+        min-height: 30px !important;
+    }
+    .sf-topbar .sf-topbar-left,
+    .sf-topbar .sf-topbar-right {
+        gap: 12px !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .sf-topbar-wrap {
+        padding: 10px 15px 8px 15px !important;
+    }
+    .sf-topbar {
+        min-height: 34px !important;
+    }
+    .sf-topbar .sf-topbar-desktop-only,
+    .sf-topbar .sf-topbar-divider,
+    .sf-topbar .sf-topbar-divider.sf-topbar-desktop-only {
+        display: none !important;
+    }
+    .sf-topbar .sf-topbar-mobile-only {
+        display: inline-flex !important;
+    }
+    /* Mobile buttons enhanced & enlarged */
+    .sf-topbar .sf-topbar-track.sf-topbar-mobile-only {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 12px !important;
+        border-radius: 20px !important;
+        background: #ffffff !important;
+        border: 1.5px solid #e2e8f0 !important;
+        color: #1e293b !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+        transition: all 0.2s ease !important;
+    }
+    .sf-topbar .sf-topbar-track.sf-topbar-mobile-only:hover {
+        border-color: #cbd5e1 !important;
+        color: #3a4ee5 !important;
+        transform: translateY(-1px);
+    }
+    .sf-topbar .sf-topbar-track.sf-topbar-mobile-only i {
+        font-size: 15px !important;
+        color: #3a4ee5 !important;
+    }
+    .sf-topbar-seller-btn {
+        height: 34px !important;
+        max-height: 34px !important;
+        padding: 0 12px !important;
+        gap: 6px !important;
+        font-size: 12px !important;
+        border-radius: 20px !important;
+    }
+    .sf-topbar-seller-btn i {
+        font-size: 15px !important;
+    }
+    .sf-topbar-seller-btn .sf-seller-badge {
+        font-size: 9.5px !important;
+        padding: 2px 5px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .sf-topbar-wrap {
+        padding: 8px 10px 6px 10px !important;
+    }
+    .sf-topbar .sf-topbar-track.sf-topbar-mobile-only {
+        height: 31px !important;
+        max-height: 31px !important;
+        padding: 0 10px !important;
+        font-size: 11.5px !important;
+        gap: 5px !important;
+    }
+    .sf-topbar .sf-topbar-track.sf-topbar-mobile-only i {
+        font-size: 14px !important;
+    }
+    .sf-topbar-seller-btn {
+        height: 31px !important;
+        max-height: 31px !important;
+        padding: 0 10px !important;
+        font-size: 11.5px !important;
+        gap: 5px !important;
+    }
+    .sf-topbar-seller-btn i {
+        font-size: 14px !important;
+    }
+    .sf-topbar-seller-btn .sf-seller-badge {
+        font-size: 9px !important;
+        padding: 1.5px 5px !important;
+    }
 }

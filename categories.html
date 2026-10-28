@@ -297,41 +297,30 @@
             <div class="sf-topbar-wrap">
                 <div class="sf-topbar">
                     <div class="sf-topbar-left">
-                        <a class="sf-topbar-item" href="tel:+8809612000222">
+                        <a class="sf-topbar-item sf-topbar-hotline sf-topbar-desktop-only" href="tel:+8809612000222">
                             <i class="ri-phone-fill"></i>
                             <span>Hotline: <strong>+880 9612-000222</strong></span>
                         </a>
-                        <span class="sf-topbar-divider d-none d-md-inline-block"></span>
-                        <a class="sf-topbar-item d-none d-lg-inline-flex" href="mailto:support@shoppiefly.com">
-                            <i class="ri-mail-line"></i>
-                            <span>support@shoppiefly.com</span>
-                        </a>
-                        <span class="sf-topbar-divider d-none d-lg-inline-block"></span>
-                        <span class="sf-topbar-promo d-none d-xl-inline-flex">
-                            <i class="ri-flashlight-line"></i>
-                            <span>Free delivery on orders over ৳1,500!</span>
+                        <span class="sf-topbar-divider sf-topbar-desktop-only d-none d-xl-inline-block"></span>
+                        <span class="sf-topbar-promo sf-topbar-desktop-only d-none d-xl-inline-flex">
+                            <i class="ri-shield-check-line"></i>
+                            <span>100% Authentic Products Guaranteed!</span>
                         </span>
+                        <a class="sf-topbar-item sf-topbar-track sf-topbar-mobile-only" href="track-order.html">
+                            <i class="ri-truck-line"></i>
+                            <span>Track Your Order</span>
+                        </a>
                     </div>
                     <div class="sf-topbar-right">
+                        <a class="sf-topbar-item sf-topbar-track sf-topbar-desktop-only" href="track-order.html">
+                            <i class="ri-truck-line"></i>
+                            <span>Track Your Order</span>
+                        </a>
+                        <span class="sf-topbar-divider sf-topbar-desktop-only"></span>
                         <a class="sf-topbar-seller-btn" href="become-vendor.html">
                             <i class="ri-store-2-line"></i>
                             <span>Sell With Us</span>
                             <span class="sf-seller-badge">Free</span>
-                        </a>
-                        <span class="sf-topbar-divider"></span>
-                        <a class="sf-topbar-item sf-topbar-track" href="track-order.html">
-                            <i class="ri-truck-line"></i>
-                            <span>Track Order</span>
-                        </a>
-                        <span class="sf-topbar-divider"></span>
-                        <a class="sf-topbar-item" href="faq.html">
-                            <i class="ri-questionnaire-line"></i>
-                            <span>Help &amp; FAQs</span>
-                        </a>
-                        <span class="sf-topbar-divider d-none d-md-inline-block"></span>
-                        <a class="sf-topbar-item d-none d-md-inline-flex" href="contact-us.html">
-                            <i class="ri-customer-service-2-line"></i>
-                            <span>Contact</span>
                         </a>
                     </div>
                 </div>
@@ -342,6 +331,15 @@
                     <div class="mn-header-items">
                         <div class="left-header">
                             <a class="logo" href="index.html"><img alt="ShoppieFlyBD" src="assets/img/logo/ShoppieFly-logo.webp" width="360" height="120"></a>
+                        </div>
+                        <div class="desktop-center-search d-none d-lg-flex">
+                            <div class="mn-tool-search">
+                                <a class="mn-main-search mn-search-toggle sf-instant-search-btn" href="javascript:void(0)" role="button" aria-label="Search Your Product (Ctrl+K)">
+                                    <i class="ri-search-line"></i>
+                                    <span class="sf-search-text"><span class="sf-search-typewriter">Search your product...</span><span class="sf-typewriter-cursor">|</span></span>
+                                    <kbd class="sf-search-kbd">Ctrl+K</kbd>
+                                </a>
+                            </div>
                         </div>
                         <div class="right-header">
                             <!-- Main Menu Start -->
@@ -421,13 +419,6 @@
                             </div>
                             <!-- Main menu icons -->
                             <div class="mn-tool-icons">
-                                <div class="mn-tool-search">
-                                    <a class="mn-main-search mn-search-toggle sf-instant-search-btn" href="shop.html" role="button" aria-label="Search Your Product (Ctrl+K)">
-                                        <i class="ri-search-line"></i>
-                                        <span class="sf-search-text"><span class="sf-search-typewriter">Search your product...</span><span class="sf-typewriter-cursor">|</span></span>
-                                        <kbd class="sf-search-kbd">Ctrl+K</kbd>
-                                    </a>
-                                </div>
                                 <div class="mn-tool-user">
                                     <a class="mn-main-user" href="#!" role="button">
                                         <svg
@@ -495,6 +486,12 @@
                             </a>
                         </div>
                     </div>
+                </div>
+                <div class="sf-mobile-search-bar">
+                    <a class="mn-main-search mn-search-toggle sf-instant-search-btn" href="javascript:void(0)" role="button" aria-label="Search Your Product">
+                        <i class="ri-search-line"></i>
+                        <span class="sf-search-text"><span class="sf-search-typewriter">Search your product...</span><span class="sf-typewriter-cursor">|</span></span>
+                    </a>
                 </div>
             </header>
             <!-- Main Content -->
@@ -1132,7 +1129,7 @@
                             </a>
                         </li>
                         <li class="mn-nav-item">
-                            <a class="mn-nav-link mn-search-toggle" href="shop.html" aria-label="Search">
+                            <a class="mn-nav-link mn-search-toggle" href="javascript:void(0)" aria-label="Search">
                                 <i class="ri-search-line"></i>
                                 <span class="mn-nav-label">Search</span>
                             </a>

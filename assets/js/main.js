@@ -253,9 +253,15 @@
             $(".mn-search-toggle").first().trigger("click");
             return;
         }
-        if (e.key === "Escape" && $(".mn-sidebar").hasClass("mn-open-category")) {
-            $(".mn-sidebar-overlay").fadeOut();
-            $(".mn-sidebar").removeClass("mn-open-category");
+        if (e.key === "Escape") {
+            if ($(".mn-sidebar").hasClass("mn-open-category")) {
+                $(".mn-sidebar-overlay").fadeOut();
+                $(".mn-sidebar").removeClass("mn-open-category");
+            }
+            if ($(".mn-side-search").hasClass("mn-open-search")) {
+                $(".mn-side-search-overlay").fadeOut();
+                $(".mn-side-search").removeClass("mn-open-search");
+            }
         }
     });
 
@@ -272,17 +278,6 @@
         e.preventDefault();
         $(".mn-side-search-overlay").fadeOut();
         $(".mn-side-search").removeClass("mn-open-search");
-    });
-    $(document).on("keydown", function (e) {
-        if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
-            e.preventDefault();
-            $(".mn-search-toggle").first().trigger("click");
-            return;
-        }
-        if (e.key === "Escape" && $(".mn-side-search").hasClass("mn-open-search")) {
-            $(".mn-side-search-overlay").fadeOut();
-            $(".mn-side-search").removeClass("mn-open-search");
-        }
     });
     $(document).on("click", ".search-remove-item", function (e) {
         e.preventDefault();

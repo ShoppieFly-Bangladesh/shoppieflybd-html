@@ -33,3 +33,14 @@
 1. **Fluid Grid Hierarchy:** Use standard Bootstrap container-row-col structure: `.container` > `.row` > `.col-*`.
 2. **Spacing Utilities:** Use standard Bootstrap spacing (`mb-3`, `py-4`, `g-4`) rather than ad-hoc inline styles.
 3. **Modals & Carousels:** Ensure modals trigger carousel refresh on show: `$('#quickview_modal').on('shown.bs.modal', function () { $('.owl-carousel').trigger('refresh.owl.carousel'); });`.
+
+---
+
+## 4. Unified Section Header & Divider Standard (STRICT INVARIANT)
+
+All storefront content sections (`.mn-category`, `.mn-new-product`, `.mn-deal`, `.mn-blog`, etc.) across all templates must strictly follow the uniform header architecture:
+
+1. **Full-Width Divider (<hr> / border-bottom):** Every section header must have a continuous `1px solid #e5e5e5` bottom border spanning 100% full width under the heading and action controls (`.sf-section-header.mn-title` or `.mn-title`).
+2. **Aligned Action Controls:** The right side must house the corresponding action—either a pill-shaped `View All` link (`.sf-cat-view-all`) or slider navigation controls (`.owl-dots` / `.owl-nav`).
+3. **Guaranteed Clearance (No Clinging):** Headers must maintain `padding-bottom: 10px` above the divider line and `margin-bottom: 24px` (mobile: `16px`) below it, preventing controls from clinging to items underneath.
+

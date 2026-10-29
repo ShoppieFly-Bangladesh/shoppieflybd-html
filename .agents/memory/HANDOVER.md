@@ -101,3 +101,25 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
   - Resolved duplicate `Ctrl+K` keydown listener (removed duplicate trigger in lines 276-286) so search drawer opens exactly once per keystroke.
   - Unified escape key handling for category and search drawers.
 - **Verification Results:** Full automated audit verified **0 blocking scripts, 0 missing image dimensions, 0 broken links, 0 broken images, 0 dead CSS, and 0 `javascript:void(0)`**.
+- **Modern Instagram-Inspired Top Category Grid Architecture (Approach 1 - Refined 2026-10-29):**
+  - Completely redesigned Homepage Category Section (`index.html`) from obsolete bulky cards (`.mn-cat-card` in Owl Carousel) to pure, borderless Instagram-style thumb showcases (`.sf-home-cat-item`).
+  - **Zero Outer White Card & Zero Blue Border:** Eliminated all card wrappers, outer borders, and blue hover outlines per user directive. The clean rounded image sits directly on the page background with title underneath.
+  - Section Header: Sleek `Top Categories` title paired with a pill-shaped `View All` button linking directly to `categories.html`.
+  - **Desktop View (Full-Width Edge-to-Edge with Tight Gap):** Configured `.sf-section-header` and `.sf-cat-grid-wrapper` to 100% full screen width (`width: 100% !important; max-width: 100% !important; margin: 0 !important;`) aligning seamlessly with Hero Slider above and New Arrivals below. Arranged 18 categories in 9 columns × 2 rows with a tight, uniform 14px horizontal gap (`gap: 18px 14px`) and zero container boxing or artificial indentation.
+  - **Mobile 4-Column Consistency & Grid Track Collision Fix (Resolved 2026-10-29):**
+    - **Root Cause Identified:** The base stylesheet had `grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));`. Because CSS Grid gives explicit track definitions priority over `grid-auto-columns`, the first 3 columns were rendered as explicit tracks at `115px` (large), while columns 4 onwards were generated as implicit tracks using `grid-auto-columns: calc((100% - 24px) / 4)` (smaller ~78-85px). This created the visual mismatch where items 1-3 were large and items 4+ were smaller.
+    - **Fix Applied:** Overrode `grid-template-columns: none !important;` in mobile media queries. All columns across the entire 18 items are now generated solely by `grid-auto-columns: calc((100% - 24px) / 4) !important;` with `gap: 12px 8px`.
+    - **100% Uniform Smaller Size:** Verified via headless DOM telemetry that every item across all 18 categories now has the exact identical compact width, with exactly 4 columns visible on initial load and 4 columns per view during swipe.
+    - Set `min-height: 28px` on category names to keep both rows horizontally level regardless of single-line or two-line category titles.
+    - Added subtle tap feedback (`scale(0.95)` on touch active) while disabling sticky hover shadows on mobile screens.
+  - Purged deprecated Owl Carousel binding for `.mn-cat` in `assets/js/main.js` and re-compiled canonical `assets/css/style.min.css`.
+- **Unified Section Header & Divider Line Invariant (Implemented 2026-10-29 via /learn):**
+  - **Full-Width Divider Line:** Integrated `.sf-section-header.mn-title` with `border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; margin-bottom: 24px; width: 100%;` matching `New Arrivals` exactly.
+  - **Zero Clinging for Action Controls:** Ensured 24px vertical clearance between the header and category items so `View All` never sits on top of cards.
+  - **Desktop Item Sizing & Gap Elimination (Resolved 2026-10-29):** Eliminated artificial empty spacing between items by removing restrictive `max-width: 115px; margin: 0 auto;` inside the 9-column 1fr grid. Items now cleanly occupy `width: 100%` of their respective tracks, governed by a tight, uniform `gap: 18px 14px` on desktop (and `gap: 16px 10px` on tablets). Zero 100px white voids remain.
+  - **Permanent Invariant Established:** Codified ADR-016 and updated `apps/web-html/.agents/rules/01-html-bootstrap-standards.md` and root `AGENTS.md` (Section 2.3) so all future sections across the monorepo follow this identical header standard.
+- **Dedicated Category Hub Card Modernization (`categories.html` - 2026-10-29):**
+  - Completely aligned all 18 category cards on `categories.html` with `index.html`'s modern Instagram-inspired design (`.sf-home-cat-item`, `.sf-home-cat-img`, `.sf-home-cat-name`).
+  - Purged bulky white card boxes (`.sf-cat-card`), gray borders, and item-count badges, establishing 100% storefront design consistency.
+  - Fully preserved instant live search (`#catSearchInput`) and interactive group filtering chips (`.sf-cat-filter-btn`) via programmatic `data-group` and `data-name` attributes.
+  - Purged dead `.sf-cat-card` CSS rules from `assets/css/style.css` and re-compiled `assets/css/style.min.css`.

@@ -405,41 +405,7 @@
         });
     }
 
-    /*== Category section ==*/
-    $(".mn-cat").owlCarousel({
-        margin: 24,
-        loop: true,
-        dots: false,
-        nav: false,
-        smartSpeed: 500,
-        autoplayTimeout: 3000,
-        items: 3,
-        autoHeight: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            421: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            992: {
-                items: 4,
-            },
-            1200: {
-                items: 4,
-            },
-            1400: {
-                items: 4,
-            },
-            1600: {
-                items: 5,
-            },
-        },
-    });
+    /*== Category section (Deprecated Owl Carousel Removed) ==*/
 
     /*== Product section ==*/
     $(".mn-product").owlCarousel({

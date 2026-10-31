@@ -123,3 +123,43 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
   - Purged bulky white card boxes (`.sf-cat-card`), gray borders, and item-count badges, establishing 100% storefront design consistency.
   - Fully preserved instant live search (`#catSearchInput`) and interactive group filtering chips (`.sf-cat-filter-btn`) via programmatic `data-group` and `data-name` attributes.
   - Purged dead `.sf-cat-card` CSS rules from `assets/css/style.css` and re-compiled `assets/css/style.min.css`.
+
+---
+
+## 6. Active Sprint: Product Ecosystem Audit & Canonical Card Refinement (2026-10-31)
+
+- **Phase 1 & Phase 2 Completed: Canonical Lightweight Product Card Architecture (With Full Bottom Button):**
+  - **Single Image & Zero Hover Lag:** Completely eliminated redundant second hover images (`hover-img`) and hover action overlays (`mn-options`, `mn-pro-loader`). Every product card loads exactly 1 crisp image.
+  - **Top Cutout Percentage Badge:** Preserved original template cutout shape with `shape-2.webp` ears (`.lbl span.discount`), styled in bold danger color (`#f90c4c`, `font-weight: 700;`, e.g. `20% OFF`).
+  - **Social Proof & Sold Count:** Integrated star rating and sold count in a clean space-between row (`★ 4.8 (42)` and `850+ Sold`) with zero extra height.
+  - **Strict 2-Line Height Equalization:** Enforced `-webkit-line-clamp: 2; height: 40px;` across all cards, guaranteeing 100% equal card heights across desktop, tablet, and mobile grid rows.
+  - **Full-Width Prominent 'Add to Cart' Button:** Integrated `.mn-add-cart.mn-pro-btn-full` across the full width of the card's inner content (`width: 100%; height: 38px; border-radius: 8px; margin-top: auto;`) with soft background, active tap scaling (`scale(0.98)`), and smooth notification toast.
+  - **Out-of-Stock State:** Implemented `.sf-out-of-stock` with `স্টক শেষ` overlay badge, 60% grayscale image filter, and disabled button.
+  - **Purged Obsolete CSS & JS (3,500+ Lines Cleaned):** Permanently eliminated list-view styling (including invalid `font-weight: 20px;`), list-view switchers (`mn-gl-btn`), and color hover image swapping scripts (`initChangeImg`, `changeProductImg`, `hoverAddImg`, `listView`, `gridView`) from `assets/js/main.js` and `assets/css/style.css`.
+  - **Shop Catalog Modernization (`shop.html`):**
+    - Fixed all 12 broken `href=""` product links to `href="product.html"`.
+    - Relocated filter sidebar from the right side (`m-t-991`) to the left side (`col-lg-3` sidebar, `col-lg-9` products) adhering to e-commerce standards.
+    - Replaced obsolete list-view toggle with clean items count toolbar (`Showing 1-12 of 36 items`).
+  - **Homepage & Cross-Page Synchronization:**
+    - Updated "New Arrivals" (6 cards) and "Day of the Deals" (8 cards) carousels on `index.html` with canonical cards, ADR-016 headers with `View All` buttons, and active countdown timer.
+    - Updated `vendor-store.html` (9 cards, sidebar moved to left) and `product.html` (6 Related Product cards) with canonical cards and ADR-016 headers.
+  - **Elimination of All Product Sliders (Pure 2-Row CSS Grid Architecture):**
+    - Completely purged Owl Carousel from product sections across the entire site (`$(".mn-product").owlCarousel`, `$(".mn-related").owlCarousel`, and `$(".mn-add-more-slider").owlCarousel` removed from `assets/js/main.js`).
+    - Implemented `.sf-product-grid-wrapper`:
+      - **Desktop (≥ 1200px):** 6 columns × 2 rows = 12 products per section.
+      - **Laptop (992px - 1199px):** 5 columns × 2 rows = 10 products per section.
+      - **Tablet (768px - 991px):** 4 columns × 2 rows = 8 products per section.
+      - **Mobile (≤ 767px):** Exact "Top Categories" style with 2-row smooth native touch scroll (`grid-template-rows: repeat(2, auto); grid-auto-flow: column; grid-auto-columns: calc((100% - 10px) / 2);`) and `scroll-snap-type: x mandatory;`.
+    - 0 JavaScript carousel overhead, 0 layout shifts, instant native rendering.
+  - **Re-compiled `style.min.css`:** Minified cleanly to 270.6 KB.
+  - **Day of the Deals: Fixed Deal Countdown Tab at Bottom of Image:**
+    - Implemented `.mn-deal-counter` at the bottom of the product image container (`.mn-img`) across all 12 cards in the "Day of the Deals" section on `index.html`.
+    - Engineered mathematically perfect inverted radial-gradient curves (`radial-gradient(circle at ...)`), replacing raster WebP artifacts for a 100% seamless, crisp curve that blends directly into the image bottom with zero gaps, zero jagged pixels, and zero misaligned wings.
+    - Permanent non-hover fixed deal countdown timer (`<i class="ri-time-line"></i> <span class="timer-digits">18h : 24m : 35s</span>`) with 26px height, 13px radius, and danger red text (`#f90c4c`).
+    - Validated live rendering with Chrome headless at 1200px and mobile viewports.
+    - Recompiled `style.min.css` (274.3 KB).
+  - **Homepage Section Streamlining & Consistency Sprint (`index.html`):**
+    - **Service Section Elimination:** Removed the 4-box `.mn-service` section from `index.html`.
+    - **Section Header Consistency Invariant:** Standardized all section headers (`Top Categories`, `New Arrivals`, `Day of the Deals`) to strictly follow the clean, plain "New Arrivals" pattern (`.sf-view-all-btn`). Eliminated pill button backgrounds/borders from `Top Categories`.
+    - **Smooth Down-to-Up Vertical Slide & Fade Promo Ticker (`.sf-promo-ticker`):** Engineered a continuous down-to-up vertical slide & fade transition (`transform: translateY(100% -> 0 -> -100%)`, `opacity: 0 -> 1 -> 0`) rotating through 5 core customer benefits with colorful icons (Authentic Products, Free Shipping, 24/7 Support, 30 Days Return, Secure Payment) every 3.0s with pause-on-hover. Fixed height (24px) preventing any layout shift (CLS = 0). Recompiled `style.min.css` (274.7 KB).
+  - **Quality Verification:** Verified **0 broken images, 0 broken product links, and 0 empty `href=""`** across all 20 canonical HTML files.

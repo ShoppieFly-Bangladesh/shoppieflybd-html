@@ -336,150 +336,11 @@
         });
     }
 
-    /*== Add More Product slider section (Single Product Page) ==*/
-    $(".mn-add-more-slider").owlCarousel({
-        margin: 24,
-        loop: true,
-        dots: false,
-        nav: false,
-        smartSpeed: 1500,
-        autoplay: false,
-        items: 3,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 2,
-                margin: 12,
-            },
-            576: {
-                items: 2,
-            },
-            768: {
-                items: 2,
-            },
-            992: {
-                items: 2,
-            },
-            1200: {
-                items: 3,
-            },
-            1400: {
-                items: 3,
-            },
-        },
-    });
-
-    /*== Price Range slider ( Shop page ) == */
-    const slider = document.getElementById("mn-sliderPrice");
-    if (slider) {
-        const rangeMin = parseInt(slider.dataset.min);
-        const rangeMax = parseInt(slider.dataset.max);
-        const step = parseInt(slider.dataset.step);
-        const filterInputs = document.querySelectorAll("input.filter__input");
-
-        noUiSlider.create(slider, {
-            start: [rangeMin, rangeMax],
-            connect: true,
-            step: step,
-            range: {
-                min: rangeMin,
-                max: rangeMax,
-            },
-
-            // make numbers whole
-            format: {
-                to: (value) => value,
-                from: (value) => value,
-            },
-        });
-
-        // bind inputs with noUiSlider
-        slider.noUiSlider.on("update", (values, handle) => {
-            filterInputs[handle].value = values[handle];
-        });
-
-        filterInputs.forEach((input, indexInput) => {
-            input.addEventListener("change", () => {
-                slider.noUiSlider.setHandle(indexInput, input.value);
-            });
-        });
-    }
+    /*== Add More Product slider purged for clean CSS grid ==*/
 
     /*== Category section (Deprecated Owl Carousel Removed) ==*/
 
-    /*== Product section ==*/
-    $(".mn-product").owlCarousel({
-        margin: 24,
-        loop: true,
-        dots: true,
-        nav: false,
-        smartSpeed: 500,
-        autoplayTimeout: 3000,
-        items: 1,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 2,
-                margin: 12,
-                dots: false,
-            },
-            461: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            992: {
-                items: 4,
-            },
-            1200: {
-                items: 4,
-            },
-            1400: {
-                items: 4,
-            },
-            1500: {
-                items: 5,
-            },
-        },
-    });
-
-    /*== Product section ==*/
-    $(".mn-related").owlCarousel({
-        margin: 24,
-        loop: true,
-        dots: true,
-        nav: false,
-        smartSpeed: 500,
-        autoplayTimeout: 3000,
-        items: 1,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 2,
-                margin: 12,
-                dots: false,
-            },
-            461: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            992: {
-                items: 3,
-            },
-            1200: {
-                items: 3,
-            },
-            1400: {
-                items: 3,
-            },
-            1600: {
-                items: 4,
-            },
-        },
-    });
+    /*== Product sliders permanently purged for pure 2-row CSS Grid ==*/
 
     /*== Quick view ==*/
     $(".single-slide-quickview").owlCarousel({
@@ -706,119 +567,7 @@
         $el.find(".custom-tooltip-bottom").remove();
     });
 
-    /*== Color Hover To Image Change ==*/
-    var $mnproduct = $(".mn-product-card").find(".mn-opt-swatch");
-
-    function initChangeImg($opt) {
-        $opt.each(function () {
-            var $this = $(this),
-                ecChangeImg = $this.hasClass("mn-change-img");
-
-            $this.on("mouseenter", "li", function () {
-                changeProductImg($(this));
-            });
-
-            $this.on("click", "li", function () {
-                changeProductImg($(this));
-            });
-
-            function changeProductImg(thisObj) {
-                var $this = thisObj;
-                var $load = $this.find("a");
-
-                var $proimg = $this.closest(".mn-product-card").find(".mn-product-img");
-
-                if (!$load.hasClass("loaded")) {
-                    $proimg.addClass("pro-loading");
-                }
-
-                var $loaded = $this.find("a").addClass("loaded");
-
-                $this.addClass("active").siblings().removeClass("active");
-                if (ecChangeImg) {
-                    hoverAddImg($this);
-                }
-                setTimeout(function () {
-                    $proimg.removeClass("pro-loading");
-                }, 1000);
-                return false;
-            }
-        });
-    }
-
-    function hoverAddImg($this) {
-        var $optData = $this.find(".mn-opt-clr-img"),
-            $opImg = $optData.attr("data-src"),
-            $opImgHover = $optData.attr("data-src-hover") || false,
-            $optImgWrapper = $this.closest(".mn-product-card").find(".mn-product-img"),
-            $optImgMain = $optImgWrapper.find(".image img.main-img"),
-            $optImgMainHover = $optImgWrapper.find(".image img.hover-img");
-        if ($opImg.length) {
-            $optImgMain.attr("src", $opImg);
-        }
-        if ($opImg.length) {
-            var checkDisable = $optImgMainHover.closest("img.hover-img");
-            $optImgMainHover.attr("src", $opImgHover);
-            if (checkDisable.hasClass("disable")) {
-                checkDisable.removeClass("disable");
-            }
-        }
-        if ($opImgHover === false) {
-            $optImgMainHover.closest("img.hover-img").addClass("disable");
-        }
-    }
-    $(window).on("load", function () {
-        initChangeImg($mnproduct);
-    });
-    $("document").ready(function () {
-        initChangeImg($mnproduct);
-    });
-
-    /*----------------------------- List Grid View -------------------------------- */
-    $(".mn-gl-btn").on("click", "button", function () {
-        var $this = $(this);
-        $this.addClass("active").siblings().removeClass("active");
-    });
-
-    // for 100% width list view
-    function listView(e) {
-        var $gridCont = $(".shop-pro-inner");
-        var $listView = $(".pro-gl-content");
-        e.preventDefault();
-        $gridCont.addClass("list-view");
-        $listView.addClass("width-100");
-    }
-
-    function gridView(e) {
-        var $gridCont = $(".shop-pro-inner");
-        var $gridView = $(".pro-gl-content");
-        e.preventDefault();
-        $gridCont.removeClass("list-view");
-        $gridView.removeClass("width-100");
-    }
-
-    $(document).on("click", ".btn-grid", gridView);
-    $(document).on("click", ".btn-list", listView);
-
-    // for 50% width list view
-    function listView50(e) {
-        var $gridCont = $(".shop-pro-inner");
-        var $listView = $(".pro-gl-content");
-        e.preventDefault();
-        $gridCont.addClass("list-view-50");
-        $listView.addClass("width-50");
-    }
-
-    function gridView50(e) {
-        var $gridCont = $(".shop-pro-inner");
-        var $gridView = $(".pro-gl-content");
-        e.preventDefault();
-        $gridCont.removeClass("list-view-50");
-        $gridView.removeClass("width-50");
-    }
-
-    $(document).on("click", ".btn-grid-50", gridView50);
-    $(document).on("click", ".btn-list-50", listView50);
+    /*== Unused color hover & list-view purged for clean grid ==*/
 
     /*== Product & shop page category Toggle == */
     $(document).ready(function () {
@@ -992,5 +741,47 @@
         } else {
             runTypewriter();
         }
+    })();
+
+    /*== Topbar Promo Ticker Auto-Rotation ==*/
+    (function initPromoTicker() {
+        var $ticker = $(".sf-promo-ticker");
+        if (!$ticker.length) return;
+
+        var $items = $ticker.find(".sf-promo-item");
+        if ($items.length <= 1) return;
+
+        var currentIndex = 0;
+        var intervalId = null;
+
+        function showNext() {
+            var $prev = $items.eq(currentIndex);
+            currentIndex = (currentIndex + 1) % $items.length;
+            var $next = $items.eq(currentIndex);
+
+            $prev.removeClass("active").addClass("prev");
+            $next.addClass("active");
+
+            setTimeout(function () {
+                $prev.removeClass("prev");
+            }, 550);
+        }
+
+        function startRotation() {
+            if (!intervalId) {
+                intervalId = setInterval(showNext, 3000);
+            }
+        }
+
+        function stopRotation() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        startRotation();
+
+        $(".sf-topbar-promo").on("mouseenter", stopRotation).on("mouseleave", startRotation);
     })();
 })(jQuery);

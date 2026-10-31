@@ -13605,3 +13605,532 @@ footer.mn-footer {
 .sf-banner-item:hover .sf-banner-img {
     transform: scale(1.015);
 }
+
+/* Shop Page Mobile Offcanvas Filter & Toolbar Enhancements */
+.sf-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #313b50;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    line-height: 1;
+}
+.sf-filter-btn:hover,
+.sf-filter-btn:focus {
+    color: #3a4ee5;
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+}
+.sf-filter-btn i {
+    font-size: 16px;
+    color: #3a4ee5;
+}
+
+/* Matching Sort By Pill (Same 38px Height & Design Structure) */
+.sf-sort-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+.sf-sort-label {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+.sf-select-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0 12px 0 10px;
+    transition: all 0.2s ease;
+}
+.sf-select-pill:hover,
+.sf-select-pill:focus-within {
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+}
+.sf-select-pill .sf-sort-icon {
+    font-size: 15px;
+    color: #3a4ee5;
+    margin-right: 6px;
+    pointer-events: none;
+}
+.sf-select-pill.w-100 {
+    width: 100%;
+}
+.sf-select-pill.w-100 select {
+    width: 100%;
+    flex: 1;
+}
+.sf-select-pill select {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #313b50;
+    cursor: pointer;
+    padding-right: 18px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.sf-select-pill::after {
+    content: "\ea4e";
+    font-family: "remixicon";
+    font-size: 14px;
+    color: #64748b;
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+}
+
+/* Custom Modern Sort By Dropdown (Bootstrap 5 Enhanced) */
+.sf-sort-dropdown {
+    position: relative;
+}
+.sf-sort-dropdown .sf-select-pill {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0 12px 0 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    user-select: none;
+}
+.sf-sort-dropdown .sf-select-pill::after {
+    display: none !important;
+}
+.sf-sort-dropdown .sf-select-pill:hover,
+.sf-sort-dropdown .sf-select-pill:focus,
+.sf-sort-dropdown .sf-select-pill[aria-expanded="true"] {
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+}
+.sf-sort-dropdown .sf-select-pill .sf-sort-icon {
+    font-size: 15px;
+    color: #3a4ee5;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+.sf-sort-dropdown .sf-select-pill .sf-sort-selected-text {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #313b50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sf-sort-dropdown .sf-select-pill .sf-dropdown-caret {
+    font-size: 16px;
+    color: #64748b;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+.sf-sort-dropdown .sf-select-pill[aria-expanded="true"] .sf-dropdown-caret {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu Popup Box */
+.sf-sort-dropdown .dropdown-menu {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06) !important;
+    padding: 6px !important;
+    margin-top: 6px !important;
+    background-color: #ffffff !important;
+    min-width: 195px;
+    z-index: 1050;
+    animation: sfDropdownFade 0.15s ease-out;
+}
+@keyframes sfDropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.sf-sort-dropdown .dropdown-item {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    transition: all 0.15s ease !important;
+    cursor: pointer !important;
+}
+.sf-sort-dropdown .dropdown-item:hover,
+.sf-sort-dropdown .dropdown-item:focus {
+    background-color: #f1f5f9 !important;
+    color: #1e293b !important;
+}
+.sf-sort-dropdown .dropdown-item.active {
+    background-color: #eef2ff !important;
+    color: #3a4ee5 !important;
+    font-weight: 600 !important;
+}
+.sf-sort-dropdown .dropdown-item.active::after {
+    content: "\eb7b";
+    font-family: "remixicon";
+    font-size: 13px;
+    color: #3a4ee5;
+    margin-left: 8px;
+    line-height: 1;
+}
+
+/* Offcanvas and Sticky Sidebar */
+@media (max-width: 991.98px) {
+    #shopFilterOffcanvas.offcanvas-lg {
+        max-width: 320px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    #shopFilterOffcanvas .offcanvas-header {
+        background-color: #f8fafc;
+        padding: 14px 18px;
+    }
+    #shopFilterOffcanvas .mn-sidebar-wrap {
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 15px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .mn-shop-sidebar {
+        position: sticky !important;
+        top: 90px !important;
+        max-height: calc(100vh - 110px) !important;
+        overflow-y: auto !important;
+        scrollbar-width: thin !important;
+    }
+    .mn-shop-sidebar::-webkit-scrollbar {
+        width: 5px;
+    }
+    .mn-shop-sidebar::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 4px;
+    }
+}
+
+/* Filters & Reset Header Polish (Fixing overlap) */
+.mn-shop-sidebar .mn-sb-title {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+.mn-shop-sidebar .mn-sb-title h3 {
+    margin: 0 !important;
+    width: auto !important;
+}
+.mn-shop-sidebar .mn-sb-title .sf-filter-reset-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 12px !important;
+    line-height: 1 !important;
+    color: #ef4444 !important;
+    background: #fef2f2 !important;
+    border: 1px solid #fee2e2 !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+.mn-shop-sidebar .mn-sb-title .sf-filter-reset-link:hover {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+}
+.mn-shop-sidebar .mn-sb-title .sf-filter-reset-link i {
+    font-size: 13px !important;
+    line-height: 1 !important;
+}
+
+/* Modern Robust Checkbox Filter (Brand, Size, etc.) */
+.sf-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sf-check-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    padding: 4px 6px;
+    border-radius: 6px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s ease;
+}
+.sf-check-item:hover {
+    background-color: #f8fafc;
+}
+.sf-check-item input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    min-height: 18px !important;
+    max-height: 18px !important;
+    padding: 0 !important;
+    margin: 0 10px 0 0 !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    background-color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    transition: all 0.2s ease;
+    outline: none !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+}
+.sf-check-item input[type="checkbox"]:hover {
+    border-color: #94a3b8 !important;
+}
+.sf-check-item input[type="checkbox"]:checked {
+    background-color: #3a4ee5 !important;
+    border-color: #3a4ee5 !important;
+}
+.sf-check-item input[type="checkbox"]:checked::after {
+    content: "\eb7b" !important;
+    font-family: "remixicon" !important;
+    font-size: 11px !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+.sf-check-item .sf-check-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #475569;
+    transition: color 0.15s ease;
+    flex: 1;
+}
+.sf-check-item:hover .sf-check-label {
+    color: #3a4ee5;
+}
+.sf-check-item .sf-check-count {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-left: auto;
+}
+
+/* Color Filter with Name Labels */
+.sf-color-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sf-color-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #475569;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.sf-color-item:hover {
+    color: #1e293b;
+}
+.sf-color-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #3a4ee5;
+    cursor: pointer;
+}
+.sf-color-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+.sf-color-name {
+    font-size: 13.5px;
+}
+.sf-color-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Min-Max Price Filter UI */
+.sf-price-filter-box {
+    padding-top: 10px;
+}
+.sf-price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.sf-price-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.sf-price-currency {
+    position: absolute;
+    left: 8px;
+    font-size: 13px;
+    color: #64748b;
+    pointer-events: none;
+}
+.sf-price-input-wrap input {
+    width: 100%;
+    height: 36px;
+    padding: 0 6px 0 20px;
+    font-size: 13px;
+    color: #1e293b;
+    background-color: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+.sf-price-input-wrap input:focus {
+    border-color: #3a4ee5;
+    box-shadow: 0 0 0 2px rgba(58, 78, 229, 0.15);
+}
+.sf-price-divider {
+    font-size: 12px;
+    color: #94a3b8;
+}
+.sf-price-btn {
+    height: 36px;
+    padding: 0 12px;
+    background-color: #3a4ee5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.sf-price-btn:hover {
+    background-color: #2b3dc7;
+}
+.sf-price-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.sf-price-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #475569;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.sf-price-chip:hover {
+    color: #3a4ee5;
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+}
+
+/*==================================================
+  Mobile Shop Catalog Sticky Filter Toolbar & Compact Sizing
+==================================================*/
+:root {
+    --sf-mobile-header-height: 137px;
+}
+
+@media (max-width: 991.98px) {
+    .mn-shop .mn-pro-list-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: var(--sf-mobile-header-height, 137px);
+        z-index: 25;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+        transition: box-shadow 0.2s ease;
+    }
+
+    /* Ultra-Compact Button Sizing in Mobile Toolbar */
+    .mn-pro-list-top .sf-filter-btn {
+        height: 32px;
+        padding: 0 10px;
+        font-size: 12px;
+        gap: 5px;
+        border-radius: 6px;
+    }
+    .mn-pro-list-top .sf-filter-btn i {
+        font-size: 14px;
+    }
+
+    .mn-pro-list-top .sf-sort-dropdown .sf-select-pill {
+        height: 32px;
+        padding: 0 10px 0 8px;
+        border-radius: 6px;
+    }
+    .mn-pro-list-top .sf-sort-dropdown .sf-select-pill .sf-sort-icon {
+        font-size: 13px;
+        margin-right: 4px;
+    }
+    .mn-pro-list-top .sf-sort-dropdown .sf-select-pill .sf-sort-selected-text {
+        font-size: 12px;
+    }
+    .mn-pro-list-top .sf-sort-dropdown .sf-select-pill .sf-dropdown-caret {
+        font-size: 14px;
+        margin-left: 6px;
+    }
+}
+

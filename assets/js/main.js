@@ -87,16 +87,18 @@
     ResponsiveMobilemsMenu();
 
     /*== Main Slider ==*/
-    $(".mn-hero-slider").owlCarousel({
-        margin: 0,
-        loop: true,
-        dots: true,
-        nav: true,
-        smartSpeed: 1500,
-        autoplay: true,
-        items: 1,
-        responsiveClass: true,
-    });
+    if (typeof $.fn.owlCarousel === "function" && $(".mn-hero-slider").length) {
+        $(".mn-hero-slider").owlCarousel({
+            margin: 0,
+            loop: true,
+            dots: true,
+            nav: true,
+            smartSpeed: 1500,
+            autoplay: true,
+            items: 1,
+            responsiveClass: true,
+        });
+    }
 
     /*== Cart sidebar JS ==*/
     $(".mn-cart-toggle").on("click", function (e) {
@@ -343,85 +345,92 @@
     /*== Product sliders permanently purged for pure 2-row CSS Grid ==*/
 
     /*== Quick view ==*/
-    $(".single-slide-quickview").owlCarousel({
-        loop: true,
-        margin: 0,
-        responsiveClass: true,
-        dots: false,
-        nav: false,
-        pagination: false,
-        autoplay: true,
-        items: 1,
-        autoplaySpeed: 2000,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: false,
-    });
+    if (typeof $.fn.owlCarousel === "function" && $(".single-slide-quickview").length) {
+        $(".single-slide-quickview").owlCarousel({
+            loop: true,
+            margin: 0,
+            responsiveClass: true,
+            dots: false,
+            nav: false,
+            pagination: false,
+            autoplay: true,
+            items: 1,
+            autoplaySpeed: 2000,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+        });
+    }
 
     /*== Blog section ==*/
-    $(".mn-blog-carousel").owlCarousel({
-        margin: 24,
-        loop: true,
-        dots: true,
-        nav: false,
-        smartSpeed: 500,
-        autoplayTimeout: 3000,
-        items: 1,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                dots: false,
+    if (typeof $.fn.owlCarousel === "function" && $(".mn-blog-carousel").length) {
+        $(".mn-blog-carousel").owlCarousel({
+            margin: 24,
+            loop: true,
+            dots: true,
+            nav: false,
+            smartSpeed: 500,
+            autoplayTimeout: 3000,
+            items: 1,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    dots: false,
+                },
+                461: {
+                    items: 2,
+                },
+                576: {
+                    items: 2,
+                },
+                768: {
+                    items: 3,
+                },
+                992: {
+                    items: 3,
+                },
+                1200: {
+                    items: 4,
+                },
+                1400: {
+                    items: 4,
+                },
             },
-            461: {
-                items: 2,
-            },
-            576: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            },
-            992: {
-                items: 3,
-            },
-            1200: {
-                items: 4,
-            },
-            1400: {
-                items: 4,
-            },
-        },
-    });
+        });
+    }
 
     /*== Testimonial Slider ==*/
-    $(".mn-testimonial-slider").owlCarousel({
-        margin: 0,
-        loop: true,
-        dots: true,
-        nav: false,
-        animateOut: "fadeOut",
-        smartSpeed: 1000,
-        autoplay: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
+    if (typeof $.fn.owlCarousel === "function" && $(".mn-testimonial-slider").length) {
+        $(".mn-testimonial-slider").owlCarousel({
+            margin: 0,
+            loop: true,
+            dots: true,
+            nav: false,
+            animateOut: "fadeOut",
+            smartSpeed: 1000,
+            autoplay: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                1367: {
+                    items: 1,
+                },
             },
-            1367: {
-                items: 1,
-            },
-        },
-    });
+        });
+    }
 
     /*== Team (About Page) ==*/
-    $(".mn-team").owlCarousel({
-        margin: 30,
-        loop: true,
-        dots: true,
-        nav: false,
-        smartSpeed: 1000,
-        autoplay: true,
-        responsiveClass: true,
+    if (typeof $.fn.owlCarousel === "function" && $(".mn-team").length) {
+        $(".mn-team").owlCarousel({
+            margin: 30,
+            loop: true,
+            dots: true,
+            nav: false,
+            smartSpeed: 1000,
+            autoplay: true,
+            responsiveClass: true,
         responsive: {
             0: {
                 items: 1,
@@ -444,6 +453,7 @@
             },
         },
     });
+    }
 
     /*== Cart page Apply Coupan Toggle ==*/
     $(document).ready(function () {
@@ -483,11 +493,13 @@
 
     /*== Instagram slider & Category slider & Tooltips ==*/
     $(function () {
-        $(".insta-auto, .cat-auto").infiniteslide({
-            direction: "left",
-            speed: 50,
-            clone: 10,
-        });
+        if (typeof $.fn.infiniteslide === "function" && $(".insta-auto, .cat-auto").length) {
+            $(".insta-auto, .cat-auto").infiniteslide({
+                direction: "left",
+                speed: 50,
+                clone: 10,
+            });
+        }
 
         if (typeof bootstrap !== "undefined" && bootstrap.Tooltip) {
             document.querySelectorAll('[data-bs-toggle="tooltip"], [data-toggle="tooltip"]').forEach(function (el) {
@@ -569,6 +581,45 @@
         $(this).parent(".mn-select-bar").remove();
     });
 
+    /*== Custom Sort Dropdown Handler ==*/
+    $(document).on("click", ".sf-sort-dropdown .dropdown-item", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var val = $this.attr("data-value");
+        var text = $this.text().trim();
+
+        // Synchronize all sort dropdowns on page
+        $(".sf-sort-dropdown").each(function () {
+            var $dd = $(this);
+            $dd.find(".dropdown-item").removeClass("active");
+            $dd.find('.dropdown-item[data-value="' + val + '"]').addClass("active");
+            $dd.find(".sf-sort-selected-text").text(text);
+            $dd.find("input[type='hidden']").val(val).trigger("change");
+        });
+
+        // Close dropdown via Bootstrap API if available
+        var btn = $this.closest(".sf-sort-dropdown").find('[data-bs-toggle="dropdown"]')[0];
+        if (btn && window.bootstrap && typeof bootstrap.Dropdown !== "undefined") {
+            var bsDropdown = bootstrap.Dropdown.getInstance(btn);
+            if (bsDropdown) {
+                bsDropdown.hide();
+            }
+        }
+    });
+
+    /*== Mobile Sticky Header Offset for Catalog Filter Toolbar ==*/
+    function updateMobileStickyHeaderOffset() {
+        if (window.innerWidth < 992) {
+            var header = document.querySelector("header");
+            if (header) {
+                var h = header.offsetHeight;
+                document.documentElement.style.setProperty("--sf-mobile-header-height", h + "px");
+            }
+        }
+    }
+    updateMobileStickyHeaderOffset();
+    $(window).on("resize orientationchange load", updateMobileStickyHeaderOffset);
+
     /*== Qty Plus Minus Button ==*/
     $(".qty-plus-minus").each(function () {
         if (!$(this).find(".mn-qtybtn").length) {
@@ -612,7 +663,7 @@
 
     /* Re-calculate Quickview Carousel on Modal Open */
     $(document).on("shown.bs.modal", "#quickview_modal", function () {
-        if ($(".single-slide-quickview").hasClass("owl-carousel")) {
+        if (typeof $.fn.owlCarousel === "function" && $(".single-slide-quickview").hasClass("owl-carousel")) {
             $(".single-slide-quickview").trigger("refresh.owl.carousel");
         }
     });

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 
 <html dir="ltr" lang="en">
     <head>
@@ -15,13 +15,13 @@
         <meta property="og:site_name" content="ShoppieFlyBD">
         <meta property="og:title" content="ShoppieFlyBD - Multi-Store eCommerce Ecosystem">
         <meta property="og:description" content="Leading multi-store eCommerce ecosystem in Bangladesh offering fashion, gadgets, groceries and fast delivery.">
-        <meta property="og:url" content="https://template.businesszonebd.com/">
+        <meta property="og:url" content="https://template.businesszonebd.com/shop.html">
         <meta property="og:image" content="https://template.businesszonebd.com/assets/img/logo/ShoppieFly-logo.png">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="ShoppieFlyBD - Multi-Store eCommerce Ecosystem">
         <meta name="twitter:description" content="Leading multi-store eCommerce ecosystem in Bangladesh offering fashion, gadgets, groceries and fast delivery.">
         <meta name="twitter:image" content="https://template.businesszonebd.com/assets/img/logo/ShoppieFly-logo.png">
-        <title>Shop Banner Right Sidebar - ShoppieFlyBD</title>
+        <title>Shop - ShoppieFlyBD</title>
         <link rel="canonical" href="https://template.businesszonebd.com/shop.html">
                 <!-- Schema.org Structured Data for SEO -->
         <script type="application/ld+json">
@@ -72,8 +72,6 @@
         <noscript><link href="assets/css/vendor/remixicon.min.css" rel="stylesheet"></noscript>
         <!-- Vendor -->
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet">
-        <link href="assets/css/vendor/nouislider.css" rel="stylesheet">
         <!-- Main CSS -->
         <link href="assets/css/style.min.css?v=2190be95" id="mainCss" rel="stylesheet">
     </head>
@@ -661,7 +659,7 @@
                 <div class="mn-breadcrumb m-b-30">
                     <div class="row">
                         <div class="col-12">
-                            <div class="row gi_breadcrumb_inner">
+                            <div class="row gi_breadcrumb_inner mn-breadcrumb-inner">
                                 <div class="col-md-6 col-sm-12">
                                     <h1 class="mn-breadcrumb-title">Shop Products</h1>
                                 </div>
@@ -710,7 +708,7 @@
                                                 </div>
                                                 <div class="mn-bnr-detail">
                                                     <h5>Trending women's sale</h5>
-                                                    <p>Trending desings of clothes.</p>
+                                                    <p>Trending designs of clothes.</p>
                                                     <a class="mn-btn-2" href="shop.html">
                                                         <span>Shop Now</span>
                                                     </a>
@@ -722,14 +720,48 @@
                             </div>
                             <div class="row">
                                 <!-- Sidebar Area Start -->
-                                <div class="mn-shop-sidebar col-lg-3 col-md-12 m-b-30">
-                                    <div id="shop_sidebar">
-                                        <div class="mn-sidebar-wrap">
-                                            <!-- Sidebar Filters Block -->
-                                            <div class="mn-sidebar-block drop">
-                                                <div class="mn-sb-title">
-                                                    <h3 class="mn-sidebar-title">Filters</h3>
-                                                </div>
+                                <div class="offcanvas-lg offcanvas-start mn-shop-sidebar col-lg-3 m-b-30" tabindex="-1" id="shopFilterOffcanvas" aria-labelledby="shopFilterOffcanvasLabel">
+                                    <div class="offcanvas-header d-flex d-lg-none justify-content-between align-items-center p-3 border-bottom">
+                                        <h5 class="offcanvas-title fw-bold m-0" id="shopFilterOffcanvasLabel">
+                                            <i class="ri-filter-3-line text-primary me-2"></i>Filters
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#shopFilterOffcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body p-0">
+                                        <div id="shop_sidebar" class="w-100">
+                                            <div class="mn-sidebar-wrap">
+                                                <!-- Sidebar Filters Block -->
+                                                <div class="mn-sidebar-block drop">
+                                                    <div class="mn-sb-title d-flex justify-content-between align-items-center">
+                                                        <h3 class="mn-sidebar-title">Filters</h3>
+                                                        <a href="shop.html" class="sf-filter-reset-link"><i class="ri-refresh-line"></i> Reset</a>
+                                                    </div>
+                                                    <!-- Sidebar Sort By (Desktop) -->
+                                                    <div class="sf-sidebar-sort d-none d-lg-block p-t-15 p-b-15 border-bottom">
+                                                        <label class="sf-sort-label text-muted fw-semibold mb-2 d-block">Sort By:</label>
+                                                        <div class="dropdown sf-sort-dropdown w-100">
+                                                            <button
+                                                                class="sf-select-pill w-100"
+                                                                type="button"
+                                                                data-bs-toggle="dropdown"
+                                                                aria-expanded="false"
+                                                                aria-label="Sort by">
+                                                                <span class="d-inline-flex align-items-center">
+                                                                    <i class="ri-arrow-up-down-line sf-sort-icon"></i>
+                                                                    <span class="sf-sort-selected-text">Featured</span>
+                                                                </span>
+                                                                <i class="ri-arrow-down-s-line sf-dropdown-caret"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu w-100">
+                                                                <li><a class="dropdown-item active" href="#!" data-value="1">Featured</a></li>
+                                                                <li><a class="dropdown-item" href="#!" data-value="2">Price: Low to High</a></li>
+                                                                <li><a class="dropdown-item" href="#!" data-value="3">Price: High to Low</a></li>
+                                                                <li><a class="dropdown-item" href="#!" data-value="4">Newest Arrivals</a></li>
+                                                                <li><a class="dropdown-item" href="#!" data-value="5">Best Rating</a></li>
+                                                            </ul>
+                                                            <input type="hidden" name="sort" value="1">
+                                                        </div>
+                                                    </div>
                                                 <div class="mn-sb-block-content p-t-15">
                                                     <ul>
                                                         <li>
@@ -744,7 +776,7 @@
                                                                         <a href="#">
                                                                             Men
 
-                                                                            <span>-25</span>
+                                                                            <span>(25)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -753,7 +785,7 @@
                                                                         <a href="#">
                                                                             Women
 
-                                                                            <span>-52</span>
+                                                                            <span>(52)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -762,7 +794,7 @@
                                                                         <a href="#">
                                                                             Boy
 
-                                                                            <span>-40</span>
+                                                                            <span>(40)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -784,7 +816,7 @@
                                                                         <a href="shop.html">
                                                                             Shampoo
 
-                                                                            <span>-25</span>
+                                                                            <span>(25)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -793,7 +825,7 @@
                                                                         <a href="shop.html">
                                                                             Body Wash
 
-                                                                            <span>-52</span>
+                                                                            <span>(52)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -802,7 +834,7 @@
                                                                         <a href="shop.html">
                                                                             Sunscreen
 
-                                                                            <span>-40</span>
+                                                                            <span>(40)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -811,7 +843,7 @@
                                                                         <a href="shop.html">
                                                                             Makeup
 
-                                                                            <span>-35</span>
+                                                                            <span>(35)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -826,7 +858,7 @@
                                                                 class="mn-sidebar-block-item main"
                                                                 href="shop.html">
                                                                 shoes
-                                                                <span>-15</span>
+                                                                <span>(15)</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -838,7 +870,7 @@
                                                                 class="mn-sidebar-block-item main"
                                                                 href="shop.html">
                                                                 bag
-                                                                <span>-27</span>
+                                                                <span>(27)</span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -857,7 +889,7 @@
                                                                         <a href="shop.html">
                                                                             Laptop
 
-                                                                            <span>-25</span>
+                                                                            <span>(25)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -866,7 +898,7 @@
                                                                         <a href="shop.html">
                                                                             Air Conditioner
 
-                                                                            <span>-52</span>
+                                                                            <span>(52)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -875,7 +907,7 @@
                                                                         <a href="shop.html">
                                                                             Trimmer
 
-                                                                            <span>-40</span>
+                                                                            <span>(40)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -884,7 +916,7 @@
                                                                         <a href="shop.html">
                                                                             Watches
 
-                                                                            <span>-35</span>
+                                                                            <span>(35)</span>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -898,43 +930,31 @@
                                                 <div class="mn-sb-title">
                                                     <h3 class="mn-sidebar-title">Brand</h3>
                                                 </div>
-                                                <div class="mn-sb-block-content">
-                                                    <ul>
+                                                <div class="mn-sb-block-content p-t-10">
+                                                    <ul class="sf-check-list">
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input checked="" type="checkbox">
-                                                                <a href="#!" role="button">
-                                                                    <span>Zencart Mart</span>
-                                                                </a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input checked="" type="checkbox" value="zencart-mart">
+                                                                <span class="sf-check-label">Zencart Mart</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox">
-                                                                <a href="#!" role="button">
-                                                                    <span>Xeta Store</span>
-                                                                </a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="xeta-store">
+                                                                <span class="sf-check-label">Xeta Store</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox">
-                                                                <a href="#!" role="button">
-                                                                    <span>Pili Market</span>
-                                                                </a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="pili-market">
+                                                                <span class="sf-check-label">Pili Market</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox">
-                                                                <a href="#!" role="button">
-                                                                    <span>Indiana Store</span>
-                                                                </a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="indiana-store">
+                                                                <span class="sf-check-label">Indiana Store</span>
+                                                            </label>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -944,162 +964,105 @@
                                                 <div class="mn-sb-title">
                                                     <h3 class="mn-sidebar-title">Size</h3>
                                                 </div>
-                                                <div class="mn-sb-block-content">
-                                                    <ul>
+                                                <div class="mn-sb-block-content p-t-10">
+                                                    <ul class="sf-check-list">
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input checked="" type="checkbox" value="">
-                                                                <a href="#">S - Size</a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input checked="" type="checkbox" value="s">
+                                                                <span class="sf-check-label">S - Size</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <a href="#">M - Size</a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="m">
+                                                                <span class="sf-check-label">M - Size</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <a href="#">L - Size</a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="l">
+                                                                <span class="sf-check-label">L - Size</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <a href="#">XL - Size</a>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-check-item">
+                                                                <input type="checkbox" value="xl">
+                                                                <span class="sf-check-label">XL - Size</span>
+                                                            </label>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <!-- Sidebar Color item -->
-                                            <div class="mn-sidebar-block color-block mn-sidebar-block-clr">
+                                            <div class="mn-sidebar-block color-block">
                                                 <div class="mn-sb-title">
                                                     <h3 class="mn-sidebar-title">Color</h3>
                                                 </div>
-                                                <div class="mn-sb-block-content">
-                                                    <ul>
+                                                <div class="mn-sb-block-content p-t-10">
+                                                    <ul class="sf-color-list">
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #c4d6f9"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="black">
+                                                                <span class="sf-color-swatch" style="background-color: #0f172a;"></span>
+                                                                <span class="sf-color-name">Black</span>
+                                                                <span class="sf-color-count">(42)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #ff748b"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="white">
+                                                                <span class="sf-color-swatch" style="background-color: #ffffff;"></span>
+                                                                <span class="sf-color-name">White</span>
+                                                                <span class="sf-color-count">(35)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #000000"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="active">
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #2bff4a"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="navy">
+                                                                <span class="sf-color-swatch" style="background-color: #1e3a8a;"></span>
+                                                                <span class="sf-color-name">Navy Blue</span>
+                                                                <span class="sf-color-count">(28)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #ff7c5e"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="red">
+                                                                <span class="sf-color-swatch" style="background-color: #ef4444;"></span>
+                                                                <span class="sf-color-name">Crimson Red</span>
+                                                                <span class="sf-color-count">(19)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #f155ff"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="green">
+                                                                <span class="sf-color-swatch" style="background-color: #10b981;"></span>
+                                                                <span class="sf-color-name">Forest Green</span>
+                                                                <span class="sf-color-count">(15)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #ffef00"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="yellow">
+                                                                <span class="sf-color-swatch" style="background-color: #facc15;"></span>
+                                                                <span class="sf-color-name">Bright Yellow</span>
+                                                                <span class="sf-color-count">(12)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #c89fff"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="grey">
+                                                                <span class="sf-color-swatch" style="background-color: #94a3b8;"></span>
+                                                                <span class="sf-color-name">Light Grey</span>
+                                                                <span class="sf-color-count">(24)</span>
+                                                            </label>
                                                         </li>
                                                         <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #7bfffa"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #56ffc1"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #ffdb9f"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #9f9f9f"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="mn-sidebar-block-item">
-                                                                <input type="checkbox" value="">
-                                                                <span
-                                                                    class="mn-clr-block"
-                                                                    style="background-color: #6556ff"></span>
-                                                                <span class="checked"></span>
-                                                            </div>
+                                                            <label class="sf-color-item">
+                                                                <input type="checkbox" value="purple">
+                                                                <span class="sf-color-swatch" style="background-color: #8b5cf6;"></span>
+                                                                <span class="sf-color-name">Royal Purple</span>
+                                                                <span class="sf-color-count">(8)</span>
+                                                            </label>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1109,25 +1072,26 @@
                                                 <div class="mn-sb-title">
                                                     <h3 class="mn-sidebar-title">Price</h3>
                                                 </div>
-                                                <div class="mn-sb-block-content mn-price-range-slider es-price-slider">
-                                                    <div class="mn-price-filter">
-                                                        <div class="mn-price-input">
-                                                            <label class="filter__label">
-                                                                From
-                                                                <input class="filter__input" type="text">
-                                                            </label>
-                                                            <span class="mn-price-divider"></span>
-                                                            <label class="filter__label">
-                                                                To
-                                                                <input class="filter__input" type="text">
-                                                            </label>
+                                                <div class="mn-sb-block-content sf-price-filter-box">
+                                                    <div class="sf-price-inputs">
+                                                        <div class="sf-price-input-wrap">
+                                                            <span class="sf-price-currency">৳</span>
+                                                            <input type="number" placeholder="Min" aria-label="Minimum price" min="0">
                                                         </div>
-                                                        <div
-                                                            class="filter__slider-price"
-                                                            data-max="250"
-                                                            data-min="0"
-                                                            data-step="10"
-                                                            id="mn-sliderPrice"></div>
+                                                        <span class="sf-price-divider">-</span>
+                                                        <div class="sf-price-input-wrap">
+                                                            <span class="sf-price-currency">৳</span>
+                                                            <input type="number" placeholder="Max" aria-label="Maximum price" min="0">
+                                                        </div>
+                                                        <button class="sf-price-btn" type="button" aria-label="Apply price filter">
+                                                            <i class="ri-arrow-right-line"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="sf-price-chips">
+                                                        <a href="#!" class="sf-price-chip" role="button">Under ৳500</a>
+                                                        <a href="#!" class="sf-price-chip" role="button">৳500 - ৳1,500</a>
+                                                        <a href="#!" class="sf-price-chip" role="button">৳1,500 - ৳5,000</a>
+                                                        <a href="#!" class="sf-price-chip" role="button">Above ৳5,000</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1148,32 +1112,51 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
                             
                                 <div class="mn-shop-rightside col-lg-9 col-md-12">
                                     <!-- Shop Top Start -->
-                                    <div class="mn-pro-list-top d-flex justify-content-between align-items-center">
-                                        <div class="col-md-6">
-                                            <p class="mn-showing-results text-muted mb-0">Showing 1-12 of 36 items</p>
-                                        </div>
-                                        <div class="col-md-6 mn-sort-select">
-                                            <div class="mn-select-inner">
-                                                <select id="mn-select" name="mn-select">
-                                                    <option disabled="" selected="">Sort by</option>
-                                                    <option value="1">Position</option>
-                                                    <option value="2">Relevance</option>
-                                                    <option value="3">Name, A to Z</option>
-                                                    <option value="4">Name, Z to A</option>
-                                                    <option value="5">Price, low to high</option>
-                                                    <option value="6">Price, high to low</option>
-                                                </select>
+                                    <div class="mn-pro-list-top d-flex d-lg-none justify-content-between align-items-center">
+                                        <button
+                                            class="sf-filter-btn d-lg-none"
+                                            type="button"
+                                            data-bs-toggle="offcanvas"
+                                            data-bs-target="#shopFilterOffcanvas"
+                                            aria-controls="shopFilterOffcanvas"
+                                            aria-label="Filter Products">
+                                            <i class="ri-filter-3-line"></i>
+                                            <span>Filters</span>
+                                        </button>
+                                        <div class="sf-sort-wrapper ms-auto">
+                                            <div class="dropdown sf-sort-dropdown">
+                                                <button
+                                                    class="sf-select-pill"
+                                                    type="button"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                    aria-label="Sort by">
+                                                    <span class="d-inline-flex align-items-center">
+                                                        <i class="ri-arrow-up-down-line sf-sort-icon"></i>
+                                                        <span class="sf-sort-selected-text">Featured</span>
+                                                    </span>
+                                                    <i class="ri-arrow-down-s-line sf-dropdown-caret"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item active" href="#!" data-value="1">Featured</a></li>
+                                                    <li><a class="dropdown-item" href="#!" data-value="2">Price: Low to High</a></li>
+                                                    <li><a class="dropdown-item" href="#!" data-value="3">Price: High to Low</a></li>
+                                                    <li><a class="dropdown-item" href="#!" data-value="4">Newest Arrivals</a></li>
+                                                    <li><a class="dropdown-item" href="#!" data-value="5">Best Rating</a></li>
+                                                </ul>
+                                                <input type="hidden" name="sort_mobile" value="1">
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Shop Top End -->
                                     <div class="shop-pro-inner">
                                         <div class="row">
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1202,7 +1185,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1231,7 +1214,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1260,7 +1243,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1289,7 +1272,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1318,7 +1301,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1347,7 +1330,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1376,7 +1359,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1405,7 +1388,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1434,7 +1417,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1463,7 +1446,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
                                             <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
@@ -1492,14 +1475,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mn-product-box mb-4">
-                                            <div class="mn-product-card sf-out-of-stock">
+                                        <div class="col-xl-3 col-lg-3 col-md-4 col-6 mn-product-box mb-4">
+                                            <div class="mn-product-card">
                                                 <div class="mn-product-img">
                                                     <div class="lbl">
                                                         <span class="discount">25% OFF</span>
                                                     </div>
                                                     <div class="mn-img">
-                                                <span class="sf-stock-badge">স্টক শেষ</span>
                                                         <a class="image" href="product.html">
                                                             <img alt="Boys Winter Warm Jacket with T-shirt" class="main-img" src="assets/img/product/35.webp" width="450" height="506" loading="lazy" decoding="async">
                                                         </a>
@@ -1518,30 +1500,13 @@
                                                         <div class="mn-price-new">৳860</div>
                                                         <del class="mn-price-old">৳1,150</del>
                                                     </div>
-                                                    <a class="mn-add-cart mn-pro-btn-full" href="#!" role="button" aria-label="Stock Out"><i class="ri-close-circle-line"></i> স্টক শেষ</a>
+                                                    <a class="mn-add-cart mn-pro-btn-full" href="#!" role="button" aria-label="Add to Cart"><i class="ri-shopping-cart-2-line"></i> Add to Cart</a>
                                                 </div>
                                             </div>
                                         </div>
                                         </div>
                                     </div>
-                                    <!-- Pagination Start -->
-                                    <div class="mn-pro-pagination m-b-15">
-                                        <span>Showing 1-12 of 21 item(s)</span>
-                                        <ul class="mn-pro-pagination-inner">
-                                            <li><a class="active" href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><span>...</span></li>
-                                            <li><a href="#">8</a></li>
-                                            <li>
-                                                <a class="next" href="#">
-                                                    Next
-                                                    <i class="ri-arrow-right-double-line"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- Pagination End -->
+
                                 </div>
                             </div>
                         </section>
@@ -1810,9 +1775,9 @@
                             </a>
                         </li>
                         <li class="mn-nav-item active">
-                            <a class="mn-nav-link mn-category-toggle" href="shop.html" aria-label="Categories">
-                                <i class="ri-grid-fill"></i>
-                                <span class="mn-nav-label">Category</span>
+                            <a class="mn-nav-link" href="shop.html" aria-label="Shop">
+                                <i class="ri-store-2-fill"></i>
+                                <span class="mn-nav-label">Shop</span>
                             </a>
                         </li>
                         <li class="mn-nav-item mn-nav-hero">
@@ -1834,138 +1799,6 @@
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <!-- Quick view Modal -->
-            <div class="modal fade quickview-modal" id="quickview_modal" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <button
-                            aria-label="Close"
-                            class="qty-close"
-                            data-bs-dismiss="modal"
-                            title="Close"
-                            type="button"></button>
-                        <div class="modal-body">
-                            <div class="row mb-minus-24">
-                                <div class="col-md-5 col-sm-12 col-xs-12 mb-24">
-                                    <div class="single-pro-img single-pro-img-no-sidebar">
-                                        <div class="single-product-scroll">
-                                            <div class="single-slide-quickview owl-carousel">
-                                                <img
-                                                    alt="product-img-1"
-                                                    class="img-responsive"
-                                                    src="assets/img/product/1.webp"
-                                                    width="450"
-                                                    height="506"
-                                                    loading="lazy"
-                                                    decoding="async" />
-                                                <img
-                                                    alt="product-img-1"
-                                                    class="img-responsive"
-                                                    src="assets/img/product/2.webp"
-                                                    width="450"
-                                                    height="506"
-                                                    loading="lazy"
-                                                    decoding="async" />
-                                                <img
-                                                    alt="product-img-1"
-                                                    class="img-responsive"
-                                                    src="assets/img/product/3.webp"
-                                                    width="450"
-                                                    height="506"
-                                                    loading="lazy"
-                                                    decoding="async" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-7 col-sm-12 col-xs-12 mb-24">
-                                    <div class="quickview-pro-content">
-                                        <h4 class="mn-quick-title">
-                                            <a href="product.html">
-                                                Best cotton fabric women's half sleeve T-shirt white color.
-                                            </a>
-                                        </h4>
-                                        <div class="mn-pro-rating">
-                                            <i class="ri-star-fill"></i>
-                                            <i class="ri-star-fill"></i>
-                                            <i class="ri-star-fill"></i>
-                                            <i class="ri-star-fill"></i>
-                                            <i class="ri-star-fill grey"></i>
-                                        </div>
-                                        <div class="mn-quickview-desc">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the
-                                            1900s.
-                                        </div>
-                                        <div class="mn-quickview-price">
-                                            <span class="new-price">৳50.00</span>
-                                            <span class="old-price">৳62.00</span>
-                                        </div>
-                                        <div class="mn-pro-variations">
-                                            <ul>
-                                                <li class="active">
-                                                    <a
-                                                        class="mn-opt-sz"
-                                                        data-tooltip="Small"
-                                                        aria-label="Size Small"
-                                                        href="#size-s">
-                                                        s
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="mn-opt-sz"
-                                                        data-tooltip="Medium"
-                                                        aria-label="Size Medium"
-                                                        href="#size-m">
-                                                        m
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="mn-opt-sz"
-                                                        data-tooltip="Large"
-                                                        aria-label="Size Large"
-                                                        href="#size-l">
-                                                        l
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        class="mn-opt-sz"
-                                                        data-tooltip="Extra Large"
-                                                        aria-label="Size Extra Large"
-                                                        href="#size-xl">
-                                                        xl
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="mn-quickview-qty">
-                                            <div class="qty-plus-minus">
-                                                <input
-                                                    class="qty-input"
-                                                    name="quantity"
-                                                    type="text"
-                                                    value="1"
-                                                    aria-label="Quantity" />
-                                            </div>
-                                            <div class="mn-quickview-cart">
-                                                <a class="mn-btn-1" href="cart.html">
-                                                    <span>
-                                                        <i class="ri-shopping-bag-line"></i>
-                                                        Add To Cart
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- Search Sidebar -->
@@ -2334,8 +2167,6 @@
         <!-- Vendor Custom -->
         <script defer src="assets/js/vendor/jquery-3.7.1.min.js"></script>
         <script defer src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script defer src="assets/js/vendor/owl.carousel.min.js"></script>
-        <script defer src="assets/js/vendor/nouislider.js"></script>
         <!-- Main Custom -->
         <script defer src="assets/js/main.js?v=2190be95"></script>
     </body>

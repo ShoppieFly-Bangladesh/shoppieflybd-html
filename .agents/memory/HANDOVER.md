@@ -163,3 +163,43 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
     - **Section Header Consistency Invariant:** Standardized all section headers (`Top Categories`, `New Arrivals`, `Day of the Deals`) to strictly follow the clean, plain "New Arrivals" pattern (`.sf-view-all-btn`). Eliminated pill button backgrounds/borders from `Top Categories`.
     - **Smooth Down-to-Up Vertical Slide & Fade Promo Ticker (`.sf-promo-ticker`):** Engineered a continuous down-to-up vertical slide & fade transition (`transform: translateY(100% -> 0 -> -100%)`, `opacity: 0 -> 1 -> 0`) rotating through 5 core customer benefits with colorful icons (Authentic Products, Free Shipping, 24/7 Support, 30 Days Return, Secure Payment) every 3.0s with pause-on-hover. Fixed height (24px) preventing any layout shift (CLS = 0). Recompiled `style.min.css` (274.7 KB).
   - **Quality Verification:** Verified **0 broken images, 0 broken product links, and 0 empty `href=""`** across all 20 canonical HTML files.
+  - **Browser Cache-Busting & Automated Asset Versioning Pipeline (2026-10-31):**
+    - **Apache `.htaccess` No-Cache for HTML:** Updated `mod_expires` (`ExpiresByType text/html "access plus 0 seconds"`) and `mod_headers` (`<FilesMatch "\.(html|htm)$">` with `Cache-Control: "no-cache, no-store, must-revalidate"`, `Pragma: no-cache`, `Expires: 0`). Guarantees users always fetch the freshest HTML on every visit, while static assets retain 1-year immutable caching.
+    - **CI/CD Automated Version Injection (`.github/workflows/cpanel.yml`):** Injected pre-deploy step extracting the 8-character commit hash (`github.sha`) and updating all HTML references for `style.min.css?v=${VERSION}` and `main.js?v=${VERSION}` prior to FTP sync.
+    - **Synchronized Preload & Stylesheet Parity:** Initialized versioning (`?v=2190be95`) across all 20 canonical HTML templates, ensuring `<link rel="preload">` and `<link rel="stylesheet">` share 100% identical query strings, eliminating Lighthouse double-fetch penalties.
+    - **`shop.html` Duplicate Document Cleanup:** Cleaned up 300 lines of accidental duplicate `<!doctype html>` markup (lines 1370-1668) from `shop.html`, restoring clean single-document structure with verified pagination.
+  - **Homepage Multi-Section Expansion (3 New 2-Row Native Product Grids - 2026-10-31):**
+    - Expanded `index.html` from 2 product sections (24 products) to **5 rich product sections (60 products)**, providing an endless, high-converting browsing experience:
+      1. `New Arrivals` (12 products - 2 rows)
+      2. `Day of the Deals` (12 products - 2 rows with fixed countdown timer)
+      3. **`Best Sellers` (12 products - 2 rows):** High-velocity items with top ratings (`★ 4.8 - 4.9`) and solid social proof (`1k+ Sold`).
+      4. **`Trending Gadgets` (12 products - 2 rows):** Curated tech & smart accessories (TWS earbuds, smartwatches, GaN chargers, gaming keyboards).
+      5. **`Just For You` (12 products - 2 rows):** Personalized discovery grid with mixed lifestyle and fashion items before footer.
+    - All 3 new sections adhere strictly to the canonical 2-row CSS grid (`.sf-product-grid-wrapper`: 6 cols on desktop, 2-row smooth touch swipe on mobile), 100% equal card heights, full-width `Add to Cart` buttons, and ADR-016 header divider lines. Verified via Headless Chrome CDP (1440px desktop & 375px mobile).
+  - **Homepage Banner Slider Removal & Full-Width Interleaved Offer Banners (2026-10-31):**
+    - **Banner Slider Completely Eliminated:** Permanently removed `.mn-modern-banner.owl-carousel` slider (lines 1528-1572) and purged its Owl Carousel JS initialization from `assets/js/main.js` (lines 360-377). Zero JS listener bloat.
+    - **Clean Image-Only Standalone Banner Strips:** Built responsive `.sf-banner-wrapper`, `.sf-banner-item`, and `.sf-banner-img` with 15px border radius matching cards, zero text overlay clutter, smooth hover zoom (`scale(1.015)`), and native responsive aspect ratio scaling.
+    - **Rhythmic Interleaving Sequence (`1 Product Section -> 1 Offer Banner`):**
+      - Section 1: `New Arrivals` ➔ **Offer Banner 1** (`assets/img/banner/1.webp` - Women's Fashion)
+      - Section 2: `Day of the Deals` ➔ **Offer Banner 2** (`assets/img/banner/2.webp` - Goggles / Eyewear)
+      - Section 3: `Best Sellers` ➔ **Offer Banner 3** (`assets/img/banner/1.webp` - Women's Fashion)
+      - Section 4: `Trending Gadgets` ➔ **Offer Banner 4** (`assets/img/banner/2.webp` - Goggles / Eyewear)
+      - Section 5: `Just For You` ➔ Instagram Showcase & Footer
+    - **Verification & Parity:** Verified with Headless Chrome CDP across 1440px desktop and 375px mobile viewports: `horizontalOverflow: false`, CLS = 0, full responsiveness without any horizontal page shift. Re-compiled `style.min.css`.
+  - **Running Color Gradient Flow Restoration (Search Bar & Topbar 'Sell With Us' - 2026-10-31):**
+    - **Root Cause Resolution:** Re-injected missing `@-webkit-keyframes sfBorderSpin` and `@keyframes sfBorderSpin` (`from { transform: rotate(0deg); } to { transform: rotate(360deg); }`) into `assets/css/style.css` which had been lost in commit `405fb5e`.
+    - **Active Flowing Animations:** Restored smooth continuous 360° color gradient rotation on:
+      1. Desktop Center Search Bar (`.desktop-center-search .sf-instant-search-btn::before`)
+      2. Mobile Search Bar (`.sf-mobile-search-bar > a.sf-instant-search-btn::before`)
+      3. Mini Topbar Sell With Us button (`.sf-topbar-seller-btn::before`)
+    - **Verification:** Verified live animation status via Headless Chrome CDP (`animationPlayState: "running"`, pixel difference between consecutive time frames confirmed). Recompiled `style.min.css`.
+  - **Compact Offer Banner Card Restoration (Matching User Reference Image 1 & Mantu - 2026-10-31):**
+    - **Restored Exact Compact Banner Card Architecture:** Replaced the full-screen stretched image strips with Mantu's original balanced `.modern-banner` layout (Image on left with `width: calc(100% - 380px)`, and typography + `Shop Now` CTA button on right).
+    - **Compact Viewport Height Lock:** Restricted desktop banner height to a sleek 380px (340px at 1199px, 280px at 991px, 240px at 767px, 200px at 575px). Solved the full-screen covering problem completely: previous section product rows and subsequent "Day of the Deals" header & products remain simultaneously visible within the user's viewport without scrolling.
+    - **Standalone Zero-JS Visibility:** Removed Owl Carousel carousel requirements (`banner-animation` dependency removed), ensuring all text, headings, and CTA buttons are 100% permanently visible (`opacity: 1 !important; visibility: visible !important;`).
+    - **4 Distinct Thematic Banners:**
+      - Banner 1 (After New Arrivals): Women's Fashion Collection (`1.webp`)
+      - Banner 2 (After Day of the Deals): Women's Goggles Collection (`2.webp`)
+      - Banner 3 (After Best Sellers): Trending Fashion Sale (`1.webp`)
+      - Banner 4 (After Trending Gadgets): Premium Eyewear Deals (`2.webp`)
+    - **Verification:** Verified with Headless Chrome CDP across 1024px laptop, 1440px desktop, and 375px mobile viewports (`overflow: false`, CLS = 0). Generated visual comparison artifact `compact_banner_restoration_showcase.png`. Recompiled `style.min.css`.

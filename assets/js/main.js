@@ -357,25 +357,6 @@
         autoplayHoverPause: false,
     });
 
-    /*== Tooltips ==*/
-    $(".mn-modern-banner").owlCarousel({
-        loop: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        smartSpeed: 2000,
-        autoplay: false,
-        autoplayTimeout: 10000,
-        margin: 24,
-        nav: false,
-        dots: false,
-        responsive: {
-            0: {
-                items: 1,
-                scroll: 1,
-            },
-        },
-    });
-
     /*== Blog section ==*/
     $(".mn-blog-carousel").owlCarousel({
         margin: 24,

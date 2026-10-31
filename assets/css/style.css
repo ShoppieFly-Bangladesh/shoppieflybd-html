@@ -6203,13 +6203,19 @@ button.btn-close.qty_close {
 /**  Banner Section  **/
 .mn-modern-banner .modern-banner {
     position: relative;
+    overflow: hidden;
+    border-radius: 15px;
 }
 .mn-modern-banner .modern-banner .mn-banner-img {
-    width: calc(100% - 400px);
-    height: 500px;
+    width: calc(100% - 380px);
+    height: 380px;
     border-radius: 15px;
     background-size: cover;
     background-position: center;
+    transition: transform 0.4s ease;
+}
+.mn-modern-banner .modern-banner:hover .mn-banner-img {
+    transform: scale(1.015);
 }
 .mn-modern-banner .modern-banner .mn-banner-img.img-1 {
     background-image: url("../img/banner/1.webp");
@@ -6222,53 +6228,24 @@ button.btn-close.qty_close {
     position: absolute;
     top: 0;
     right: 0;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
-.mn-modern-banner .banner-animation > * {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeOutDown;
-    animation-name: fadeOutDown;
-}
-.mn-modern-banner :root {
-    --transition: 0.75s cubic-bezier(0.255, 0.67, 0, 1.01);
-}
-.mn-modern-banner .mn-slide {
-    overflow: hidden;
-    position: relative;
-    -webkit-transition:
-        -webkit-transform var(--transition),
-        -webkit-box-shadow var(--transition);
-    transition:
-        -webkit-transform var(--transition),
-        -webkit-box-shadow var(--transition);
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition),
-        -webkit-transform var(--transition),
-        -webkit-box-shadow var(--transition);
-}
-.mn-modern-banner .active .banner-animation > *:nth-child(1) {
-    -webkit-animation-name: fadeInRight;
-    animation-name: fadeInRight;
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
-}
-.mn-modern-banner .active .banner-animation > *:nth-child(2) {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-    -webkit-animation-delay: 1.5s;
-    animation-delay: 1.5s;
-}
-.mn-modern-banner .active .banner-animation > *:nth-child(3) {
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
+.mn-modern-banner .modern-banner .mn-banner-contact * {
+    opacity: 1 !important;
+    animation: none !important;
+    visibility: visible !important;
 }
 
 .mn-banner-contact {
@@ -6285,14 +6262,14 @@ button.btn-close.qty_close {
     justify-content: center;
 }
 .mn-banner-contact .inner-banner {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     position: relative;
-    left: -100px;
-    width: calc(100% + 100px);
+    left: -80px;
+    width: calc(100% + 80px);
 }
 .mn-banner-contact .inner-banner h4 {
     margin: 0;
-    font-size: 68px;
+    font-size: 52px;
     font-weight: 700;
     color: #3a4ee5;
     text-shadow:
@@ -6306,7 +6283,7 @@ button.btn-close.qty_close {
 .mn-banner-contact .inner-banner h3 {
     color: #313b50;
     font-weight: 900;
-    font-size: 35px;
+    font-size: 28px;
     letter-spacing: -1px;
     text-shadow:
         1px 1px #fff,
@@ -6314,7 +6291,7 @@ button.btn-close.qty_close {
         1px -1px #fff,
         -1px -1px #fff,
         1px 1px 5px #f1f4f7;
-    line-height: 0.8;
+    line-height: 0.9;
 }
 .mn-banner-contact .inner-text .bnr-text {
     display: block;
@@ -6518,7 +6495,7 @@ button.btn-close.qty_close {
         right: 315px;
     }
     .mn-modern-banner .modern-banner .mn-banner-img {
-        height: 400px;
+        height: 340px;
     }
     .mn-banner-contact .inner-banner h4 {
         font-size: 52px;
@@ -6542,11 +6519,12 @@ button.btn-close.qty_close {
     }
     .mn-modern-banner .modern-banner .mn-banner-img {
         width: 100%;
+        height: 280px;
         background-position: left;
     }
     .mn-modern-banner .modern-banner .mn-banner-contact {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 24px;
         position: relative;
     }
     .mn-banner-contact {
@@ -6577,7 +6555,7 @@ button.btn-close.qty_close {
 }
 @media screen and (max-width: 767px) {
     .mn-modern-banner .modern-banner .mn-banner-img {
-        height: 300px;
+        height: 240px;
     }
     .mn-banner-contact .inner-banner h4 {
         font-size: 40px;
@@ -6610,7 +6588,7 @@ button.btn-close.qty_close {
         font-size: 18px;
     }
     .mn-modern-banner .modern-banner .mn-banner-img {
-        height: 250px;
+        height: 200px;
     }
     .mn-ofr-banners .mn-bnr-body .mn-bnr-detail {
         max-width: 200px;
@@ -12637,6 +12615,28 @@ footer.mn-footer {
     background: #ffffff !important;
 }
 
+@-webkit-keyframes sfBorderSpin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sfBorderSpin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn i {
     position: relative !important;
     z-index: 2 !important;
@@ -13579,4 +13579,29 @@ footer.mn-footer {
         scroll-snap-align: start !important;
         padding: 10px !important;
     }
+}
+
+/* Standalone Full-Width Promo Banners (Image Only) */
+.sf-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #f8fafc;
+}
+.sf-banner-item {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.sf-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.sf-banner-item:hover .sf-banner-img {
+    transform: scale(1.015);
 }

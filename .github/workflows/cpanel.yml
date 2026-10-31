@@ -18,6 +18,14 @@ jobs:
               with:
                   fetch-depth: 2 # Required for git-ftp diff calculation
 
+            - name: ⚡ Apply Cache-Busting Asset Versioning
+              run: |
+                  VERSION=$(echo ${{ github.sha }} | cut -c1-8)
+                  echo "Injecting cache-buster version ?v=${VERSION} into HTML files..."
+                  find . -maxdepth 1 -name "*.html" -exec sed -i -E \
+                    -e "s|assets/css/style\.min\.css(\?v=[^\"'>]*)?|assets/css/style.min.css?v=${VERSION}|g" \
+                    -e "s|assets/js/main\.js(\?v=[^\"'>]*)?|assets/js/main.js?v=${VERSION}|g" {} +
+
             - name: 📂 Sync files to cPanel via FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.4.0
               with:

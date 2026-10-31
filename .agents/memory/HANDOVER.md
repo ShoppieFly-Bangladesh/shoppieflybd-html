@@ -203,3 +203,32 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
       - Banner 3 (After Best Sellers): Trending Fashion Sale (`1.webp`)
       - Banner 4 (After Trending Gadgets): Premium Eyewear Deals (`2.webp`)
     - **Verification:** Verified with Headless Chrome CDP across 1024px laptop, 1440px desktop, and 375px mobile viewports (`overflow: false`, CLS = 0). Generated visual comparison artifact `compact_banner_restoration_showcase.png`. Recompiled `style.min.css`.
+  - **Homepage (`index.html`) Design Lock & Milestone Finalization (2026-10-31):**
+    - Officially **LOCKED** and frozen per user directive on 2026-10-31. No further design or structural modifications on `index.html`.
+    - Serves as the authoritative architectural baseline (Design Source of Truth) for all other 19 storefront pages:
+      - Mini Topbar (`.sf-topbar-wrap`) with hotline, email, promo ticker, and running gradient 'Sell With Us' button.
+      - Floating Navbar (`.mn-header`) with 15px border radius, 3 main navigation items (Home, Categories, Shop), center pill search with continuous running gradient and typewriter animation, and user utilities.
+      - Instagram-style Category Grid architecture (borderless, tight gap, 2 rows).
+      - Canonical lightweight product cards (top cutout badge, 2-line title clamp, space-between rating & sold count, full-width 'Add to Cart' button).
+      - Interleaved compact thematic offer banners (380px compact height, Mantu image+text card, zero JS carousel).
+      - Instagram showcase, comprehensive footer, and mobile bottom floating Hero Cart FAB.
+
+  - **Template-Wide Header & Footer Synchronization Sprint (2026-10-31):**
+    - Executed comprehensive synchronization of all 19 interior HTML files with the locked `index.html` baseline:
+      1. **Top Utility Bar:** Synchronized `.sf-topbar-wrap` across all 19 files, adding the dynamic 5-item slide & fade promo ticker (`.sf-promo-ticker`), hotline, and running 360° gradient border on "Sell With Us".
+      2. **Floating Navbar & Search:** Synchronized `<header>` across all 19 files with center typewriter interactive search (`Ctrl+K`), continuous running gradient border, direct links on wishlist (`wishlist.html`), cart (`cart.html`), account (`login.html`), and accessible `aria-label` attributes.
+      3. **Desktop Navigation State:** Configured context-aware active links (e.g. `categories.html` highlights `Categories`, `shop.html` highlights `Shop`, while interior content pages remain clean).
+      4. **Main Footer:** Synchronized `<footer class="m-t-15">` across all 19 files with semantic `h3` heading hierarchy (`<h3 class="mn-footer-heading">`), authentic Google Play & Apple App Store links, and verified social profile links.
+      5. **Mobile Navigation & Drawers:** Synchronized `.mn-footer-nav` with context-aware active tabs and center Hero Cart FAB across all 19 files; updated Cart, Wishlist, Search, and Quickview drawers with accessible close buttons, standard quantity inputs, and explicit image dimensions.
+    - **Verification Results:** Full automated audit verified **0 broken image links, 0 broken page links (2,780 internal links verified), and 100% component checklist compliance across all 20 canonical files**. Live rendering verified via Headless Chrome screenshots (`shop_desktop_sync.png`, `shop_mobile_sync.png`).
+
+---
+
+## 7. Next Immediate Tasks (Storefront Interior Pages Phase)
+
+With `index.html` design locked and template-wide headers/footers 100% unified:
+1. **`shop.html` (Catalog & Filter Hub):** Verify canonical product cards, left-sidebar filters, responsive sorting, and mobile filter drawer.
+2. **`product.html` (Single Product Details):** Gallery sync, variant selectors, pricing, sticky 'Add to Cart', and canonical related products grid.
+3. **`categories.html` (Dedicated Category Hub):** 18 visual category cards, search, and category pills.
+4. **`cart.html` & `checkout.html`:** Order summary, coupon drawer, and Bangladesh 3-tier address cascade readiness.
+5. **Account & Merchant Pages:** `login.html`, `register.html`, `vendor-store.html`, `become-vendor.html`.

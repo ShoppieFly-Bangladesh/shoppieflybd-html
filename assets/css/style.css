@@ -6218,24 +6218,31 @@ button.btn-close.qty_close {
 .mn-modern-banner .modern-banner .mn-banner-img.img-2 {
     background-image: url("../img/banner/2.webp");
 }
-/* Shop Page Image-Only Banner (Compact & Responsive) */
+/* Shop Page Image-Only Banner (100% Full Width & Responsive) */
+.mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
 .mn-shop-banner .modern-banner .mn-banner-img {
-    width: 100%;
-    height: 250px;
-    background-position: left center;
+    width: 100% !important;
+    height: 320px;
+    background-position: left top;
 }
 @media only screen and (max-width: 991px) {
+    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
+        width: 100% !important;
         height: 190px;
     }
 }
 @media only screen and (max-width: 767px) {
+    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
+        width: 100% !important;
         height: 150px;
     }
 }
 @media only screen and (max-width: 480px) {
+    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
+        width: 100% !important;
         height: 135px;
     }
 }
@@ -14150,3 +14157,188 @@ footer.mn-footer {
     }
 }
 
+
+
+/*=============================================================================
+  COMPACT MULTI-VENDOR MOBILE LAYOUT OPTIMIZATION (HIGH DENSITY SPACING)
+=============================================================================*/
+@media (max-width: 767.98px) {
+    /* 1. Drastic reduction of top content margin below mobile search bar */
+    .mn-main-content,
+    .mn-main-content.sb-hide {
+        margin: 8px auto 0 auto !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+    }
+
+    /* 2. Compact Mobile Search Bar spacing */
+    .sf-mobile-search-bar {
+        padding: 6px 12px 4px 12px !important;
+        background: #f1f4f7 !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn {
+        height: 38px !important;
+        max-height: 38px !important;
+        padding: 0 14px !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn i {
+        font-size: 16px !important;
+    }
+
+    .sf-mobile-search-bar > a.sf-instant-search-btn .sf-search-text {
+        font-size: 13px !important;
+    }
+
+    /* 3. Streamlined Category Hub Header Box (categories.html) */
+    .sf-category-header-box {
+        padding: 10px 12px 12px 12px !important;
+        margin-bottom: 12px !important;
+        border-radius: 12px !important;
+    }
+
+    .sf-category-header-box h2 {
+        font-size: 15px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .sf-category-header-box p {
+        display: none !important; /* Hide redundant long descriptive subtitle on mobile */
+    }
+
+    .sf-category-search-box {
+        margin: 8px auto 0 !important;
+    }
+
+    .sf-cat-filter-chips {
+        margin-top: 10px !important;
+        gap: 6px !important;
+    }
+
+    .sf-cat-filter-btn {
+        padding: 4px 10px !important;
+        font-size: 11px !important;
+    }
+
+    /* 4. Global Section Margins & Spacings Compact Standard (12px - 14px) */
+    .m-b-30,
+    .m-b-40,
+    .p-b-40 {
+        margin-bottom: 12px !important;
+        padding-bottom: 0 !important;
+    }
+
+    .m-t-30 {
+        margin-top: 12px !important;
+    }
+
+    .padding-tb-30,
+    .padding-tb-40 {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .sf-category-section {
+        padding-bottom: 16px !important;
+    }
+
+    /* 5. Section Titles Clearance Compact */
+    .mn-title,
+    .sf-section-header.mn-title {
+        margin-bottom: 10px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .mn-title h2,
+    .sf-section-header.mn-title h2 {
+        font-size: 16px !important;
+    }
+
+    /* 6. Homepage Hero Banner & Promo Banners Spacing */
+    .mn-hero.m-b-15 {
+        margin-bottom: 10px !important;
+    }
+
+    .mn-ofr-banners {
+        margin-bottom: 10px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mn-main-content,
+    .mn-main-content.sb-hide {
+        margin: 6px auto 0 auto !important;
+        padding: 0 8px !important;
+    }
+
+    .sf-mobile-search-bar {
+        padding: 4px 10px 4px 10px !important;
+    }
+}
+
+/*=============================================================================
+  SEAMLESS ZERO-GAP MOBILE HEADER & CONTENT INTEGRATION
+=============================================================================*/
+@media (max-width: 767.98px) {
+    /* Seamless integration of mobile search bar with header navbar */
+    .sf-mobile-search-bar {
+        padding: 4px 12px 2px 12px !important;
+        background: transparent !important;
+        margin: 0 !important;
+    }
+
+    /* Zero top margin on main content wrapper */
+    .mn-main-content,
+    .mn-main-content.sb-hide {
+        margin: 0 auto !important;
+        padding-top: 2px !important;
+    }
+
+    /* Zero top margin on hero banner / first section */
+    .mn-main-content > .row:first-child,
+    .mn-hero.m-b-15 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Remove bootstrap row default negative margin gap on mobile if any */
+    .mn-main-content .col-xxl-12 {
+        padding-top: 0 !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .sf-mobile-search-bar {
+        padding: 2px 8px 0px 8px !important;
+    }
+
+    .mn-main-content,
+    .mn-main-content.sb-hide {
+        margin: 0 auto !important;
+        padding-top: 0 !important;
+    }
+}
+
+
+/* ==========================================================
+   Shop & Catalog Mobile Product Grid Spacing Synchronization
+   (Parity with index.html .sf-product-grid-wrapper)
+========================================================== */
+@media only screen and (max-width: 767.98px) {
+    .shop-pro-inner .row {
+        --bs-gutter-x: 10px !important;
+        margin-left: -5px !important;
+        margin-right: -5px !important;
+    }
+    .shop-pro-inner .row > [class*="col-"] {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    .shop-pro-inner .mn-product-box {
+        margin-bottom: 10px !important;
+    }
+    .shop-pro-inner .mn-product-card {
+        padding: 10px !important;
+    }
+}

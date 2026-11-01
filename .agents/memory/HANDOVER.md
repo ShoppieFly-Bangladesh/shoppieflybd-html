@@ -78,6 +78,12 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
     - Completely removed bulky breadcrumbs from 12 utility/form pages (cart, checkout, login, register, contact-us, faq, terms, about-us, compare, wishlist, track-order, become-vendor).
     - Converted catalog & blog breadcrumbs (shop, product, categories, blog, blog-detail, vendor-list, vendor-store) to ultra-clean, transparent, single-line text (.sf-breadcrumb-nav) without the heavy 100px white box.
     - 100% hidden on mobile devices (max-width: 767.98px) to eliminate wasted vertical scroll space.
+  - Mobile Spacing & Compact Multi-Vendor Optimization Implemented:
+    - Drastic reduction of top content margin below mobile search bar (from 30px to 8px).
+    - Mobile search bar padding compact (6px 12px 4px 12px).
+    - Streamlined category hub header box (categories.html) with hidden long subtitles and reduced 12px margin on mobile.
+    - Standardized global mobile section gaps from 30-40px down to high-density 12-14px standard (Daraz/Amazon style).
+    - Eliminated remaining gap between mobile search bar and hero banner by removing all remaining bottom padding from .sf-mobile-search-bar and setting .mn-main-content top margin to 0.
   - 2,712 links verified: **0 broken links**.
   - 1,047 images verified: **0 broken images**.
   - `sitemap.xml` updated to exactly 20 production URLs.
@@ -271,8 +277,12 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
       - **Verification:** Verified in headless Chrome at 390x844 and 360x780: `gap: 0px` between search bar and filter toolbar, `btnHeight: 32px`, `isSticky: true`, dropdown menu opens and functions flawlessly while sticky (`mobile-sticky-final-scrolled.png`, `mobile-sticky-final-dropdown.png`). Desktop view verified 100% untouched (`desktop-verify-after-sticky.png`). Recompiled `style.min.css`.
     - **Single Modern Offer Banner Synchronization (shop.html):**
       - Converted to clean, image-only banner (.mn-shop-banner) by removing redundant title/text/button clutter per user directive.
-      - Optimized banner height: reduced to compact 250px on desktop (down from 380px) and 150px on mobile (down from 240px) with 100% full width and 15px rounded corners.
+      - Optimized banner framing: tuned desktop height to 320px with background-position: left top (sweet spot between bulky 380px and cropped 250px), ensuring the model's entire face, hair, eyes, and shopping bags are 100% visible without clipping; mobile layout preserved at 150px.
+      - Enforced 100% full width: added width: 100% !important; across all screen sizes, completely eliminating the 300px right-side gap caused by legacy media queries on laptop/desktop viewports.
       - Verified on desktop (1440px) and mobile (390px): 0 broken tags, 0 overflow, instant visibility of catalog products.
+    - **Mobile Product Grid Gap Parity with index.html (shop.html & catalog):**
+      - Resolved oversized mobile card gaps: replaced Bootstrap default 24px column gutters and 24px mb-4 margins on .shop-pro-inner with exact 10px horizontal gap (--bs-gutter-x: 10px), 10px vertical margin, and 10px inner card padding.
+      - 100% visual parity with index.html .sf-product-grid-wrapper verified on 390px mobile viewport.
     - **Verification & Testing:** Verified live rendering via Headless Chrome CDP across 1440x900 desktop and 375x812 mobile viewports: 0 console errors, 0 horizontal overflow (`hasOverflow: false`), verified sticky sidebar at `top: 90px`, confirmed 4 cards/row desktop and 2 cards/row mobile. Recompiled `style.min.css`.
 
 ---

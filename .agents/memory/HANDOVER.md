@@ -74,6 +74,10 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
     - Completely separate from main navbar (`<header>`), which retains its pure standalone card styling and sticky scroll behavior.
     - Updated main navbar (`.mn-header`) with full `border-radius: 15px` across all 4 corners (top corners identically rounded matching bottom corners) and full perimeter border for a standalone floating island aesthetic.
   - Removed `Blog` and `Pages` from nav menu (files 100% preserved and accessible).
+  - Streamlined breadcrumbs across the application:
+    - Completely removed bulky breadcrumbs from 12 utility/form pages (cart, checkout, login, register, contact-us, faq, terms, about-us, compare, wishlist, track-order, become-vendor).
+    - Converted catalog & blog breadcrumbs (shop, product, categories, blog, blog-detail, vendor-list, vendor-store) to ultra-clean, transparent, single-line text (.sf-breadcrumb-nav) without the heavy 100px white box.
+    - 100% hidden on mobile devices (max-width: 767.98px) to eliminate wasted vertical scroll space.
   - 2,712 links verified: **0 broken links**.
   - 1,047 images verified: **0 broken images**.
   - `sitemap.xml` updated to exactly 20 production URLs.
@@ -265,6 +269,10 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
         - Scaled button height from 38px down to 32px with 12px typography, 14px icons, and 6px border-radius (`.sf-filter-btn` and `.sf-select-pill`).
         - Added crisp floating card aesthetic with `border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);`.
       - **Verification:** Verified in headless Chrome at 390x844 and 360x780: `gap: 0px` between search bar and filter toolbar, `btnHeight: 32px`, `isSticky: true`, dropdown menu opens and functions flawlessly while sticky (`mobile-sticky-final-scrolled.png`, `mobile-sticky-final-dropdown.png`). Desktop view verified 100% untouched (`desktop-verify-after-sticky.png`). Recompiled `style.min.css`.
+    - **Single Modern Offer Banner Synchronization (shop.html):**
+      - Converted to clean, image-only banner (.mn-shop-banner) by removing redundant title/text/button clutter per user directive.
+      - Optimized banner height: reduced to compact 250px on desktop (down from 380px) and 150px on mobile (down from 240px) with 100% full width and 15px rounded corners.
+      - Verified on desktop (1440px) and mobile (390px): 0 broken tags, 0 overflow, instant visibility of catalog products.
     - **Verification & Testing:** Verified live rendering via Headless Chrome CDP across 1440x900 desktop and 375x812 mobile viewports: 0 console errors, 0 horizontal overflow (`hasOverflow: false`), verified sticky sidebar at `top: 90px`, confirmed 4 cards/row desktop and 2 cards/row mobile. Recompiled `style.min.css`.
 
 ---

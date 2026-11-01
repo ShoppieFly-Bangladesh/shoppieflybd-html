@@ -283,7 +283,51 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
     - **Mobile Product Grid Gap Parity with index.html (shop.html & catalog):**
       - Resolved oversized mobile card gaps: replaced Bootstrap default 24px column gutters and 24px mb-4 margins on .shop-pro-inner with exact 10px horizontal gap (--bs-gutter-x: 10px), 10px vertical margin, and 10px inner card padding.
       - 100% visual parity with index.html .sf-product-grid-wrapper verified on 390px mobile viewport.
+    - **Issue 12 Fix (Symmetrical Mobile Search Bar Clearance & Universal Spacing Standard):**
+      - **Problem:** On mobile viewports (< 768px and < 576px), legacy conflicting media queries (`SEAMLESS ZERO-GAP MOBILE HEADER`) stripped away mobile search bar padding to 2px top and 0px bottom (`padding: 2px 8px 0px 8px !important; margin: 0 auto !important; margin-top: 0 !important;`), causing the search pill to crash directly against the navbar on top and literally touch/overlap the content cards below (e.g. Hero banner on `index.html`, Category header box on `categories.html`, offer banner on `shop.html`).
+      - **Root Cause Remediation & Unified Standard:** Purged 54 lines of fragmented, arbitrary zero-gap overrides. Enforced a single canonical mobile search bar spacing standard across all 20 storefront templates:
+        - Symmetrical **10px top clearance** between navbar bottom border and search pill (`padding-top: 10px !important;`).
+        - Symmetrical **10px bottom clearance** inside the sticky header (`padding-bottom: 10px !important;`).
+        - Solid page background `#f1f4f7` on the search container, guaranteeing zero bleed-through when content scrolls under the sticky header.
+        - Unified **10px content margin** (`.mn-main-content { margin-top: 10px !important; }`), ensuring an exact 20px comfortable clearance between the search pill and the first card across all templates.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots on 390x844 viewport across `index.html` (`gap-fixed-index.png`), `categories.html` (`gap-fixed-categories.png`), and `shop.html` (`gap-fixed-shop.png`): 100% consistent, balanced minimum gap verified everywhere with zero collision. Recompiled `style.min.css`.
+    - **Issue 13 Fix (Banner Height Matching & Complete Elimination of Text/Buttons on index.html):**
+      - **Problem:** (1) The offer banner on `shop.html` had a noticeably shorter height on mobile viewports (135px/150px) compared to `index.html` (200px), breaking visual parity. (2) On `index.html`, all 4 offer banners contained overlay titles, descriptions, and a "Shop Now" button (`.mn-banner-contact`). Previous attempts to remove them left an empty 380px cutout gap on desktop due to legacy CSS `calc(100% - 380px)`.
+      - **Root Cause & Solution:**
+        - **Height & Framing Parity:** Unified `.mn-modern-banner .modern-banner .mn-banner-img` and `.mn-shop-banner .modern-banner .mn-banner-img` in `assets/css/style.css` across all responsive breakpoints: 350px on desktop (`background-position: left 25%`), 280px at <= 1199px, 240px at <= 991px, and canonical `200px !important;` (`background-position: left 20%`) on mobile (<= 767px, <= 575px, <= 480px). This ensures the model's full head, hair, and shopping bags are 100% framed without awkward cutoff.
+        - **Pure Image-Only Standard:** Permanently stripped `.mn-banner-contact` HTML from all 4 offer banners in `index.html` and added `display: none !important;` in `style.css` alongside `width: 100% !important;`, achieving 100% architectural and visual parity with `shop.html`.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots: `shop.html` mobile banner height is exactly 200px (`verify-shop-mobile-banner.png`), `index.html` banners span 100% width with 0 overlay text or buttons on both desktop and mobile (`verify-index-desktop-tall.png`, `verify-index-mobile-tall.png`). Recompiled `style.min.css` (287,609 bytes).
+    - **Issue 14 Fix (Mobile Viewport X-Axis Overflow & Horizontal Scrollbar Hardening):**
+      - **Problem:** On mobile phones, horizontal touch-swipe gestures revealed a slight left-right wobble/scroll and temporary bottom scrollbar (+4px overflow) across storefront pages.
+      - **Root Cause:**
+        1. In `style.css`, `.mn-main-content` on mobile has `padding: 0 8px !important;` (<= 575px) / `0 10px !important;` (<= 767px), whereas Bootstrap 5 `.row` has `--bs-gutter-x: 1.5rem` (`-12px` negative margins). `8px - 12px = -4px` bleed on both sides (+4px total).
+        2. Root `html` element lacked `overflow-x: hidden`, allowing mobile browser touch pan gestures to scroll horizontally across the bleed.
+      - **Solution:**
+        1. Added `html, body { max-width: 100vw; overflow-x: hidden; }` in `style.css`.
+        2. Neutralized direct child `.row` margins under `.mn-main-content` on mobile (`.mn-main-content > .row, .mn-main-content > section > .row { margin-left: 0 !important; margin-right: 0 !important; }` and zeroed padding on their direct columns).
+        3. Recompiled `style.min.css` via `clean-css`.
+      - **Verification:** Verified with Headless Chrome across all 20 HTML templates at 360px, 375px, 390px, and 412px: 100% of pages achieved `scrollWidth === clientWidth` (0px overflow, perfect fit).
     - **Verification & Testing:** Verified live rendering via Headless Chrome CDP across 1440x900 desktop and 375x812 mobile viewports: 0 console errors, 0 horizontal overflow (`hasOverflow: false`), verified sticky sidebar at `top: 90px`, confirmed 4 cards/row desktop and 2 cards/row mobile. Recompiled `style.min.css`.
+
+    - **Issue 15 Fix (Homepage Mobile Fixed 2x2 Grid / 4 Products - Elimination of Horizontal Touch Swipe):**
+      - **Problem:** On mobile viewports (`<= 767px`), product sections (`.sf-product-grid-wrapper`) utilized `grid-auto-flow: column`, `overflow-x: auto`, and `scroll-snap-type: x mandatory`, which enabled users to touch-swipe products left-to-right. Per user directive, all horizontal sliding and swiping on product sections was removed in favor of a fixed 4-product display.
+      - **Solution:**
+        1. Configured mobile product wrapper as a strictly static 2-row × 2-column grid: `grid-template-columns: repeat(2, 1fr) !important; grid-auto-flow: row !important; overflow-x: visible !important; scroll-snap-type: none !important; padding-bottom: 0 !important;`.
+        2. Hid products 5 through 12 on mobile devices using `.sf-product-grid-wrapper > .mn-product-card:nth-child(n+5) { display: none !important; }`, ensuring exactly 4 products (2 in row 1, 2 in row 2) render per section.
+        3. Desktop layout remains 100% intact and untouched with 6 columns × 2 rows = 12 products per section.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots (`homepage_mobile_tall_fixed.png`, `homepage_desktop_products.png`):
+        - Mobile: Exactly 4 products per section in a clean 2x2 grid, 0 horizontal scroll/swipe, 0 overflow.
+        - Desktop: 12 products per section (6 columns) completely preserved.
+        - Recompiled `style.min.css` (287,749 bytes).
+
+    - **Issue 16 Fix (Elimination of 12px White Gap between Mobile Bottom Navbar and Footer):**
+      - **Problem:** On mobile screens, when scrolling to the very bottom, an awkward 12px white horizontal gap appeared between the dark navy footer (`#181e28`) and the white floating bottom navigation bar (`.mn-footer-nav`).
+      - **Root Cause:** In `style.css` at line 3585 (`@media only screen and (max-width: 575px)`), `body` was assigned `margin-bottom: 72px;`. Because `body` ended 72px above the viewport bottom while `.mn-footer-nav` was only 60px tall, `72px - 60px = 12px` of bare HTML background canvas leaked between the footer and the navbar.
+      - **Solution:**
+        1. Neutralized `body` margin: `body { margin-bottom: 0 !important; }`.
+        2. Injected bottom clearance inside the dark footer: `.mn-footer .footer-bottom { padding-bottom: 75px !important; }`.
+        3. Recompiled `style.min.css` (287,814 bytes).
+      - **Verification:** Verified live rendering via Headless Chrome CDP: `navRect.top - mnFooterRect.bottom = -60.375px` (footer seamlessly extends directly behind the bottom bar with 0 gap). Confirmed visually via `verified_footer_no_gap.png`: payment badges and copyright text sit comfortably with 15px clearance above the bar.
 
 ---
 

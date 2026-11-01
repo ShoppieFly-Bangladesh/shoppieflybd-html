@@ -916,12 +916,17 @@ img {
     }
 }
 /** General **/
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
     letter-spacing: 0.03rem;
     background-color: #f1f4f7;
-    overflow-x: hidden;
 }
 
 h1,
@@ -3578,7 +3583,10 @@ footer {
 
 @media only screen and (max-width: 575px) {
     body {
-        margin-bottom: 72px;
+        margin-bottom: 0 !important;
+    }
+    .mn-footer .footer-bottom {
+        padding-bottom: 75px !important;
     }
     .mn-footer-nav {
         display: block;
@@ -6201,12 +6209,13 @@ button.btn-close.qty_close {
     overflow: hidden;
     border-radius: 15px;
 }
-.mn-modern-banner .modern-banner .mn-banner-img {
-    width: calc(100% - 380px);
-    height: 380px;
+.mn-modern-banner .modern-banner .mn-banner-img,
+.mn-shop-banner .modern-banner .mn-banner-img {
+    width: 100% !important;
+    height: 350px;
     border-radius: 15px;
     background-size: cover;
-    background-position: center;
+    background-position: left 25%;
     transition: transform 0.4s ease;
 }
 .mn-modern-banner .modern-banner:hover .mn-banner-img {
@@ -6218,36 +6227,50 @@ button.btn-close.qty_close {
 .mn-modern-banner .modern-banner .mn-banner-img.img-2 {
     background-image: url("../img/banner/2.webp");
 }
-/* Shop Page Image-Only Banner (100% Full Width & Responsive) */
-.mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
-.mn-shop-banner .modern-banner .mn-banner-img {
-    width: 100% !important;
-    height: 350px;
-    background-position: left 25%;
-}
-@media only screen and (max-width: 991px) {
-    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
+/* Unified Image-Only Responsive Banner (index.html & shop.html 100% Parity) */
+@media only screen and (max-width: 1199px) {
+    .mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
-        height: 220px;
+        height: 280px;
+        background-position: left 20%;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .mn-modern-banner .modern-banner .mn-banner-img,
+    .mn-shop-banner .modern-banner .mn-banner-img {
+        width: 100% !important;
+        height: 240px;
         background-position: left 20%;
     }
 }
 @media only screen and (max-width: 767px) {
-    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
+    .mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
-        height: 150px;
+        height: 200px !important;
+        background-position: left 20%;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .mn-modern-banner .modern-banner .mn-banner-img,
+    .mn-shop-banner .modern-banner .mn-banner-img {
+        width: 100% !important;
+        height: 200px !important;
         background-position: left 20%;
     }
 }
 @media only screen and (max-width: 480px) {
-    .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
+    .mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
-        height: 135px;
+        height: 200px !important;
         background-position: left 20%;
     }
+}
+.mn-modern-banner .modern-banner .mn-banner-contact,
+.mn-banner-contact {
+    display: none !important;
 }
 .mn-modern-banner .modern-banner .mn-banner-contact {
     width: 370px;
@@ -6496,7 +6519,7 @@ button.btn-close.qty_close {
         width: 270px;
     }
     .mn-modern-banner .modern-banner .mn-banner-img {
-        width: calc(100% - 300px);
+        width: 100% !important;
     }
     .mn-ofr-banners .mn-bnr-body .mn-bnr-detail {
         max-width: 230px;
@@ -12795,7 +12818,7 @@ footer.mn-footer {
     .sf-mobile-search-bar {
         display: block !important;
         width: 100% !important;
-        padding: 10px 16px 8px 16px !important;
+        padding: 10px 16px 10px 16px !important;
         background: #f1f4f7 !important;
         box-sizing: border-box !important;
     }
@@ -12884,7 +12907,7 @@ footer.mn-footer {
 
 @media (max-width: 360px) {
     .sf-mobile-search-bar {
-        padding: 8px 12px 4px 12px !important;
+        padding: 8px 10px 8px 10px !important;
     }
     .sf-mobile-search-bar > a.sf-instant-search-btn {
         height: 40px !important;
@@ -13587,22 +13610,18 @@ footer.mn-footer {
 @media (max-width: 767px) {
     .sf-product-grid-wrapper {
         display: grid !important;
-        grid-template-columns: none !important;
-        grid-template-rows: repeat(2, auto) !important;
-        grid-auto-flow: column !important;
-        grid-auto-columns: calc((100% - 10px) / 2) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: auto !important;
+        grid-auto-flow: row !important;
         gap: 12px 10px !important;
-        overflow-x: auto !important;
-        padding-bottom: 8px !important;
-        scroll-snap-type: x mandatory !important;
-        -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important;
+        overflow-x: visible !important;
+        padding-bottom: 0 !important;
+        scroll-snap-type: none !important;
     }
-    .sf-product-grid-wrapper::-webkit-scrollbar {
+    .sf-product-grid-wrapper > .mn-product-card:nth-child(n+5) {
         display: none !important;
     }
     .sf-product-grid-wrapper .mn-product-card {
-        scroll-snap-align: start !important;
         padding: 10px !important;
     }
 }
@@ -14112,14 +14131,14 @@ footer.mn-footer {
   Mobile Shop Catalog Sticky Filter Toolbar & Compact Sizing
 ==================================================*/
 :root {
-    --sf-mobile-header-height: 137px;
+    --sf-mobile-header-height: 134px;
 }
 
 @media (max-width: 991.98px) {
     .mn-shop .mn-pro-list-top {
         position: -webkit-sticky;
         position: sticky;
-        top: var(--sf-mobile-header-height, 137px);
+        top: var(--sf-mobile-header-height, 134px);
         z-index: 25;
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
@@ -14166,23 +14185,37 @@ footer.mn-footer {
   COMPACT MULTI-VENDOR MOBILE LAYOUT OPTIMIZATION (HIGH DENSITY SPACING)
 =============================================================================*/
 @media (max-width: 767.98px) {
-    /* 1. Drastic reduction of top content margin below mobile search bar */
+    /* 1. Standard Content Clearance below Mobile Search Bar */
     .mn-main-content,
     .mn-main-content.sb-hide {
-        margin: 8px auto 0 auto !important;
+        margin: 12px auto 0 auto !important;
         width: 100% !important;
         padding: 0 10px !important;
+        overflow-x: clip;
     }
 
-    /* 2. Compact Mobile Search Bar spacing */
+    /* Neutralize Bootstrap .row negative margins under mn-main-content on mobile */
+    .mn-main-content > .row,
+    .mn-main-content > section > .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .mn-main-content > .row > [class*="col-"],
+    .mn-main-content > section > .row > [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 2. Symmetrical Mobile Search Bar Spacing (Common Minimum Gap) */
     .sf-mobile-search-bar {
-        padding: 6px 12px 4px 12px !important;
+        padding: 10px 12px 10px 12px !important;
         background: #f1f4f7 !important;
     }
 
     .sf-mobile-search-bar > a.sf-instant-search-btn {
-        height: 38px !important;
-        max-height: 38px !important;
+        height: 40px !important;
+        max-height: 40px !important;
         padding: 0 14px !important;
     }
 
@@ -14271,54 +14304,31 @@ footer.mn-footer {
 @media (max-width: 575.98px) {
     .mn-main-content,
     .mn-main-content.sb-hide {
-        margin: 6px auto 0 auto !important;
+        margin: 10px auto 0 auto !important;
         padding: 0 8px !important;
     }
 
     .sf-mobile-search-bar {
-        padding: 4px 10px 4px 10px !important;
+        padding: 10px 10px 10px 10px !important;
     }
 }
 
 /*=============================================================================
-  SEAMLESS ZERO-GAP MOBILE HEADER & CONTENT INTEGRATION
+  UNIFIED MOBILE SEARCH BAR SPACING STANDARD (COMMON MINIMUM GAP)
 =============================================================================*/
 @media (max-width: 767.98px) {
-    /* Seamless integration of mobile search bar with header navbar */
     .sf-mobile-search-bar {
-        padding: 4px 12px 2px 12px !important;
-        background: transparent !important;
-        margin: 0 !important;
+        background: #f1f4f7 !important;
     }
 
-    /* Zero top margin on main content wrapper */
-    .mn-main-content,
-    .mn-main-content.sb-hide {
-        margin: 0 auto !important;
-        padding-top: 2px !important;
-    }
-
-    /* Zero top margin on hero banner / first section */
+    /* Clean spacing on first sections */
     .mn-main-content > .row:first-child,
     .mn-hero.m-b-15 {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
-    /* Remove bootstrap row default negative margin gap on mobile if any */
     .mn-main-content .col-xxl-12 {
-        padding-top: 0 !important;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .sf-mobile-search-bar {
-        padding: 2px 8px 0px 8px !important;
-    }
-
-    .mn-main-content,
-    .mn-main-content.sb-hide {
-        margin: 0 auto !important;
         padding-top: 0 !important;
     }
 }

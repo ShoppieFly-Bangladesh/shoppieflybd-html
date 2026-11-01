@@ -277,7 +277,7 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
       - **Verification:** Verified in headless Chrome at 390x844 and 360x780: `gap: 0px` between search bar and filter toolbar, `btnHeight: 32px`, `isSticky: true`, dropdown menu opens and functions flawlessly while sticky (`mobile-sticky-final-scrolled.png`, `mobile-sticky-final-dropdown.png`). Desktop view verified 100% untouched (`desktop-verify-after-sticky.png`). Recompiled `style.min.css`.
     - **Single Modern Offer Banner Synchronization (shop.html):**
       - Converted to clean, image-only banner (.mn-shop-banner) by removing redundant title/text/button clutter per user directive.
-      - Optimized banner framing: tuned desktop height to 320px with background-position: left top (sweet spot between bulky 380px and cropped 250px), ensuring the model's entire face, hair, eyes, and shopping bags are 100% visible without clipping; mobile layout preserved at 150px.
+      - Optimized banner framing: tuned desktop height to 350px with background-position: left 25% (sweet spot for full desktop width), ensuring the model's full head, hair, eyes, chin, neck, and shopping bags are 100% in frame without clipping; mobile layout preserved at 150px.
       - Enforced 100% full width: added width: 100% !important; across all screen sizes, completely eliminating the 300px right-side gap caused by legacy media queries on laptop/desktop viewports.
       - Verified on desktop (1440px) and mobile (390px): 0 broken tags, 0 overflow, instant visibility of catalog products.
     - **Mobile Product Grid Gap Parity with index.html (shop.html & catalog):**

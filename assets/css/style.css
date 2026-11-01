@@ -6222,14 +6222,15 @@ button.btn-close.qty_close {
 .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
 .mn-shop-banner .modern-banner .mn-banner-img {
     width: 100% !important;
-    height: 320px;
-    background-position: left top;
+    height: 350px;
+    background-position: left 25%;
 }
 @media only screen and (max-width: 991px) {
     .mn-shop-banner.mn-modern-banner .modern-banner .mn-banner-img,
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
-        height: 190px;
+        height: 220px;
+        background-position: left 20%;
     }
 }
 @media only screen and (max-width: 767px) {
@@ -6237,6 +6238,7 @@ button.btn-close.qty_close {
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
         height: 150px;
+        background-position: left 20%;
     }
 }
 @media only screen and (max-width: 480px) {
@@ -6244,6 +6246,7 @@ button.btn-close.qty_close {
     .mn-shop-banner .modern-banner .mn-banner-img {
         width: 100% !important;
         height: 135px;
+        background-position: left 20%;
     }
 }
 .mn-modern-banner .modern-banner .mn-banner-contact {

@@ -359,6 +359,59 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
         7. **Attribute & Cross-Sell Polish:** Replaced nonsensical shoe attributes with authentic cotton apparel specs (100% Combed Cotton, 180 GSM, Made in Bangladesh), updated Vendor tab to local Dhaka hub, and transformed cross-sell items into matching fashion accessories (Denim, Belt, Shoes, Cotton Top) in a compact 2-column mobile grid.
       - **Verification:** Verified live rendering via Headless Chrome CDP across Desktop (1440px) and Mobile (375px): 0 console errors, 0 horizontal overflow (`scrollWidth <= innerWidth`), full interactivity verified. Screenshots saved to `product_modernized_desktop_1440.png` and `product_modernized_mobile_375.png`.
 
+    - **Issue 20 Fix (Right Sidebar Integration, Image Gallery Resizing & 3-Column Top Fold on product.html):**
+      - **Problem:** (1) The product details page lacked the authoritative Mantu right sidebar layout, resulting in a single massive 100% width area where the image gallery was disproportionately large (47.3% on desktop) and crowded the buy button area. (2) Trust badges, seller information, and social share options were either buried under the buy buttons or missing entirely.
+      - **3-Column Grid Restructuring & Image Resizing:**
+        - Main Product area assigned `col-xl-9 col-lg-8 col-12`, and Right Sidebar assigned `col-xl-3 col-lg-4 col-12`.
+        - Reduced image gallery width (`.single-pro-img`) from 47.3% down to **42%**, and enlarged product description width (`.single-pro-desc`) to **58%**, achieving crisp, sleek proportions and generous breathing room.
+      - **Modern Right Sidebar Architecture (`.sf-product-sidebar`):**
+        - **Card 1: Bangladeshi Delivery & Trust Badges (`.sf-sidebar-trust-box`):** Relocated from under the buy buttons to the top of the right sidebar. Features Fast Home Delivery (Dhaka: 24-48h ৳60 / Outside: 2-4 days ৳120), Cash on Delivery, 7 Days Easy Return, and 100% Authentic Product Guarantee with soft pastel badges.
+        - **Card 2: Verified Seller / Store Profile (`.sf-sidebar-vendor-box`):** Features store avatar, store name (`ShoppieFly Fashion Hub`) with verified green checkmark badge, 3-metric performance grid (95% Positive Seller Rating, 98% Ship on Time, 99% Chat Response), Visit Store button (`vendor-store.html`), and Chat with Seller action.
+        - **Card 3: Social Share & Copy Link (`.sf-sidebar-share-box`):** Brand-colored social share buttons (Facebook, WhatsApp, Messenger, X) and a 1-click **"Copy Product Link"** button with automated clipboard copy and template-native toast feedback.
+      - **Desktop Sticky Behavior & Clean Stacking:**
+        - Sticky on desktop viewports (`position: sticky; top: 90px; z-index: 20; align-self: flex-start;`).
+        - Full-width `col-12` specification tabs and related products grid span beneath the top buy fold.
+        - On mobile (< 992px), sidebar cards stack seamlessly right after the buy box before the description tabs with 0 horizontal overflow.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots (`verify-product-desktop-top.png`, `verify-product-desktop-buy-section.png`, `verify-product-mobile-top.png`, `verify-product-mobile-sidebar-stacked.png`). Recompiled `style.min.css` (292,398 bytes).
+
+    - **Issue 21 Fix (Flash Deal Countdown Timer Redesign & Bulky Visitor Card Elimination on product.html):**
+      - **Problem:** (1) The legacy `.mn-single-sales` card was an oversized, bulky white box (110px tall) wasting significant vertical space between the price and product specifications. (2) Contained amateur artificial text `"Real time 56 visitor right now!"` and `"Time is Running Out!"` which cluttered the buy box.
+      - **Sleek Flash Deal Urgency Strip Standard (`.sf-flash-deal-strip`):**
+        - Completely purged the bulky `.mn-single-sales` card, `"Real time visitor"` counter, and `"Time is Running Out"` labels.
+        - Built an ultra-slim (38px height, 60% vertical space savings) premium horizontal strip right below the price:
+          - Left: Red flame/flash badge `<span class="sf-flash-badge"><i class="ri-flashlight-fill"></i> Flash Deal</span>` with `Special offer ends in:` label.
+          - Right: High-contrast digital clock countdown pills with monospace bold white numerals on crimson badges (`#e11d48`) and animated ticking seconds (`[59] Days : [01] : [10] : [37]`).
+          - Styling: Soft rose tint (`#fff1f2`), subtle `#ffe4e6` border, bold crimson left accent line (`3.5px solid #e11d48`), 8px border-radius.
+        - Added social proof sold counter `<span class="mn-single-sold"> | <span>Sold 10</span></span>` inside `.mn-single-rating-wrap` directly alongside the 992 Ratings link, styled with balanced slate color (`#64748b`) and 10px margin.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots (`verify-flash-deal-desktop.png`, `verify-flash-deal-mobile.png`, `verify-rating-sold.png`): 0 console errors, 0px overflow, confirmed 0 instances of "visitor right now" and "Time is Running Out", confirmed "Sold 10" in rating row. Recompiled `style.min.css` (294,349 bytes).
+
+    - **Issue 22 Fix (Action Buttons Equal Sizing & Compare Button Purge on product.html):**
+      - **Problem:** (1) The "Add to Cart" and "Buy Now" CTA buttons had asymmetric sizes (Add to Cart had `min-width: 140px; text-transform: uppercase` causing uneven padding and all-caps display, while Buy Now had natural width and title case). (2) Legacy compare button (`.mn-single-mn-compare`) was redundant and cluttered the primary conversion row.
+      - **Equal Button Sizing Standard (`.sf-pro-action-btns`):**
+        - Standardized `.sf-btn-cart` and `.sf-btn-buynow` with exact matching geometry: `height: 44px`, `width: 155px`, `min-width: 155px`, `border-radius: 8px`, `font-size: 14px`, `font-weight: 600`, `gap: 8px`, `white-space: nowrap`, and `text-transform: none !important;` (crisp Title Case typography on both buttons).
+        - Fixed row baseline alignment & gap continuity: added `display: flex; align-items: center; gap: 10px;` on `.mn-single-qty` and `.sf-pro-action-btns`, ensuring a clean 10px uniform clearance between Quantity box `[ - 1 + ]` and `[ Add To Cart ]`, eliminating button collision (`lege geche`). Updated quantity box (`.qty-plus-minus`) to `height: 44px; border-radius: 8px;` and Wishlist button (`.mn-wishlist`) to `44px × 44px; border-radius: 8px;`, ensuring 100% height parity across the row.
+        - Mobile 50/50 responsive layout: added `@media (max-width: 575px)` rules giving `.mn-single-cart` and `.mn-single-buy` `flex: 1 1 0; min-width: 0; width: 100%;` so both buttons stretch equally side by side on mobile devices.
+        - Completely removed `<div class="mn-single-mn-compare">...</div>` from `product.html`.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots (`verify-buttons-updated-cropped.png`, `verify-buttons-mobile-cropped.png`): exact equal dimensions on Desktop and Mobile, Compare button 0 instances in DOM, recompiled `style.min.css` (295,549 bytes).
+
+    - **Issue 23 Fix (Right Sidebar Sticky through Tabs until Related Products on product.html):**
+      - **Problem:** (1) The right sidebar stopped being sticky right at the bottom of the buy box fold (~700px) because the specification/review tabs were in a separate row below it, leaving an awkward empty void beside the tabs. (2) The user required the right sidebar to stay sticky continuously all the way down through the tabs and stop right above the Related Products section (`"right Sidebar ta sticky thakbe, related product er upor projonto"`).
+      - **CSS Grid Architecture (`.sf-product-layout-grid`):**
+        - Refactored `.mn-single-product` into `.sf-product-layout-grid` with CSS Grid template areas: `"pro-info sidebar" "pro-tabs sidebar"`, with columns `minmax(0, 1fr) 320px` (XL: `340px`) and `column-gap: 24px; row-gap: 30px`.
+        - The sidebar grid track `.sf-grid-sidebar` spans across both rows (`height: 100%`), stretching continuously alongside both `.sf-grid-pro-info` (Gallery + Buy box) and `.sf-grid-pro-tabs` (Detail, Specifications, Vendor, Reviews).
+        - Applied `position: sticky; top: 90px; z-index: 20;` to `.sf-product-sidebar`. As the user scrolls through the product info and tabs, the sidebar stays pinned gracefully beside the content.
+        - Positioned `<section class="mn-related-product m-t-30">` immediately outside the grid across the bottom. The sidebar stops scrolling at the bottom of the tabs track (`sbColBottom: 1448px`), resting directly above Related Products (`relTop: 1478px`).
+        - Mobile View: HTML source order guarantees natural sequence: Product Buy Fold ➔ Sidebar Cards (Delivery, Seller, Share) ➔ Specifications & Review Tabs ➔ Related Products.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots across Desktop (1440px at 0px, 800px, 1400px scroll) and Mobile (390px): verified sticky sidebar pinning across tabs, confirmed stop above Related Products, 0 horizontal overflow (`scrollWidth <= innerWidth`). Recompiled `style.min.css` (296,233 bytes).
+
+    - **Issue 24 Fix (Restoration & Proportional Column Balance on product.html):**
+      - **Problem:** Attempting to force an artificial max-height and `#f8fafc` background on `.single-product-cover` created an awkward double-box effect and displaced the specification tabs directly under the buy buttons.
+      - **Clean Proportional Balance (`.single-pro-img` 37% & `.single-pro-desc` 63%):**
+        - Completely purged artificial background overrides and inner grey box styles, restoring the clean, native full-bleed product image presentation.
+        - Restored the canonical two-row layout: Top row contains Product Buy Fold (`col-xl-9 col-lg-8`) and Right Sidebar (`col-xl-3 col-lg-4`). Bottom full-width row contains Specification/Review Tabs and Related Products.
+        - Proportionally tuned `.single-pro-img` width to `37%` and `.single-pro-desc` width to `63%`: The main image naturally scales to ~360px width and ~405px height, allowing the entire image card (main image + 4 thumbnail carousel) to fit cleanly at ~520px height—matching the adjacent buy description perfectly without any clipping or push below the viewport fold.
+      - **Verification:** Verified live rendering via Headless Chrome screenshots (`verify-ratio-37-63-cropped.png`): confirmed clean natural image rendering, zero double-box borders, full visibility of thumbnail slider, and harmonious baseline alignment with buy buttons. Recompiled `style.min.css` (295,704 bytes).
+
 ---
 
 ## 7. Next Immediate Tasks (Storefront Interior Pages Phase)

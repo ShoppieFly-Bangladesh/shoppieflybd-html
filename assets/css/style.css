@@ -2005,8 +2005,12 @@ header {
     align-items: center;
     border: 1px solid #e5e5e5 !important;
     position: relative;
-    -webkit-transition: -webkit-box-shadow 0.25s ease, border-color 0.25s ease;
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    -webkit-transition:
+        -webkit-box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
     /*===== Mobile menus =====*/
 }
 header.header-sticky .mn-header {
@@ -2909,8 +2913,12 @@ header.header-sticky .mn-header {
 }
 
 .mn-sidebar {
-    -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    -webkit-transition:
+        -webkit-transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease;
     width: 300px;
     max-width: 85%;
     height: 100vh;
@@ -3544,7 +3552,8 @@ footer {
 }
 /**  Footer Nav For Mobile (Elevated Center Hero FAB - Sample 3-A)  **/
 @-webkit-keyframes heroFloat {
-    0%, 100% {
+    0%,
+    100% {
         -webkit-transform: translateX(-50%) translateY(0);
         transform: translateX(-50%) translateY(0);
         -webkit-box-shadow: 0 6px 16px rgba(58, 78, 229, 0.42);
@@ -3558,7 +3567,8 @@ footer {
     }
 }
 @keyframes heroFloat {
-    0%, 100% {
+    0%,
+    100% {
         -webkit-transform: translateX(-50%) translateY(0);
         transform: translateX(-50%) translateY(0);
         -webkit-box-shadow: 0 6px 16px rgba(58, 78, 229, 0.42);
@@ -3666,8 +3676,12 @@ footer {
         margin-bottom: 3px;
         display: block;
         color: #64748b;
-        -webkit-transition: -webkit-transform 0.2s ease, color 0.2s ease;
-        transition: transform 0.2s ease, color 0.2s ease;
+        -webkit-transition:
+            -webkit-transform 0.2s ease,
+            color 0.2s ease;
+        transition:
+            transform 0.2s ease,
+            color 0.2s ease;
     }
     .mn-footer-nav .mn-nav-label {
         font-size: 10px;
@@ -3681,8 +3695,12 @@ footer {
         width: auto !important;
         height: auto !important;
         border-radius: 0 !important;
-        -webkit-transition: color 0.2s ease, font-weight 0.2s ease;
-        transition: color 0.2s ease, font-weight 0.2s ease;
+        -webkit-transition:
+            color 0.2s ease,
+            font-weight 0.2s ease;
+        transition:
+            color 0.2s ease,
+            font-weight 0.2s ease;
     }
     /* Active State */
     .mn-footer-nav .mn-nav-item.active .mn-nav-link,
@@ -3734,8 +3752,12 @@ footer {
         -webkit-animation: heroFloat 2.6s ease-in-out infinite;
         animation: heroFloat 2.6s ease-in-out infinite;
         will-change: transform, box-shadow;
-        -webkit-transition: -webkit-transform 0.2s ease, -webkit-box-shadow 0.2s ease;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        -webkit-transition:
+            -webkit-transform 0.2s ease,
+            -webkit-box-shadow 0.2s ease;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
     }
     .mn-footer-nav .mn-nav-hero-btn:active {
         -webkit-animation: none;
@@ -8032,7 +8054,7 @@ button.btn-close.qty_close {
 }
 .mn-single-product .single-pro-img {
     position: relative;
-    width: 47.3%;
+    width: 37%;
 }
 .mn-single-product .single-pro-img .slick-list {
     margin-bottom: -7px;
@@ -8083,13 +8105,13 @@ button.btn-close.qty_close {
     opacity: 1;
 }
 .mn-single-product .single-pro-desc {
-    width: 52.7%;
+    width: 63%;
 }
 .mn-single-product .single-pro-img-no-sidebar {
-    width: 40%;
+    width: 42%;
 }
 .mn-single-product .single-pro-desc-no-sidebar {
-    width: 60%;
+    width: 58%;
 }
 .mn-single-product .space-6 > div {
     margin-top: 30px;
@@ -8240,6 +8262,17 @@ button.btn-close.qty_close {
 }
 .mn-single-product .single-pro-content .mn-single-rating-wrap .mn-read-review a:hover {
     color: #ffd783;
+}
+.mn-single-product .single-pro-content .mn-single-rating-wrap .mn-single-sold {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.mn-single-product .single-pro-content .mn-single-rating-wrap .mn-single-sold span {
+    color: #64748b;
+    font-weight: 500;
+    margin-left: 4px;
 }
 .mn-single-product .single-pro-content .mn-single-rating {
     margin: 0;
@@ -12360,7 +12393,6 @@ footer.mn-footer {
     contain-intrinsic-size: 1px 600px;
 }
 
-
 /* ==========================================================
    CATEGORY HUB PAGE & MODERN CATEGORY CARDS (RESPONSIVE)
    - Web / Desktop View: 6 cards per row (col-xl-2, col-lg-2)
@@ -12629,7 +12661,7 @@ footer.mn-footer {
 
 /* Running Gradient Border Animation */
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::before {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
@@ -12637,7 +12669,16 @@ footer.mn-footer {
     height: 600px !important;
     margin-top: -300px !important;
     margin-left: -300px !important;
-    background: conic-gradient(from 0deg, #3a4ee5 0deg, #00d2ff 60deg, #10b981 120deg, #ff5722 180deg, #ec4899 240deg, #8b5cf6 300deg, #3a4ee5 360deg) !important;
+    background: conic-gradient(
+        from 0deg,
+        #3a4ee5 0deg,
+        #00d2ff 60deg,
+        #10b981 120deg,
+        #ff5722 180deg,
+        #ec4899 240deg,
+        #8b5cf6 300deg,
+        #3a4ee5 360deg
+    ) !important;
     animation: sfBorderSpin 2.8s linear infinite !important;
     z-index: 0 !important;
     pointer-events: none !important;
@@ -12645,7 +12686,7 @@ footer.mn-footer {
 
 /* Inner Pill Surface */
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::after {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     inset: 1.8px !important;
     background: #f8fafc !important;
@@ -12849,7 +12890,7 @@ footer.mn-footer {
 
     /* Running Gradient Border Animation for Mobile Bar */
     .sf-mobile-search-bar > a.sf-instant-search-btn::before {
-        content: '' !important;
+        content: "" !important;
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
@@ -12857,7 +12898,16 @@ footer.mn-footer {
         height: 600px !important;
         margin-top: -300px !important;
         margin-left: -300px !important;
-        background: conic-gradient(from 0deg, #3a4ee5 0deg, #00d2ff 60deg, #10b981 120deg, #ff5722 180deg, #ec4899 240deg, #8b5cf6 300deg, #3a4ee5 360deg) !important;
+        background: conic-gradient(
+            from 0deg,
+            #3a4ee5 0deg,
+            #00d2ff 60deg,
+            #10b981 120deg,
+            #ff5722 180deg,
+            #ec4899 240deg,
+            #8b5cf6 300deg,
+            #3a4ee5 360deg
+        ) !important;
         animation: sfBorderSpin 2.8s linear infinite !important;
         z-index: 0 !important;
         pointer-events: none !important;
@@ -12865,7 +12915,7 @@ footer.mn-footer {
 
     /* Inner Pill Surface */
     .sf-mobile-search-bar > a.sf-instant-search-btn::after {
-        content: '' !important;
+        content: "" !important;
         position: absolute !important;
         inset: 1.8px !important;
         background: #ffffff !important;
@@ -13021,7 +13071,9 @@ footer.mn-footer {
     white-space: nowrap !important;
     opacity: 0 !important;
     transform: translateY(100%) !important;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease !important;
+    transition:
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.45s ease !important;
     pointer-events: none !important;
 }
 
@@ -13105,7 +13157,7 @@ footer.mn-footer {
 
 /* Running Gradient Border Animation on Sell With Us */
 .sf-topbar-seller-btn::before {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
@@ -13113,7 +13165,16 @@ footer.mn-footer {
     height: 260px !important;
     margin-top: -130px !important;
     margin-left: -130px !important;
-    background: conic-gradient(from 0deg, #ff5722 0deg, #f59e0b 60deg, #10b981 120deg, #00d2ff 180deg, #3a4ee5 240deg, #8b5cf6 300deg, #ff5722 360deg) !important;
+    background: conic-gradient(
+        from 0deg,
+        #ff5722 0deg,
+        #f59e0b 60deg,
+        #10b981 120deg,
+        #00d2ff 180deg,
+        #3a4ee5 240deg,
+        #8b5cf6 300deg,
+        #ff5722 360deg
+    ) !important;
     animation: sfBorderSpin 2.8s linear infinite !important;
     z-index: 0 !important;
     pointer-events: none !important;
@@ -13121,7 +13182,7 @@ footer.mn-footer {
 
 /* Inner Pill Surface */
 .sf-topbar-seller-btn::after {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     inset: 1.5px !important;
     background: #ffffff !important;
@@ -13388,7 +13449,9 @@ footer.mn-footer {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s ease !important;
 }
 
 .sf-home-cat-img img {
@@ -13584,7 +13647,6 @@ footer.mn-footer {
     }
 }
 
-
 /* ========================================================
    Product 2-Row Grid Architecture (Replacing all product sliders)
    ======================================================== */
@@ -13622,7 +13684,7 @@ footer.mn-footer {
         padding-bottom: 0 !important;
         scroll-snap-type: none !important;
     }
-    .sf-product-grid-wrapper > .mn-product-card:nth-child(n+5) {
+    .sf-product-grid-wrapper > .mn-product-card:nth-child(n + 5) {
         display: none !important;
     }
     .sf-product-grid-wrapper .mn-product-card {
@@ -13802,7 +13864,9 @@ footer.mn-footer {
 .sf-sort-dropdown .dropdown-menu {
     border: 1px solid #e2e8f0 !important;
     border-radius: 10px !important;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06) !important;
+    box-shadow:
+        0 10px 25px -5px rgba(15, 23, 42, 0.12),
+        0 8px 10px -6px rgba(15, 23, 42, 0.06) !important;
     padding: 6px !important;
     margin-top: 6px !important;
     background-color: #ffffff !important;
@@ -14189,8 +14253,6 @@ footer.mn-footer {
     }
 }
 
-
-
 /*=============================================================================
   COMPACT MULTI-VENDOR MOBILE LAYOUT OPTIMIZATION (HIGH DENSITY SPACING)
 =============================================================================*/
@@ -14203,7 +14265,6 @@ footer.mn-footer {
         padding: 0 10px !important;
         overflow-x: clip;
     }
-
 
     /* 2. Symmetrical Mobile Search Bar Spacing (Common Minimum Gap) */
     .sf-mobile-search-bar {
@@ -14331,7 +14392,6 @@ footer.mn-footer {
     }
 }
 
-
 /* ==========================================================
    Shop & Catalog Mobile Product Grid Spacing Synchronization
    (Parity with index.html .sf-product-grid-wrapper)
@@ -14354,35 +14414,100 @@ footer.mn-footer {
     }
 }
 
-
 /* ==========================================================
    Product Details High-Conversion Enhancements & Sticky Buy Bar
 ========================================================== */
-.sf-pro-action-btns .sf-btn-cart {
-    height: 44px;
-    padding: 0 22px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+.mn-single-product .single-pro-content .mn-single-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
+.mn-single-product .single-pro-content .mn-single-qty .qty-plus-minus {
+    height: 44px;
+    border-radius: 8px;
+    margin: 0;
+}
+.sf-pro-action-btns {
+    gap: 10px !important;
+}
+.sf-pro-action-btns .mn-single-cart .mn-btn-2,
+.sf-pro-action-btns .mn-single-wishlist {
+    margin: 0 !important;
+}
+.sf-pro-action-btns .sf-btn-cart,
 .sf-pro-action-btns .sf-btn-buynow {
     height: 44px;
-    padding: 0 24px;
+    width: 155px;
+    min-width: 155px;
+    padding: 0 16px;
     font-size: 14px;
     font-weight: 600;
+    text-transform: none !important;
+    letter-spacing: normal;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 !important;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+.sf-pro-action-btns .sf-btn-cart i,
+.sf-pro-action-btns .sf-btn-buynow i {
+    font-size: 18px;
+    line-height: 1;
+}
+.sf-pro-action-btns .sf-btn-cart {
+    color: #ffffff !important;
+    background: #3a4ee5 !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(58, 78, 229, 0.25);
+}
+.sf-pro-action-btns .sf-btn-cart:hover {
+    background: #2f40c7 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(58, 78, 229, 0.35);
+}
+.sf-pro-action-btns .sf-btn-buynow {
     color: #ffffff !important;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
     border: none !important;
-    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-    transition: all 0.2s ease;
     text-decoration: none;
 }
 .sf-pro-action-btns .sf-btn-buynow:hover {
     background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
     transform: translateY(-1px);
     box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+    color: #ffffff !important;
+}
+.sf-pro-action-btns .mn-wishlist {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 575px) {
+    .sf-pro-action-btns {
+        width: 100%;
+    }
+    .sf-pro-action-btns .mn-single-cart,
+    .sf-pro-action-btns .mn-single-buy {
+        flex: 1 1 0;
+    }
+    .sf-pro-action-btns .sf-btn-cart,
+    .sf-pro-action-btns .sf-btn-buynow {
+        width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+        font-size: 13px;
+    }
 }
 .sf-trust-badges-card {
     background: #f8fafc !important;
@@ -14407,8 +14532,12 @@ footer.mn-footer {
     animation: sfSlideUp 0.25s ease-out;
 }
 @keyframes sfSlideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 .sf-sticky-bar-inner {
     max-width: 100%;
@@ -14442,7 +14571,9 @@ footer.mn-footer {
 #reviewStarSelect i {
     font-size: 20px;
     cursor: pointer;
-    transition: transform 0.15s ease, color 0.15s ease;
+    transition:
+        transform 0.15s ease,
+        color 0.15s ease;
     margin-right: 2px;
 }
 #reviewStarSelect i:hover {
@@ -14461,4 +14592,301 @@ footer.mn-footer {
 }
 .single-pro-img .zoom-image-hover .zoomImg {
     cursor: crosshair;
+}
+
+/*----- Modern Product Right Sidebar (Trust, Seller Info, Share) -----*/
+@media (min-width: 992px) {
+    .sf-product-sidebar {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 90px !important;
+        z-index: 20;
+        align-self: flex-start;
+    }
+}
+.sf-sidebar-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    margin-bottom: 16px;
+}
+.sf-card-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.sf-card-header {
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+.sf-trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.sf-trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.sf-trust-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+.sf-trust-title {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.25;
+}
+.sf-trust-desc {
+    font-size: 11px;
+    color: #64748b;
+    margin: 2px 0 0 0;
+    line-height: 1.35;
+}
+.sf-badge-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #10b981;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+.sf-vendor-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sf-vendor-avatar img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    object-fit: cover;
+}
+.sf-vendor-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+}
+.sf-vendor-name a {
+    color: #1e293b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.sf-vendor-name a:hover {
+    color: #3a4ee5;
+}
+.sf-vendor-location {
+    font-size: 11px;
+    color: #94a3b8;
+    display: block;
+    margin-top: 1px;
+}
+.sf-vendor-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    background: #f8fafc;
+    padding: 10px 4px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 12px;
+}
+.sf-metric-val {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+}
+.sf-metric-lbl {
+    display: block;
+    font-size: 10px;
+    color: #64748b;
+    margin-top: 1px;
+    white-space: nowrap;
+}
+.sf-vendor-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+.sf-vendor-btn {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.sf-share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sf-share-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #ffffff !important;
+    text-decoration: none;
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+.sf-share-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+.sf-share-fb {
+    background-color: #1877f2;
+}
+.sf-share-wa {
+    background-color: #25d366;
+}
+.sf-share-msg {
+    background: linear-gradient(135deg, #00b2fe, #006aff);
+}
+.sf-share-tw {
+    background-color: #000000;
+}
+.sf-copy-link-btn {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 7px 10px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.sf-copy-link-btn:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+    border-color: #94a3b8;
+}
+
+/*----- Compact Flash Deal Urgency Strip (product.html) -----*/
+.sf-flash-deal-strip {
+    background: #fff1f2;
+    border: 1px solid #ffe4e6;
+    border-left: 3.5px solid #e11d48;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin: 14px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.sf-flash-deal-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.sf-flash-badge {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    color: #ffffff !important;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(225, 29, 72, 0.25);
+    line-height: 1.2;
+}
+.sf-flash-badge i {
+    font-size: 13px;
+}
+.sf-flash-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #475569;
+}
+.sf-flash-deal-timer .dealend-timer {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+.sf-flash-deal-timer .dealend-timer .time-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0;
+}
+.sf-flash-deal-timer .dealend-timer .time-block .time {
+    background: #e11d48;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    padding: 3px 6px;
+    border-radius: 4px;
+    min-width: 24px;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 1px 3px rgba(225, 29, 72, 0.2);
+}
+.sf-flash-deal-timer .dealend-timer .time-block .day {
+    font-size: 11px;
+    font-weight: 700;
+    color: #e11d48;
+    margin: 0 3px 0 1px;
+}
+.sf-flash-deal-timer .dealend-timer .time-block .dots {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e11d48;
+    margin: 0 1px;
+}
+@media only screen and (max-width: 575px) {
+    .sf-flash-deal-strip {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+    .sf-flash-deal-left {
+        gap: 6px;
+    }
+    .sf-flash-badge {
+        font-size: 11px;
+        padding: 2px 6px;
+    }
+    .sf-flash-text {
+        font-size: 12px;
+    }
 }

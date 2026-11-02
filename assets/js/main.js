@@ -831,4 +831,45 @@
         });
     });
 
+    /* Copy Product Link to Clipboard with Feedback */
+    $(document).on("click", "#sfCopyProductLink", function (e) {
+        e.preventDefault();
+        var $btn = $(this);
+        var url = window.location.href;
+
+        function showSuccess() {
+            var originalHtml = $btn.html();
+            $btn.html('<i class="ri-check-line text-success me-1"></i> <span class="text-success">Link Copied!</span>');
+
+            $(".mn-cart-notify").remove();
+            $("footer").after(
+                '<div class="mn-cart-notify"><p class="cart-note add">Product link copied to clipboard!</p></div>'
+            );
+            setTimeout(function () {
+                $(".mn-cart-notify").fadeOut();
+            }, 2500);
+
+            setTimeout(function () {
+                $btn.html(originalHtml);
+            }, 2500);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(url).then(showSuccess).catch(function () {
+                fallbackCopy(url);
+            });
+        } else {
+            fallbackCopy(url);
+        }
+
+        function fallbackCopy(text) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(text).select();
+            document.execCommand("copy");
+            $temp.remove();
+            showSuccess();
+        }
+    });
+
 })(jQuery);

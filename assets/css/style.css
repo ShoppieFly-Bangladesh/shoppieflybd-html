@@ -8103,6 +8103,12 @@ button.btn-close.qty_close {
     cursor: zoom-in;
     border-radius: 15px;
 }
+.mn-single-product .single-product-cover .single-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
 .mn-single-product .single-nav-thumb {
     width: 100%;
     overflow: hidden;
@@ -8267,36 +8273,14 @@ button.btn-close.qty_close {
 }
 .mn-single-product .single-pro-content .mn-single-price-stoke {
     margin-bottom: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-.mn-single-product .single-pro-content .mn-single-price-stoke > * {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-.mn-single-product .single-pro-content .mn-single-price-stoke .mn-single-ps-title {
-    line-height: 1;
-    font-size: 16px;
-    color: #3a4ee5;
-    letter-spacing: 0;
-}
-.mn-single-product .single-pro-content .mn-single-price-stoke .mn-single-sku {
-    margin-bottom: 15px;
-    font-size: 18px;
-    line-height: 32px;
-    color: #313b50;
-    font-weight: 600;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 .mn-single-product .single-pro-content .mn-single-sales {
     margin-bottom: 30px;
@@ -8351,27 +8335,47 @@ button.btn-close.qty_close {
     color: #777;
     font-size: 14px;
 }
+.mn-single-product .single-pro-content .mn-single-price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 .mn-single-product .single-pro-content .mn-single-price .final-price {
-    margin-bottom: 15px;
+    margin-bottom: 0;
     color: #313b50;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 32px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1;
     font-family: "Poppins", sans-serif;
     letter-spacing: 0;
 }
-.mn-single-product .single-pro-content .mn-single-price .final-price .price-des {
-    margin-left: 15px;
-    color: #3a4ee5;
+.mn-single-product .single-pro-content .mn-single-price .old-price {
+    color: #94a3b8;
+    font-size: 17px;
     font-weight: 500;
-    font-size: 18px;
-}
-.mn-single-product .single-pro-content .mn-single-price .mrp {
-    color: #777;
-}
-.mn-single-product .single-pro-content .mn-single-price .mrp span {
-    color: #777;
     text-decoration: line-through;
+    line-height: 1;
+}
+.mn-single-product .single-pro-content .mn-single-price .price-des {
+    color: #ef4444;
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    line-height: 1.2;
+    display: inline-block;
 }
 .mn-single-product .single-pro-content .mn-pro-variation {
     margin-bottom: 20px;
@@ -14348,4 +14352,113 @@ footer.mn-footer {
     .shop-pro-inner .mn-product-card {
         padding: 10px !important;
     }
+}
+
+
+/* ==========================================================
+   Product Details High-Conversion Enhancements & Sticky Buy Bar
+========================================================== */
+.sf-pro-action-btns .sf-btn-cart {
+    height: 44px;
+    padding: 0 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.sf-pro-action-btns .sf-btn-buynow {
+    height: 44px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border: none !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.sf-pro-action-btns .sf-btn-buynow:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+.sf-trust-badges-card {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+}
+.sf-trust-badges-card i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Mobile Sticky Bottom Action Bar */
+.sf-mobile-sticky-bar {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+    padding: 8px 12px;
+    animation: sfSlideUp 0.25s ease-out;
+}
+@keyframes sfSlideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+.sf-sticky-bar-inner {
+    max-width: 100%;
+}
+.sf-sticky-thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+}
+.sf-sticky-actions .btn {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+.sf-sticky-actions .sf-sticky-buy-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+@media (min-width: 768px) {
+    .sf-mobile-sticky-bar {
+        display: none !important;
+    }
+}
+
+/* Interactive Review Form Star Rating */
+#reviewStarSelect i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.15s ease, color 0.15s ease;
+    margin-right: 2px;
+}
+#reviewStarSelect i:hover {
+    transform: scale(1.2);
+}
+#reviewStarSelect i.active {
+    color: #f59e0b;
+}
+#reviewStarSelect i.grey {
+    color: #cbd5e1;
+}
+
+/* Product Image Zoom Cursor States */
+.single-pro-img .zoom-image-hover {
+    cursor: zoom-in;
+}
+.single-pro-img .zoom-image-hover .zoomImg {
+    cursor: crosshair;
 }

@@ -308,11 +308,6 @@
         $(".filter-sidebar-overlay").fadeOut();
     });
 
-    /*== Product Image Zoom ==*/
-    if ($.fn.zoom && $(".zoom-image-hover").length) {
-        $(".zoom-image-hover").zoom();
-    }
-
     /*== single product Slider ==*/
     if ($.fn.slick && $(".single-product-cover").length) {
         $(".single-product-cover").slick({
@@ -336,6 +331,11 @@
         $(window).on("load resize", function () {
             $(".single-product-cover").slick("setPosition");
         });
+    }
+
+    /*== Product Image Zoom ==*/
+    if ($.fn.zoom && $(".zoom-image-hover").length) {
+        $(".zoom-image-hover").zoom();
     }
 
     /*== Add More Product slider purged for clean CSS grid ==*/
@@ -816,4 +816,19 @@
 
         $(".sf-topbar-promo").on("mouseenter", stopRotation).on("mouseleave", startRotation);
     })();
+
+    /* Interactive Star Rating Selector in Review Form */
+    $(document).on("click", "#reviewStarSelect i", function () {
+        var rating = $(this).data("rating");
+        $("#reviewRatingInput").val(rating);
+        $("#reviewStarSelect i").each(function () {
+            var star = $(this).data("rating");
+            if (star <= rating) {
+                $(this).removeClass("grey").addClass("active");
+            } else {
+                $(this).removeClass("active").addClass("grey");
+            }
+        });
+    });
+
 })(jQuery);

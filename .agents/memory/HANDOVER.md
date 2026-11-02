@@ -83,6 +83,10 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
     - Mobile search bar padding compact (6px 12px 4px 12px).
     - Streamlined category hub header box (categories.html) with hidden long subtitles and reduced 12px margin on mobile.
     - Standardized global mobile section gaps from 30-40px down to high-density 12-14px standard (Daraz/Amazon style).
+  - Mobile Bottom Navigation Bar Unification Across All 20 Pages:
+    - Removed Search icon from bottom nav.
+    - Enforced exact uniform 5-item order across all 20 canonical HTML files: Home -> Category (categories.html) -> Cart (Elevated Hero FAB) -> Shop (shop.html) -> Account (login.html).
+    - Set automatic contextual active state and filled Remix Icons per page.
     - Eliminated remaining gap between mobile search bar and hero banner by removing all remaining bottom padding from .sf-mobile-search-bar and setting .mn-main-content top margin to 0.
   - 2,712 links verified: **0 broken links**.
   - 1,047 images verified: **0 broken images**.
@@ -328,6 +332,21 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
         2. Injected bottom clearance inside the dark footer: `.mn-footer .footer-bottom { padding-bottom: 75px !important; }`.
         3. Recompiled `style.min.css` (287,814 bytes).
       - **Verification:** Verified live rendering via Headless Chrome CDP: `navRect.top - mnFooterRect.bottom = -60.375px` (footer seamlessly extends directly behind the bottom bar with 0 gap). Confirmed visually via `verified_footer_no_gap.png`: payment badges and copyright text sit comfortably with 15px clearance above the bar.
+
+    - **Issue 17 Fix (Restoration of Desktop Sticky Filter Sidebar on shop.html):**
+      - **Problem:** The desktop filter sidebar on `shop.html` stopped sticking to the viewport when scrolling down, leaving blank empty space on the left after the Tags block while products scrolled downwards on the right.
+      - **Root Cause:** In commit `71fcce6`, `html, body { overflow-x: hidden; }` was introduced. In CSS specifications, applying `overflow-x: hidden` to root `html`/`body` forces vertical overflow to compute to `auto` or creates an independent overflow context that cancels `position: sticky` on all viewport descendants. Additionally, the sidebar lacked explicit flex alignment (`align-self: flex-start !important;`) inside the Bootstrap `.row`.
+      - **Solution:**
+        1. Updated root overflow handling from `overflow-x: hidden` to modern standard `overflow-x: clip;` on `html, body` in `style.css`. Unlike `hidden`, `clip` prevents horizontal scrollbars without establishing an independent scroll container or breaking `position: sticky`.
+        2. Hardened desktop `.mn-shop-sidebar` rule with `position: -webkit-sticky !important; position: sticky !important; top: 90px !important; align-self: flex-start !important; z-index: 20 !important;` and set `#shop_sidebar { position: static !important; }` to eliminate nested sticky collisions.
+        3. Surgically patched `style.min.css` to keep minified production bundle in 100% sync.
+      - **Verification:** Verified via incremental Headless Chrome CDP scrolls (0px to 1200px): at scroll positions 600px, 800px, and 1000px, `sidebar.top === 90px` with `isSticky: true`. Verified 0 horizontal overflow on desktop and mobile. Screenshot saved to `shop_sticky_verified_800.png`.
+
+    - **Issue 18 Fix (Restoration of Category Items Mobile Grid Gutters on categories.html):**
+      - **Problem:** On `categories.html` mobile view, the category cards (`Men's Fashion`, `Women's Fashion`, `Kids & Baby Wear`) lost their horizontal spacing and were squished edge-to-edge with 0px gap.
+      - **Root Cause:** A legacy mobile override (`.mn-main-content > .row > [class*="col-"], .mn-main-content > section > .row > [class*="col-"] { padding-left: 0 !important; padding-right: 0 !important; }`) stripped all Bootstrap `g-3` column gutters from sections under `.mn-main-content`.
+      - **Solution:** Removed the destructive column padding and row margin zeroing rule from `assets/css/style.css` and `assets/css/style.min.css`. With `html, body { overflow-x: clip; }` already in place, Bootstrap's standard gutters (`g-3`, 16px gap) render with complete visual breathing room without inducing any horizontal overflow.
+      - **Verification:** Verified live rendering via Headless Chrome CDP at 375x812: `gap0_1: 16px, gap1_2: 16px, colPaddingLeft: 8px, colPaddingRight: 8px, scrollWidth: 375px, hasHorizontalOverflow: false`. Verified zero regressions on `index.html` and `shop.html`. Screenshot saved to `categories_gap_fixed_verified.png`.
 
 ---
 

@@ -919,7 +919,7 @@ img {
 html,
 body {
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
@@ -13866,11 +13866,17 @@ footer.mn-footer {
 
 @media (min-width: 992px) {
     .mn-shop-sidebar {
+        position: -webkit-sticky !important;
         position: sticky !important;
         top: 90px !important;
+        align-self: flex-start !important;
         max-height: calc(100vh - 110px) !important;
         overflow-y: auto !important;
         scrollbar-width: thin !important;
+        z-index: 20 !important;
+    }
+    #shop_sidebar {
+        position: static !important;
     }
     .mn-shop-sidebar::-webkit-scrollbar {
         width: 5px;
@@ -14194,18 +14200,6 @@ footer.mn-footer {
         overflow-x: clip;
     }
 
-    /* Neutralize Bootstrap .row negative margins under mn-main-content on mobile */
-    .mn-main-content > .row,
-    .mn-main-content > section > .row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    .mn-main-content > .row > [class*="col-"],
-    .mn-main-content > section > .row > [class*="col-"] {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
 
     /* 2. Symmetrical Mobile Search Bar Spacing (Common Minimum Gap) */
     .sf-mobile-search-bar {

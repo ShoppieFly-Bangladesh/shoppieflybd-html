@@ -485,6 +485,16 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
         - Added interactive JavaScript in `assets/js/main.js` for `#sfBottomQtyDec` and `#sfBottomQtyInc` syncing with form values.
       - **Verification:** Recompiled `assets/css/style.min.css` (284KB) with zero syntax errors. Verified across Desktop (1920x1080) at scroll 0, 600, 1000px and Mobile (375x812) via Headless Chrome CDP.
 
+
+    - **Issue 30 Fix (Laptop Screen Action Button Break Resolution):**
+      - **Problem:** On laptop screens (1024px to 1366px), the product description column width (~330px to 480px) could not accommodate 4 inline items (120px Qty + 155px Cart + 155px Buy + 44px Wish = 474px). The Wishlist button wrapped alone to a second line.
+      - **Surgical Solution:**
+        - Applied a balanced, symmetrical 2-row layout on laptop screens (`768px` to `1399.98px`):
+          - Row 1: Quantity Stepper `[ - 1 + ]` on the left + Wishlist button `[ ♡ ]` on the right.
+          - Row 2: `[ 🛒 Add to Cart ]` (50%) + `[ ⚡ Buy Now ]` (50%) full-width balanced row.
+        - Retained the clean 1-row layout (`[ - 1 + ]` `[ Add to Cart ]` `[ Buy Now ]` `[ ♡ ]`) on full desktop screens (`>= 1400px`).
+      - **Verification:** Recompiled `assets/css/style.min.css` (286KB). Verified across 1024px (compact laptop), 1280px (standard laptop), 1920px (full desktop), and 375px (mobile) via Headless Chrome CDP. Zero broken lines, zero layout shifts.
+
 ## 7. Next Immediate Tasks (Storefront Interior Pages Phase)
 
 With `index.html` and `shop.html` design locked and fully optimized:

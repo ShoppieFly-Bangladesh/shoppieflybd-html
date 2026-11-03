@@ -872,4 +872,46 @@
         }
     });
 
+    /* Mobile Bottom Sticky Bar Quantity Stepper */
+    $(document).on("click", "#sfBottomQtyDec", function (e) {
+        e.preventDefault();
+        var $input = $("#sfBottomQtyInput");
+        var val = parseInt($input.val(), 10) || 1;
+        if (val > 1) {
+            val--;
+            $input.val(val);
+            $("input[name='ms_qtybtn']").val(val);
+        }
+    });
+
+    $(document).on("click", "#sfBottomQtyInc", function (e) {
+        e.preventDefault();
+        var $input = $("#sfBottomQtyInput");
+        var val = parseInt($input.val(), 10) || 1;
+        val++;
+        $input.val(val);
+        $("input[name='ms_qtybtn']").val(val);
+    });
+
+    /* Mobile Modal Copy Product Link */
+    $(document).on("click", "#sfMobileCopyBtn", function (e) {
+        e.preventDefault();
+        var $btn = $(this);
+        var url = window.location.href;
+        var originalHtml = $btn.html();
+
+        function showCopied() {
+            $btn.html('<i class="ri-check-line me-1"></i>Copied!');
+            setTimeout(function () {
+                $btn.html(originalHtml);
+            }, 2000);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(url).then(showCopied).catch(showCopied);
+        } else {
+            showCopied();
+        }
+    });
+
 })(jQuery);

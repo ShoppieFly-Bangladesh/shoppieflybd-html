@@ -66,7 +66,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preload" href="assets/fonts/icon/remixicon.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style" />
-        <link rel="preload" href="assets/css/style.min.css?v=2190be95" as="style" />
+        <link rel="preload" href="assets/css/style.min.css?v=1a1a0d403fd" as="style" />
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon" />
         <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" />
@@ -88,7 +88,7 @@
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
         <link href="assets/css/vendor/slick.min.css" rel="stylesheet" />
         <!-- Main CSS -->
-        <link href="assets/css/style.min.css?v=2190be95" id="mainCss" rel="stylesheet" />
+        <link href="assets/css/style.min.css?v=1a1a0d403fd" id="mainCss" rel="stylesheet" />
     </head>
     <body data-mn-mode="light">
         <main class="wrapper sb-default">
@@ -407,7 +407,26 @@
                 </div>
             </div>
             <!-- Top Utility Bar (Independent on Page Background) -->
-            <div class="sf-topbar-wrap">
+            <!-- Dedicated Mobile App Header for Product Page (Govaly Style: Back + Search) -->
+            <header class="sf-product-mobile-header d-lg-none sticky-top bg-white border-bottom shadow-sm">
+                <div class="sf-mob-header-inner d-flex align-items-center gap-2 px-3 py-2">
+                    <button type="button" class="sf-mob-back-btn btn p-0 border-0 d-flex align-items-center justify-content-center" onclick="history.back()" aria-label="Go Back">
+                        <i class="ri-arrow-left-s-line fs-3 text-dark"></i>
+                    </button>
+                    <div class="sf-mob-search-wrap sf-mobile-search-bar flex-grow-1 p-0 m-0">
+                        <a class="mn-main-search mn-search-toggle sf-instant-search-btn" href="#!" role="button" aria-label="Search Your Product">
+                            <i class="ri-search-line"></i>
+                            <span class="sf-search-text">
+                                <span class="sf-search-typewriter">Search your product...</span>
+                                <span class="sf-typewriter-cursor">|</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Top Utility Bar (Desktop Only) -->
+            <div class="sf-topbar-wrap d-none d-lg-block">
                 <div class="sf-topbar">
                     <div class="sf-topbar-left">
                         <a class="sf-topbar-item sf-topbar-hotline sf-topbar-desktop-only" href="tel:+8809612000222">
@@ -461,8 +480,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Header -->
-            <header>
+            <!-- Desktop Header (Hidden on Mobile) -->
+            <header class="d-none d-lg-block">
                 <div class="mn-header">
                     <div class="mn-header-items">
                         <div class="left-header">
@@ -671,8 +690,8 @@
             </header>
             <!-- Main Content -->
             <div class="mn-main-content">
-                <!-- Streamlined Breadcrumb (Single-line, Zero-Box) -->
-                <nav class="sf-breadcrumb-nav" aria-label="breadcrumb">
+                <!-- Streamlined Breadcrumb (Desktop Only) -->
+                <nav class="sf-breadcrumb-nav d-none d-lg-block" aria-label="breadcrumb">
                     <ul class="mn-breadcrumb-list">
                         <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="mn-breadcrumb-item active">Product Details</li>
@@ -682,9 +701,9 @@
                 <div class="row">
                     <div class="col-xxl-12">
                         <section class="mn-single-product">
-                            <div class="row">
-                                <div class="mn-pro-rightside mn-common-rightside col-xl-9 col-lg-8 col-12 m-b-15">
-                                    <!-- Single product content Start -->
+                            <div class="sf-product-grid-container">
+                                <!-- 1. Buy Fold Grid Cell -->
+                                <div class="sf-grid-buyfold">
                                     <div class="single-pro-block">
                                         <div class="single-pro-inner">
                                             <div class="row">
@@ -698,7 +717,8 @@
                                                                     src="assets/img/product/27.webp"
                                                                     width="800"
                                                                     height="900"
-                                                                    loading="lazy"
+                                                                    loading="eager"
+                                                                    fetchpriority="high"
                                                                     decoding="async" />
                                                             </div>
                                                             <div class="single-slide zoom-image-hover">
@@ -798,10 +818,19 @@
                                                 </div>
                                                 <div class="single-pro-desc m-t-991">
                                                     <div class="single-pro-content">
-                                                        <h1 class="mn-single-title">
-                                                            Women's Solid Slim Fit Classic Round Neck Cotton fabric
-                                                            T-Shirt.
-                                                        </h1>
+                                                        <div class="sf-title-share-wrap d-flex align-items-start justify-content-between gap-2 mb-3">
+                                                            <h1 class="mn-single-title mb-0 flex-grow-1">
+                                                                Women's Solid Slim Fit Classic Round Neck Cotton fabric T-Shirt.
+                                                            </h1>
+                                                            <div class="sf-mobile-title-actions d-lg-none d-flex align-items-center gap-2 flex-shrink-0">
+                                                                <a href="#!" class="sf-mob-wish-btn mn-wishlist" role="button" aria-label="Add to Wishlist">
+                                                                    <i class="ri-heart-line"></i>
+                                                                </a>
+                                                                <button type="button" class="sf-title-share-btn btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center border" data-bs-toggle="modal" data-bs-target="#sfMobileShareModal" aria-label="Share This Product">
+                                                                    <i class="ri-share-line fs-5 text-dark"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
                                                         <div class="mn-single-rating-wrap">
                                                             <div class="mn-single-rating mn-pro-rating">
                                                                 <i class="ri-star-fill"></i>
@@ -909,13 +938,25 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="mn-single-qty d-flex flex-wrap align-items-center gap-2">
-                                                            <div class="qty-plus-minus">
-                                                                <input
-                                                                    class="qty-input"
-                                                                    name="ms_qtybtn"
-                                                                    type="text"
-                                                                    value="1" />
+                                                        <div class="mn-single-qty d-none d-md-flex">
+                                                            <div class="sf-qty-wish-row d-flex align-items-center justify-content-between gap-3">
+                                                                <div class="qty-plus-minus">
+                                                                    <input
+                                                                        class="qty-input"
+                                                                        name="ms_qtybtn"
+                                                                        type="text"
+                                                                        value="1" />
+                                                                </div>
+                                                                <div class="mn-single-wishlist d-md-none">
+                                                                    <a
+                                                                        class="mn-btn-group wishlist mn-wishlist"
+                                                                        href="#!"
+                                                                        role="button"
+                                                                        title="Wishlist"
+                                                                        aria-label="Add to Wishlist">
+                                                                        <i class="ri-heart-line"></i>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                             <div
                                                                 class="mn-btns sf-pro-action-btns d-flex flex-wrap align-items-center gap-2">
@@ -935,7 +976,7 @@
                                                                         <span>Buy Now</span>
                                                                     </a>
                                                                 </div>
-                                                                <div class="mn-single-wishlist">
+                                                                <div class="mn-single-wishlist d-none d-md-block">
                                                                     <a
                                                                         class="mn-btn-group wishlist mn-wishlist"
                                                                         href="#!"
@@ -947,6 +988,28 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- Guaranteed Safe & Secure Checkout Box -->
+                                                        <div class="sf-checkout-guarantee-box mt-3 p-3 rounded-3 border">
+                                                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                                                <span class="fw-bold text-dark small d-flex align-items-center">
+                                                                    <i class="ri-shield-check-fill text-success me-1 fs-6"></i>
+                                                                    Guaranteed Safe & Secure Checkout
+                                                                </span>
+                                                                <span class="badge bg-success-subtle text-success border border-success-subtle">100% Protected</span>
+                                                            </div>
+                                                            <div class="sf-payment-methods-grid d-flex align-items-center gap-2 flex-wrap mb-2">
+                                                                <span class="sf-pay-badge sf-pay-bkash fw-bold">bKash</span>
+                                                                <span class="sf-pay-badge sf-pay-nagad fw-bold">Nagad</span>
+                                                                <span class="sf-pay-badge sf-pay-rocket fw-bold">Rocket</span>
+                                                                <span class="sf-pay-badge sf-pay-card fw-bold">Visa / Master</span>
+                                                                <span class="sf-pay-badge sf-pay-cod fw-bold">Cash on Delivery</span>
+                                                            </div>
+                                                            <div class="sf-trust-micro-features d-flex align-items-center gap-3 text-muted" style="font-size: 11.5px;">
+                                                                <span><i class="ri-checkbox-circle-line text-primary me-1"></i>Official Warranty</span>
+                                                                <span><i class="ri-refresh-line text-warning me-1"></i>7-Day Replacement</span>
+                                                                <span><i class="ri-lock-2-line text-success me-1"></i>SSL Encrypted</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -954,8 +1017,8 @@
                                     </div>
                                 </div>
 
-                                <!-- Right Sidebar Area -->
-                                <div class="mn-product-sidebar-col col-xl-3 col-lg-4 col-12 m-b-15">
+                                <!-- 2. Right Sidebar Grid Cell -->
+                                <div class="sf-grid-sidebar">
                                     <div class="sf-product-sidebar">
                                         <!-- 1. Bangladeshi Delivery & Trust Badges Box -->
                                         <div class="sf-sidebar-card sf-sidebar-trust-box">
@@ -1071,7 +1134,7 @@
                                         </div>
 
                                         <!-- 3. Social Share & Copy Link Card -->
-                                        <div class="sf-sidebar-card sf-sidebar-share-box">
+                                        <div class="sf-sidebar-card sf-sidebar-share-box d-none d-lg-block">
                                             <div class="sf-card-header">
                                                 <h3 class="sf-card-title">
                                                     <i class="ri-share-forward-line text-primary me-2"></i>
@@ -1125,12 +1188,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Single product content End -->
 
-                            <!-- Single product tab and related products start -->
-                            <div class="row">
-                                <div class="col-12">
+                                <!-- 3. Single Product Tabs Grid Cell -->
+                                <div class="sf-grid-tabs">
                                     <div class="mn-single-pro-tab">
                                         <div class="mn-single-pro-tab-wrapper">
                                             <div class="mn-single-pro-tab-nav">
@@ -1451,6 +1511,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Single product tab End -->
+                                </div>
+                            </div>
+                            <!-- Single product content End -->
+
+                            <!-- Related Products Section Start -->
+                            <div class="row">
+                                <div class="col-12">
                                     <!-- Related Section -->
                                     <section class="mn-related-product m-t-30">
                                         <div class="mn-title">
@@ -2239,8 +2307,8 @@
                     </div>
                 </div>
             </footer>
-            <!-- Footer Nav For Mobile (Elevated Center Hero FAB) -->
-            <div class="mn-footer-nav">
+            <!-- Footer Nav For Mobile (Hidden on Product Details Page) -->
+            <div class="mn-footer-nav d-none">
                 <div class="mn-footer-nav-inner">
                     <ul class="mn-footer-nav-list">
                         <li class="mn-nav-item">
@@ -2639,36 +2707,55 @@
             </div>
 
             <!-- Mobile Sticky Bottom Buy Bar (High-Conversion UX) -->
+            <!-- Mobile Sticky Bottom Buy Bar (High-Conversion UX with Quantity Stepper) -->
             <div class="sf-mobile-sticky-bar d-md-none" id="mobileStickyBar">
-                <div class="sf-sticky-bar-inner d-flex align-items-center justify-content-between">
-                    <div class="sf-sticky-pro-info d-flex align-items-center gap-2">
-                        <img
-                            src="assets/img/product/27.webp"
-                            alt="Thumb"
-                            class="sf-sticky-thumb rounded-2"
-                            width="42"
-                            height="42" />
-                        <div class="sf-sticky-text">
-                            <div class="sf-sticky-price fw-bold text-primary fs-14">৳664</div>
-                            <del class="sf-sticky-old text-muted fs-11">৳2,999</del>
-                        </div>
+                <div class="sf-sticky-bar-inner d-flex align-items-center gap-2">
+                    <div class="sf-bottom-qty-stepper">
+                        <button type="button" class="sf-bqty-dec" id="sfBottomQtyDec" aria-label="Decrease">&minus;</button>
+                        <input type="text" class="sf-bqty-val" id="sfBottomQtyInput" name="bottom_qty" value="1" readonly>
+                        <button type="button" class="sf-bqty-inc" id="sfBottomQtyInc" aria-label="Increase">&plus;</button>
                     </div>
-                    <div class="sf-sticky-actions d-flex gap-2">
-                        <button
-                            type="button"
-                            class="btn btn-sm btn-outline-primary mn-add-cart sf-sticky-cart-btn d-inline-flex align-items-center gap-1">
+                    <div class="sf-sticky-actions-wrap d-flex align-items-center gap-2 flex-grow-1">
+                        <button type="button" class="btn sf-sticky-btn-cart mn-add-cart d-inline-flex align-items-center justify-content-center gap-1">
                             <i class="ri-shopping-cart-2-line"></i>
-                            Cart
+                            <span>Add To Cart</span>
                         </button>
-                        <a
-                            href="checkout.html"
-                            class="btn btn-sm btn-success sf-sticky-buy-btn d-inline-flex align-items-center gap-1">
+                        <a href="checkout.html" class="btn sf-sticky-btn-buy d-inline-flex align-items-center justify-content-center gap-1">
                             <i class="ri-flashlight-line"></i>
-                            Buy Now
+                            <span>Buy Now</span>
                         </a>
                     </div>
                 </div>
             </div>
+            <!-- Mobile Share Modal Dialog -->
+            <div class="modal fade" id="sfMobileShareModal" tabindex="-1" aria-labelledby="sfMobileShareModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm px-3">
+                    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="modal-header border-bottom-0 pb-1">
+                            <h5 class="modal-title fs-6 fw-bold text-dark d-flex align-items-center" id="sfMobileShareModalLabel">
+                                <i class="ri-share-forward-line me-2 text-primary fs-5"></i> Share Product
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body pt-1 pb-3 text-center">
+                            <p class="text-muted small mb-3">Share this product with your friends & family</p>
+                            <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="sf-share-btn sf-share-fb" aria-label="Share on Facebook"><i class="ri-facebook-fill"></i></a>
+                                <a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer" class="sf-share-btn sf-share-wa" aria-label="Share on WhatsApp"><i class="ri-whatsapp-line"></i></a>
+                                <a href="https://www.messenger.com" target="_blank" rel="noopener noreferrer" class="sf-share-btn sf-share-msg" aria-label="Share on Messenger"><i class="ri-messenger-line"></i></a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="sf-share-btn sf-share-tw" aria-label="Share on X"><i class="ri-twitter-x-line"></i></a>
+                            </div>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control text-truncate bg-light" id="sfMobileShareInput" value="https://template.businesszonebd.com/product.html" readonly>
+                                <button class="btn btn-primary px-3 fw-semibold" type="button" id="sfMobileCopyBtn">
+                                    <i class="ri-links-line me-1"></i>Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
         <!-- Vendor Custom -->
         <script defer src="assets/js/vendor/jquery-3.7.1.min.js"></script>

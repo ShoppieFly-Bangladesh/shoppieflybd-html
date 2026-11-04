@@ -495,6 +495,51 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
         - Retained the clean 1-row layout (`[ - 1 + ]` `[ Add to Cart ]` `[ Buy Now ]` `[ ♡ ]`) on full desktop screens (`>= 1400px`).
       - **Verification:** Recompiled `assets/css/style.min.css` (286KB). Verified across 1024px (compact laptop), 1280px (standard laptop), 1920px (full desktop), and 375px (mobile) via Headless Chrome CDP. Zero broken lines, zero layout shifts.
 
+
+    - **Issue 31 Fix (Unified 1-Line Action Row Across All Laptops & Simple Add to Cart Button):**
+      - **One-Line Action Row Enforcement:**
+        - Streamlined `.mn-single-qty` into a single horizontal flex row (`flex-wrap: nowrap !important; align-items: center; gap: 8px;`).
+        - Integrated compact `96px` stepper (`[ - 1 + ]`), fluid `Add to Cart` button, fluid `Buy Now` button, and `40px` wishlist icon (`[ ♡ ]`).
+        - Adjusted laptop grid proportions (992px to 1399px) with 38% gallery / 62% description and 300px sidebar, providing ample breathing room so the action row never wraps or breaks.
+      - **Simple Add to Cart Button (Zero Effect / Animation):**
+        - Purged `mn-btn-2` rotating sheen pseudo-element (`::after`), hover jump animation, and yellow hover background.
+        - Made Add to Cart a solid, simple, elegant royal blue button (`#3a4ee5` / hover `#2f40c7`) matching the flat simplicity of the Buy Now button.
+      - **Verification:** Recompiled `style.min.css` (289KB). Verified 100% single-line alignment (`isStrictlyOneLine: true`) mathematically across 1024px, 1140px, 1280px, 1366px, and 1920px viewports via Chrome CDP.
+
+    - **Issue 32 (Mobile Bottom Purchase Bar Finalized with Variant C: Two-Tier Micro Ribbon Architecture):**
+      - **Two-Tier Micro Ribbon Architecture (`#mobileStickyBar`):**
+        - Officially implemented user-selected **Variant C** in canonical `apps/web-html/product.html` and `assets/css/style.css`:
+          1. **Tier 1 (Top Micro Ribbon `.sf-sticky-ribbon-top`, 30px):** Clean subtle light strip displaying `Total: ৳664 -78% Off` on the left and `⚡ Delivery ৳60` on the right.
+          2. **Tier 2 (Bottom Action Row `.sf-sticky-bar-inner`):** Full-width action row featuring:
+             - Compact Quantity Stepper (`[ − 1 + ]`, `36px` height, `80px` width) with `#sfBottomQtyDec`, `#sfBottomQtyInput`, and `#sfBottomQtyInc`.
+             - Full-text Cart Button (`.sf-sticky-btn-cart` with outline royal blue, `[ 🛒 Add To Cart ]`).
+             - Full-text Buy Now Button (`.sf-sticky-btn-buy` with vibrant emerald green, `[ ⚡ Buy Now ]`).
+      - **Real-Time Dynamic Price Interactivity:**
+        - Integrated `updateSfBottomPrice(qty)` in `assets/js/main.js`.
+        - Tapping `+` or `-` automatically updates `#sfBottomPriceVal` in the ribbon in real time (`1` ➔ `৳664`, `2` ➔ `৳1,328`, `3` ➔ `৳1,992`) while keeping both bottom bar and form inputs synchronized.
+      - **Responsive Geometry & Multi-Device Verification:**
+        - Recompiled `assets/css/style.min.css` (312KB).
+        - Safely purged temporary preview copy `product-variant-c.html`.
+        - Verified across 360x740 (compact Android), 375x812 (iPhone mini/SE), 390x844 (standard iPhone), and 412x915 (large Android/Pixel) via Headless Chrome CDP.
+        - Verified `hasOverflow: false` (0px horizontal overflow), zero text wrapping, and desktop/laptop 1-line action row 100% preserved.
+
+    - **Issue 33 (Mobile Spacing Uniformity Fix: Checkout Guarantee to Delivery & Services and Seller to Tabs Spacing):**
+      - **Identified Root Causes:**
+        1. Gap 1 (Guarantee box to Delivery & Services card): `.sf-checkout-guarantee-box` and `.sf-grid-buyfold` lacked bottom margin on mobile while `.sf-product-grid-container` had `gap: 0`, causing the Guarantee box to touch the Delivery & Services card with 0px gap.
+        2. Gap 2 (Sold By card to Tabs): Multiple cumulative margins (`.sf-sidebar-vendor-box` margin-bottom 16px + `.sf-grid-tabs` margin-top 20px + `.mn-single-pro-tab` margin-top 30px = 66px) created an unsightly 66px void.
+      - **Surgical Solution (`assets/css/style.css`):**
+        - In `@media (max-width: 991.98px)`:
+          - Added `margin-bottom: 16px !important;` to `.sf-grid-buyfold`.
+          - Reset `margin-top: 0 !important;` on `.sf-grid-tabs`.
+          - Reset `margin-top: 0 !important;` on `.mn-single-product .sf-grid-tabs .mn-single-pro-tab`.
+      - **Verification:**
+        - Recompiled `assets/css/style.min.css` (312KB).
+        - Verified via Chrome CDP across 360px, 375px, 412px viewports:
+          - `gap_Guarantee_to_Delivery` = exactly 16px (was 0px).
+          - `gap_Delivery_to_Vendor` = exactly 16px.
+          - `gap_Vendor_to_Tabs` = exactly 16px (was 66px).
+        - Desktop/laptop grid layout and single-line buttons 100% preserved.
+
 ## 7. Next Immediate Tasks (Storefront Interior Pages Phase)
 
 With `index.html` and `shop.html` design locked and fully optimized:

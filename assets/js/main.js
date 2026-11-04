@@ -872,7 +872,15 @@
         }
     });
 
-    /* Mobile Bottom Sticky Bar Quantity Stepper */
+    /* Mobile Bottom Sticky Bar Quantity Stepper (with Real-time Price Update) */
+    function updateSfBottomPrice(qty) {
+        var $price = $("#sfBottomPriceVal");
+        if ($price.length) {
+            var unit = parseFloat($price.data("unit-price")) || 664;
+            $price.text("৳" + (unit * qty).toLocaleString("en-US"));
+        }
+    }
+
     $(document).on("click", "#sfBottomQtyDec", function (e) {
         e.preventDefault();
         var $input = $("#sfBottomQtyInput");
@@ -881,6 +889,7 @@
             val--;
             $input.val(val);
             $("input[name='ms_qtybtn']").val(val);
+            updateSfBottomPrice(val);
         }
     });
 
@@ -891,6 +900,7 @@
         val++;
         $input.val(val);
         $("input[name='ms_qtybtn']").val(val);
+        updateSfBottomPrice(val);
     });
 
     /* Mobile Modal Copy Product Link */

@@ -1045,4 +1045,162 @@
         }
     });
 
+
+    /*==========================================================================
+      ShoppieFly Modern Cart Ecosystem (Checkbox, Stepper & Package Handlers)
+      ==========================================================================*/
+    function sfInitModernCart() {
+        if (!$("#sf-cart-container").length) return;
+
+        function sfUpdateCartCounters() {
+            var totalItems = $(".sf-cart-item").length;
+            var selectedItems = $(".sf-item-checkbox:checked").length;
+
+            $("#sf-total-items-badge").text(totalItems);
+            $("#sf-summary-items-count").text(selectedItems);
+            $("#sf-checkout-count").text(selectedItems);
+
+            // Sync master select all checkbox state
+            if (totalItems > 0 && selectedItems === totalItems) {
+                $("#sf-select-all").prop("checked", true);
+            } else {
+                $("#sf-select-all").prop("checked", false);
+            }
+
+            // Sync each store package checkbox state
+            $(".sf-cart-package").each(function () {
+                var $pkg = $(this);
+                var pkgId = $pkg.data("package");
+                var pkgItems = $pkg.find(".sf-item-checkbox").length;
+                var pkgSelected = $pkg.find(".sf-item-checkbox:checked").length;
+                var $storeCb = $pkg.find('.sf-store-checkbox[data-package="' + pkgId + '"]');
+
+                if (pkgItems > 0 && pkgSelected === pkgItems) {
+                    $storeCb.prop("checked", true);
+                } else {
+                    $storeCb.prop("checked", false);
+                }
+            });
+
+            // Update Checkout CTA button state
+            var $checkoutBtn = $("#sf-btn-checkout");
+            if (selectedItems === 0) {
+                $checkoutBtn.addClass("disabled opacity-50").css("pointer-events", "none");
+            } else {
+                $checkoutBtn.removeClass("disabled opacity-50").css("pointer-events", "auto");
+            }
+
+            // If no items at all, show empty state
+            if (totalItems === 0) {
+                $("#sf-cart-container").html(
+                    '<div class="sf-cart-empty-state">' +
+                    '  <i class="ri-shopping-cart-2-line sf-cart-empty-icon"></i>' +
+                    '  <h3 class="sf-cart-empty-title">Your Cart is Empty</h3>' +
+                    '  <p class="sf-cart-empty-desc">Looks like you have not added any items to your cart yet.</p>' +
+                    '  <a href="shop.html" class="sf-btn-checkout d-inline-flex" style="width: auto; padding: 0 28px;">Start Shopping</a>' +
+                    '</div>'
+                );
+                $("#sf-summary-subtotal").text("৳ 0.00");
+                $("#sf-summary-shipping").text("৳ 0.00");
+                $("#sf-summary-total").text("৳ 0.00");
+                $("#sf-summary-items-count").text("0");
+                $("#sf-checkout-count").text("0");
+                $checkoutBtn.addClass("disabled opacity-50").css("pointer-events", "none");
+            }
+        }
+
+        // 1. Master Select All Checkbox
+        $(document).on("change", "#sf-select-all", function () {
+            var isChecked = $(this).is(":checked");
+            $(".sf-store-checkbox, .sf-item-checkbox").prop("checked", isChecked);
+            sfUpdateCartCounters();
+        });
+
+        // 2. Store Package Checkbox
+        $(document).on("change", ".sf-store-checkbox", function () {
+            var pkgId = $(this).data("package");
+            var isChecked = $(this).is(":checked");
+            $('.sf-item-checkbox[data-package="' + pkgId + '"]').prop("checked", isChecked);
+            sfUpdateCartCounters();
+        });
+
+        // 3. Individual Item Checkbox
+        $(document).on("change", ".sf-item-checkbox", function () {
+            sfUpdateCartCounters();
+        });
+
+        // 4. Horizontal Quantity Stepper (+ / -)
+        $(document).on("click", ".sf-qty-inc", function () {
+            var $input = $(this).siblings(".sf-qty-input");
+            var currentVal = parseInt($input.val(), 10) || 1;
+            $input.val(currentVal + 1);
+        });
+
+        $(document).on("click", ".sf-qty-dec", function () {
+            var $input = $(this).siblings(".sf-qty-input");
+            var currentVal = parseInt($input.val(), 10) || 1;
+            if (currentVal > 1) {
+                $input.val(currentVal - 1);
+            }
+        });
+
+        // 5. Individual Item Remove
+        $(document).on("click", ".sf-btn-del", function (e) {
+            e.preventDefault();
+            var $item = $(this).closest(".sf-cart-item");
+            var $package = $item.closest(".sf-cart-package");
+
+            $item.fadeOut(250, function () {
+                $item.remove();
+                // If package has no more items, clean up the package
+                if ($package.find(".sf-cart-item").length === 0) {
+                    $package.fadeOut(200, function () {
+                        $package.remove();
+                        sfUpdateCartCounters();
+                    });
+                } else {
+                    sfUpdateCartCounters();
+                }
+            });
+        });
+
+        // 6. Bulk Delete Selected
+        $(document).on("click", "#sf-delete-selected", function (e) {
+            e.preventDefault();
+            var $checkedItems = $(".sf-item-checkbox:checked").closest(".sf-cart-item");
+            if (!$checkedItems.length) return;
+
+            $checkedItems.fadeOut(250, function () {
+                $checkedItems.remove();
+                // Check all packages for empty status
+                $(".sf-cart-package").each(function () {
+                    var $pkg = $(this);
+                    if ($pkg.find(".sf-cart-item").length === 0) {
+                        $pkg.remove();
+                    }
+                });
+                sfUpdateCartCounters();
+            });
+        });
+
+        // 7. Wishlist Toggle
+        $(document).on("click", ".sf-btn-wish", function (e) {
+            e.preventDefault();
+            var $btn = $(this);
+            var $icon = $btn.find("i");
+            if ($icon.hasClass("ri-heart-line")) {
+                $icon.removeClass("ri-heart-line").addClass("ri-heart-fill text-danger");
+            } else {
+                $icon.removeClass("ri-heart-fill text-danger").addClass("ri-heart-line");
+            }
+        });
+
+        // Initialize counters on page load
+        sfUpdateCartCounters();
+    }
+
+    $(document).ready(function () {
+        sfInitModernCart();
+    });
+
 })(jQuery);

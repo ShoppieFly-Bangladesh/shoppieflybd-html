@@ -3600,7 +3600,10 @@ footer {
     }
     .mn-footer-nav {
         display: block;
-        background-color: #ffffff;
+        background-color: var(--sf-img-bg, #ffffff);
+        transition: background-color 0.25s ease;
+        border-radius: 12px;
+        overflow: hidden;
         border-top: 1px solid #eef2f6;
         -webkit-box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08);
         box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08);
@@ -14214,7 +14217,10 @@ footer.mn-footer {
         position: sticky;
         top: var(--sf-mobile-header-height, 134px);
         z-index: 25;
-        background-color: #ffffff;
+        background-color: var(--sf-img-bg, #ffffff);
+        transition: background-color 0.25s ease;
+        border-radius: 12px;
+        overflow: hidden;
         border: 1px solid #e2e8f0;
         border-radius: 10px;
         padding: 6px 12px;
@@ -15635,3 +15641,76 @@ footer.mn-footer {
         height: 44px !important;
     }
 }
+
+/* ==========================================================================
+   PRODUCT GALLERY — EXACT DEVICE-SCREEN FIT (Desktop & Laptop Only)
+   --------------------------------------------------------------------------
+   Goal: the sticky gallery card (hero image + thumbnail strip) must occupy
+   exactly the visible first screen height, so the hero image is never pushed
+   below the fold on large desktop screens and no empty void is left under the
+   thumbnails on laptops. The hero image flexes to consume the remaining card
+   height and is contained (never cropped/distorted), while the thumbnail strip
+   keeps its natural height pinned to the card bottom.
+   Mobile / tablet (<= 991.98px) design remains 100% untouched.
+   main.js -> sfFitProductGallery() writes the exact measured --sf-gallery-h.
+   ========================================================================== */
+@media (min-width: 992px) {
+    .sf-product-grid-container .sf-grid-buyfold .single-pro-img .single-product-scroll {
+        /* No-JS fallback (main.js writes the exact measured values):
+           198px page offset (topbar + header + breadcrumb) + 16px bottom gap */
+        --sf-gallery-h: calc(100vh - 214px);
+        --sf-gallery-h: calc(100dvh - 214px);
+        --sf-cover-h: calc(100dvh - 364px);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 90px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        height: var(--sf-gallery-h);
+        min-height: 360px;
+        padding: 15px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Hero image area consumes every remaining pixel of the card */
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover {
+        flex: 1 1 auto;
+        min-height: 0;
+        height: var(--sf-cover-h);
+        background-color: var(--sf-img-bg, #ffffff);
+        transition: background-color 0.25s ease;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover .slick-list,
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover .slick-track,
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover .single-slide {
+        height: 100% !important;
+        background-color: transparent !important;
+    }
+
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover .slick-list {
+        margin-bottom: 0 !important;
+    }
+
+    .sf-product-grid-container .sf-grid-buyfold .single-product-cover .single-slide img:not(.zoomImg) {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: var(--sf-cover-h) !important;
+        max-height: var(--sf-cover-h) !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        border-radius: 12px;
+        display: block !important;
+        margin: 0 auto;
+    }
+
+    /* Thumbnail strip keeps its natural height, pinned to the card bottom */
+    .sf-product-grid-container .sf-grid-buyfold .single-nav-thumb {
+        flex: 0 0 auto;
+    }
+}
+

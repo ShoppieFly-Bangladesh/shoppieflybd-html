@@ -331,11 +331,132 @@
         $(window).on("load resize", function () {
             $(".single-product-cover").slick("setPosition");
         });
+
+        $(".single-product-cover").on("afterChange", function () {
+            if (typeof sfSyncImageBackground === "function") {
+                sfSyncImageBackground();
+            }
+        });
     }
 
     /*== Product Image Zoom ==*/
     if ($.fn.zoom && $(".zoom-image-hover").length) {
         $(".zoom-image-hover").zoom();
+    }
+
+    /*== Product Gallery: Exact First-Screen Fit (Desktop & Laptop) ==*/
+    /* Measures the natural (pre-sticky) page offset of the gallery card and
+       pins its height so the whole card — hero image + thumbnails — always
+       fits inside the visible device screen. Mobile/tablet is left untouched
+       (the CSS fallback calc(100dvh - 214px) takes over when JS is disabled). */
+    function sfSyncImageBackground() {
+        var card = document.querySelector(
+            ".sf-product-grid-container .sf-grid-buyfold .single-pro-img .single-product-scroll"
+        );
+        if (!card || window.innerWidth < 992) {
+            return;
+        }
+
+        var activeImg = card.querySelector(
+            ".single-product-cover .slick-current img:not(.zoomImg)"
+        ) || card.querySelector(
+            ".single-product-cover .single-slide img:not(.zoomImg)"
+        );
+
+        if (!activeImg) {
+            return;
+        }
+
+        function extractColor() {
+            try {
+                if (!activeImg.naturalWidth || !activeImg.naturalHeight) {
+                    return;
+                }
+                var canvas = document.createElement("canvas");
+                canvas.width = 1;
+                canvas.height = 1;
+                var ctx = canvas.getContext("2d", { willReadFrequently: true });
+                if (!ctx) {
+                    return;
+                }
+                /* Sample 3px inset to avoid any border anti-aliasing */
+                ctx.drawImage(activeImg, 3, 3, 1, 1, 0, 0, 1, 1);
+                var p = ctx.getImageData(0, 0, 1, 1).data;
+                if (p && p[3] > 10) {
+                    card.style.setProperty(
+                        "--sf-img-bg",
+                        "rgb(" + p[0] + ", " + p[1] + ", " + p[2] + ")"
+                    );
+                } else {
+                    card.style.setProperty("--sf-img-bg", "#ffffff");
+                }
+            } catch (e) {
+                card.style.setProperty("--sf-img-bg", "#ffffff");
+            }
+        }
+
+        if (activeImg.complete && activeImg.naturalWidth > 0) {
+            extractColor();
+        } else {
+            activeImg.addEventListener("load", extractColor, { once: true });
+        }
+    }
+
+    function sfFitProductGallery() {
+        var card = document.querySelector(
+            ".sf-product-grid-container .sf-grid-buyfold .single-pro-img .single-product-scroll"
+        );
+        if (!card) {
+            return;
+        }
+
+        /* Mobile / tablet layout must stay 100% untouched */
+        if (window.innerWidth < 992) {
+            card.style.removeProperty("--sf-gallery-h");
+            card.style.removeProperty("--sf-cover-h");
+            card.style.removeProperty("--sf-img-bg");
+            return;
+        }
+
+        /* Sum the layout offsets (immune to the sticky shift) */
+        var offset = 0;
+        var node = card.parentElement;
+        while (node) {
+            offset += node.offsetTop || 0;
+            node = node.offsetParent;
+        }
+
+        var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
+        var available = viewportH - offset - 16; /* 16px bottom breathing room */
+
+        if (!isFinite(available) || available < 360) {
+            available = 360;
+        }
+
+        card.style.setProperty("--sf-gallery-h", Math.round(available) + "px");
+
+        /* Hero image height = card height - 30px card padding - thumbnail strip */
+        var thumbs = card.querySelector(".single-nav-thumb");
+        var thumbH = thumbs ? thumbs.offsetHeight : 0;
+        if (!isFinite(thumbH) || thumbH < 60 || thumbH > available * 0.45) {
+            thumbH = 120;
+        }
+
+        var coverH = available - 30 - thumbH;
+        if (coverH < 180) {
+            coverH = 180;
+        }
+
+        card.style.setProperty("--sf-cover-h", Math.round(coverH) + "px");
+
+        /* Keep image background seamlessly in sync */
+        sfSyncImageBackground();
+    }
+
+    if ($(".sf-product-grid-container").length) {
+        sfFitProductGallery();
+        $(window).on("load", sfFitProductGallery);
+        $(window).on("resize orientationchange", sfFitProductGallery);
     }
 
     /*== Add More Product slider purged for clean CSS grid ==*/

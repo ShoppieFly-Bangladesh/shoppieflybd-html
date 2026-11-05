@@ -540,6 +540,26 @@ Following user directive on 2026-10-28, the template was streamlined down to **2
           - `gap_Vendor_to_Tabs` = exactly 16px (was 66px).
         - Desktop/laptop grid layout and single-line buttons 100% preserved.
 
+    - **Issue 34 (Desktop/Laptop Gallery Exact Device-Screen Fit — `BUG-02` / `BUG-03` resolved):**
+      - **Identified Root Cause:** The gallery card (`.single-product-scroll`) height was entirely image-aspect driven (`width: 100%; height: auto` on a 800×900 hero). Because the column width scales with the viewport width while the usable height scales with the viewport height, the card overflowed the first screen on wide/tall desktops (thumbnail strip clipped below the fold) and was 50-60px too short on laptops (empty void under the thumbnails). Sticky `top: 30px` additionally slid the card under the 72px sticky header.
+      - **CSS Solution (`assets/css/style.css`, new trailing block inside `@media (min-width: 992px)` only):**
+        - Scoped entirely under `.sf-product-grid-container .sf-grid-buyfold` so no other page/template can be affected.
+        - Card → `display: flex; flex-direction: column; height: var(--sf-gallery-h); padding: 15px; top: 90px; overflow: hidden;` with CSS-only fallbacks `--sf-gallery-h: calc(100dvh - 214px)` and `--sf-cover-h: calc(100dvh - 364px)`.
+        - `.single-product-cover` → `flex: 1 1 auto; min-height: 0; height: var(--sf-cover-h)` (hero area absorbs all remaining card height).
+        - `.single-product-cover .slick-list / .slick-track / .single-slide` → `height: 100% !important` (overrides Slick `adaptiveHeight` inline height) and `.slick-list { margin-bottom: 0 !important; }`.
+        - Hero `img:not(.zoomImg)` → `height: var(--sf-cover-h) !important; max-height: var(--sf-cover-h) !important; object-fit: contain !important;` so the product is never cropped or stretched (white letterbox blends into the white card).
+        - `.single-nav-thumb` → `flex: 0 0 auto`, keeping the thumbnail strip at its natural height pinned to the card bottom.
+      - **JS Solution (`assets/js/main.js` → `sfFitProductGallery()`):**
+        - Sums the pre-sticky `offsetTop` chain of `.single-pro-img` (measured 204px on 1440px viewport: 54px topbar + 72px header + 30px main-content margin + 42px breadcrumb + borders) — immune to the sticky shift and to scroll restoration.
+        - Writes `--sf-gallery-h = innerHeight - offset - 16px` and `--sf-cover-h = galleryH - 30px padding - measured thumbnail strip height` (thumbnail height sanity-clamped, fallback 120px).
+        - Runs on ready, `load`, `resize` and `orientationchange`; returns early and clears both properties below 992px so mobile/tablet stays byte-identical.
+      - **Files Touched:** `assets/css/style.css`, `assets/css/style.min.css` (matching minified parity block appended), `assets/js/main.js`, `product.html` (cache-busting bumped: `style.min.css?v=8d4f21c6a07` in both preload + stylesheet, `main.js?v=5c9e7b3a214`).
+      - **Verification:**
+        - Headless Chrome screenshots at 1920×955, 1440×820 and 1200×700: card bottom lands 15-20px above the fold, hero + all 4 thumbnails fully visible, zero cut-off and zero void.
+        - Mobile 390×844 screenshot: layout 100% identical to previous mobile design (untouched).
+        - `--dump-dom` confirmed the runtime values (`offset=204`, `vh=669` → card 449px) and 0 console errors; `node --check assets/js/main.js` clean; `style.min.css` brace parity 2408/2408.
+
+
 ## 7. Next Immediate Tasks (Storefront Interior Pages Phase)
 
 With `index.html` and `shop.html` design locked and fully optimized:

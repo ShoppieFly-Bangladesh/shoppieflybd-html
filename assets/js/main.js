@@ -100,17 +100,97 @@
         });
     }
 
-    /*== Cart sidebar JS ==*/
+    /*== Modern ShoppieFly Side Cart Drawer JS ==*/
+    function sfUpdateSideCartTotals() {
+        var totalCount = 0;
+        var subtotal = 0;
+
+        // Update each store package counter
+        $(".sf-side-cart-package").each(function () {
+            var $pkg = $(this);
+            var pkgItems = $pkg.find(".sf-side-cart-item").length;
+            $pkg.find(".sf-side-pkg-count").text("(" + pkgItems + ")");
+            if (pkgItems === 0) {
+                $pkg.remove();
+            }
+        });
+
+        $(".sf-side-cart-item").each(function () {
+            var $item = $(this);
+            var price = parseFloat($item.data("price")) || 0;
+            var qty = parseInt($item.find(".sf-side-qty-input").val(), 10) || 1;
+            totalCount += qty;
+            subtotal += price * qty;
+        });
+
+        var countText = "(" + $(".sf-side-cart-item").length + ")";
+        $("#sfSideCartCount").text(countText);
+        var formattedTotal = "৳ " + subtotal.toFixed(2);
+        $("#sfSideSubtotal").text(formattedTotal);
+        $("#sfSideTotal").text(formattedTotal);
+
+        if ($(".sf-side-cart-item").length === 0) {
+            $("#sfSideCartPackages, #sfSideCartItems").html(
+                '<div class="sf-side-cart-empty">' +
+                '  <i class="ri-shopping-cart-2-line sf-side-cart-empty-icon"></i>' +
+                '  <h4 class="sf-side-cart-empty-title">Your Cart is Empty</h4>' +
+                '  <p class="sf-side-cart-empty-desc">No items in your cart yet.</p>' +
+                '  <a href="shop.html" class="sf-btn-side-checkout" style="height: 38px; font-size: 13.5px;">Start Shopping</a>' +
+                '</div>'
+            );
+            $(".sf-side-cart-summary").slideUp(200);
+            $(".sf-side-cart-actions").slideUp(200);
+        }
+    }
+
     $(".mn-cart-toggle").on("click", function (e) {
         e.preventDefault();
-        $(".mn-side-cart-overlay").fadeIn();
+        $(".mn-side-cart-overlay").fadeIn(200);
         $(".mn-side-cart").addClass("mn-open-cart");
     });
+
     $(".mn-side-cart-overlay, .mn-cart-close").on("click", function (e) {
         e.preventDefault();
-        $(".mn-side-cart-overlay").fadeOut();
+        $(".mn-side-cart-overlay").fadeOut(200);
         $(".mn-side-cart").removeClass("mn-open-cart");
     });
+
+    // Side cart quantity stepper
+    $(document).on("click", ".sf-side-qty-inc", function () {
+        var $input = $(this).siblings(".sf-side-qty-input");
+        var val = parseInt($input.val(), 10) || 1;
+        $input.val(val + 1);
+        sfUpdateSideCartTotals();
+    });
+
+    $(document).on("click", ".sf-side-qty-dec", function () {
+        var $input = $(this).siblings(".sf-side-qty-input");
+        var val = parseInt($input.val(), 10) || 1;
+        if (val > 1) {
+            $input.val(val - 1);
+            sfUpdateSideCartTotals();
+        }
+    });
+
+    // Side cart delete item
+    $(document).on("click", ".sf-side-btn-del", function (e) {
+        e.preventDefault();
+        var $item = $(this).closest(".sf-side-cart-item");
+        var $pkg = $item.closest(".sf-side-cart-package");
+        $item.fadeOut(200, function () {
+            $item.remove();
+            if ($pkg.length && $pkg.find(".sf-side-cart-item").length === 0) {
+                $pkg.fadeOut(150, function () {
+                    $pkg.remove();
+                    sfUpdateSideCartTotals();
+                });
+            } else {
+                sfUpdateSideCartTotals();
+            }
+        });
+    });
+
+    // Legacy handler fallback
     $(document).on("click", ".cart-remove-item", function (e) {
         e.preventDefault();
         $(this).parents(".cart-sidebar-list").remove();
@@ -154,7 +234,6 @@
         e.preventDefault();
         $(".mn-wish-notify").remove();
         $(".mn-compare-notify").remove();
-        $(".mn-cart-notify").remove();
         if ($(this).hasClass("active")) {
             $(this).removeClass("active");
             $("footer").after(
@@ -181,27 +260,63 @@
         }
     });
 
-    /*== Add to cart button notify js ==*/
-    $(document).on("click", ".mn-add-cart", function (e) {
-        e.preventDefault();
-        $(".mn-wish-notify").remove();
-        $(".mn-compare-notify").remove();
-        $(".mn-cart-notify").remove();
-        var iscartlist = $(this).hasClass("active");
-        if (iscartlist) {
-            $(this).removeClass("active");
-            $("footer").after(
-                '<div class="mn-cart-notify"><p class="cart-note remove">Removed product from <a href="cart.html">Cart</a> successfully!</p></div>',
-            );
-        } else {
-            $(this).addClass("active");
-            $("footer").after(
-                '<div class="mn-cart-notify"><p class="cart-note add">Added product to <a href="cart.html">Cart</a> successfully!</p></div>',
-            );
+    /*== ShoppieFly Dynamic Cart Glow & Pulse Trigger ==*/
+    function sfTriggerCartGlow() {
+        var $cartBtns = $(".mn-main-cart, .sf-mob-cart-btn, .mn-nav-hero-btn, .mn-tool-cart > a");
+        var $badges = $(".label.lbl-2, .sf-mob-cart-badge, .mn-hero-badge");
+
+        // Clear existing animation states
+        $cartBtns.removeClass("sf-cart-glow-pulse");
+        $badges.removeClass("sf-cart-badge-pop");
+
+        // Force browser reflow to allow consecutive re-triggering
+        $cartBtns.each(function () {
+            void this.offsetWidth;
+        });
+        $badges.each(function () {
+            void this.offsetWidth;
+        });
+
+        // Apply animated pulse and glow
+        $cartBtns.addClass("sf-cart-glow-pulse");
+        $badges.addClass("sf-cart-badge-pop");
+
+        if (window._sfCartGlowTimer) {
+            clearTimeout(window._sfCartGlowTimer);
         }
-        setTimeout(function () {
-            $(".mn-cart-notify").fadeOut();
-        }, 2000);
+        window._sfCartGlowTimer = setTimeout(function () {
+            $cartBtns.removeClass("sf-cart-glow-pulse");
+            $badges.removeClass("sf-cart-badge-pop");
+        }, 1150);
+    }
+    window.sfTriggerCartGlow = sfTriggerCartGlow;
+
+    /*== Add to cart button dynamic feedback ==*/
+    $(document).on("click", ".mn-add-cart, .mn-quickview-cart .mn-btn-1", function (e) {
+        e.preventDefault();
+
+        var $this = $(this);
+        var isDetailPageBtn =
+            $this.hasClass("sf-btn-cart") ||
+            $this.hasClass("sf-sticky-btn-cart") ||
+            $this.closest(".mn-quickview-cart").length > 0;
+        var iscartlist = $this.hasClass("active");
+
+        var $badges = $(".label.lbl-2, .sf-mob-cart-badge, .mn-hero-badge");
+        var curCount = parseInt($badges.first().text(), 10) || 0;
+
+        if (!isDetailPageBtn && iscartlist) {
+            $this.removeClass("active");
+            if (curCount > 0) {
+                $badges.text(curCount - 1);
+            }
+        } else {
+            if (!isDetailPageBtn) {
+                $this.addClass("active");
+            }
+            $badges.text(curCount + 1);
+            sfTriggerCartGlow();
+        }
     });
 
     /*== Compare notify js ==*/
@@ -209,7 +324,6 @@
         e.preventDefault();
         $(".mn-wish-notify").remove();
         $(".mn-compare-notify").remove();
-        $(".mn-cart-notify").remove();
         var isCompare = $(this).hasClass("active");
         if (isCompare) {
             $(this).removeClass("active");
@@ -962,14 +1076,6 @@
             var originalHtml = $btn.html();
             $btn.html('<i class="ri-check-line text-success me-1"></i> <span class="text-success">Link Copied!</span>');
 
-            $(".mn-cart-notify").remove();
-            $("footer").after(
-                '<div class="mn-cart-notify"><p class="cart-note add">Product link copied to clipboard!</p></div>'
-            );
-            setTimeout(function () {
-                $(".mn-cart-notify").fadeOut();
-            }, 2500);
-
             setTimeout(function () {
                 $btn.html(originalHtml);
             }, 2500);
@@ -1071,13 +1177,15 @@
                 $("#sf-select-all").prop("checked", false);
             }
 
-            // Sync each store package checkbox state
+            // Sync each store package checkbox state and item counter
             $(".sf-cart-package").each(function () {
                 var $pkg = $(this);
                 var pkgId = $pkg.data("package");
                 var pkgItems = $pkg.find(".sf-item-checkbox").length;
                 var pkgSelected = $pkg.find(".sf-item-checkbox:checked").length;
                 var $storeCb = $pkg.find('.sf-store-checkbox[data-package="' + pkgId + '"]');
+
+                $pkg.find(".sf-package-item-count").text("(" + pkgItems + ")");
 
                 if (pkgItems > 0 && pkgSelected === pkgItems) {
                     $storeCb.prop("checked", true);

@@ -16423,3 +16423,122 @@ footer.mn-footer {
         margin-top: 20px;
     }
 }
+
+/* ==========================================================================
+   ShoppieFly Mobile Dedicated Cart Checkout Bar (Govaly / E-Com Parity)
+   ========================================================================== */
+.sf-mobile-cart-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-top: 1px solid #eef2f6;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    padding: 10px 16px env(safe-area-inset-bottom, 10px) 16px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.sf-mobile-cart-bar-inner {
+    max-width: 540px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sf-mobile-cart-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px;
+}
+
+.sf-mobile-summary-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sf-mobile-summary-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.sf-mobile-summary-items {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.sf-mobile-summary-right {
+    display: flex;
+    align-items: center;
+}
+
+.sf-mobile-summary-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f97316;
+    letter-spacing: -0.3px;
+}
+
+.sf-mobile-checkout-btn-wrap {
+    width: 100%;
+}
+
+.sf-mobile-btn-checkout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 46px;
+    background: #f97316;
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+    border: none;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.sf-mobile-btn-checkout:hover {
+    background: #ea580c;
+    color: #ffffff !important;
+}
+
+.sf-mobile-btn-checkout:active {
+    transform: scale(0.99);
+}
+
+.sf-mobile-btn-checkout.disabled {
+    background: #cbd5e1 !important;
+    color: #64748b !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+/* Page Bottom Clearance Padding & Mobile Order Summary Hide */
+@media (max-width: 991.98px) {
+    .mn-cart-section {
+        padding-bottom: 110px !important;
+    }
+    .mn-cart-rightside {
+        display: none !important;
+    }
+}
+
+.sf-summary-shipping-row {
+    align-items: flex-start;
+}
+.sf-summary-shipping-row .sf-summary-val {
+    font-size: 13px;
+    line-height: 1.35;
+}

@@ -726,7 +726,6 @@
                                                 <div class="sf-item-meta">
                                                     <span class="sf-spec-pill">Color: Black</span>
                                                     <span class="sf-spec-pill">Size: Standard</span>
-                                                    <span class="sf-fulfilled-tag"><i class="ri-shield-check-line"></i> Fulfilled by Seller</span>
                                                 </div>
                                             </div>
                                             <div class="sf-item-pricing-actions">
@@ -769,7 +768,7 @@
                                                 </h4>
                                                 <div class="sf-item-meta">
                                                     <span class="sf-spec-pill">Color: Tan Brown</span>
-                                                    <span class="sf-fulfilled-tag"><i class="ri-shield-check-line"></i> Fulfilled by Seller</span>
+                                                    <span class="sf-spec-pill">Size: Medium</span>
                                                 </div>
                                             </div>
                                             <div class="sf-item-pricing-actions">
@@ -791,17 +790,6 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="sf-cart-package-footer">
-                                        <div class="sf-package-shipping-info">
-                                            <i class="ri-truck-line"></i>
-                                            <span>Standard Delivery: <strong>৳ 60.00</strong></span>
-                                        </div>
-                                        <div class="sf-package-promo-tag">
-                                            <i class="ri-coupon-3-line"></i>
-                                            <span>Store Voucher Available</span>
                                         </div>
                                     </div>
                                 </div>
@@ -845,7 +833,7 @@
                                                 </h4>
                                                 <div class="sf-item-meta">
                                                     <span class="sf-spec-pill">Color: Maroon</span>
-                                                    <span class="sf-fulfilled-tag"><i class="ri-shield-check-line"></i> Official Mall</span>
+                                                    <span class="sf-spec-pill">Model: Clutch</span>
                                                 </div>
                                             </div>
                                             <div class="sf-item-pricing-actions">
@@ -889,7 +877,6 @@
                                                 <div class="sf-item-meta">
                                                     <span class="sf-spec-pill">Color: White/Blue</span>
                                                     <span class="sf-spec-pill">Size: 42</span>
-                                                    <span class="sf-fulfilled-tag"><i class="ri-shield-check-line"></i> Official Mall</span>
                                                 </div>
                                             </div>
                                             <div class="sf-item-pricing-actions">
@@ -913,17 +900,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="sf-cart-package-footer">
-                                        <div class="sf-package-shipping-info">
-                                            <i class="ri-truck-line"></i>
-                                            <span>Standard Delivery: <strong class="text-success">Free Delivery</strong></span>
-                                        </div>
-                                        <div class="sf-package-promo-tag">
-                                            <i class="ri-coupon-3-line"></i>
-                                            <span>Free Shipping Applied</span>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <!-- Continue Shopping Bottom Bar -->
@@ -936,8 +912,8 @@
                             </div>
                         </div>
 
-                        <!-- Right Order Summary Column -->
-                        <div class="mn-cart-rightside col-lg-4 col-md-12 m-t-991">
+                        <!-- Right Order Summary Column (Desktop Only - Mobile uses Sticky Bottom Checkout Bar) -->
+                        <div class="mn-cart-rightside col-lg-4 col-md-12 d-none d-lg-block">
                             <div class="sf-order-summary-card">
                                 <h3 class="sf-summary-header">Order Summary</h3>
 
@@ -946,9 +922,12 @@
                                         <span class="sf-summary-label">Subtotal (<span id="sf-summary-items-count">4</span> items)</span>
                                         <span class="sf-summary-val" id="sf-summary-subtotal">৳ 734.00</span>
                                     </div>
-                                    <div class="sf-summary-row">
+                                    <div class="sf-summary-row sf-summary-shipping-row">
                                         <span class="sf-summary-label">Shipping Fee</span>
-                                        <span class="sf-summary-val" id="sf-summary-shipping">৳ 60.00</span>
+                                        <span class="sf-summary-val text-end" id="sf-summary-shipping">
+                                            <strong class="text-dark d-block">Calculated at checkout</strong>
+                                            <small class="text-muted d-block fw-normal" style="font-size: 11px;">(Depends on delivery address)</small>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -963,7 +942,7 @@
                                 <!-- Total Row -->
                                 <div class="sf-summary-total-row">
                                     <span class="sf-total-label">Total Amount</span>
-                                    <span class="sf-total-val" id="sf-summary-total">৳ 794.00</span>
+                                    <span class="sf-total-val" id="sf-summary-total">৳ 734.00</span>
                                 </div>
 
                                 <!-- Checkout Button (Primary CTA) -->
@@ -1244,7 +1223,7 @@
                 </div>
             </footer>
 <!-- Footer Nav For Mobile (Elevated Center Hero FAB) -->
-            <div class="mn-footer-nav">
+            <div class="mn-footer-nav d-none">
                 <div class="mn-footer-nav-inner">
                     <ul class="mn-footer-nav-list">
                         <li class="mn-nav-item">
@@ -1280,7 +1259,26 @@
                     </ul>
                 </div>
             </div>
-            <!-- Search Sidebar -->
+            <!-- Mobile Sticky Bottom Checkout Bar (Govaly-Inspired High-Conversion UX) -->
+            <div class="sf-mobile-cart-bottom-bar d-lg-none" id="sfMobileCartBar">
+                <div class="sf-mobile-cart-bar-inner">
+                    <div class="sf-mobile-cart-summary-row">
+                        <div class="sf-mobile-summary-left">
+                            <span class="sf-mobile-summary-label">Total Product Price</span>
+                            <span class="sf-mobile-summary-items">(<span id="sfMobileSelectedCount">4</span> items)</span>
+                        </div>
+                        <div class="sf-mobile-summary-right">
+                            <span class="sf-mobile-summary-price" id="sfMobileTotalPrice">৳ 734.00</span>
+                        </div>
+                    </div>
+                    <div class="sf-mobile-checkout-btn-wrap">
+                        <a href="checkout.html" class="sf-mobile-btn-checkout" id="sfMobileBtnCheckout">
+                            <span>PROCEED TO CHECKOUT (<span id="sfMobileBtnCount">4</span>)</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="mn-side-search-overlay"></div>
             <div class="mn-side-search">
                 <div class="mn-search-inner">

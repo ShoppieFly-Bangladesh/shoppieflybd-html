@@ -1060,6 +1060,10 @@
             $("#sf-summary-items-count").text(selectedItems);
             $("#sf-checkout-count").text(selectedItems);
 
+            // Sync mobile sticky bottom bar counters
+            $("#sfMobileSelectedCount").text(selectedItems);
+            $("#sfMobileBtnCount").text(selectedItems);
+
             // Sync master select all checkbox state
             if (totalItems > 0 && selectedItems === totalItems) {
                 $("#sf-select-all").prop("checked", true);
@@ -1082,16 +1086,23 @@
                 }
             });
 
-            // Update Checkout CTA button state
+            // Update Checkout CTA buttons (Desktop & Mobile)
             var $checkoutBtn = $("#sf-btn-checkout");
+            var $mobileBtn = $("#sfMobileBtnCheckout");
+
             if (selectedItems === 0) {
                 $checkoutBtn.addClass("disabled opacity-50").css("pointer-events", "none");
+                $mobileBtn.addClass("disabled opacity-50").css("pointer-events", "none");
+                $("#sfMobileTotalPrice").text("৳ 0.00");
             } else {
                 $checkoutBtn.removeClass("disabled opacity-50").css("pointer-events", "auto");
+                $mobileBtn.removeClass("disabled opacity-50").css("pointer-events", "auto");
+                $("#sfMobileTotalPrice").text($("#sf-summary-total").text() || "৳ 734.00");
             }
 
-            // If no items at all, show empty state
+            // If no items at all, show empty state & hide mobile bar
             if (totalItems === 0) {
+                $("#sfMobileCartBar").slideUp(200);
                 $("#sf-cart-container").html(
                     '<div class="sf-cart-empty-state">' +
                     '  <i class="ri-shopping-cart-2-line sf-cart-empty-icon"></i>' +
@@ -1105,7 +1116,10 @@
                 $("#sf-summary-total").text("৳ 0.00");
                 $("#sf-summary-items-count").text("0");
                 $("#sf-checkout-count").text("0");
+                $("#sfMobileSelectedCount").text("0");
+                $("#sfMobileBtnCount").text("0");
                 $checkoutBtn.addClass("disabled opacity-50").css("pointer-events", "none");
+                $mobileBtn.addClass("disabled opacity-50").css("pointer-events", "none");
             }
         }
 

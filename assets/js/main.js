@@ -1321,8 +1321,123 @@
         sfUpdateCartCounters();
     }
 
+    /* ==========================================================================
+       ShoppieFly Independent Minimal 1-Page Express Checkout Engine
+       ========================================================================== */
+    function sfInitModernCheckout() {
+        if (!$(".sf-checkout-page").length && !$("#sf-checkout-form").length) {
+            return;
+        }
+
+        var subtotal = 734;
+        var discount = 0;
+        var currentShippingCost = 70;
+
+        // Bangladesh Location Hierarchy for Dropdowns
+        var BD_DISTRICTS = {
+            "Dhaka": ["Dhaka City", "Gazipur", "Kishoreganj", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Tangail", "Faridpur", "Gopalganj", "Madaripur", "Rajbari", "Shariatpur"],
+            "Chattogram": ["Chattogram City", "Bandarban", "Brahmanbaria", "Chandpur", "Cox's Bazar", "Cumilla", "Feni", "Khagrachhari", "Lakshmipur", "Noakhali", "Rangamati"],
+            "Sylhet": ["Sylhet City", "Habiganj", "Moulvibazar", "Sunamganj"],
+            "Rajshahi": ["Rajshahi City", "Bogura", "Joypurhat", "Naogaon", "Natore", "Chapainawabganj", "Pabna", "Sirajganj"],
+            "Khulna": ["Khulna City", "Bagerhat", "Chuadanga", "Jashore", "Jhenaidah", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"],
+            "Barishal": ["Barishal City", "Barguna", "Bhola", "Jhalokathi", "Patuakhali", "Pirojpur"],
+            "Rangpur": ["Rangpur City", "Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Thakurgaon"],
+            "Mymensingh": ["Mymensingh City", "Jamalpur", "Netrokona", "Sherpur"]
+        };
+
+        function updateCheckoutTotals() {
+            var total = subtotal + currentShippingCost - discount;
+
+            // Update UI elements
+            $("#sf-checkout-shipping").text("৳ " + currentShippingCost);
+            $("#sf-checkout-total").text("৳ " + total);
+            $("#sfMobileTotalPayable").text("৳ " + total);
+            $("#sf_hidden_shipping").val(currentShippingCost);
+
+            if (discount > 0) {
+                $("#sf-discount-row").removeClass("d-none");
+                $("#sf-checkout-discount").text("-৳ " + discount);
+            } else {
+                $("#sf-discount-row").addClass("d-none");
+            }
+        }
+
+        // Division change handler: populates District dropdown and recalculates shipping fee
+        function handleDivisionChange(division) {
+            var districts = BD_DISTRICTS[division] || [];
+            var $distSelect = $("#sf_district");
+            $distSelect.empty();
+
+            districts.forEach(function (dist, index) {
+                $distSelect.append(new Option(dist, dist, false, index === 0));
+            });
+
+            // If Division is Dhaka -> Inside Dhaka (৳70), else -> Outside Dhaka (৳130)
+            if (division === "Dhaka") {
+                currentShippingCost = 70;
+                $("#sf_hidden_zone").val("inside_dhaka");
+            } else {
+                currentShippingCost = 130;
+                $("#sf_hidden_zone").val("outside_dhaka");
+            }
+
+            $("#sf_hidden_division").val(division);
+            $("#sf_hidden_district").val($distSelect.val());
+            updateCheckoutTotals();
+        }
+
+        $(document).on("change", "#sf_division", function () {
+            handleDivisionChange($(this).val());
+        });
+
+        $(document).on("change", "#sf_district", function () {
+            $("#sf_hidden_district").val($(this).val());
+        });
+
+        // Payment Method selection
+        $(document).on("click", ".sf-min-pay-row", function (e) {
+            if (e.target.tagName !== "INPUT") {
+                $(this).find('input[type="radio"]').prop("checked", true).trigger("change");
+            }
+        });
+
+        $(document).on("change", 'input[name="payment_method"]', function () {
+            $(".sf-min-pay-row").removeClass("active");
+            $(this).closest(".sf-min-pay-row").addClass("active");
+        });
+
+        // Voucher apply
+        $(document).on("click", "#sf-voucher-btn", function (e) {
+            e.preventDefault();
+            var code = ($("#sf-voucher-input").val() || "").trim().toUpperCase();
+            var $msg = $("#sf-voucher-msg");
+
+            if (!code) {
+                $msg.removeClass("d-none text-success").addClass("text-danger").text("Please enter a coupon code.");
+                return;
+            }
+
+            if (code === "SHOPPIE50" || code === "SAVE50" || code === "DISCOUNT50") {
+                discount = 50;
+                $msg.removeClass("d-none text-danger").addClass("text-success").text("Coupon applied! ৳ 50 discount added.");
+                updateCheckoutTotals();
+            } else if (code === "SHOPPIE100" || code === "SAVE100") {
+                discount = 100;
+                $msg.removeClass("d-none text-danger").addClass("text-success").text("Coupon applied! ৳ 100 discount added.");
+                updateCheckoutTotals();
+            } else {
+                $msg.removeClass("d-none text-success").addClass("text-danger").text("Invalid coupon code. Try 'SHOPPIE50'");
+            }
+        });
+
+        // Initialize state
+        var initialDivision = $("#sf_division").val() || "Dhaka";
+        handleDivisionChange(initialDivision);
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
+        sfInitModernCheckout();
     });
 
 })(jQuery);

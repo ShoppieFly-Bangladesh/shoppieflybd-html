@@ -76,7 +76,7 @@
         <!-- Main CSS -->
         <link href="assets/css/style.min.css?v=2190be95" id="mainCss" rel="stylesheet">
     </head>
-    <body data-mn-mode="light">
+    <body data-mn-mode="light" class="sf-checkout-page">
         <main class="wrapper sb-default">
             <!-- Loader -->
             <div id="mn-overlay">
@@ -655,400 +655,290 @@
                     </a>
                 </div>
             </header>
-            <!-- Main Content -->
-            <div class="mn-main-content">
-
-                
-                <!-- Checkout section -->
-                <section class="mn-checkout-section p-b-15">
-                    <h2 class="d-none">Checkout Page</h2>
-                    <div class="row">
-                        <div class="mn-checkout-leftside col-lg-8 col-md-12">
-                            <!-- checkout content Start -->
-                            <div class="mn-checkout-content">
-                                <div class="mn-checkout-inner">
-                                    <div class="mn-checkout-wrap m-b-30">
-                                        <div class="mn-checkout-block mn-check-new">
-                                            <h3 class="mn-checkout-title">New Customer</h3>
-                                            <div class="mn-check-block-content">
-                                                <div class="mn-check-subtitle">Checkout Options</div>
-                                                <form action="#">
-                                                    <span class="mn-new-option">
-                                                        <span class="m-b-15">
-                                                            <input
-                                                                checked=""
-                                                                id="account1"
-                                                                name="radio-group"
-                                                                type="radio">
-                                                            <label for="account1">Register Account</label>
-                                                        </span>
-                                                        <span class="m-b-15">
-                                                            <input id="account2" name="radio-group" type="radio">
-                                                            <label for="account2">Guest Account</label>
-                                                        </span>
-                                                    </span>
-                                                </form>
-                                                <div class="mn-new-desc">
-                                                    By creating an account you will be able to shop faster, be up to
-                                                    date on an order's status, and keep track of the orders you have
-                                                    previously made.
-                                                </div>
-                                                <div class="mn-new-btn">
-                                                    <a class="mn-btn-2" href="#"><span>Continue</span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mn-checkout-block mn-check-login">
-                                            <h3 class="mn-checkout-title">Returning Customer</h3>
-                                            <div class="mn-check-login-form">
-                                                <form action="#" method="post">
-                                                    <span class="mn-check-login-wrap">
-                                                        <label for="login_email">Email Address</label>
-                                                        <input
-                                                            id="login_email"
-                                                            name="email"
-                                                            placeholder="Enter your email address"
-                                                            required=""
-                                                            type="email">
-                                                    </span>
-                                                    <span class="mn-check-login-wrap">
-                                                        <label for="login_password">Password</label>
-                                                        <input
-                                                            id="login_password"
-                                                            name="password"
-                                                            placeholder="Enter your password"
-                                                            required=""
-                                                            type="password">
-                                                    </span>
-                                                    <span class="mn-check-login-wrap mn-check-login-btn">
-                                                        <button class="mn-btn-2" type="submit">
-                                                            <span>Login</span>
-                                                        </button>
-                                                        <a class="mn-check-login-fp" href="#">Forgot Password?</a>
-                                                    </span>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mn-checkout-wrap m-b-30 padding-bottom-3">
-                                        <div class="mn-checkout-block mn-check-bill">
-                                            <h3 class="mn-checkout-title">Billing Details</h3>
-                                            <div class="mn-bl-block-content">
-                                                <div class="mn-check-subtitle">Checkout Options</div>
-                                                <span class="mn-bill-option">
-                                                    <span class="m-b-15">
-                                                        <input id="bill1" name="radio-group" type="radio">
-                                                        <label for="bill1">I want to use an existing address</label>
-                                                    </span>
-                                                    <span class="m-b-15">
-                                                        <input checked="" id="bill2" name="radio-group" type="radio">
-                                                        <label for="bill2">I want to use new address</label>
-                                                    </span>
-                                                </span>
-                                                <div class="mn-check-bill-form">
-                                                    <div class="row">
-                                                        <div class="col-md-6 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_firstname" class="fw-bold small">First Name *</label>
-                                                                <input id="billing_firstname" name="firstname" placeholder="Enter your first name" required="" type="text">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_lastname" class="fw-bold small">Last Name *</label>
-                                                                <input id="billing_lastname" name="lastname" placeholder="Enter your last name" required="" type="text">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_phone" class="fw-bold small">Phone / Mobile Number *</label>
-                                                                <input id="billing_phone" name="phone" placeholder="e.g. 017XXXXXXXX" required="" type="tel">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_email" class="fw-bold small">Email Address</label>
-                                                                <input id="billing_email" name="email" placeholder="Enter your email" type="email">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-12 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_address" class="fw-bold small">Full Delivery Address *</label>
-                                                                <input id="billing_address" name="address" placeholder="House / Holding, Road, Area" required="" type="text">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-4 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_district" class="fw-bold small">District / City *</label>
-                                                                <select id="billing_district" class="mn-bill-select form-select" name="district" required="" style="border-radius: 10px; height: 48px;">
-                                                                    <option value="" disabled="" selected="">Select District</option>
-                                                                    <option value="Dhaka">Dhaka</option>
-                                                                    <option value="Chittagong">Chittagong</option>
-                                                                    <option value="Sylhet">Sylhet</option>
-                                                                    <option value="Rajshahi">Rajshahi</option>
-                                                                    <option value="Khulna">Khulna</option>
-                                                                    <option value="Barisal">Barisal</option>
-                                                                    <option value="Rangpur">Rangpur</option>
-                                                                    <option value="Mymensingh">Mymensingh</option>
-                                                                </select>
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-4 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_upazila" class="fw-bold small">Thana / Upazila *</label>
-                                                                <input id="billing_upazila" name="upazila" placeholder="Enter Thana / Upazila" required="" type="text">
-                                                            </span>
-                                                        </div>
-                                                        <div class="col-md-4 mb-3">
-                                                            <span class="mn-bill-wrap">
-                                                                <label for="billing_postalcode" class="fw-bold small">Postal Code</label>
-                                                                <input id="billing_postalcode" name="postalcode" placeholder="Postal Code" type="text">
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <!-- Mobile Sticky Top Bar & Funnel Tracker (Single-Line Centered Funnel) -->
+            <div class="sf-mobile-cart-header d-lg-none">
+                <div class="sf-mobile-header-inner">
+                    <a
+                        href="cart.html"
+                        onclick="
+                            if (history.length > 1) {
+                                history.back();
+                                return false;
+                            }
+                        "
+                        class="sf-mobile-back-btn"
+                        aria-label="Go Back">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </a>
+                    <div class="sf-mobile-funnel-tracker">
+                        <div class="sf-funnel-step completed">
+                            <div class="sf-funnel-node">
+                                <i class="ri-check-line" style="font-size: 13px;"></i>
                             </div>
-                            <!--cart content End -->
+                            <span class="sf-funnel-label">Shopping</span>
                         </div>
-                        <!-- Sidebar Area Start -->
-                        <div class="mn-checkout-rightside col-lg-4 col-md-12 m-t-991">
-                            <div class="mn-sidebar-wrap">
-                                <!-- Sidebar Summary Block -->
-                                <div class="mn-sidebar-block">
-                                    <div class="mn-sb-title">
-                                        <h3 class="mn-sidebar-title">Summary</h3>
-                                    </div>
-                                    <div class="mn-sb-block-content">
-                                        <div class="mn-checkout-summary">
-                                            <div>
-                                                <span class="text-left">Sub-Total</span>
-                                                <span class="text-right">৳295.00</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-left">Delivery Charges</span>
-                                                <span class="text-right">
-                                                    ৳5.00
-                                                    <small class="text-muted d-block" style="font-size: 11px">
-                                                        (Ocean Crate: ৳5.00 | Fashion Hub: Free)
-                                                    </small>
-                                                </span>
-                                            </div>
-                                            <div>
-                                                <span class="text-left">Coupan Discount</span>
-                                                <span class="text-right">
-                                                    <a class="mn-checkout-coupan">Apply Coupan</a>
-                                                </span>
-                                            </div>
-                                            <div class="mn-checkout-coupan-content">
-                                                <form
-                                                    action="#"
-                                                    class="mn-checkout-coupan-form"
-                                                    method="post"
-                                                    name="mn-checkout-coupan-form">
-                                                    <input
-                                                        class="mn-coupan"
-                                                        name="mn-coupan"
-                                                        placeholder="Enter Your Coupan Code"
-                                                        required=""
-                                                        type="text"
-                                                        value="">
-                                                    <button
-                                                        class="mn-coupan-btn mn-btn-2"
-                                                        name="subscribe"
-                                                        type="submit"
-                                                        value="">
-                                                        <span>Apply</span>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                            <div class="mn-checkout-summary-total">
-                                                <span class="text-left">Total Amount</span>
-                                                <span class="text-right">৳300.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="mn-checkout-pro">
-                                            <div class="col-sm-12 mb-3">
-                                                <div
-                                                    class="d-flex align-items-center justify-content-between mb-2 pb-1 border-bottom">
-                                                    <span style="font-size: 13px; font-weight: 600; color: #181e28">
-                                                        <i class="ri-store-2-line text-primary me-1"></i>
-                                                        Ocean Crate
-                                                    </span>
-                                                    <span
-                                                        class="badge bg-light text-muted border"
-                                                        style="font-size: 11px">
-                                                        Ship: ৳5.00
-                                                    </span>
-                                                </div>
-                                                <div class="mn-product-inner">
-                                                    <div class="mn-pro-image-outer">
-                                                        <div class="mn-pro-image">
-                                                            <a class="image" href="product.html">
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="main-image"
-                                                                    src="assets/img/product/11.webp" width="450" height="506" loading="lazy" decoding="async">
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="hover-image"
-                                                                    src="assets/img/product/12.webp" width="450" height="506" loading="lazy" decoding="async">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mn-pro-content">
-                                                        <h5 class="mn-pro-title">
-                                                            <a href="product.html">Digital smart watch</a>
-                                                        </h5>
-                                                        <div class="mn-pro-rating">
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                        </div>
-                                                        <span class="mn-price">
-                                                            <span class="old-price">৳265.00</span>
-                                                            <span class="new-price">৳250.00</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 mb-0">
-                                                <div
-                                                    class="d-flex align-items-center justify-content-between mb-2 pb-1 border-bottom">
-                                                    <span style="font-size: 13px; font-weight: 600; color: #181e28">
-                                                        <i class="ri-store-2-line text-primary me-1"></i>
-                                                        Fashion Hub
-                                                    </span>
-                                                    <span
-                                                        class="badge bg-light text-success border"
-                                                        style="font-size: 11px">
-                                                        Free Ship
-                                                    </span>
-                                                </div>
-                                                <div class="mn-product-inner">
-                                                    <div class="mn-pro-image-outer">
-                                                        <div class="mn-pro-image">
-                                                            <a class="image" href="product.html">
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="main-image"
-                                                                    src="assets/img/product/1.webp" width="450" height="506" loading="lazy" decoding="async">
-                                                                <img
-                                                                    alt="Product"
-                                                                    class="hover-image"
-                                                                    src="assets/img/product/2.webp" width="450" height="506" loading="lazy" decoding="async">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mn-pro-content">
-                                                        <h5 class="mn-pro-title">
-                                                            <a href="product.html">Round neck cotton t-shirt</a>
-                                                        </h5>
-                                                        <div class="mn-pro-rating">
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill"></i>
-                                                            <i class="ri-star-fill grey"></i>
-                                                        </div>
-                                                        <span class="mn-price">
-                                                            <span class="old-price">৳58.00</span>
-                                                            <span class="new-price">৳45.00</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Sidebar Summary Block -->
+                        <div class="sf-funnel-line active"></div>
+                        <div class="sf-funnel-step completed">
+                            <div class="sf-funnel-node">
+                                <i class="ri-check-line" style="font-size: 13px;"></i>
                             </div>
-                            <div class="mn-sidebar-wrap mn-checkout-del-wrap">
-                                <!-- Sidebar Summary Block -->
-                                <div class="mn-sidebar-block">
-                                    <div class="mn-sb-title">
-                                        <h3 class="mn-sidebar-title">Delivery Method</h3>
-                                    </div>
-                                    <div class="mn-sb-block-content">
-                                        <div class="mn-checkout-del">
-                                            <div class="mn-del-desc mb-3">
-                                                Please select your preferred shipping method.
-                                            </div>
-                                            <span class="mn-del-option">
-                                                <span class="d-block mb-2">
-                                                    <input checked="" id="del1" name="shipping_method" value="standard" type="radio">
-                                                    <label for="del1" class="ms-1 cursor-pointer">
-                                                        <span class="mn-del-opt-head fw-bold">Regular Delivery</span> (2-3 Days) - <strong>৳5.00</strong>
-                                                    </label>
-                                                </span>
-                                                <span class="d-block">
-                                                    <input id="del2" name="shipping_method" value="express" type="radio">
-                                                    <label for="del2" class="ms-1 cursor-pointer">
-                                                        <span class="mn-del-opt-head fw-bold">Express Delivery</span> (24 Hours) - <strong>৳10.00</strong>
-                                                    </label>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <span class="sf-funnel-label">Cart</span>
+                        </div>
+                        <div class="sf-funnel-line active"></div>
+                        <div class="sf-funnel-step active">
+                            <div class="sf-funnel-node">
+                                <span class="sf-funnel-num">3</span>
                             </div>
-                            <div class="mn-sidebar-wrap mn-checkout-del-wrap mt-3">
-                                <div class="mn-sidebar-block">
-                                    <div class="mn-sb-title">
-                                        <h3 class="mn-sidebar-title">Payment Method</h3>
-                                    </div>
-                                    <div class="mn-sb-block-content">
-                                        <div class="mn-checkout-pay">
-                                            <div class="mn-pay-desc mb-3">
-                                                Choose your preferred payment method.
-                                            </div>
-                                            <div class="mn-pay-option mb-3">
-                                                <div class="mb-2">
-                                                    <input checked="" id="pay1" name="payment_method" value="cod" type="radio">
-                                                    <label for="pay1" class="ms-1 cursor-pointer fw-bold">Cash On Delivery (COD)</label>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <input id="pay2" name="payment_method" value="bkash" type="radio">
-                                                    <label for="pay2" class="ms-1 cursor-pointer fw-bold text-danger">bKash Online</label>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <input id="pay3" name="payment_method" value="nagad" type="radio">
-                                                    <label for="pay3" class="ms-1 cursor-pointer fw-bold text-warning">Nagad Online</label>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <input id="pay4" name="payment_method" value="card" type="radio">
-                                                    <label for="pay4" class="ms-1 cursor-pointer fw-bold text-primary">Debit / Credit Card</label>
-                                                </div>
-                                            </div>
-                                            <div class="mn-pay-commemt mb-3">
-                                                <span class="mn-pay-opt-head fw-bold small d-block mb-1">Order Notes (Optional)</span>
-                                                <textarea name="order_note" placeholder="Special instructions for delivery (e.g. deliver after 2 PM)..." class="form-control" rows="2" style="border-radius: 10px; font-size: 13px;"></textarea>
-                                            </div>
-                                            <div class="mn-pay-agree mb-3">
-                                                <label class="d-flex align-items-center gap-2 cursor-pointer small text-muted" for="agree_terms">
-                                                    <input type="checkbox" name="agree_terms" id="agree_terms" value="1" required="">
-                                                    <span>I agree with the <a href="terms.html" class="text-primary text-decoration-underline">Terms & Conditions</a>.</span>
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary mn-btn-2 w-100 py-3 rounded-pill" id="btn-place-order">
-                                                <span class="d-flex align-items-center justify-content-center gap-2 fw-bold">
-                                                    <i class="ri-shield-check-line" style="font-size: 18px;"></i> Confirm & Place Order
-                                                </span>
-                                            </button>
-                                            <div class="text-center mt-3 text-muted small">
-                                                <i class="ri-lock-line me-1 text-success"></i> 100% Secure Checkout Guaranteed
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <span class="sf-funnel-label">Checkout</span>
                         </div>
                     </div>
+                    <div class="sf-mobile-header-spacer" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="mn-main-content">
+                <!-- Streamlined Breadcrumb (Single-line, Zero-Box) -->
+                <nav class="sf-breadcrumb-nav" aria-label="breadcrumb">
+                    <ul class="mn-breadcrumb-list">
+                        <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="mn-breadcrumb-item"><a href="cart.html">Cart</a></li>
+                        <li class="mn-breadcrumb-item active">Checkout</li>
+                    </ul>
+                </nav>
+
+                <!-- Express Minimal Checkout Section (Govaly-Inspired Radical Minimalism) -->
+                <section class="mn-checkout-section sf-checkout-section p-b-15">
+                    <h2 class="d-none">Checkout Page</h2>
+                    <form id="sf-checkout-form" class="sf-checkout-form" action="track-order.html" method="GET">
+                        <!-- Hidden inputs for location and shipping -->
+                        <input type="hidden" id="sf_hidden_division" name="division" value="Dhaka" />
+                        <input type="hidden" id="sf_hidden_district" name="district" value="Dhaka City" />
+                        <input type="hidden" id="sf_hidden_zone" name="delivery_zone" value="inside_dhaka" />
+                        <input type="hidden" id="sf_hidden_shipping" name="shipping_cost" value="70" />
+
+                        <div class="row g-4">
+                            <!-- Left Column: Delivery Address & Store Products (60% Desktop) -->
+                            <div class="col-lg-7 col-md-12">
+                                <!-- Minimal Delivery Address Form -->
+                                <div class="sf-minimal-card mb-4">
+                                    <div class="sf-minimal-card-body">
+                                        <div class="row g-3">
+                                            <!-- Full Name -->
+                                            <div class="col-12">
+                                                <label for="sf_name" class="sf-min-label">Full Name <span class="text-danger">*</span></label>
+                                                <input type="text" id="sf_name" name="name" class="form-control sf-min-input" placeholder="Enter your full name" required autocomplete="name" />
+                                            </div>
+
+                                            <!-- Phone Number -->
+                                            <div class="col-12">
+                                                <label for="sf_phone" class="sf-min-label">Phone Number <span class="text-danger">*</span></label>
+                                                <input type="tel" id="sf_phone" name="phone" class="form-control sf-min-input" placeholder="Enter your phone number" pattern="01[3-9][0-9]{8}" required autocomplete="tel" />
+                                            </div>
+
+                                            <!-- Division & District Row -->
+                                            <div class="col-md-6 col-12">
+                                                <label for="sf_division" class="sf-min-label">Division <span class="text-danger">*</span></label>
+                                                <select id="sf_division" name="division" class="form-select sf-min-input sf-min-select" required>
+                                                    <option value="Dhaka" selected>Dhaka</option>
+                                                    <option value="Chattogram">Chattogram</option>
+                                                    <option value="Sylhet">Sylhet</option>
+                                                    <option value="Rajshahi">Rajshahi</option>
+                                                    <option value="Khulna">Khulna</option>
+                                                    <option value="Barishal">Barishal</option>
+                                                    <option value="Rangpur">Rangpur</option>
+                                                    <option value="Mymensingh">Mymensingh</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <label for="sf_district" class="sf-min-label">District / City <span class="text-danger">*</span></label>
+                                                <select id="sf_district" name="district" class="form-select sf-min-input sf-min-select" required>
+                                                    <option value="Dhaka City" selected>Dhaka City</option>
+                                                    <option value="Gazipur">Gazipur</option>
+                                                    <option value="Narayanganj">Narayanganj</option>
+                                                    <option value="Tangail">Tangail</option>
+                                                    <option value="Manikganj">Manikganj</option>
+                                                    <option value="Munshiganj">Munshiganj</option>
+                                                    <option value="Narsingdi">Narsingdi</option>
+                                                    <option value="Kishoreganj">Kishoreganj</option>
+                                                    <option value="Faridpur">Faridpur</option>
+                                                    <option value="Gopalganj">Gopalganj</option>
+                                                    <option value="Madaripur">Madaripur</option>
+                                                    <option value="Rajbari">Rajbari</option>
+                                                    <option value="Shariatpur">Shariatpur</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Address -->
+                                            <div class="col-12">
+                                                <label for="sf_address" class="sf-min-label">Address <span class="text-danger">*</span></label>
+                                                <textarea id="sf_address" name="address" class="form-control sf-min-input sf-min-textarea" rows="2" placeholder="House, road and other address details" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Purchased Products Grouped by Store (Govaly Parity) -->
+                                <div class="sf-store-products-wrap">
+                                    <!-- Store 1: Ocean Crate -->
+                                    <div class="sf-store-group mb-4">
+                                        <div class="sf-store-group-header">
+                                            <i class="ri-store-2-line"></i>
+                                            <span class="sf-store-group-name">Ocean Crate</span>
+                                        </div>
+                                        <div class="sf-store-items-list">
+                                            <!-- Item 1 -->
+                                            <div class="sf-store-item-row">
+                                                <img src="assets/img/product/11.webp" alt="Smart Watch" class="sf-store-item-thumb" width="56" height="56" loading="lazy" decoding="async" />
+                                                <div class="sf-store-item-info">
+                                                    <h4 class="sf-store-item-title">ShoppieFly Smart Watch Bluetooth Calling Fitness Tracker</h4>
+                                                    <span class="sf-store-item-spec">Color: Black | Size: Standard</span>
+                                                </div>
+                                                <div class="sf-store-item-right">
+                                                    <span class="sf-store-item-price">৳ 516</span>
+                                                    <span class="sf-store-item-qty">Qty: 1</span>
+                                                </div>
+                                            </div>
+                                            <!-- Item 2 -->
+                                            <div class="sf-store-item-row">
+                                                <img src="assets/img/product/15.webp" alt="Leather bag" class="sf-store-item-thumb" width="56" height="56" loading="lazy" decoding="async" />
+                                                <div class="sf-store-item-info">
+                                                    <h4 class="sf-store-item-title">Premium Leather Shoulder Crossbody Bag</h4>
+                                                    <span class="sf-store-item-spec">Color: Tan Brown | Size: Medium</span>
+                                                </div>
+                                                <div class="sf-store-item-right">
+                                                    <span class="sf-store-item-price">৳ 75</span>
+                                                    <span class="sf-store-item-qty">Qty: 1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Store 2: Fashion Hub -->
+                                    <div class="sf-store-group mb-4">
+                                        <div class="sf-store-group-header">
+                                            <i class="ri-store-2-line"></i>
+                                            <span class="sf-store-group-name">Fashion Hub</span>
+                                        </div>
+                                        <div class="sf-store-items-list">
+                                            <!-- Item 3 -->
+                                            <div class="sf-store-item-row">
+                                                <img src="assets/img/product/3.webp" alt="Clutch Purse" class="sf-store-item-thumb" width="56" height="56" loading="lazy" decoding="async" />
+                                                <div class="sf-store-item-info">
+                                                    <h4 class="sf-store-item-title">Special Fancy Leather Clutch Purse</h4>
+                                                    <span class="sf-store-item-spec">Color: Maroon | Model: Clutch</span>
+                                                </div>
+                                                <div class="sf-store-item-right">
+                                                    <span class="sf-store-item-price">৳ 48</span>
+                                                    <span class="sf-store-item-qty">Qty: 1</span>
+                                                </div>
+                                            </div>
+                                            <!-- Item 4 -->
+                                            <div class="sf-store-item-row">
+                                                <img src="assets/img/product/9.webp" alt="Running Shoes" class="sf-store-item-thumb" width="56" height="56" loading="lazy" decoding="async" />
+                                                <div class="sf-store-item-info">
+                                                    <h4 class="sf-store-item-title">Special Sport Lightweight Running Shoes</h4>
+                                                    <span class="sf-store-item-spec">Color: White/Blue | Size: 42</span>
+                                                </div>
+                                                <div class="sf-store-item-right">
+                                                    <span class="sf-store-item-price">৳ 95</span>
+                                                    <span class="sf-store-item-qty">Qty: 1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Coupon, Payment, Summary & CTA (40% Desktop) -->
+                            <div class="col-lg-5 col-md-12">
+                                <div class="sf-checkout-sidebar-sticky">
+                                    <div class="sf-minimal-summary-card">
+                                        <!-- 1. Coupon Input Box -->
+                                        <div class="sf-min-coupon-box mb-4">
+                                            <div class="sf-min-coupon-group">
+                                                <input type="text" id="sf-voucher-input" class="sf-min-coupon-input" placeholder="Enter your coupon code" />
+                                                <button type="button" class="sf-min-coupon-btn" id="sf-voucher-btn">Apply</button>
+                                            </div>
+                                            <div class="sf-voucher-msg small mt-1 d-none" id="sf-voucher-msg"></div>
+                                        </div>
+
+                                        <!-- 2. Choose Payment Method -->
+                                        <div class="sf-min-payment-section mb-4">
+                                            <h4 class="sf-min-section-title">Choose Payment Method</h4>
+                                            <div class="sf-min-payment-list">
+                                                <!-- bKash -->
+                                                <label class="sf-min-pay-row" for="sf_pay_bkash">
+                                                    <input type="radio" id="sf_pay_bkash" name="payment_method" value="bkash" />
+                                                    <span class="sf-min-radio-circle"></span>
+                                                    <span class="sf-min-pay-name">bKash</span>
+                                                    <div class="sf-min-pay-brand ms-auto">
+                                                        <span class="sf-bkash-logo-pill">bKash</span>
+                                                    </div>
+                                                </label>
+
+                                                <!-- Online Payment / Cards -->
+                                                <label class="sf-min-pay-row" for="sf_pay_card">
+                                                    <input type="radio" id="sf_pay_card" name="payment_method" value="online_payment" />
+                                                    <span class="sf-min-radio-circle"></span>
+                                                    <span class="sf-min-pay-name">Online Payment</span>
+                                                    <div class="sf-min-pay-brand ms-auto">
+                                                        <span class="sf-pay-icon-tag visa">VISA</span>
+                                                        <span class="sf-pay-icon-tag mc">MC</span>
+                                                        <span class="sf-pay-icon-tag nagad">Nagad</span>
+                                                    </div>
+                                                </label>
+
+                                                <!-- Cash on Delivery -->
+                                                <label class="sf-min-pay-row active" for="sf_pay_cod">
+                                                    <input type="radio" id="sf_pay_cod" name="payment_method" value="cod" checked />
+                                                    <span class="sf-min-radio-circle"></span>
+                                                    <span class="sf-min-pay-name">Cash on Delivery</span>
+                                                    <div class="sf-min-pay-brand ms-auto">
+                                                        <i class="ri-money-dollar-box-line sf-cod-icon"></i>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3. Financial Summary -->
+                                        <div class="sf-min-summary-section mb-4">
+                                            <h4 class="sf-min-section-title">Summary</h4>
+                                            <div class="sf-min-summary-rows">
+                                                <div class="sf-min-summary-row">
+                                                    <span class="sf-min-summary-label">Product Price</span>
+                                                    <span class="sf-min-summary-val" id="sf-checkout-subtotal">৳ 734</span>
+                                                </div>
+                                                <div class="sf-min-summary-row">
+                                                    <span class="sf-min-summary-label">Shipping Fee</span>
+                                                    <span class="sf-min-summary-val" id="sf-checkout-shipping">৳ 70</span>
+                                                </div>
+                                                <div class="sf-min-summary-row sf-discount-row d-none" id="sf-discount-row">
+                                                    <span class="sf-min-summary-label text-success">Voucher Discount</span>
+                                                    <span class="sf-min-summary-val text-success" id="sf-checkout-discount">-৳ 0</span>
+                                                </div>
+                                                <div class="sf-min-summary-row sf-min-total-row">
+                                                    <span class="sf-min-total-label">Total Amount</span>
+                                                    <span class="sf-min-total-val" id="sf-checkout-total">৳ 804</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- 4. Place Order Action Button (Desktop) -->
+                                        <div class="sf-min-action-wrap d-none d-lg-block">
+                                            <button type="submit" class="sf-min-btn-place-order" id="sf-btn-place-order">
+                                                Place Order
+                                            </button>
+                                        </div>
+
+                                        <div class="sf-min-terms-note mt-3 text-center small text-muted">
+                                            By placing order, you agree to our <a href="terms.html" class="text-decoration-underline text-secondary">Terms & Conditions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </section>
             </div>
             <!-- Footer -->
@@ -1337,6 +1227,20 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+            </div>
+            <!-- Mobile Sticky Bottom Checkout Bar (Govaly-Inspired Radical Minimalism) -->
+            <div class="sf-mobile-checkout-bar d-lg-none" id="sfMobileCheckoutBar">
+                <div class="sf-mobile-checkout-bar-inner">
+                    <div class="sf-mobile-checkout-total-col">
+                        <span class="sf-mobile-total-label">Total Payable</span>
+                        <span class="sf-mobile-total-price" id="sfMobileTotalPayable">৳ 804</span>
+                    </div>
+                    <div class="sf-mobile-checkout-btn-wrap">
+                        <button type="submit" form="sf-checkout-form" class="sf-mobile-btn-place-order" id="sfMobileBtnPlaceOrder">
+                            Place Order
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- Quick view Modal -->

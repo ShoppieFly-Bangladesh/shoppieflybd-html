@@ -16683,7 +16683,7 @@ footer.mn-footer {
 
 .sf-mobile-cart-summary-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 2px 4px;
 }
@@ -16692,6 +16692,9 @@ footer.mn-footer {
     display: flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 2px;
 }
 
 .sf-mobile-summary-label {
@@ -16708,7 +16711,9 @@ footer.mn-footer {
 
 .sf-mobile-summary-right {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
 }
 
 .sf-mobile-summary-price {
@@ -16716,6 +16721,15 @@ footer.mn-footer {
     font-weight: 800;
     color: #f97316;
     letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+.sf-mobile-shipping-note {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.25;
 }
 
 .sf-mobile-checkout-btn-wrap {
@@ -16758,8 +16772,150 @@ footer.mn-footer {
     cursor: not-allowed !important;
 }
 
-/* Page Bottom Clearance Padding & Mobile Order Summary Hide */
+/*==================================================
+  Mobile Distraction-Free Cart Header & Funnel Tracker
+==================================================*/
+.sf-mobile-cart-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+    background: #ffffff;
+    border-bottom: 1px solid #eef2f6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    padding: 8px 12px 10px 12px;
+}
+
+.sf-mobile-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sf-mobile-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #0f172a;
+    font-size: 26px;
+    text-decoration: none;
+    margin-left: -6px;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+}
+
+.sf-mobile-back-btn i {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.sf-mobile-back-btn:hover {
+    color: #f97316;
+}
+
+.sf-mobile-header-spacer {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-right: -6px;
+}
+
+.sf-mobile-funnel-tracker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    max-width: 270px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 4px;
+}
+
+.sf-funnel-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.sf-funnel-node {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    background: #f1f5f9;
+    color: #94a3b8;
+    border: 2px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.sf-funnel-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #94a3b8;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.sf-funnel-step.completed .sf-funnel-node {
+    background: #f97316;
+    border-color: #f97316;
+    color: #ffffff;
+}
+.sf-funnel-step.completed .sf-funnel-label {
+    color: #475569;
+    font-weight: 600;
+}
+
+.sf-funnel-step.active .sf-funnel-node {
+    background: #f97316;
+    border-color: #f97316;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+.sf-funnel-step.active .sf-funnel-label {
+    color: #f97316;
+    font-weight: 700;
+}
+
+.sf-funnel-line {
+    flex: 1;
+    height: 3px;
+    background: #e2e8f0;
+    margin: -14px 6px 0 6px;
+    position: relative;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.sf-funnel-line.active {
+    background: #f97316;
+}
+
+/* Page Bottom Clearance Padding & Mobile Distraction-Free Header/Footer Isolation */
 @media (max-width: 991.98px) {
+    .sf-cart-page .sf-topbar-wrap,
+    .sf-cart-page header,
+    .sf-cart-page footer,
+    .sf-cart-page .sf-breadcrumb-nav,
+    .sf-cart-page .sf-cart-bottom-bar {
+        display: none !important;
+    }
+    .sf-cart-page .mn-main-content {
+        margin-top: 12px !important;
+        margin-bottom: 0 !important;
+        min-height: auto !important;
+        padding-bottom: 110px !important;
+    }
     .mn-cart-section {
         padding-bottom: 0 !important;
     }

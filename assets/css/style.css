@@ -16732,7 +16732,7 @@ footer.mn-footer {
     line-height: 1.25;
 }
 
-.sf-mobile-checkout-btn-wrap {
+.sf-mobile-cart-bottom-bar .sf-mobile-checkout-btn-wrap {
     width: 100%;
 }
 
@@ -17760,7 +17760,7 @@ footer.mn-footer {
     margin-top: 2px;
 }
 
-.sf-mobile-checkout-btn-wrap {
+.sf-mobile-checkout-bar .sf-mobile-checkout-btn-wrap {
     flex: 1;
     max-width: 200px;
 }

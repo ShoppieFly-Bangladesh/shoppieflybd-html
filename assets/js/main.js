@@ -1578,11 +1578,376 @@
         }
     }
 
+    /* ==========================================================================
+       ShoppieFlyBD Seller Onboarding & Stepper Engine (Daraz & Govaly Standard)
+       ========================================================================== */
+    // Global Password Visibility Toggle (Delegated for Login & Register)
+    $(document).on("click", ".sf-toggle-pwd-btn", function () {
+        var $input = $(this).siblings("input");
+        var $icon = $(this).find("i");
+        if ($input.attr("type") === "password") {
+            $input.attr("type", "text");
+            $icon.removeClass("ri-eye-line").addClass("ri-eye-off-line");
+        } else {
+            $input.attr("type", "password");
+            $icon.removeClass("ri-eye-off-line").addClass("ri-eye-line");
+        }
+    });
+
+    function sfInitSellerOnboarding() {
+        var $stepperCard = $(".sf-stepper-card");
+        if (!$stepperCard.length) return;
+
+        var currentStep = 1;
+        var userPhone = "";
+        var otpTimer = null;
+        var countdownSeconds = 59;
+
+        // Elements
+        var $pane1 = $("#sfPaneStep1");
+        var $pane2 = $("#sfPaneStep2");
+        var $pane3 = $("#sfPaneStep3");
+        var $pane4 = $("#sfPaneStep4");
+
+        var $stepNode1 = $("#sfStepNode1");
+        var $stepNode2 = $("#sfStepNode2");
+        var $stepNode3 = $("#sfStepNode3");
+
+        var $stepLine1 = $("#sfStepLine1");
+        var $stepLine2 = $("#sfStepLine2");
+
+        var $phoneInput = $("#sf_seller_phone");
+        var $phoneError = $("#sfPhoneError");
+        var $btnSendOtp = $("#sfBtnSendOtp");
+
+        var $displayPhone = $("#sfDisplayPhone");
+        var $btnEditPhone = $("#sfBtnEditPhone");
+        var $otpBoxes = $(".sf-otp-box");
+        var $otpError = $("#sfOtpError");
+        var $btnVerifyOtp = $("#sfBtnVerifyOtp");
+        var $btnBackStep1 = $("#sfBtnBackStep1");
+        var $otpTimerWrap = $("#sfOtpTimerWrap");
+        var $otpTimerVal = $("#sfOtpTimerVal");
+        var $btnResendOtp = $("#sfBtnResendOtp");
+
+        var $sellerNameInput = $("#sf_seller_name");
+        var $storeNameInput = $("#sf_store_name");
+        var $storeSlugPreview = $("#sfStoreSlugPreview");
+        var $pwdInput = $("#sf_seller_password");
+        var $confirmPwdInput = $("#sf_seller_confirm_pwd");
+        var $agreeTerms = $("#sfAgreeTerms");
+        var $step3Error = $("#sfStep3Error");
+        var $btnCompleteRegister = $("#sfBtnCompleteRegister");
+
+        var $successStoreName = $("#sfSuccessStoreName");
+        var $successSellerPhone = $("#sfSuccessSellerPhone");
+
+        // Helper: Normalize Phone Number (handles 10 or 11 digits, with/without 0 prefix)
+        function normalizePhone(raw) {
+            if (!raw) return "";
+            var digits = raw.toString().replace(/\D/g, "");
+            // If starts with 8801 and 13 digits: 88017... -> 017...
+            if (digits.startsWith("8801") && digits.length === 13) {
+                digits = digits.substring(2);
+            }
+            // If 10 digits starting with 1[3-9]: 17... -> 017...
+            if (digits.length === 10 && /^1[3-9]/.test(digits)) {
+                digits = "0" + digits;
+            }
+            return digits;
+        }
+
+        // Helper: Format Phone Number for display
+        function formatPhone(raw) {
+            var digits = normalizePhone(raw);
+            if (digits.length === 11 && digits.startsWith("0")) {
+                var national = digits.substring(1);
+                return "+880 " + national.substring(0, 4) + "-" + national.substring(4);
+            }
+            return "+880 " + digits;
+        }
+
+        // Helper: Switch Step
+        function goToStep(step) {
+            currentStep = step;
+
+            // Panes
+            $pane1.addClass("d-none").removeClass("active");
+            $pane2.addClass("d-none").removeClass("active");
+            $pane3.addClass("d-none").removeClass("active");
+            $pane4.addClass("d-none").removeClass("active");
+
+            // Header nodes reset
+            $stepNode1.removeClass("active completed");
+            $stepNode2.removeClass("active completed");
+            $stepNode3.removeClass("active completed");
+            $stepLine1.removeClass("active completed");
+            $stepLine2.removeClass("active completed");
+
+            if (step === 1) {
+                $pane1.removeClass("d-none").addClass("active");
+                $stepNode1.addClass("active");
+                if (userPhone) $phoneInput.val(userPhone);
+                $phoneInput.focus();
+            } else if (step === 2) {
+                $pane2.removeClass("d-none").addClass("active");
+                $stepNode1.addClass("completed");
+                $stepLine1.addClass("completed");
+                $stepNode2.addClass("active");
+                $otpBoxes.first().focus();
+                startOtpTimer();
+            } else if (step === 3) {
+                $pane3.removeClass("d-none").addClass("active");
+                $stepNode1.addClass("completed");
+                $stepLine1.addClass("completed");
+                $stepNode2.addClass("completed");
+                $stepLine2.addClass("completed");
+                $stepNode3.addClass("active");
+                $sellerNameInput.focus();
+            } else if (step === 4) {
+                $pane4.removeClass("d-none").addClass("active");
+                $stepNode1.addClass("completed");
+                $stepLine1.addClass("completed");
+                $stepNode2.addClass("completed");
+                $stepLine2.addClass("completed");
+                $stepNode3.addClass("completed");
+            }
+        }
+
+        // Helper: Slugify
+        function slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, "-")
+                .replace(/[^\w\-]+/g, "")
+                .replace(/\-\-+/g, "-")
+                .replace(/^-+/, "")
+                .replace(/-+$/, "");
+        }
+
+        // Helper: OTP Timer
+        function startOtpTimer() {
+            if (otpTimer) clearInterval(otpTimer);
+            countdownSeconds = 59;
+            $otpTimerWrap.removeClass("d-none");
+            $btnResendOtp.addClass("d-none");
+            $otpTimerVal.text("00:59");
+
+            otpTimer = setInterval(function () {
+                countdownSeconds--;
+                if (countdownSeconds <= 0) {
+                    clearInterval(otpTimer);
+                    $otpTimerWrap.addClass("d-none");
+                    $btnResendOtp.removeClass("d-none");
+                } else {
+                    var secStr = countdownSeconds < 10 ? "0" + countdownSeconds : "" + countdownSeconds;
+                    $otpTimerVal.text("00:" + secStr);
+                }
+            }, 1000);
+        }
+
+        // 1. Phone input digits only
+        $phoneInput.on("input", function () {
+            var val = $(this).val().replace(/\D/g, "");
+            $(this).val(val);
+            if (val.length > 0) {
+                $phoneError.addClass("d-none");
+            }
+        });
+
+        // 2. Step 1: Send OTP Click
+        $btnSendOtp.on("click", function () {
+            var raw = $phoneInput.val().trim();
+            var normalized = normalizePhone(raw);
+            var bdPhonePattern = /^01[3-9]\d{8}$/;
+            if (!bdPhonePattern.test(normalized)) {
+                $phoneError.removeClass("d-none");
+                $phoneInput.focus();
+                return;
+            }
+
+            userPhone = normalized;
+            $phoneInput.val(normalized);
+            $phoneError.addClass("d-none");
+
+            // Loading state
+            $btnSendOtp.prop("disabled", true);
+            $btnSendOtp.find(".sf-btn-text").text("Sending OTP...");
+            $btnSendOtp.find(".sf-btn-icon").addClass("d-none");
+            $btnSendOtp.find(".spinner-border").removeClass("d-none");
+
+            setTimeout(function () {
+                $btnSendOtp.prop("disabled", false);
+                $btnSendOtp.find(".sf-btn-text").text("Send Verification Code");
+                $btnSendOtp.find(".sf-btn-icon").removeClass("d-none");
+                $btnSendOtp.find(".spinner-border").addClass("d-none");
+
+                $displayPhone.text(formatPhone(userPhone));
+                goToStep(2);
+            }, 450);
+        });
+
+        // Edit Phone from Step 2
+        $btnEditPhone.on("click", function () {
+            goToStep(1);
+        });
+        $btnBackStep1.on("click", function () {
+            goToStep(1);
+        });
+
+        // 3. OTP Boxes Auto-advance & Backspace
+        $otpBoxes.each(function (idx) {
+            var $box = $(this);
+
+            $box.on("input", function (e) {
+                var val = $(this).val().replace(/\D/g, "");
+                $(this).val(val);
+                $otpError.addClass("d-none");
+
+                if (val && idx < $otpBoxes.length - 1) {
+                    $otpBoxes.eq(idx + 1).focus();
+                }
+            });
+
+            $box.on("keydown", function (e) {
+                if (e.key === "Backspace" && !$(this).val() && idx > 0) {
+                    $otpBoxes.eq(idx - 1).focus();
+                }
+            });
+
+            // Paste handling on any OTP box
+            $box.on("paste", function (e) {
+                var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+                if (!clipboardData) return;
+                var pasted = clipboardData.getData("text").replace(/\D/g, "");
+                if (pasted.length >= 6) {
+                    e.preventDefault();
+                    for (var i = 0; i < 6; i++) {
+                        $otpBoxes.eq(i).val(pasted[i]);
+                    }
+                    $otpBoxes.eq(5).focus();
+                    $otpError.addClass("d-none");
+                }
+            });
+        });
+
+        // Resend OTP Click
+        $btnResendOtp.on("click", function () {
+            $otpBoxes.val("");
+            $otpBoxes.first().focus();
+            startOtpTimer();
+            // Feedback
+            var origText = $(this).html();
+            $(this).html('<i class="ri-check-line me-1"></i> Sent!');
+            var $btn = $(this);
+            setTimeout(function () {
+                $btn.html(origText);
+            }, 1500);
+        });
+
+        // 4. Step 2: Verify OTP Click
+        $btnVerifyOtp.on("click", function () {
+            var code = "";
+            $otpBoxes.each(function () {
+                code += $(this).val().trim();
+            });
+
+            if (code.length < 6) {
+                $otpError.removeClass("d-none").text("Please enter the complete 6-digit verification code.");
+                return;
+            }
+
+            $otpError.addClass("d-none");
+
+            // Loading state
+            $btnVerifyOtp.prop("disabled", true);
+            $btnVerifyOtp.find(".sf-btn-text").text("Verifying...");
+            $btnVerifyOtp.find(".sf-btn-icon").addClass("d-none");
+            $btnVerifyOtp.find(".spinner-border").removeClass("d-none");
+
+            setTimeout(function () {
+                $btnVerifyOtp.prop("disabled", false);
+                $btnVerifyOtp.find(".sf-btn-text").text("Verify & Continue");
+                $btnVerifyOtp.find(".sf-btn-icon").removeClass("d-none");
+                $btnVerifyOtp.find(".spinner-border").addClass("d-none");
+
+                goToStep(3);
+            }, 400);
+        });
+
+        // 5. Step 3: Live Store Slug Preview
+        $storeNameInput.on("input", function () {
+            var raw = $(this).val();
+            var slug = slugify(raw);
+            $storeSlugPreview.text(slug || "your-store");
+        });
+
+
+
+        // 6. Step 3: Complete Registration Click
+        $btnCompleteRegister.on("click", function () {
+            var name = $sellerNameInput.val().trim();
+            var store = $storeNameInput.val().trim();
+            var pwd = $pwdInput.val();
+            var confirmPwd = $confirmPwdInput.val();
+            var agreed = $agreeTerms.is(":checked");
+
+            if (!name) {
+                $step3Error.removeClass("d-none").text("Please enter your full name.");
+                $sellerNameInput.focus();
+                return;
+            }
+            if (!store) {
+                $step3Error.removeClass("d-none").text("Please enter your store or shop name.");
+                $storeNameInput.focus();
+                return;
+            }
+            if (!pwd || pwd.length < 8) {
+                $step3Error.removeClass("d-none").text("Password must be at least 8 characters long.");
+                $pwdInput.focus();
+                return;
+            }
+            if (pwd !== confirmPwd) {
+                $step3Error.removeClass("d-none").text("Passwords do not match. Please check again.");
+                $confirmPwdInput.focus();
+                return;
+            }
+            if (!agreed) {
+                $step3Error.removeClass("d-none").text("You must agree to the Seller Agreement to continue.");
+                return;
+            }
+
+            $step3Error.addClass("d-none");
+
+            // Loading state
+            $btnCompleteRegister.prop("disabled", true);
+            $btnCompleteRegister.find(".sf-btn-text").text("Creating Account...");
+            $btnCompleteRegister.find(".sf-btn-icon").addClass("d-none");
+            $btnCompleteRegister.find(".spinner-border").removeClass("d-none");
+
+            setTimeout(function () {
+                $btnCompleteRegister.prop("disabled", false);
+                $btnCompleteRegister.find(".sf-btn-text").text("Create Seller Account");
+                $btnCompleteRegister.find(".sf-btn-icon").removeClass("d-none");
+                $btnCompleteRegister.find(".spinner-border").addClass("d-none");
+
+                // Populate success card
+                $successStoreName.text(store);
+                $successSellerPhone.text(formatPhone(userPhone));
+
+                goToStep(4);
+            }, 600);
+        });
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
         sfInitOrderSuccess();
         sfInitTrackOrder();
+        sfInitSellerOnboarding();
     });
 
 })(jQuery);

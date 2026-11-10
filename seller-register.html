@@ -1,0 +1,299 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="seller register, vendor signup, open shop, shoppieflybd seller center" name="keywords">
+        <meta content="Register as a Seller on ShoppieFlyBD - Simple 3-step phone and OTP verification. Open your online store in less than 2 minutes." name="description">
+        <meta content="ShoppieFlyBD" name="author">
+
+        <title>Seller Registration - ShoppieFlyBD Seller Center</title>
+
+        <!-- Preconnect & Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- App favicon -->
+        <link href="assets/img/favicon/favicon.png" rel="shortcut icon">
+        <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Icons & Vendor CSS -->
+        <link href="assets/css/vendor/remixicon.min.css" rel="stylesheet">
+        <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Main CSS -->
+        <link href="assets/css/style.min.css?v=vendor20261110" id="mainCss" rel="stylesheet">
+    </head>
+    <body class="sf-seller-shell" data-mn-mode="light">
+
+        <!-- Dedicated Seller Navbar (Subdomain Shell) -->
+        <nav class="sf-seller-navbar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a href="become-vendor.html" class="sf-seller-nav-brand">
+                    <img src="assets/img/logo/ShoppieFly-logo.webp" alt="ShoppieFlyBD" class="sf-brand-logo-img">
+                    <span class="sf-seller-brand-divider"></span>
+                    <span class="sf-seller-brand-tag">Seller Center</span>
+                </a>
+                <div class="sf-seller-nav-actions">
+                    <a href="#!" class="sf-seller-lang-btn" title="Toggle Language">
+                        <span>🌐 বাংলা</span>
+                    </a>
+                    <a href="seller-login.html" class="sf-seller-btn-login">
+                        Log In
+                    </a>
+                    <a href="become-vendor.html" class="sf-seller-btn-login d-none d-sm-inline-block text-muted">
+                        Overview
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Wrap -->
+        <main class="sf-seller-main-wrap">
+            <div class="container">
+
+                <!-- 3-Step Interactive Onboarding Stepper (Daraz Standard - Standalone Full Page) -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+                        <div class="sf-stepper-card">
+                            <!-- Stepper Progress Header -->
+                            <div class="sf-stepper-header">
+                                <div class="sf-stepper-nav">
+                                    <div class="sf-stepper-step active" id="sfStepNode1">
+                                        <div class="sf-step-circle">
+                                            <i class="ri-phone-line sf-step-icon"></i>
+                                            <i class="ri-check-line sf-check-icon"></i>
+                                        </div>
+                                        <span class="sf-step-label">Mobile Number</span>
+                                    </div>
+                                    <div class="sf-stepper-line" id="sfStepLine1"></div>
+                                    <div class="sf-stepper-step" id="sfStepNode2">
+                                        <div class="sf-step-circle">
+                                            <i class="ri-shield-keyhole-line sf-step-icon"></i>
+                                            <i class="ri-check-line sf-check-icon"></i>
+                                        </div>
+                                        <span class="sf-step-label">Verify OTP</span>
+                                    </div>
+                                    <div class="sf-stepper-line" id="sfStepLine2"></div>
+                                    <div class="sf-stepper-step" id="sfStepNode3">
+                                        <div class="sf-step-circle">
+                                            <i class="ri-store-2-line sf-step-icon"></i>
+                                            <i class="ri-check-line sf-check-icon"></i>
+                                        </div>
+                                        <span class="sf-step-label">Store Setup</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Step Panes Container -->
+                            <div class="sf-stepper-body">
+                                <!-- Step 1: Phone Number -->
+                                <div class="sf-step-pane active" id="sfPaneStep1">
+                                    <div class="sf-pane-intro text-center">
+                                        <h3 class="sf-pane-title">Enter your Mobile Number</h3>
+                                        <p class="sf-pane-subtitle">We will send a 6-digit OTP verification code to your phone number.</p>
+                                    </div>
+                                    <div class="sf-form-group mb-3">
+                                        <label for="sf_seller_phone" class="sf-input-label">Mobile Number <span class="text-danger">*</span></label>
+                                        <div class="sf-phone-input-group">
+                                            <span class="sf-country-pill">
+                                                <img src="assets/img/icons/bd-flag.svg" alt="BD" width="20" height="14" class="sf-flag-icon" onerror="this.style.display='none'">
+                                                +880
+                                            </span>
+                                            <input type="tel" id="sf_seller_phone" class="sf-phone-control" placeholder="1XXXXXXXXX" maxlength="11" autocomplete="tel">
+                                        </div>
+                                        <div class="sf-field-feedback text-danger d-none" id="sfPhoneError">Please enter a valid Bangladeshi mobile number (e.g. 01712345678).</div>
+                                    </div>
+                                    <button type="button" class="btn sf-btn-stepper-primary w-100" id="sfBtnSendOtp">
+                                        <span class="sf-btn-text">Send Verification Code</span>
+                                        <i class="ri-arrow-right-line sf-btn-icon"></i>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                    <div class="sf-stepper-footer text-center mt-4">
+                                        <span class="text-muted">Already registered as a seller?</span>
+                                        <a href="seller-login.html" class="sf-link-primary ms-1 fw-bold">Log In to Seller Center</a>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: OTP Verification -->
+                                <div class="sf-step-pane d-none" id="sfPaneStep2">
+                                    <div class="sf-pane-intro text-center">
+                                        <h3 class="sf-pane-title">Verify Your Phone Number</h3>
+                                        <p class="sf-pane-subtitle">
+                                            We sent a 6-digit verification code to
+                                            <strong id="sfDisplayPhone" class="text-dark">+880 1XXXXXXXXX</strong>
+                                            <button type="button" class="sf-btn-inline-edit" id="sfBtnEditPhone" title="Change Number">
+                                                <i class="ri-edit-line"></i> Edit
+                                            </button>
+                                        </p>
+                                    </div>
+
+                                    <div class="sf-otp-box-wrap mb-4">
+                                        <label class="sf-input-label text-center d-block mb-3">Enter 6-Digit Code</label>
+                                        <div class="sf-otp-inputs" id="sfOtpInputs">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" autocomplete="one-time-code" aria-label="Digit 1">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" aria-label="Digit 2">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" aria-label="Digit 3">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" aria-label="Digit 4">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" aria-label="Digit 5">
+                                            <input type="text" maxlength="1" inputmode="numeric" class="sf-otp-box" aria-label="Digit 6">
+                                        </div>
+                                        <div class="sf-field-feedback text-danger text-center d-none" id="sfOtpError">Please enter the complete 6-digit verification code.</div>
+                                    </div>
+
+                                    <div class="sf-otp-resend-bar text-center mb-4">
+                                        <span id="sfOtpTimerWrap" class="text-muted small">
+                                            <i class="ri-time-line me-1"></i> Resend code in <strong id="sfOtpTimerVal" class="text-dark">00:59</strong>
+                                        </span>
+                                        <button type="button" class="sf-btn-resend-link d-none" id="sfBtnResendOtp">
+                                            <i class="ri-refresh-line me-1"></i> Resend Code
+                                        </button>
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+                                        <button type="button" class="btn sf-btn-stepper-secondary" id="sfBtnBackStep1">
+                                            <i class="ri-arrow-left-line me-1"></i> Back
+                                        </button>
+                                        <button type="button" class="btn sf-btn-stepper-primary flex-grow-1" id="sfBtnVerifyOtp">
+                                            <span class="sf-btn-text">Verify & Continue</span>
+                                            <i class="ri-check-line sf-btn-icon"></i>
+                                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Seller Name, Store Name & Password -->
+                                <div class="sf-step-pane d-none" id="sfPaneStep3">
+                                    <div class="sf-pane-intro text-center">
+                                        <h3 class="sf-pane-title">Create Store & Account</h3>
+                                        <p class="sf-pane-subtitle">Set your store profile and choose a secure password to get started.</p>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-12 col-md-6">
+                                            <label for="sf_seller_name" class="sf-input-label">Full Name <span class="text-danger">*</span></label>
+                                            <div class="sf-icon-input-wrap">
+                                                <i class="ri-user-line sf-input-icon"></i>
+                                                <input type="text" id="sf_seller_name" class="sf-form-control" placeholder="e.g. Md. Ariful Islam" required autocomplete="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="sf_store_name" class="sf-input-label">Store / Shop Name <span class="text-danger">*</span></label>
+                                            <div class="sf-icon-input-wrap">
+                                                <i class="ri-store-2-line sf-input-icon"></i>
+                                                <input type="text" id="sf_store_name" class="sf-form-control" placeholder="e.g. Arif Gadget Hub" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Live Store URL Slug Preview -->
+                                    <div class="sf-store-url-preview mb-3">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="ri-link text-primary"></i>
+                                            <span class="text-muted small">Your Store URL:</span>
+                                            <strong class="sf-slug-text small text-dark">shoppieflybd.com/store/<span id="sfStoreSlugPreview" class="text-primary">your-store</span></strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-12 col-md-6">
+                                            <label for="sf_seller_password" class="sf-input-label">Password <span class="text-danger">*</span></label>
+                                            <div class="sf-icon-input-wrap">
+                                                <i class="ri-lock-line sf-input-icon"></i>
+                                                <input type="password" id="sf_seller_password" class="sf-form-control" placeholder="Min. 8 characters" required autocomplete="new-password">
+                                                <button type="button" class="sf-toggle-pwd-btn" aria-label="Toggle password visibility">
+                                                    <i class="ri-eye-line"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label for="sf_seller_confirm_pwd" class="sf-input-label">Confirm Password <span class="text-danger">*</span></label>
+                                            <div class="sf-icon-input-wrap">
+                                                <i class="ri-shield-check-line sf-input-icon"></i>
+                                                <input type="password" id="sf_seller_confirm_pwd" class="sf-form-control" placeholder="Re-enter password" required autocomplete="new-password">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Terms Checkbox -->
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input sf-check-orange" type="checkbox" id="sfAgreeTerms" checked>
+                                        <label class="form-check-label text-muted small" for="sfAgreeTerms">
+                                            I agree to the <a href="terms.html" target="_blank" class="text-primary">ShoppieFlyBD Seller Agreement</a>, Marketplace Commission & Policies.
+                                        </label>
+                                    </div>
+
+                                    <div class="sf-field-feedback text-danger d-none mb-3" id="sfStep3Error"></div>
+
+                                    <button type="button" class="btn sf-btn-stepper-primary w-100" id="sfBtnCompleteRegister">
+                                        <span class="sf-btn-text">Create Seller Account</span>
+                                        <i class="ri-rocket-line sf-btn-icon"></i>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+
+                                <!-- Step 4: Success State -->
+                                <div class="sf-step-pane d-none" id="sfPaneStep4">
+                                    <div class="text-center py-4">
+                                        <div class="sf-success-pulse-circle mx-auto mb-3">
+                                            <i class="ri-checkbox-circle-fill"></i>
+                                        </div>
+                                        <h3 class="sf-pane-title text-success mb-2">Congratulations!</h3>
+                                        <p class="sf-pane-subtitle mb-4">
+                                            Your seller account and store <strong id="sfSuccessStoreName" class="text-dark">Arif Gadget Hub</strong> have been created successfully.
+                                        </p>
+                                        <div class="sf-success-info-card text-start p-3 rounded-3 mb-4 bg-light">
+                                            <div class="d-flex justify-content-between py-1 border-bottom">
+                                                <span class="text-muted small">Seller Account:</span>
+                                                <strong class="small" id="sfSuccessSellerPhone">+880 1712-345678</strong>
+                                            </div>
+                                            <div class="d-flex justify-content-between py-1 border-bottom">
+                                                <span class="text-muted small">Store Status:</span>
+                                                <span class="badge bg-success-subtle text-success small">Active & Ready</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between py-1">
+                                                <span class="text-muted small">Commission Tier:</span>
+                                                <span class="badge bg-primary-subtle text-primary small">Standard 5%</span>
+                                            </div>
+                                        </div>
+                                        <a href="https://seller.shoppieflybd.com" class="btn sf-btn-stepper-primary w-100" id="sfBtnToDashboard">
+                                            <span>Go to Seller Dashboard</span>
+                                            <i class="ri-dashboard-line ms-1"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Dedicated Minimal Seller Footer -->
+        <footer class="sf-seller-footer">
+            <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+                <div>
+                    &copy; 2026 <strong>ShoppieFlyBD Seller Center</strong>. All rights reserved.
+                </div>
+                <div class="sf-seller-footer-links">
+                    <a href="terms.html">Seller Terms</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="terms.html">Privacy Policy</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="faq.html">Help Center</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="index.html" class="text-white">← Main Marketplace</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script defer src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+        <script defer src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script defer src="assets/js/main.js?v=vendor20261110"></script>
+    </body>
+</html>
+

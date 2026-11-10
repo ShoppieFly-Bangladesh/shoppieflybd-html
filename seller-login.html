@@ -1,0 +1,131 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="seller login, vendor signin, merchant portal, shoppieflybd seller center" name="keywords">
+        <meta content="Log In to ShoppieFlyBD Seller Center - Access your shop dashboard, manage inventory, track orders, and monitor weekly payouts." name="description">
+        <meta content="ShoppieFlyBD" name="author">
+
+        <title>Seller Center Login - ShoppieFlyBD</title>
+
+        <!-- Preconnect & Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- App favicon -->
+        <link href="assets/img/favicon/favicon.png" rel="shortcut icon">
+        <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Icons & Vendor CSS -->
+        <link href="assets/css/vendor/remixicon.min.css" rel="stylesheet">
+        <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Main CSS -->
+        <link href="assets/css/style.min.css?v=vendor20261110" id="mainCss" rel="stylesheet">
+    </head>
+    <body class="sf-seller-shell" data-mn-mode="light">
+
+        <!-- Dedicated Seller Navbar (Subdomain Shell) -->
+        <nav class="sf-seller-navbar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a href="become-vendor.html" class="sf-seller-nav-brand">
+                    <img src="assets/img/logo/ShoppieFly-logo.webp" alt="ShoppieFlyBD" class="sf-brand-logo-img">
+                    <span class="sf-seller-brand-divider"></span>
+                    <span class="sf-seller-brand-tag">Seller Center</span>
+                </a>
+                <div class="sf-seller-nav-actions">
+                    <a href="#!" class="sf-seller-lang-btn" title="Toggle Language">
+                        <span>🌐 বাংলা</span>
+                    </a>
+                    <a href="seller-register.html" class="sf-seller-btn-register">
+                        <i class="ri-user-add-line d-none d-sm-inline-block"></i>
+                        <span class="d-none d-sm-inline">Register as Seller</span>
+                        <span class="d-inline d-sm-none">Register</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Wrap -->
+        <main class="sf-seller-main-wrap d-flex align-items-center">
+            <div class="container">
+                <div class="sf-seller-auth-container">
+                    <div class="sf-seller-auth-card">
+                        <div class="sf-seller-auth-header">
+                            <h1 class="sf-seller-auth-title">Seller Center Login</h1>
+                            <p class="sf-seller-auth-subtitle">Sign in with your phone or email to access your shop dashboard.</p>
+                        </div>
+
+                        <form id="sfSellerLoginForm" action="https://seller.shoppieflybd.com" method="get">
+                            <div class="mb-3">
+                                <label class="sf-input-label" for="sf_login_phone">Phone Number or Email <span class="text-danger">*</span></label>
+                                <div class="sf-icon-input-wrap">
+                                    <i class="ri-user-line sf-input-icon"></i>
+                                    <input type="text" id="sf_login_phone" class="sf-form-control" placeholder="01XXXXXXXXX or seller@domain.com" required autocomplete="username">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="sf-input-label mb-0" for="sf_login_password">Password <span class="text-danger">*</span></label>
+                                    <a href="#!" class="text-primary small text-decoration-none fw-semibold">Forgot Password?</a>
+                                </div>
+                                <div class="sf-icon-input-wrap">
+                                    <i class="ri-lock-line sf-input-icon"></i>
+                                    <input type="password" id="sf_login_password" class="sf-form-control" placeholder="••••••••" required autocomplete="current-password">
+                                    <button type="button" class="sf-toggle-pwd-btn" aria-label="Toggle password visibility">
+                                        <i class="ri-eye-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input sf-check-orange" type="checkbox" id="sfRememberSeller" checked>
+                                <label class="form-check-label text-muted small" for="sfRememberSeller">
+                                    Remember this device for 30 days
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn sf-btn-stepper-primary w-100" id="sfBtnSellerLogin">
+                                <span>Log In to Seller Center</span>
+                                <i class="ri-arrow-right-line ms-1"></i>
+                            </button>
+                        </form>
+
+                        <div class="sf-seller-auth-footer">
+                            <span>Don't have a seller account yet?</span>
+                            <a href="seller-register.html">Register as a Seller &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Dedicated Minimal Seller Footer -->
+        <footer class="sf-seller-footer">
+            <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+                <div>
+                    &copy; 2026 <strong>ShoppieFlyBD Seller Center</strong>. All rights reserved.
+                </div>
+                <div class="sf-seller-footer-links">
+                    <a href="terms.html">Seller Terms</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="terms.html">Privacy Policy</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="faq.html">Help Center</a>
+                    <span class="sf-seller-footer-divider">|</span>
+                    <a href="index.html" class="text-white">← Main Marketplace</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script defer src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+        <script defer src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script defer src="assets/js/main.js?v=vendor20261110"></script>
+    </body>
+</html>
+

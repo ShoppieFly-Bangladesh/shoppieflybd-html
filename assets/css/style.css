@@ -13092,7 +13092,7 @@ footer.mn-footer {
     .sf-mobile-search-bar {
         display: block !important;
         width: 100% !important;
-        padding: 10px 16px 10px 16px !important;
+        padding: 8px 14px 6px 14px !important;
         background: #f1f4f7 !important;
         box-sizing: border-box !important;
     }
@@ -13190,7 +13190,7 @@ footer.mn-footer {
 
 @media (max-width: 360px) {
     .sf-mobile-search-bar {
-        padding: 8px 10px 8px 10px !important;
+        padding: 5px 8px 3px 8px !important;
     }
     .sf-mobile-search-bar > a.sf-instant-search-btn {
         height: 40px !important;
@@ -14492,7 +14492,7 @@ footer.mn-footer {
     /* 1. Standard Content Clearance below Mobile Search Bar */
     .mn-main-content,
     .mn-main-content.sb-hide {
-        margin: 12px auto 0 auto !important;
+        margin: 0 auto 0 auto !important;
         width: 100% !important;
         padding: 0 10px !important;
         overflow-x: clip;
@@ -14500,7 +14500,7 @@ footer.mn-footer {
 
     /* 2. Symmetrical Mobile Search Bar Spacing (Common Minimum Gap) */
     .sf-mobile-search-bar {
-        padding: 10px 12px 10px 12px !important;
+        padding: 6px 12px 4px 12px !important;
         background: #f1f4f7 !important;
     }
 
@@ -14595,12 +14595,12 @@ footer.mn-footer {
 @media (max-width: 575.98px) {
     .mn-main-content,
     .mn-main-content.sb-hide {
-        margin: 10px auto 0 auto !important;
+        margin: 0 auto 0 auto !important;
         padding: 0 8px !important;
     }
 
     .sf-mobile-search-bar {
-        padding: 10px 10px 10px 10px !important;
+        padding: 6px 10px 4px 10px !important;
     }
 }
 
@@ -14614,7 +14614,10 @@ footer.mn-footer {
 
     /* Clean spacing on first sections */
     .mn-main-content > .row:first-child,
-    .mn-hero.m-b-15 {
+    .mn-main-content > .row:first-child > [class*="col-"],
+    .mn-hero.m-b-15,
+    .mn-shop.padding-tb-30,
+    .sf-category-section {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
@@ -17790,4 +17793,446 @@ footer.mn-footer {
 
 .sf-mobile-btn-place-order:active {
     transform: scale(0.98);
+}
+
+/*=============================================================================
+  ORDER SUCCESS PAGE COMPONENT SUITE (.sf-order-success-page)
+=============================================================================*/
+.sf-order-success-page {
+    background-color: #f8fafc;
+}
+
+/* 1. Hero Confirmation Card */
+.sf-success-hero-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef2f6;
+    position: relative;
+    overflow: hidden;
+}
+
+.sf-success-icon-wrap {
+    margin: 0 auto 16px auto;
+    position: relative;
+    width: 72px;
+    height: 72px;
+}
+
+.sf-success-icon-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: sfSuccessPop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes sfSuccessPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.sf-success-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.sf-success-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.5;
+}
+
+.sf-order-ref-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.sf-order-ref-val {
+    color: #0f172a;
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.sf-btn-copy-ref {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3b82f6;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-copy-ref:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+.sf-success-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 20px;
+    font-size: 13.5px;
+    color: #475569;
+}
+
+.sf-success-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 2. Success Cards & Multi-Store Item Breakdown */
+.sf-success-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #eef2f6;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.sf-success-card-header {
+    padding: 16px 22px;
+    border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
+}
+
+.sf-success-card-body {
+    padding: 20px 22px;
+}
+
+.sf-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.sf-success-store-block {
+    padding: 18px 22px;
+}
+
+.sf-store-group-header {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.sf-store-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sf-store-item-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sf-store-item-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    flex-shrink: 0;
+}
+
+.sf-store-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.sf-store-item-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sf-store-item-spec {
+    font-size: 12px;
+    color: #64748b;
+    display: block;
+}
+
+.sf-store-item-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.sf-store-item-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+    display: block;
+}
+
+.sf-store-item-qty {
+    font-size: 12px;
+    color: #64748b;
+    display: block;
+}
+
+.sf-info-meta-block {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border: 1px solid #f1f5f9;
+}
+
+.sf-info-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.sf-info-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    display: block;
+}
+
+/* 3. Right Sidebar Financial Summary & Actions */
+.sf-success-sidebar-sticky {
+    position: sticky;
+    top: 20px;
+}
+
+.sf-financial-summary-card .sf-min-summary-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sf-min-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #475569;
+}
+
+.sf-min-total-row {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0f172a;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 10px;
+    margin-top: 4px;
+}
+
+.sf-min-total-val {
+    color: #f97316;
+}
+
+.sf-success-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sf-btn-track-order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 46px;
+    background: #3a4ee5;
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(58, 78, 229, 0.25);
+    transition: all 0.2s ease;
+}
+
+.sf-btn-track-order:hover {
+    background: #2f3fc4;
+    transform: translateY(-1px);
+}
+
+.sf-btn-print-receipt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 42px;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-print-receipt:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.sf-btn-continue-shopping {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 42px;
+    background: transparent;
+    color: #3a4ee5;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-continue-shopping:hover {
+    text-decoration: underline;
+}
+
+.sf-support-box {
+    padding: 20px 22px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+.sf-support-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sf-support-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #14532d;
+    margin: 0 0 2px 0;
+}
+
+.sf-support-desc {
+    font-size: 12px;
+    color: #166534;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+}
+
+.sf-support-phone {
+    font-size: 13px;
+    font-weight: 700;
+    color: #15803d;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+@media (max-width: 575.98px) {
+    .sf-success-hero-card {
+        padding: 24px 16px;
+    }
+    .sf-success-title {
+        font-size: 20px;
+    }
+    .sf-success-subtitle {
+        font-size: 13.5px;
+    }
+    .sf-order-ref-pill {
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        width: 100%;
+    }
+    .sf-success-badges-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* 6. Print Stylesheet */
+@media print {
+    .sf-topbar-wrap,
+    header,
+    footer,
+    .sf-mobile-cart-header,
+    .mn-footer-nav,
+    .sf-mobile-success-bar,
+    .sf-success-actions-stack,
+    .sf-support-box {
+        display: none !important;
+    }
+    .sf-order-success-page .mn-main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .sf-success-card,
+    .sf-success-hero-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+    }
 }

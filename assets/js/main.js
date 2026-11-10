@@ -1435,9 +1435,54 @@
         handleDivisionChange(initialDivision);
     }
 
+    /*==================================================
+      Order Success Page Interactivity
+    ==================================================*/
+    function sfInitOrderSuccess() {
+        var $btn = $("#sfBtnCopyOrder");
+        if (!$btn.length) return;
+
+        $btn.on("click", function () {
+            var orderNum = $("#sfOrderNumber").text().trim();
+
+            function showCopiedFeedback() {
+                var $icon = $btn.find("i");
+                var $text = $("#sfCopyText");
+                $icon.removeClass("ri-file-copy-line").addClass("ri-check-line text-success");
+                $text.text("Copied!");
+                $btn.addClass("border-success");
+                setTimeout(function () {
+                    $icon.removeClass("ri-check-line text-success").addClass("ri-file-copy-line");
+                    $text.text("Copy");
+                    $btn.removeClass("border-success");
+                }, 2000);
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(orderNum).then(showCopiedFeedback).catch(fallbackCopy);
+            } else {
+                fallbackCopy();
+            }
+
+            function fallbackCopy() {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val(orderNum).select();
+                try {
+                    document.execCommand("copy");
+                    showCopiedFeedback();
+                } catch (e) {
+                    // fallback
+                }
+                $temp.remove();
+            }
+        });
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
+        sfInitOrderSuccess();
     });
 
 })(jQuery);

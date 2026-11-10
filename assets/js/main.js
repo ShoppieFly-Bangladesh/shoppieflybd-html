@@ -1479,10 +1479,110 @@
         });
     }
 
+    /*==================================================
+      Track Order Page Interactivity & Animations
+    ==================================================*/
+    function sfInitTrackOrder() {
+        var $form = $("#sfTrackOrderForm");
+        var $copyBtn = $("#sfBtnCopyTrack");
+        var $displayTrackId = $("#sfDisplayTrackId");
+        var $trackInput = $("#track_order_id");
+        var $results = $("#sfTrackResultsContainer");
+
+        if (!$form.length && !$copyBtn.length) return;
+
+        // 1. Auto-fill from URL query param if present (?order=... or ?order_id=...)
+        if (window.location.search) {
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var orderParam = urlParams.get("order") || urlParams.get("order_id");
+                if (orderParam) {
+                    var cleanId = orderParam.replace(/^#/, "").trim();
+                    if ($trackInput.length) $trackInput.val(cleanId);
+                    if ($displayTrackId.length) $displayTrackId.text("#" + cleanId);
+                }
+            } catch (e) {
+                // Ignore url parse errors
+            }
+        }
+
+        // 2. One-click copy for Tracking ID
+        if ($copyBtn.length) {
+            $copyBtn.on("click", function () {
+                var rawId = $displayTrackId.text().trim().replace(/^#/, "");
+                var $tooltip = $copyBtn.find(".sf-copy-tooltip");
+
+                function showCopySuccess() {
+                    $copyBtn.find("i").removeClass("ri-file-copy-line").addClass("ri-check-line text-success");
+                    $tooltip.text("Copied!");
+                    setTimeout(function () {
+                        $copyBtn.find("i").removeClass("ri-check-line text-success").addClass("ri-file-copy-line");
+                        $tooltip.text("Copy");
+                    }, 2000);
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(rawId).then(showCopySuccess).catch(fallbackTrackCopy);
+                } else {
+                    fallbackTrackCopy();
+                }
+
+                function fallbackTrackCopy() {
+                    var $temp = $("<input>");
+                    $("body").append($temp);
+                    $temp.val(rawId).select();
+                    try {
+                        document.execCommand("copy");
+                        showCopySuccess();
+                    } catch (e) {
+                        // ignore
+                    }
+                    $temp.remove();
+                }
+            });
+        }
+
+        // 3. Search form submission simulation with smooth loading transition
+        if ($form.length) {
+            $form.on("submit", function (e) {
+                e.preventDefault();
+                var inputVal = $trackInput.val().trim();
+                if (!inputVal) {
+                    $trackInput.focus();
+                    return;
+                }
+
+                var cleanId = inputVal.replace(/^#/, "").trim();
+                var $submitBtn = $("#sfBtnTrackSubmit");
+                var origBtnHtml = $submitBtn.html();
+
+                // Loading state
+                $submitBtn.prop("disabled", true).html('<i class="ri-loader-4-line ri-spin me-1"></i> <span>Searching...</span>');
+                $results.addClass("is-loading");
+
+                setTimeout(function () {
+                    if ($displayTrackId.length) {
+                        $displayTrackId.text("#" + cleanId);
+                    }
+                    $results.removeClass("is-loading");
+                    $submitBtn.prop("disabled", false).html(origBtnHtml);
+
+                    // Smooth scroll down to results if on small mobile screen
+                    if ($(window).width() < 768 && $results.length) {
+                        $("html, body").animate({
+                            scrollTop: $results.offset().top - 20
+                        }, 400);
+                    }
+                }, 450);
+            });
+        }
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
         sfInitOrderSuccess();
+        sfInitTrackOrder();
     });
 
 })(jQuery);

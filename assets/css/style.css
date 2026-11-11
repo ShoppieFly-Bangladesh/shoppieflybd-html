@@ -13357,6 +13357,95 @@ button.btn-close.qty_close {
     border: 1px solid #f0f0f0;
 }
 
+/* Modern Store Vouchers & Coupons (Daraz Standard) */
+.sf-store-vouchers-wrap {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+.sf-voucher-card {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1 !important;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+.sf-voucher-card:hover {
+    border-color: #f97316 !important;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.12);
+    transform: translateY(-2px);
+}
+.sf-voucher-card::before,
+.sf-voucher-card::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #f8fafc;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sf-voucher-card::before {
+    left: -6px;
+    border-right: 1px dashed #cbd5e1;
+}
+.sf-voucher-card::after {
+    right: -6px;
+    border-left: 1px dashed #cbd5e1;
+}
+.sf-voucher-collect-btn {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+.sf-voucher-collect-btn.collected {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+    color: #ffffff !important;
+}
+
+/* Mobile Store Horizontal Category Scroller */
+.sf-store-cat-scroller {
+    margin-bottom: 16px;
+}
+.sf-hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sf-hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.sf-store-cat-pill {
+    font-size: 12px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+.sf-store-cat-pill.active {
+    background: #f97316 !important;
+    border-color: #f97316 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* Follow Button State */
+.sf-btn-follow-store.following {
+    background: #f1f5f9 !important;
+    color: #475569 !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+}
+.sf-btn-follow-store.following i {
+    color: #10b981 !important;
+}
+
 /* Multivendor Grouped Cart Package */
 .mn-cart-package {
     background: #fff;
@@ -20046,3 +20135,702 @@ body.sf-seller-shell {
         gap: 12px;
     }
 }
+
+/*=============================================================================
+  6. Facebook Business Page & Standalone eCommerce Storefront Hybrid (store.html)
+=============================================================================*/
+
+/* FB Store Header Card */
+.sf-fb-store-header {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.sf-fb-store-cover {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: #0f172a;
+}
+
+.sf-fb-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.sf-fb-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.4) 100%);
+    pointer-events: none;
+}
+
+.sf-fb-store-profile-wrap {
+    padding: 0 24px 20px 24px;
+    position: relative;
+    background: #ffffff;
+}
+
+.sf-fb-profile-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.sf-fb-identity-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    flex: 1 1 500px;
+    min-width: 0;
+}
+
+.sf-fb-avatar-box {
+    position: relative;
+    flex-shrink: 0;
+    margin-top: -55px;
+    z-index: 3;
+}
+
+.sf-fb-avatar-img {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    background: #ffffff;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    display: block;
+}
+
+.sf-fb-verified-badge-float {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background: #1d4ed8;
+    color: #ffffff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sf-fb-identity-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 10px;
+}
+
+.sf-fb-store-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    line-height: 1.25;
+}
+
+.sf-fb-verified-badge {
+    font-size: 11px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.sf-fb-store-handle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.sf-fb-quick-metrics {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #475569;
+}
+
+.sf-fb-badge-replies {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* FB Primary Actions Row */
+.sf-fb-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+}
+
+.sf-btn-whatsapp {
+    background: #25D366;
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+}
+
+.sf-btn-whatsapp:hover {
+    background: #20bd5a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.sf-btn-fb-action {
+    background: #f1f5f9;
+    color: #334155 !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-fb-action:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Secondary Metabar & Navigation Tabs */
+.sf-fb-metabar {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 8px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sf-fb-metabar .nav-tabs {
+    border-bottom: none !important;
+    gap: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+}
+
+.sf-fb-metabar .nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.sf-fb-metabar .nav-link {
+    border: none !important;
+    background: transparent !important;
+    color: #64748b !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px !important;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.sf-fb-metabar .nav-link i {
+    font-size: 16px;
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.sf-fb-metabar .nav-link:hover {
+    color: #0f172a !important;
+    background: #f8fafc !important;
+}
+
+.sf-fb-metabar .nav-link:hover i {
+    color: #0f172a;
+}
+
+.sf-fb-metabar .nav-link.active {
+    color: #1d4ed8 !important;
+    font-weight: 700 !important;
+    background: #eff6ff !important;
+}
+
+.sf-fb-metabar .nav-link.active i {
+    color: #1d4ed8 !important;
+}
+
+.sf-fb-metabar .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 14px;
+    right: 14px;
+    height: 3px;
+    background: #1d4ed8;
+    border-radius: 3px 3px 0 0;
+}
+
+.sf-fb-meta-item {
+    font-size: 12px;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sf-fb-meta-item strong {
+    color: #0f172a;
+}
+
+/* Story Highlights Row (Instagram/FB Style Circles) */
+.sf-story-highlights-wrap {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+}
+
+.sf-story-scroll-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 4px 2px;
+}
+
+.sf-story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    text-decoration: none !important;
+    transition: transform 0.2s ease;
+}
+
+.sf-story-item:hover {
+    transform: translateY(-2px);
+}
+
+.sf-story-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 2.5px;
+    background: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sf-story-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 22px;
+    overflow: hidden;
+}
+
+.sf-story-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sf-story-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #334155;
+    max-width: 76px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Pinned Store Announcement Card */
+.sf-pinned-post-card {
+    background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+    border: 1.5px solid #fde68a;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+}
+
+.sf-pinned-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.sf-pinned-badge {
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sf-pinned-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.sf-pinned-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.sf-pinned-text {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 0;
+}
+
+/* Left FB Intro Sidebar */
+.sf-fb-intro-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.sf-fb-intro-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.sf-fb-intro-bio {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sf-fb-intro-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+.sf-fb-intro-item {
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.sf-fb-intro-item i {
+    font-size: 17px;
+    color: #64748b;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.sf-badge-open-now {
+    background: #ecfdf5;
+    color: #059669;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 6px;
+}
+
+.sf-fb-social-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.sf-fb-social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #475569;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sf-fb-social-btn:hover {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    transform: translateY(-2px);
+}
+
+/* Flash Sale Live Countdown Banner */
+.sf-flash-deals-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 14px;
+    padding: 16px 20px;
+    color: #ffffff;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.15);
+}
+
+.sf-countdown-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sf-countdown-unit {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 4px 8px;
+    min-width: 42px;
+    text-align: center;
+}
+
+.sf-countdown-num {
+    font-size: 15px;
+    font-weight: 800;
+    color: #f97316;
+    line-height: 1;
+    display: block;
+}
+
+.sf-countdown-lbl {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #cbd5e1;
+    display: block;
+    margin-top: 2px;
+}
+
+.sf-countdown-colon {
+    font-size: 16px;
+    font-weight: 800;
+    color: #f97316;
+}
+
+/* Customer Reviews Wall (FB Post Style) */
+.sf-fb-review-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 14px;
+    transition: box-shadow 0.2s ease;
+}
+
+.sf-fb-review-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sf-fb-reviewer-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.sf-fb-reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+}
+
+.sf-fb-review-tag {
+    font-size: 11px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* Mobile Responsiveness for FB Storefront */
+@media (max-width: 767.98px) {
+    .sf-fb-store-cover {
+        height: 140px;
+        display: block;
+    }
+    .sf-fb-store-profile-wrap {
+        padding: 0 14px 16px 14px;
+    }
+    .sf-fb-profile-row {
+        margin-top: 0;
+        gap: 12px;
+    }
+    .sf-fb-identity-col {
+        gap: 12px;
+        flex: 1 1 100%;
+        align-items: flex-start;
+    }
+    .sf-fb-avatar-box {
+        margin-top: -38px;
+    }
+    .sf-fb-avatar-img {
+        width: 76px;
+        height: 76px;
+        border-width: 3px;
+    }
+    .sf-fb-verified-badge-float {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        bottom: 2px;
+        right: 2px;
+    }
+    .sf-fb-identity-info {
+        padding-top: 4px;
+        flex: 1 1 calc(100% - 92px);
+    }
+    .sf-fb-store-name {
+        font-size: 18px;
+        gap: 6px;
+        margin-bottom: 2px;
+    }
+    .sf-fb-verified-badge {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+    .sf-fb-store-handle {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+    .sf-fb-quick-metrics {
+        width: 100%;
+        margin-top: 6px;
+        gap: 8px;
+        font-size: 11.5px;
+    }
+    .sf-fb-actions-row {
+        width: 100%;
+        padding-top: 6px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .sf-btn-whatsapp {
+        grid-column: span 2;
+        width: 100%;
+        justify-content: center;
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+    .sf-btn-fb-action {
+        width: 100%;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    .sf-fb-metabar .nav-link {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+    }
+    .sf-story-circle {
+        width: 52px;
+        height: 52px;
+    }
+    .sf-story-inner {
+        font-size: 18px;
+    }
+    .sf-story-label {
+        font-size: 10px;
+        max-width: 65px;
+    }
+    .sf-story-scroll-track {
+        gap: 14px;
+    }
+    .sf-pinned-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .sf-flash-deals-banner {
+        padding: 14px;
+    }
+}
+

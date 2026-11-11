@@ -1942,12 +1942,113 @@
         });
     }
 
+    /*==================================================
+      Seller Storefront Interactivity (store.html)
+    ==================================================*/
+    function sfInitStorefront() {
+        // Follow Store Toggle
+        $(document).on("click", "#sfBtnFollowStore", function (e) {
+            e.preventDefault();
+            var $btn = $(this);
+            var isFollowing = $btn.hasClass("following");
+            if (isFollowing) {
+                $btn.removeClass("following");
+                $btn.find("span").html('<i class="ri-user-follow-line me-1"></i> Follow (1.4k)');
+            } else {
+                $btn.addClass("following");
+                $btn.find("span").html('<i class="ri-check-line me-1 text-success"></i> Following (1.4k)');
+            }
+        });
+
+        // Store Voucher Collect Button
+        $(document).on("click", ".sf-voucher-collect-btn", function (e) {
+            e.preventDefault();
+            var $btn = $(this);
+            var code = $btn.data("code");
+            if ($btn.hasClass("collected")) {
+                return;
+            }
+            $btn.addClass("collected btn-success").removeClass("btn-outline-primary").text("Collected ✓");
+            if (navigator.clipboard && navigator.clipboard.writeText && code) {
+                navigator.clipboard.writeText(code).catch(function () {});
+            }
+        });
+
+        // Share Store Button
+        $(document).on("click", "#sfBtnShareStore", function (e) {
+            e.preventDefault();
+            var url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
+                    alert("Store link copied to clipboard!");
+                }).catch(function () {
+                    alert("Store link: " + url);
+                });
+            } else {
+                alert("Store link: " + url);
+            }
+        });
+
+        // Mobile Category Scroller Pills
+        $(document).on("click", ".sf-store-cat-pill", function (e) {
+            e.preventDefault();
+            $(".sf-store-cat-pill").removeClass("active btn-primary").addClass("btn-light border");
+            $(this).addClass("active btn-primary").removeClass("btn-light border");
+        });
+
+        // Story Highlights Click Handler
+        $(document).on("click", ".sf-story-item", function (e) {
+            e.preventDefault();
+            var target = $(this).data("target");
+            $(".sf-story-item").find(".sf-story-circle").css("filter", "none");
+            $(this).find(".sf-story-circle").css("filter", "brightness(1.15)");
+            if (target && $(target).length) {
+                $("html, body").animate({ scrollTop: $(target).offset().top - 80 }, 500);
+            }
+        });
+
+        // Live Flash Sale Countdown Timer
+        function startFlashCountdown() {
+            var $hours = $("#sfCountdownHours");
+            var $mins = $("#sfCountdownMins");
+            var $secs = $("#sfCountdownSecs");
+            if (!$hours.length) return;
+
+            // Target 18 hours 42 mins from now or stored target
+            var now = new Date().getTime();
+            var targetTime = now + (18 * 3600 + 42 * 60 + 15) * 1000;
+
+            function updateClock() {
+                var current = new Date().getTime();
+                var diff = Math.max(0, targetTime - current);
+
+                var h = Math.floor(diff / (1000 * 60 * 60));
+                var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                $hours.text(h < 10 ? "0" + h : h);
+                $mins.text(m < 10 ? "0" + m : m);
+                $secs.text(s < 10 ? "0" + s : s);
+
+                if (diff <= 0) {
+                    clearInterval(timer);
+                }
+            }
+
+            updateClock();
+            var timer = setInterval(updateClock, 1000);
+        }
+
+        startFlashCountdown();
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
         sfInitOrderSuccess();
         sfInitTrackOrder();
         sfInitSellerOnboarding();
+        sfInitStorefront();
     });
 
 })(jQuery);

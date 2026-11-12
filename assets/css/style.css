@@ -13305,56 +13305,563 @@ button.btn-close.qty_close {
     }
 }
 
-/* Vendor Directory Card (vendor-list.html) */
-.mn-store-card {
+/* =============================================================================
+   Store Directory (stores.html) Modernized Architecture
+============================================================================= */
+
+/* 1. Top Verified Brands Story Highlights */
+.sf-store-directory-stories {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 12px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+.sf-brand-stories-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 4px 2px;
+}
+.sf-brand-story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #1e293b;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.sf-brand-story-item:hover {
+    transform: translateY(-2px);
+    color: #3a4ee5;
+}
+.sf-brand-story-ring {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 2.5px;
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #8b5cf6 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.sf-brand-story-ring.verified::after {
+    content: '\eb7b';
+    font-family: 'remixicon';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: #3b82f6;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+.sf-brand-story-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
     background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 15px;
+    border: 2px solid #fff;
+}
+.sf-brand-story-name {
+    font-size: 11.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    max-width: 72px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* 2. Interactive Store Filter & Toolbar */
+.sf-store-filter-bar {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+.sf-store-search-box .input-group {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sf-store-search-box .input-group:focus-within {
+    border-color: #3a4ee5;
+    box-shadow: 0 0 0 3px rgba(58, 78, 229, 0.12);
+    background: #ffffff;
+}
+.sf-store-search-box .input-group-text {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    padding-left: 14px;
+}
+.sf-store-search-box input {
+    background: transparent;
+    border: none;
+    box-shadow: none !important;
+    font-size: 13.5px;
+    padding: 9px 12px;
+}
+.sf-store-search-clear {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding-right: 12px;
+    display: none;
+}
+.sf-store-search-clear.is-visible {
+    display: flex;
+    align-items: center;
+}
+.sf-store-search-clear:hover {
+    color: #334155;
+}
+
+.sf-category-pills-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 0;
+}
+.sf-cat-pill {
+    padding: 6px 14px;
+    font-size: 12.5px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #475569;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.sf-cat-pill:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+.sf-cat-pill.active {
+    background: #3a4ee5 !important;
+    color: #ffffff !important;
+    border-color: #3a4ee5 !important;
+    box-shadow: 0 2px 6px rgba(58, 78, 229, 0.25);
+    font-weight: 600;
+}
+
+.sf-view-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.sf-view-btn:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+.sf-view-btn.active {
+    background: #3a4ee5;
+    color: #ffffff;
+    border-color: #3a4ee5;
+}
+
+/* 3. Upgraded Modern Store Card */
+.mn-store-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     margin-bottom: 24px;
     height: calc(100% - 24px);
     display: flex;
     flex-direction: column;
 }
 .mn-store-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    border-color: #cbd5e1;
 }
-.mn-store-card-header {
-    height: 100px;
-    background: linear-gradient(135deg, #2b3342 0%, #181e28 100%);
+
+.sf-store-card-cover {
+    height: 110px;
     position: relative;
+    background: #1e293b;
 }
-.mn-store-card-avatar {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    background: #fff;
-    position: absolute;
-    bottom: -30px;
-    left: 20px;
+.sf-store-card-cover-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
 }
+.mn-store-card:hover .sf-store-card-cover-img {
+    transform: scale(1.05);
+}
+.sf-store-card-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.sf-store-card-badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+.sf-badge-verified {
+    background: rgba(16, 185, 129, 0.95);
+    color: #ffffff;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    backdrop-filter: blur(4px);
+}
+.sf-badge-dispatch {
+    background: rgba(15, 23, 42, 0.75);
+    color: #fbbf24;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    backdrop-filter: blur(4px);
+}
+
+.sf-store-card-avatar-wrap {
+    position: absolute;
+    bottom: -28px;
+    left: 16px;
+    z-index: 3;
+}
+.sf-store-card-avatar-img {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    background: #ffffff;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.sf-store-card-avatar-tick {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    border: 2px solid #ffffff;
+}
+
 .mn-store-card-body {
-    padding: 40px 20px 20px 20px;
+    padding: 36px 16px 16px 16px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.mn-store-thumbs {
-    display: flex;
-    gap: 8px;
-    margin: 15px 0;
+
+.sf-store-card-follow-btn {
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #334155;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
-.mn-store-thumbs img {
-    width: 32%;
-    aspect-ratio: 1;
+.sf-store-card-follow-btn:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+.sf-store-card-follow-btn.following {
+    background: #e0e7ff;
+    color: #3730a3;
+    border-color: #c7d2fe;
+}
+
+.mn-store-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+.mn-store-thumb-item {
+    position: relative;
     border-radius: 8px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    aspect-ratio: 1;
+}
+.mn-store-thumb-item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 1px solid #f0f0f0;
+    transition: transform 0.25s ease;
+}
+.mn-store-thumb-item:hover img {
+    transform: scale(1.08);
+}
+
+/* 4. List View Styles */
+.sf-stores-container.is-list-view .mn-store-card-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+}
+.sf-stores-container.is-list-view .mn-store-card {
+    flex-direction: row;
+    align-items: stretch;
+    height: auto;
+    margin-bottom: 16px;
+}
+.sf-stores-container.is-list-view .sf-store-card-cover {
+    width: 220px;
+    min-width: 220px;
+    height: auto;
+}
+.sf-stores-container.is-list-view .sf-store-card-avatar-wrap {
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sf-stores-container.is-list-view .mn-store-card-body {
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+.sf-stores-container.is-list-view .sf-store-list-main-info {
+    flex: 1 1 auto;
+}
+.sf-stores-container.is-list-view .sf-store-list-side-info {
+    width: 260px;
+    min-width: 260px;
+    border-left: 1px solid #f1f5f9;
+    padding-left: 20px;
+}
+@media (max-width: 991.98px) {
+    .sf-stores-container.is-list-view .mn-store-card {
+        flex-direction: column;
+    }
+    .sf-stores-container.is-list-view .sf-store-card-cover {
+        width: 100%;
+        min-width: 100%;
+        height: 110px;
+    }
+    .sf-stores-container.is-list-view .sf-store-card-avatar-wrap {
+        bottom: -28px;
+        top: auto;
+        left: 16px;
+        transform: none;
+    }
+    .sf-stores-container.is-list-view .mn-store-card-body {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 36px 16px 16px 16px;
+        gap: 0;
+    }
+    .sf-stores-container.is-list-view .sf-store-list-side-info {
+        width: 100%;
+        min-width: 100%;
+        border-left: none;
+        padding-left: 0;
+        margin-top: 12px;
+    }
+    .sf-store-directory-stories {
+        margin-left: -10px;
+        margin-right: -10px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Mobile 2-Cards Grid Optimization */
+    .mn-store-card {
+        border-radius: 12px;
+        margin-bottom: 8px;
+        height: calc(100% - 8px);
+    }
+    .sf-store-card-cover {
+        height: 75px;
+    }
+    .sf-store-card-avatar-wrap {
+        bottom: -18px;
+        left: 10px;
+    }
+    .sf-store-card-avatar-img {
+        width: 44px;
+        height: 44px;
+        border-width: 2.5px;
+    }
+    .sf-store-card-avatar-tick {
+        width: 13px;
+        height: 13px;
+        font-size: 7px;
+        bottom: 0;
+        right: 0;
+        border-width: 1.5px;
+    }
+    .sf-store-card-badge-top {
+        top: 6px;
+        right: 6px;
+        gap: 3px;
+    }
+    .sf-badge-verified {
+        font-size: 8.5px;
+        padding: 2px 5px;
+    }
+    .sf-badge-dispatch {
+        display: none !important;
+    }
+    .mn-store-card-body {
+        padding: 22px 8px 10px 8px;
+    }
+    .mn-store-card-body h4 {
+        font-size: 13px !important;
+        line-height: 1.2;
+    }
+    .sf-store-card-follow-btn {
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+    .sf-store-card-follow-btn .sf-follow-label {
+        font-size: 9.5px;
+    }
+    .mn-store-card-body .badge {
+        font-size: 9px !important;
+        padding: 2px 4px !important;
+    }
+    .mn-store-card-body .text-muted {
+        font-size: 10px !important;
+    }
+    .mn-store-card-body p.text-secondary {
+        display: none !important;
+    }
+    .mn-store-thumbs {
+        gap: 4px;
+        margin: 6px 0;
+    }
+    .mn-store-thumb-item {
+        border-radius: 4px;
+    }
+    .mn-store-card-body .border-top {
+        padding-top: 6px !important;
+        margin-top: 4px !important;
+    }
+    .mn-store-card-body .border-top span.text-muted {
+        font-size: 9.5px !important;
+        max-width: 65px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mn-store-card-body .border-top .btn {
+        padding: 2px 6px !important;
+        font-size: 10px !important;
+        border-radius: 5px;
+    }
+}
+
+/* 5. Empty State */
+.sf-no-stores-found {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px dashed #cbd5e1;
+    margin-bottom: 30px;
+}
+.sf-no-stores-found.is-visible {
+    display: block;
+}
+.sf-no-stores-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+/* 6. Upgraded Seller CTA Perks */
+.sf-seller-perks-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+.sf-seller-perk-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
 }
 
 /* Modern Store Vouchers & Coupons (Daraz Standard) */

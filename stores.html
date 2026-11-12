@@ -666,314 +666,565 @@
                 </nav>
                 
 
-                <!-- Vendor Directory Filter Bar -->
-                <div class="card border-0 shadow-sm rounded-4 p-3 mb-4">
-                    <div class="row align-items-center g-3">
-                        <div class="col-lg-5 col-md-6">
+                <!-- 1. Top Verified Stores Story Circle Bar -->
+                <div class="sf-store-directory-stories">
+                    <div class="d-flex align-items-center justify-content-between mb-2 px-1">
+                        <span class="fw-bold text-dark small d-flex align-items-center gap-1">
+                            <i class="ri-sparkling-fill text-warning"></i> Top Verified Stores
+                        </span>
+                        <span class="text-muted" style="font-size: 11px;">Official Flagship Stores</span>
+                    </div>
+                    <div class="sf-brand-stories-track sf-hide-scrollbar">
+                        <a href="store.html" class="sf-brand-story-item" title="Ocean Crate">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/1.webp" alt="Ocean Crate" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Ocean Crate</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Fashion Hub">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/2.webp" alt="Fashion Hub" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Fashion Hub</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Organic Harvest">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/3.webp" alt="Organic Harvest" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Organic Harvest</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="TechNova Essentials">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/4.webp" alt="TechNova" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">TechNova</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Glow Cosmetics">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/5.webp" alt="Glow Cosmetics" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Glow Cosmetics</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Urban Home Living">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/6.webp" alt="Urban Home" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Urban Home</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Apex Athletics">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/1.webp" alt="Apex Athletics" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Apex Athletics</span>
+                        </a>
+                        <a href="store.html" class="sf-brand-story-item" title="Pure Herbal Care">
+                            <div class="sf-brand-story-ring verified">
+                                <img src="assets/img/vendor/2.webp" alt="Pure Herbal Care" class="sf-brand-story-img" loading="lazy">
+                            </div>
+                            <span class="sf-brand-story-name">Pure Herbal</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Interactive Store Filter & Toolbar -->
+                <div class="sf-store-filter-bar">
+                    <div class="row align-items-center g-3 mb-3">
+                        <!-- Search Box -->
+                        <div class="col-lg-8 col-md-7 sf-store-search-box">
                             <div class="input-group">
-                                <span class="input-group-text bg-white border-end-0"><i class="ri-search-line text-muted"></i></span>
-                                <input type="text" class="form-control border-start-0 ps-0" placeholder="Search stores by name, category or location..." style="font-size: 14px;">
+                                <span class="input-group-text"><i class="ri-search-line"></i></span>
+                                <input type="text" id="sfStoreSearchInput" class="form-control" placeholder="Search stores by name, category, or city (e.g. Dhaka, Mirpur)..." aria-label="Search stores">
+                                <button type="button" class="sf-store-search-clear" id="sfStoreSearchClear" title="Clear search">
+                                    <i class="ri-close-circle-fill"></i>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select" style="font-size: 14px; border-radius: 10px;">
-                                <option selected="">Filter by Category (All)</option>
-                                <option value="1">Electronics & Gadgets</option>
-                                <option value="2">Apparel & Fashion</option>
-                                <option value="3">Fresh Grocery & Farm</option>
-                                <option value="4">Computers & Tech</option>
-                                <option value="5">Beauty & Health</option>
-                                <option value="6">Home & Furniture</option>
-                            </select>
+
+                        <!-- Sort Dropdown -->
+                        <div class="col-lg-4 col-md-5">
+                            <div class="d-flex align-items-center justify-content-md-end gap-2">
+                                <label for="sfStoreSortSelect" class="text-muted small fw-semibold text-nowrap mb-0">Sort By:</label>
+                                <select class="form-select form-select-sm py-2" id="sfStoreSortSelect" style="max-width: 220px; border-radius: 8px; font-size: 13px; border-color: #e2e8f0;">
+                                    <option value="featured" selected>Featured &amp; Verified</option>
+                                    <option value="rating">Top Rated (Highest Star)</option>
+                                    <option value="products">Most Products</option>
+                                    <option value="followers">Most Popular (Followers)</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-lg-3 col-md-12 text-lg-end">
-                            <span class="text-muted" style="font-size: 14px;">Showing <strong>8</strong> Active Stores</span>
+                    </div>
+
+                    <!-- Category Filter Pills Row -->
+                    <div class="sf-category-pills-row sf-hide-scrollbar" id="sfCategoryPills">
+                        <button type="button" class="sf-cat-pill active" data-category="all">
+                            <i class="ri-apps-2-line"></i> All Stores
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="electronics">
+                            <i class="ri-smartphone-line"></i> Gadgets &amp; Tech
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="fashion">
+                            <i class="ri-t-shirt-line"></i> Apparel &amp; Fashion
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="grocery">
+                            <i class="ri-shopping-basket-line"></i> Grocery &amp; Organic
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="beauty">
+                            <i class="ri-magic-line"></i> Beauty &amp; Skincare
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="furniture">
+                            <i class="ri-home-4-line"></i> Home &amp; Living
+                        </button>
+                        <button type="button" class="sf-cat-pill" data-category="fitness">
+                            <i class="ri-run-line"></i> Sportswear &amp; Fitness
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. Store Cards Grid & List View Container -->
+                <div class="row g-2 g-md-3 g-lg-4 sf-stores-container" id="sfStoresContainer">
+                    <!-- Store Card 1: Ocean Crate -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Ocean Crate" 
+                         data-category="electronics" 
+                         data-city="Dhaka, Mirpur" 
+                         data-rating="4.8" 
+                         data-products="358" 
+                         data-followers="3500">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/banner/1.webp" alt="Ocean Crate Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/1.webp" alt="Ocean Crate" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Ocean Crate</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="3500">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(3.5k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.8 (120)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Gadgets &amp; Electronics &bull; 358 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Premier source for authentic smart electronics, wearable fitness tech, and high-performance accessories.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Smart Watch"><img src="assets/img/product/11.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Wireless Earbuds"><img src="assets/img/product/12.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Fast Charger"><img src="assets/img/product/9.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Mirpur, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 2: Fashion Hub -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Fashion Hub" 
+                         data-category="fashion" 
+                         data-city="Dhaka, Dhanmondi" 
+                         data-rating="4.9" 
+                         data-products="512" 
+                         data-followers="5200">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/banner/2.webp" alt="Fashion Hub Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/2.webp" alt="Fashion Hub" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Fashion Hub</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="5200">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(5.2k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.9 (245)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Apparel &amp; Fashion &bull; 512 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Curated collections of modern street fashion, luxury leather bags, and organic cotton casual wear.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Cotton Tee"><img src="assets/img/product/1.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Denim Jacket"><img src="assets/img/product/2.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Street Hoodie"><img src="assets/img/product/21.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Dhanmondi, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 3: Organic Harvest -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Organic Harvest" 
+                         data-category="grocery" 
+                         data-city="Dhaka, Uttara" 
+                         data-rating="4.7" 
+                         data-products="184" 
+                         data-followers="2100">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/hero/3.webp" alt="Organic Harvest Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/3.webp" alt="Organic Harvest" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Organic Harvest</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="2100">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(2.1k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.7 (89)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Fresh Grocery &amp; Farm &bull; 184 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Farm-to-table organic vegetables, dry fruits, fresh herbs, and natural spices with eco packaging.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Dry Fruits"><img src="assets/img/product/25.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Organic Honey"><img src="assets/img/product/26.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Pure Ghee"><img src="assets/img/product/31.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Uttara, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 4: TechNova Essentials -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="TechNova Essentials" 
+                         data-category="electronics" 
+                         data-city="Chattogram, Agrabad" 
+                         data-rating="4.6" 
+                         data-products="230" 
+                         data-followers="3800">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/hero/1.webp" alt="TechNova Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/4.webp" alt="TechNova Essentials" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">TechNova Essentials</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="3800">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(3.8k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.6 (115)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Computers &amp; Tech &bull; 230 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Ergonomic office peripherals, USB-C docks, fast charging blocks, and smart desktop accessories.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="USB-C Hub"><img src="assets/img/product/4.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Mechanical Key"><img src="assets/img/product/7.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Desk Mat"><img src="assets/img/product/8.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Agrabad, Chattogram</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 5: Glow Cosmetics -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Glow Cosmetics" 
+                         data-category="beauty" 
+                         data-city="Dhaka, Banani" 
+                         data-rating="4.9" 
+                         data-products="410" 
+                         data-followers="6400">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/banner/5.webp" alt="Glow Cosmetics Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/5.webp" alt="Glow Cosmetics" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Glow Cosmetics</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="6400">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(6.4k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.9 (310)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Beauty &amp; Skincare &bull; 410 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Clean dermatologist-approved cosmetics, plant-based hydration oils, and everyday skincare essentials.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Lip Glow"><img src="assets/img/product/15.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Serum Oil"><img src="assets/img/product/19.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Night Cream"><img src="assets/img/product/20.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Banani, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 6: Urban Home Living -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Urban Home Living" 
+                         data-category="furniture" 
+                         data-city="Dhaka, Gulshan" 
+                         data-rating="4.8" 
+                         data-products="195" 
+                         data-followers="1900">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/banner/6.webp" alt="Urban Home Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/6.webp" alt="Urban Home Living" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Urban Home Living</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="1900">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(1.9k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.8 (94)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Furniture &amp; Decor &bull; 195 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Minimalist Scandinavian decor, ambient night lighting, ceramic tableware, and cozy bedding.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Ceramic Lamp"><img src="assets/img/product/33.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Cushion Set"><img src="assets/img/product/34.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Wooden Clock"><img src="assets/img/product/22.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Gulshan-1, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 7: Apex Athletics -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Apex Athletics" 
+                         data-category="fitness" 
+                         data-city="Dhaka, Motijheel" 
+                         data-rating="4.8" 
+                         data-products="276" 
+                         data-followers="4100">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/hero/2.webp" alt="Apex Athletics Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/1.webp" alt="Apex Athletics" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Apex Athletics</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="4100">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(4.1k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.8 (168)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Sportswear &amp; Fitness &bull; 276 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        High-durability athletic runners, training gear, sweat-wicking apparel, and outdoor footwear.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Running Shoe"><img src="assets/img/product/9.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Sports Socks"><img src="assets/img/product/10.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Smart Watch"><img src="assets/img/product/11.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Motijheel, Dhaka</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Store Card 8: Pure Herbal Care -->
+                    <div class="col-6 col-md-6 col-lg-3 mn-store-card-col" 
+                         data-name="Pure Herbal Care" 
+                         data-category="grocery" 
+                         data-city="Sylhet, Zindabazar" 
+                         data-rating="4.9" 
+                         data-products="142" 
+                         data-followers="2800">
+                        <div class="mn-store-card shadow-sm">
+                            <div class="sf-store-card-cover">
+                                <img src="assets/img/hero/4.webp" alt="Pure Herbal Care Cover" class="sf-store-card-cover-img" loading="lazy">
+                                <div class="sf-store-card-cover-overlay"></div>
+                                <div class="sf-store-card-avatar-wrap">
+                                    <img src="assets/img/vendor/2.webp" alt="Pure Herbal Care" class="sf-store-card-avatar-img" width="62" height="62" loading="lazy">
+                                    <span class="sf-store-card-avatar-tick" title="Verified Store"><i class="ri-check-line"></i></span>
+                                </div>
+                            </div>
+                            <div class="mn-store-card-body">
+                                <div class="sf-store-list-main-info">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h4 class="mb-0 fw-bold" style="font-size: 16.5px;">
+                                            <a href="store.html" class="text-dark text-decoration-none">Pure Herbal Care</a>
+                                        </h4>
+                                        <button type="button" class="btn btn-sm sf-store-card-follow-btn" data-followers="2800">
+                                            <i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class="d-none d-sm-inline">(2.8k)</span></span>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
+                                            <i class="ri-star-fill"></i> 4.9 (82)
+                                        </span>
+                                        <span class="text-muted" style="font-size: 12px;">Organic &amp; Health &bull; 142 Products</span>
+                                    </div>
+                                    <p class="text-secondary mb-2" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
+                                        Natural botanical supplements, antioxidant herbal teas, organic honey, and wholesome superfoods.
+                                    </p>
+                                </div>
+                                <div class="sf-store-list-side-info">
+                                    <div class="mn-store-thumbs">
+                                        <div class="mn-store-thumb-item" title="Dry Herbs"><img src="assets/img/product/25.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Organic Tea"><img src="assets/img/product/26.webp" alt="Thumb" loading="lazy"></div>
+                                        <div class="mn-store-thumb-item" title="Herbal Paste"><img src="assets/img/product/31.webp" alt="Thumb" loading="lazy"></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
+                                        <span class="text-muted" style="font-size: 11.5px;"><i class="ri-map-pin-line text-danger me-1"></i> Zindabazar, Sylhet</span>
+                                        <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
+                                            <span>Visit Store <i class="ri-arrow-right-line ms-1"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Vendor Cards Grid (Desktop 4 cards per row: col-xl-3 col-lg-3 col-md-6 col-12) -->
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #181e28 0%, #313b50 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/1.webp" alt="Ocean Crate" class="mn-store-card-avatar" width="200" height="200" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Ocean Crate</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.8 (120)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Electronics & Gadgets &bull; 358 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Premier source for authentic smart electronics, wearable fitness tech, and high-performance accessories.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/11.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/12.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/9.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Mirpur, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Empty State (Hidden by default) -->
+                <div class="sf-no-stores-found" id="sfNoStoresFound">
+                    <div class="sf-no-stores-icon">
+                        <i class="ri-store-2-line"></i>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/2.webp" alt="Fashion Hub" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Fashion Hub</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.9 (245)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Apparel & Trending Fashion &bull; 512 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Curated collections of modern street fashion, luxury leather bags, and organic cotton casual wear.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/1.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/2.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/21.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Dhanmondi, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #15803d 0%, #052e16 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/3.webp" alt="Organic Harvest" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Organic Harvest</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.7 (89)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Fresh Grocery & Farm &bull; 184 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Farm-to-table organic vegetables, dry fruits, fresh herbs, and natural spices with eco packaging.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/25.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/26.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/31.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Uttara, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #0e7490 0%, #164e63 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/4.webp" alt="TechNova Essentials" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">TechNova Essentials</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.6 (115)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Computers & Smart Work &bull; 230 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Ergonomic office peripherals, USB-C docks, fast charging blocks, and smart desktop accessories.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/4.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/7.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/8.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Agrabad, Chattogram</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #be185d 0%, #500724 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/5.webp" alt="Glow Cosmetics" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Glow Cosmetics</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.9 (310)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Beauty & Skincare &bull; 410 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Clean dermatologist-approved cosmetics, plant-based hydration oils, and everyday skincare essentials.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/15.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/19.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/20.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Banani, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #b45309 0%, #451a03 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/6.webp" alt="Urban Home Living" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Urban Home Living</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.8 (94)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Furniture & Decor &bull; 195 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Minimalist Scandinavian decor, ambient night lighting, ceramic tableware, and cozy bedding.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/33.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/34.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/22.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Gulshan-1, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #b91c1c 0%, #450a0a 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/1.webp" alt="Apex Athletics" class="mn-store-card-avatar" width="200" height="200" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Apex Athletics</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.8 (168)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Sportswear & Sneakers &bull; 276 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        High-durability athletic runners, training gear, sweat-wicking apparel, and outdoor footwear.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/9.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/10.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/11.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Motijheel, Dhaka</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-12">
-                        <div class="mn-store-card shadow-sm">
-                            <div class="mn-store-card-header" style="background: linear-gradient(135deg, #047857 0%, #064e3b 100%);">
-                                <span class="badge bg-success text-white position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill" style="font-size: 11px;">
-                                    <i class="ri-checkbox-circle-fill me-1"></i> Verified
-                                </span>
-                                <img src="assets/img/vendor/2.webp" alt="Pure Herbal Care" class="mn-store-card-avatar" width="500" height="500" loading="lazy" decoding="async">
-                            </div>
-                            <div class="mn-store-card-body">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <h4 class="mb-1 fw-bold" style="font-size: 17px;"><a href="store.html" class="text-dark text-decoration-none">Pure Herbal Care</a></h4>
-                                        <span class="badge bg-light text-warning border px-2 py-1" style="font-size: 11px;">
-                                            <i class="ri-star-fill"></i> 4.9 (82)
-                                        </span>
-                                    </div>
-                                    <p class="text-muted mb-2" style="font-size: 12px;">Organic Wellness & Health &bull; 142 Products</p>
-                                    <p class="text-secondary" style="font-size: 12px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 34px;">
-                                        Natural botanical supplements, antioxidant herbal teas, organic honey, and wholesome superfoods.
-                                    </p>
-                                    <div class="mn-store-thumbs">
-                                        <img src="assets/img/product/25.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/26.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                        <img src="assets/img/product/31.webp" alt="Product thumbnail" width="450" height="506" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <div class="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                                    <span class="text-muted" style="font-size: 11px;"><i class="ri-map-pin-line text-danger me-1"></i> Zindabazar, Sylhet</span>
-                                    <a href="store.html" class="btn btn-sm btn-primary mn-btn-2 px-3 py-1" style="font-size: 12px;">
-                                        <span>Visit <i class="ri-arrow-right-line ms-1"></i></span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h4 class="fw-bold mb-1 text-dark">No Stores Found</h4>
+                    <p class="text-muted small mb-3">No merchants matched your active search or category filters.</p>
+                    <button type="button" class="btn btn-sm btn-primary rounded-pill px-3 py-2" id="sfResetFiltersBtn">
+                        <i class="ri-refresh-line me-1"></i> Reset All Filters
+                    </button>
                 </div>
 
                 <!-- Pagination -->
@@ -985,14 +1236,22 @@
                 </div>
 
                 <!-- Seller CTA Banner -->
-                <div class="card border-0 rounded-4 my-5 overflow-hidden text-white" style="background: linear-gradient(135deg, #181e28 0%, #3a4ee5 100%);">
+                <div class="card border-0 rounded-4 my-5 overflow-hidden text-white" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3a4ee5 100%); box-shadow: 0 10px 30px rgba(58, 78, 229, 0.15);">
                     <div class="p-4 p-md-5 d-flex align-items-center justify-content-between flex-wrap gap-4">
-                        <div style="max-width: 600px;">
-                            <span class="badge bg-warning text-dark mb-2 px-3 py-1 rounded-pill fw-bold">Seller Opportunity</span>
+                        <div style="max-width: 650px;">
+                            <span class="badge bg-warning text-dark mb-2 px-3 py-1 rounded-pill fw-bold">
+                                <i class="ri-shield-star-line me-1"></i> Seller Opportunity
+                            </span>
                             <h3 class="fw-bold mb-2 text-white">Want to sell your products on ShoppieFlyBD?</h3>
-                            <p class="text-light mb-0" style="font-size: 15px;">
-                                Reach millions of shoppers across the country. Simple 5-minute registration, ultra-low 5% commission, and automatic weekly bank payouts.
+                            <p class="text-light mb-0 opacity-90" style="font-size: 15px;">
+                                Reach millions of shoppers nationwide. Start selling within 5 minutes, enjoy lowest commission rates, and get automatic weekly payouts.
                             </p>
+                            <div class="sf-seller-perks-row">
+                                <div class="sf-seller-perk-item"><i class="ri-money-dollar-circle-fill text-warning"></i> 0% Onboarding Fee</div>
+                                <div class="sf-seller-perk-item"><i class="ri-truck-fill text-info"></i> Nationwide Pickup</div>
+                                <div class="sf-seller-perk-item"><i class="ri-bank-card-fill text-success"></i> Weekly Bank Payout</div>
+                                <div class="sf-seller-perk-item"><i class="ri-store-3-fill text-warning"></i> 1,200+ Active Stores</div>
+                            </div>
                         </div>
                         <div>
                             <a href="become-vendor.html" class="btn btn-light btn-lg px-4 py-3 fw-bold rounded-pill text-primary shadow">
@@ -1828,5 +2087,173 @@
         <script defer src="assets/js/vendor/owl.carousel.min.js"></script>
         <!-- Main Custom -->
         <script defer src="assets/js/main.js?v=store20261111"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var searchInput = document.getElementById("sfStoreSearchInput");
+                var clearBtn = document.getElementById("sfStoreSearchClear");
+                var categoryPills = document.querySelectorAll("#sfCategoryPills .sf-cat-pill");
+                var sortSelect = document.getElementById("sfStoreSortSelect");
+                var storesContainer = document.getElementById("sfStoresContainer");
+                var noStoresEl = document.getElementById("sfNoStoresFound");
+                var resetBtn = document.getElementById("sfResetFiltersBtn");
+
+                var currentCategory = "all";
+                var currentQuery = "";
+
+                function filterStores() {
+                    var cards = document.querySelectorAll(".mn-store-card-col");
+                    var visibleCount = 0;
+
+                    cards.forEach(function (card) {
+                        var name = (card.getAttribute("data-name") || "").toLowerCase();
+                        var cat = (card.getAttribute("data-category") || "").toLowerCase();
+                        var city = (card.getAttribute("data-city") || "").toLowerCase();
+
+                        var matchesQuery = true;
+                        if (currentQuery) {
+                            matchesQuery = name.includes(currentQuery) || cat.includes(currentQuery) || city.includes(currentQuery);
+                        }
+
+                        var matchesCat = true;
+                        if (currentCategory !== "all") {
+                            matchesCat = (cat === currentCategory);
+                        }
+
+                        if (matchesQuery && matchesCat) {
+                            card.style.display = "";
+                            visibleCount++;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (noStoresEl) {
+                        if (visibleCount === 0) {
+                            noStoresEl.classList.add("is-visible");
+                        } else {
+                            noStoresEl.classList.remove("is-visible");
+                        }
+                    }
+                }
+
+                function sortStores() {
+                    var sortVal = sortSelect ? sortSelect.value : "featured";
+                    var cards = Array.from(document.querySelectorAll(".mn-store-card-col"));
+
+                    cards.sort(function (a, b) {
+                        if (sortVal === "rating") {
+                            var rA = parseFloat(a.getAttribute("data-rating")) || 0;
+                            var rB = parseFloat(b.getAttribute("data-rating")) || 0;
+                            return rB - rA;
+                        } else if (sortVal === "products") {
+                            var pA = parseInt(a.getAttribute("data-products"), 10) || 0;
+                            var pB = parseInt(b.getAttribute("data-products"), 10) || 0;
+                            return pB - pA;
+                        } else if (sortVal === "followers") {
+                            var fA = parseInt(a.getAttribute("data-followers"), 10) || 0;
+                            var fB = parseInt(b.getAttribute("data-followers"), 10) || 0;
+                            return fB - fA;
+                        } else {
+                            return 0; // default featured order
+                        }
+                    });
+
+                    cards.forEach(function (card) {
+                        storesContainer.appendChild(card);
+                    });
+                }
+
+                // Search handler
+                if (searchInput) {
+                    searchInput.addEventListener("input", function () {
+                        currentQuery = this.value.trim().toLowerCase();
+                        if (clearBtn) {
+                            if (currentQuery.length > 0) {
+                                clearBtn.classList.add("is-visible");
+                            } else {
+                                clearBtn.classList.remove("is-visible");
+                            }
+                        }
+                        filterStores();
+                    });
+                }
+
+                if (clearBtn) {
+                    clearBtn.addEventListener("click", function () {
+                        if (searchInput) {
+                            searchInput.value = "";
+                            currentQuery = "";
+                            this.classList.remove("is-visible");
+                            filterStores();
+                            searchInput.focus();
+                        }
+                    });
+                }
+
+                // Category Pills
+                categoryPills.forEach(function (pill) {
+                    pill.addEventListener("click", function () {
+                        categoryPills.forEach(function (p) { p.classList.remove("active"); });
+                        this.classList.add("active");
+                        currentCategory = this.getAttribute("data-category") || "all";
+                        filterStores();
+                    });
+                });
+
+                // Sort Dropdown
+                if (sortSelect) {
+                    sortSelect.addEventListener("change", function () {
+                        sortStores();
+                    });
+                }
+
+                // Reset Filters
+                if (resetBtn) {
+                    resetBtn.addEventListener("click", function () {
+                        if (searchInput) searchInput.value = "";
+                        currentQuery = "";
+                        if (clearBtn) clearBtn.classList.remove("is-visible");
+
+                        categoryPills.forEach(function (p) { p.classList.remove("active"); });
+                        var allPill = document.querySelector('#sfCategoryPills [data-category="all"]');
+                        if (allPill) allPill.classList.add("active");
+                        currentCategory = "all";
+
+                        if (sortSelect) sortSelect.value = "featured";
+
+                        filterStores();
+                    });
+                }
+
+                // Interactive Follow Button on Cards
+                $(document).on("click", ".sf-store-card-follow-btn", function (e) {
+                    e.preventDefault();
+                    var $btn = $(this);
+                    var count = parseInt($btn.attr("data-followers"), 10) || 1000;
+                    var isFollowing = $btn.hasClass("following");
+
+                    if (isFollowing) {
+                        $btn.removeClass("following");
+                        count--;
+                        $btn.attr("data-followers", count);
+                        var formatted = (count >= 1000) ? (count / 1000).toFixed(1).replace('.0', '') + 'k' : count;
+                        $btn.html('<i class="ri-user-add-line"></i> <span class="sf-follow-label">Follow <span class=\"d-none d-sm-inline\">(' + formatted + ')</span></span>');
+                    } else {
+                        $btn.addClass("following");
+                        count++;
+                        $btn.attr("data-followers", count);
+                        var formatted = (count >= 1000) ? (count / 1000).toFixed(1).replace('.0', '') + 'k' : count;
+                        $btn.html('<i class="ri-user-follow-line"></i> <span class="sf-follow-label">Following <span class=\"d-none d-sm-inline\">(' + formatted + ')</span></span>');
+                        if (typeof iziToast !== 'undefined') {
+                            iziToast.success({
+                                title: 'Followed!',
+                                message: 'You are now following this store.',
+                                position: 'topRight'
+                            });
+                        }
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

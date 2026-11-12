@@ -1507,7 +1507,7 @@ textarea {
     left: 0;
     bottom: 0;
     background: #fff;
-    z-index: 999;
+    z-index: 99999;
 }
 #mn-overlay .loader {
     width: 80px;
@@ -20140,13 +20140,30 @@ body.sf-seller-shell {
   6. Facebook Business Page & Standalone eCommerce Storefront Hybrid (store.html)
 =============================================================================*/
 
-/* FB Store Header Card */
+/* =============================================================================
+   Facebook Mobile-First Storefront Architecture (store.html)
+============================================================================= */
+
+/* Mobile Page Overrides */
+@media (max-width: 991.98px) {
+    .sf-storefront-page .mn-main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* =============================================================================
+   Desktop Storefront Header Card (.sf-fb-store-header)
+============================================================================= */
+
 .sf-fb-store-header {
     background: #ffffff;
     border-radius: 16px;
     border: 1px solid #e2e8f0;
     overflow: hidden;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
@@ -20263,34 +20280,10 @@ body.sf-seller-shell {
     line-height: 1.4;
 }
 
-.sf-fb-quick-metrics {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    font-size: 12px;
-    color: #475569;
-}
-
-.sf-fb-badge-replies {
-    background: #ecfdf5;
-    color: #065f46;
-    border: 1px solid #a7f3d0;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-/* FB Primary Actions Row */
 .sf-fb-actions-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 10px;
     padding-top: 12px;
 }
 
@@ -20337,7 +20330,6 @@ body.sf-seller-shell {
     color: #0f172a;
 }
 
-/* Secondary Metabar & Navigation Tabs */
 .sf-fb-metabar {
     border-top: 1px solid #f1f5f9;
     padding-top: 8px;
@@ -20354,14 +20346,6 @@ body.sf-seller-shell {
     gap: 8px;
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
-}
-
-.sf-fb-metabar .nav-tabs::-webkit-scrollbar {
-    display: none;
 }
 
 .sf-fb-metabar .nav-link {
@@ -20381,29 +20365,15 @@ body.sf-seller-shell {
     cursor: pointer;
 }
 
-.sf-fb-metabar .nav-link i {
-    font-size: 16px;
-    color: #64748b;
-    transition: color 0.2s ease;
-}
-
 .sf-fb-metabar .nav-link:hover {
     color: #0f172a !important;
     background: #f8fafc !important;
-}
-
-.sf-fb-metabar .nav-link:hover i {
-    color: #0f172a;
 }
 
 .sf-fb-metabar .nav-link.active {
     color: #1d4ed8 !important;
     font-weight: 700 !important;
     background: #eff6ff !important;
-}
-
-.sf-fb-metabar .nav-link.active i {
-    color: #1d4ed8 !important;
 }
 
 .sf-fb-metabar .nav-link.active::after {
@@ -20417,15 +20387,560 @@ body.sf-seller-shell {
     border-radius: 3px 3px 0 0;
 }
 
-.sf-fb-meta-item {
-    font-size: 12px;
-    color: #64748b;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+
+
+/* Desktop Simple Sleek Action Buttons */
+.sf-desk-actions-wrap {
+    padding-top: 6px;
 }
 
-.sf-fb-meta-item strong {
+.sf-desk-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    text-decoration: none !important;
+}
+
+.sf-desk-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a !important;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.sf-desk-btn.sf-desk-chat {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d !important;
+}
+
+.sf-desk-btn.sf-desk-chat:hover {
+    background: #dcfce7;
+    border-color: #86efac;
+}
+
+.sf-desk-btn.sf-desk-follow {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8 !important;
+}
+
+.sf-desk-btn.sf-desk-follow:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+}
+
+.sf-desk-btn.sf-desk-follow.following {
+    background: #059669;
+    border-color: #059669;
+    color: #ffffff !important;
+}
+
+.sf-desk-btn.sf-desk-follow.following i {
+    color: #ffffff !important;
+}
+
+/* 1. Full-Bleed Branded Cover Area */
+.sf-store-cover-wrap {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #0f172a;
+    overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+    .sf-store-cover-wrap {
+        height: 160px;
+    }
+}
+
+.sf-store-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.sf-store-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 50%, rgba(15, 23, 42, 0.55) 100%);
+    pointer-events: none;
+}
+
+/* Floating Controls Over Cover */
+.sf-cover-floating-nav {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.sf-floating-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.sf-floating-btn:hover {
+    background: rgba(15, 23, 42, 0.8);
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+.sf-cover-floating-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sf-floating-cart-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #ffffff;
+}
+
+/* 2. Sticky Header Bar on Scroll */
+.sf-sticky-store-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    height: 52px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    transform: translateY(-100%);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sf-sticky-store-bar.is-visible {
+    transform: translateY(0);
+}
+
+.sf-sticky-bar-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sf-sticky-back-btn,
+.sf-sticky-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.sf-sticky-back-btn:hover,
+.sf-sticky-icon-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.sf-sticky-store-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    margin: 0 12px;
+    min-width: 0;
+}
+
+.sf-sticky-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #cbd5e1;
+    flex-shrink: 0;
+}
+
+.sf-sticky-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sf-sticky-cart-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 17px;
+    height: 17px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+    border: 2px solid #ffffff;
+}
+
+.sf-sticky-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 3. Store Profile Box */
+.sf-store-profile-box {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 20px 20px 20px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .sf-store-profile-box {
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+}
+
+.sf-store-avatar-wrap {
+    position: relative;
+    display: inline-block;
+    margin-top: -55px;
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767.98px) {
+    .sf-store-avatar-wrap {
+        margin-top: -40px;
+    }
+}
+
+.sf-store-avatar-img {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    background: #ffffff;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .sf-store-avatar-img {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+}
+
+.sf-store-verified-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background: #1d4ed8;
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sf-store-meta-info {
+    margin-top: 10px;
+}
+
+.sf-store-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 767.98px) {
+    .sf-store-title {
+        font-size: 19px;
+    }
+}
+
+.sf-store-followers-stat {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.sf-store-bio {
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    max-width: 700px;
+}
+
+.sf-store-meta-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+/* 4. Action Buttons (Strictly in ONE Single Row) */
+.sf-store-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 14px;
+}
+
+.sf-action-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 9px 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-chat {
+    background: #25D366;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+}
+
+.sf-btn-chat:hover {
+    background: #20bd5a;
+    color: #ffffff;
+}
+
+.sf-btn-follow {
+    background: #eff6ff;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe;
+}
+
+.sf-btn-follow:hover {
+    background: #dbeafe;
+}
+
+.sf-btn-follow.following {
+    background: #059669;
+    color: #ffffff !important;
+    border-color: #059669;
+}
+
+.sf-btn-share {
+    background: #f1f5f9;
+    color: #334155 !important;
+    border: 1px solid #e2e8f0;
+}
+
+.sf-btn-share:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+/* 5. Sticky Tab Navigation (Zero Horizontal Scroll, Equal Distribution) */
+.sf-store-tabs-holder {
+    display: block;
+    width: 100%;
+}
+
+.sf-store-tabs-wrap {
+    position: relative;
+    width: 100%;
+    z-index: 20;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.sf-store-tabs-wrap.is-docked {
+    position: fixed !important;
+    top: 52px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1025 !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sf-store-tabs-list {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4px 0;
+    gap: 4px;
+    border-bottom: none;
+}
+
+.sf-store-tabs-list .nav-item {
+    flex: 1 1 0;
+    text-align: center;
+}
+
+.sf-store-tabs-list .nav-link {
+    width: 100%;
+    padding: 10px 2px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #64748b;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    background: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+    .sf-store-tabs-list .nav-link {
+        font-size: 12px;
+        padding: 9px 1px;
+    }
+}
+
+.sf-store-tabs-list .nav-link:hover {
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+.sf-store-tabs-list .nav-link.active {
+    color: #1d4ed8;
+    background: #eff6ff;
+    font-weight: 700;
+}
+
+.sf-store-tabs-list .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: #1d4ed8;
+    border-radius: 3px 3px 0 0;
+}
+
+/* Category Cards for Tab 2 */
+.sf-cat-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sf-cat-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.sf-cat-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.sf-cat-title {
+    font-size: 13.5px;
+    font-weight: 700;
     color: #0f172a;
 }
 
@@ -20435,7 +20950,7 @@ body.sf-seller-shell {
     border-radius: 14px;
     border: 1px solid #e2e8f0;
     padding: 14px 18px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
 }
 
 .sf-story-scroll-track {
@@ -20733,83 +21248,57 @@ body.sf-seller-shell {
 
 /* Mobile Responsiveness for FB Storefront */
 @media (max-width: 767.98px) {
-    .sf-fb-store-cover {
-        height: 140px;
-        display: block;
+    .sf-store-cover-wrap {
+        height: 160px;
     }
-    .sf-fb-store-profile-wrap {
+    .sf-store-profile-box {
         padding: 0 14px 16px 14px;
     }
-    .sf-fb-profile-row {
-        margin-top: 0;
-        gap: 12px;
-    }
-    .sf-fb-identity-col {
-        gap: 12px;
-        flex: 1 1 100%;
-        align-items: flex-start;
-    }
-    .sf-fb-avatar-box {
+    .sf-store-avatar-wrap {
         margin-top: -38px;
     }
-    .sf-fb-avatar-img {
+    .sf-store-avatar-img {
         width: 76px;
         height: 76px;
         border-width: 3px;
     }
-    .sf-fb-verified-badge-float {
+    .sf-store-verified-badge {
         width: 20px;
         height: 20px;
         font-size: 11px;
         bottom: 2px;
         right: 2px;
     }
-    .sf-fb-identity-info {
-        padding-top: 4px;
-        flex: 1 1 calc(100% - 92px);
-    }
-    .sf-fb-store-name {
+    .sf-store-title {
         font-size: 18px;
-        gap: 6px;
         margin-bottom: 2px;
     }
-    .sf-fb-verified-badge {
-        font-size: 10px;
-        padding: 2px 6px;
-    }
-    .sf-fb-store-handle {
+    .sf-store-followers-stat {
         font-size: 12px;
+        margin-bottom: 4px;
+    }
+    .sf-store-bio {
+        font-size: 12.5px;
+        line-height: 1.4;
         margin-bottom: 6px;
     }
-    .sf-fb-quick-metrics {
-        width: 100%;
-        margin-top: 6px;
-        gap: 8px;
-        font-size: 11.5px;
+    .sf-store-meta-tags {
+        font-size: 11px;
+        gap: 6px;
+        margin-bottom: 12px;
     }
-    .sf-fb-actions-row {
-        width: 100%;
-        padding-top: 6px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+    .sf-store-actions-row {
+        gap: 6px;
+        margin-top: 10px;
     }
-    .sf-btn-whatsapp {
-        grid-column: span 2;
-        width: 100%;
-        justify-content: center;
-        padding: 9px 12px;
-        font-size: 13px;
-    }
-    .sf-btn-fb-action {
-        width: 100%;
-        justify-content: center;
-        padding: 8px 10px;
+    .sf-action-btn {
+        padding: 8px 4px;
         font-size: 12px;
+        gap: 4px;
     }
-    .sf-fb-metabar .nav-link {
-        font-size: 13px !important;
-        padding: 8px 12px !important;
+    .sf-store-tabs-list .nav-link {
+        font-size: 12.5px;
+        padding: 8px 1px;
     }
     .sf-story-circle {
         width: 52px;
@@ -20825,6 +21314,23 @@ body.sf-seller-shell {
     .sf-story-scroll-track {
         gap: 14px;
     }
+    /* Mobile Full-Width Story Highlights Card */
+    .sf-story-highlights-wrap {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 10px 16px;
+        margin-top: 0;
+        margin-bottom: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+    .sf-storefront-page #store_product_grid.p-tb-15 {
+        padding-top: 6px !important;
+    }
     .sf-pinned-body {
         flex-direction: column;
         align-items: flex-start;
@@ -20833,4 +21339,3 @@ body.sf-seller-shell {
         padding: 14px;
     }
 }
-

@@ -13502,8 +13502,8 @@ button.btn-close.qty_close {
     border-radius: 16px;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    margin-bottom: 24px;
-    height: calc(100% - 24px);
+    margin-bottom: 16px;
+    height: calc(100% - 16px);
     display: flex;
     flex-direction: column;
 }
@@ -13518,52 +13518,26 @@ button.btn-close.qty_close {
     position: relative;
     background: #1e293b;
 }
+.sf-store-card-cover-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
 .sf-store-card-cover-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 .mn-store-card:hover .sf-store-card-cover-img {
-    transform: scale(1.05);
+    opacity: 0.95;
 }
 .sf-store-card-cover-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-.sf-store-card-badge-top {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 6px;
-    z-index: 2;
-}
-.sf-badge-verified {
-    background: rgba(16, 185, 129, 0.95);
-    color: #ffffff;
-    font-size: 10.5px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    backdrop-filter: blur(4px);
-}
-.sf-badge-dispatch {
-    background: rgba(15, 23, 42, 0.75);
-    color: #fbbf24;
-    font-size: 10.5px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    backdrop-filter: blur(4px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .sf-store-card-avatar-wrap {
@@ -13585,24 +13559,67 @@ button.btn-close.qty_close {
     position: absolute;
     bottom: 2px;
     right: 2px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #1877f2;
     color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
     border: 2px solid #ffffff;
+    box-shadow: 0 2px 5px rgba(24, 119, 242, 0.4);
+    pointer-events: none;
+}
+.sf-store-card-avatar-tick svg {
+    width: 10px;
+    height: 10px;
+    display: block;
 }
 
 .mn-store-card-body {
-    padding: 36px 16px 16px 16px;
+    padding: 30px 14px 14px 14px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.sf-store-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #64748b;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 1.2;
+}
+.sf-store-card-meta .sf-meta-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #eab308;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.sf-store-card-meta .sf-meta-rating i {
+    font-size: 12px;
+    line-height: 1;
+    display: inline-block;
+}
+.sf-store-card-meta .sf-meta-dot {
+    color: #cbd5e1;
+    font-size: 9px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.sf-store-card-meta .sf-meta-sold,
+.sf-store-card-meta .sf-meta-followers {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .sf-store-card-follow-btn {
@@ -13632,8 +13649,8 @@ button.btn-close.qty_close {
 .mn-store-thumbs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin: 12px 0;
+    gap: 6px;
+    margin: 6px 0 0 0;
 }
 .mn-store-thumb-item {
     position: relative;
@@ -13642,6 +13659,14 @@ button.btn-close.qty_close {
     background: #f8fafc;
     border: 1px solid #f1f5f9;
     aspect-ratio: 1;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.mn-store-thumb-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
 }
 .mn-store-thumb-item img {
     width: 100%;
@@ -13650,7 +13675,7 @@ button.btn-close.qty_close {
     transition: transform 0.25s ease;
 }
 .mn-store-thumb-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 /* 4. List View Styles */
@@ -13739,6 +13764,10 @@ button.btn-close.qty_close {
     .sf-store-card-cover {
         height: 75px;
     }
+    .sf-store-card-cover-media {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
     .sf-store-card-avatar-wrap {
         bottom: -18px;
         left: 10px;
@@ -13749,24 +13778,17 @@ button.btn-close.qty_close {
         border-width: 2.5px;
     }
     .sf-store-card-avatar-tick {
-        width: 13px;
-        height: 13px;
-        font-size: 7px;
-        bottom: 0;
-        right: 0;
+        width: 14px;
+        height: 14px;
+        bottom: 2px;
+        right: 2px;
         border-width: 1.5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
     }
-    .sf-store-card-badge-top {
-        top: 6px;
-        right: 6px;
-        gap: 3px;
-    }
-    .sf-badge-verified {
-        font-size: 8.5px;
-        padding: 2px 5px;
-    }
-    .sf-badge-dispatch {
-        display: none !important;
+    .sf-store-card-avatar-tick svg {
+        width: 7.5px;
+        height: 7.5px;
+        stroke-width: 2.8;
     }
     .mn-store-card-body {
         padding: 22px 8px 10px 8px;
@@ -13775,45 +13797,27 @@ button.btn-close.qty_close {
         font-size: 13px !important;
         line-height: 1.2;
     }
-    .sf-store-card-follow-btn {
-        padding: 2px 6px;
-        font-size: 10px;
+    .sf-store-card-meta {
+        font-size: 9.5px !important;
+        gap: 3px !important;
+        margin-bottom: 6px !important;
+        white-space: nowrap !important;
     }
-    .sf-store-card-follow-btn .sf-follow-label {
-        font-size: 9.5px;
+    .sf-store-card-meta .sf-meta-rating {
+        gap: 2px !important;
     }
-    .mn-store-card-body .badge {
-        font-size: 9px !important;
-        padding: 2px 4px !important;
-    }
-    .mn-store-card-body .text-muted {
+    .sf-store-card-meta .sf-meta-rating i {
         font-size: 10px !important;
     }
-    .mn-store-card-body p.text-secondary {
-        display: none !important;
+    .sf-store-card-meta .sf-meta-dot {
+        font-size: 7px !important;
     }
     .mn-store-thumbs {
         gap: 4px;
-        margin: 6px 0;
+        margin: 6px 0 0 0;
     }
     .mn-store-thumb-item {
         border-radius: 4px;
-    }
-    .mn-store-card-body .border-top {
-        padding-top: 6px !important;
-        margin-top: 4px !important;
-    }
-    .mn-store-card-body .border-top span.text-muted {
-        font-size: 9.5px !important;
-        max-width: 65px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .mn-store-card-body .border-top .btn {
-        padding: 2px 6px !important;
-        font-size: 10px !important;
-        border-radius: 5px;
     }
 }
 

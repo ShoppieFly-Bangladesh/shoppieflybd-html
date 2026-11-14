@@ -2042,6 +2042,83 @@
         startFlashCountdown();
     }
 
+    /* ==========================================================================
+       Customer Authentication UI (Login & Register)
+       ========================================================================== */
+    function sfInitCustomerAuth() {
+        if (!$(".sf-auth-section").length) return;
+
+        // Password Show/Hide Visibility Toggle
+        $(document).on("click", ".sf-pwd-toggle-btn", function (e) {
+            e.preventDefault();
+            var $wrap = $(this).closest(".sf-password-input-wrap");
+            var $input = $wrap.find(".sf-password-input");
+            var $icon = $(this).find("i");
+            if ($input.attr("type") === "password") {
+                $input.attr("type", "text");
+                $icon.removeClass("ri-eye-line").addClass("ri-eye-off-line");
+            } else {
+                $input.attr("type", "password");
+                $icon.removeClass("ri-eye-off-line").addClass("ri-eye-line");
+            }
+        });
+
+        // OTP 6-Digit Auto Advance & Backspace Handler
+        $(document).on("input", ".sf-otp-digit", function () {
+            var val = $(this).val().replace(/[^0-9]/g, '');
+            $(this).val(val);
+            if (val.length >= 1) {
+                $(this).next(".sf-otp-digit").focus();
+            }
+        });
+
+        $(document).on("keydown", ".sf-otp-digit", function (e) {
+            if (e.key === "Backspace" && !$(this).val()) {
+                $(this).prev(".sf-otp-digit").focus();
+            }
+        });
+
+        // OTP Paste Support
+        $(document).on("paste", ".sf-otp-digit", function (e) {
+            var pasteData = (e.originalEvent.clipboardData || window.clipboardData).getData('text');
+            pasteData = pasteData.replace(/[^0-9]/g, '');
+            if (pasteData.length === 6) {
+                e.preventDefault();
+                var digits = pasteData.split('');
+                var $inputs = $(this).closest(".sf-otp-box-wrap").find(".sf-otp-digit");
+                $inputs.each(function (i) {
+                    if (digits[i]) {
+                        $(this).val(digits[i]);
+                    }
+                });
+                $inputs.last().focus();
+            }
+        });
+
+        // Live OTP Countdown Timer Simulation
+        var $countdown = $(".sf-timer-countdown");
+        if ($countdown.length) {
+            var timeLeft = 45;
+            var otpInterval = setInterval(function () {
+                timeLeft--;
+                if (timeLeft <= 0) {
+                    clearInterval(otpInterval);
+                    $countdown.text("00:00s");
+                    $(".sf-btn-resend-otp").prop("disabled", false).addClass("text-primary");
+                } else {
+                    var formatted = timeLeft < 10 ? "0" + timeLeft : timeLeft;
+                    $countdown.text("00:" + formatted + "s");
+                }
+            }, 1000);
+        }
+
+        // Phone Input Numeric-Only Sanitizer
+        $(document).on("input", ".sf-phone-input-group input", function () {
+            var val = $(this).val().replace(/[^0-9]/g, '');
+            $(this).val(val);
+        });
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
@@ -2049,6 +2126,7 @@
         sfInitTrackOrder();
         sfInitSellerOnboarding();
         sfInitStorefront();
+        sfInitCustomerAuth();
     });
 
 })(jQuery);

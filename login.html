@@ -60,7 +60,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preload" href="assets/fonts/icon/remixicon.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style">
-        <link rel="preload" href="assets/css/style.min.css?v=2190be95" as="style">
+        <link rel="preload" href="assets/css/style.min.css?v=auth20261114" as="style">
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon">
         <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
@@ -74,9 +74,9 @@
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet">
         <!-- Main CSS -->
-        <link href="assets/css/style.min.css?v=2190be95" id="mainCss" rel="stylesheet">
+        <link href="assets/css/style.min.css?v=auth20261114" id="mainCss" rel="stylesheet">
     </head>
-    <body data-mn-mode="light">
+    <body class="sf-auth-page" data-mn-mode="light">
         <main class="wrapper sb-default">
             <!-- Loader -->
             <div id="mn-overlay">
@@ -658,60 +658,171 @@
             <!-- Main Content -->
             <div class="mn-main-content">
 
-                
-                <!-- Login section -->
-                <section class="mn-login p-b-15">
-                    <div class="mn-title d-none">
-                        <h2>
-                            Login
-                            <span></span>
-                        </h2>
-                        <p>Get access to your Orders, Wishlist and Recommendations.</p>
-                    </div>
-                    <div class="mn-login-content">
-                        <div class="mn-login-box">
-                            <div class="mn-login-wrapper">
-                                <div class="mn-login-container">
-                                    <div class="mn-login-form">
-                                        <form action="#" method="post">
-                                            <span class="mn-login-wrap">
-                                                <label for="login_user">Email Address or Phone*</label>
-                                                <input
-                                                    id="login_user"
-                                                    name="email"
-                                                    placeholder="Enter your email or phone..."
-                                                    required=""
-                                                    type="text">
-                                            </span>
-                                            <span class="mn-login-wrap">
-                                                <label for="login_password">Password*</label>
-                                                <input
-                                                    id="login_password"
-                                                    name="password"
-                                                    placeholder="Enter your password"
-                                                    required=""
-                                                    type="password">
-                                            </span>
-                                            <span class="mn-login-wrap mn-login-fp">
-                                                <span class="mn-remember">
-                                                    <input name="remember" type="checkbox" value="1" id="rememberMe">
-                                                    <label for="rememberMe" class="mb-0 cursor-pointer">Remember Me</label>
-                                                    <span class="checked"></span>
-                                                </span>
-                                                <label><a href="#">Forgot Password?</a></label>
-                                            </span>
-                                            <span class="mn-login-wrap mn-login-btn">
-                                                <span><a class="" href="register.html">Create Account?</a></span>
-                                                <button class="mn-btn-1 btn" type="submit"><span>Login</span></button>
-                                            </span>
-                                        </form>
-                                    </div>
+                <!-- Streamlined Breadcrumb -->
+                <nav class="sf-breadcrumb-nav" aria-label="breadcrumb">
+                    <ul class="mn-breadcrumb-list">
+                        <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="mn-breadcrumb-item active">Login</li>
+                    </ul>
+                </nav>
+
+                <!-- Clean Modern Customer Auth Section (No Enclosing Card) -->
+                <section class="sf-auth-simple-section">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center g-4 g-xl-5">
+                            <!-- Left: Only the Illustration Image (Desktop) -->
+                            <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+                                <div class="sf-auth-pure-img-wrap">
+                                    <img src="assets/img/common/auth-hero.webp" alt="ShoppieFlyBD Online Shopping" class="sf-auth-pure-img" width="797" height="1067" loading="lazy" decoding="async">
                                 </div>
                             </div>
-                        </div>
-                        <div class="mn-login-box d-n-991">
-                            <div class="mn-login-img">
-                                <img alt="login" src="assets/img/common/about-3.webp" width="700" height="560" loading="lazy" decoding="async">
+
+                            <!-- Right: Clean Minimal Form -->
+                            <div class="col-12 col-lg-6 col-xl-5">
+                                <div class="sf-auth-simple-form-wrap">
+                                    <div class="sf-auth-header">
+                                        <h1 class="sf-auth-title">Welcome Back!</h1>
+                                        <p class="sf-auth-subtitle">Sign in to manage your orders, wishlist, and discounts.</p>
+                                    </div>
+
+                                    <!-- Minimal Dual Tab Switcher -->
+                                    <ul class="nav nav-pills sf-auth-switch-tabs" id="loginTab" role="tablist">
+                                        <li class="nav-item" role="presentation" style="flex: 1;">
+                                            <button class="nav-link active w-100" id="password-tab-btn" data-bs-toggle="pill" data-bs-target="#login-password-pane" type="button" role="tab" aria-controls="login-password-pane" aria-selected="true">
+                                                <i class="ri-lock-password-line me-1"></i> Phone + Password
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation" style="flex: 1;">
+                                            <button class="nav-link w-100" id="otp-tab-btn" data-bs-toggle="pill" data-bs-target="#login-otp-pane" type="button" role="tab" aria-controls="login-otp-pane" aria-selected="false">
+                                                <i class="ri-smartphone-line me-1"></i> Phone + OTP
+                                            </button>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content" id="loginTabContent">
+                                        <!-- 1. Password Login Pane -->
+                                        <div class="tab-pane fade show active" id="login-password-pane" role="tabpanel" aria-labelledby="password-tab-btn">
+                                            <form action="#" method="post" onsubmit="event.preventDefault();">
+                                                <div class="mb-3">
+                                                    <label class="sf-input-label" for="login_phone">Phone Number <span class="text-danger">*</span></label>
+                                                    <div class="sf-phone-input-group">
+                                                        <span class="sf-phone-prefix">
+                                                            <svg class="sf-bd-flag" width="20" height="13" viewBox="0 0 20 12">
+                                                                <rect width="20" height="12" fill="#006a4e"/>
+                                                                <circle cx="9" cy="6" r="4" fill="#f42a41"/>
+                                                            </svg>
+                                                            <span>+880</span>
+                                                        </span>
+                                                        <input type="tel" id="login_phone" class="sf-auth-input" placeholder="01XXXXXXXXX" maxlength="11" required autocomplete="tel">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                        <label class="sf-input-label mb-0" for="login_password">Password <span class="text-danger">*</span></label>
+                                                        <a href="#!" class="sf-forgot-link">Forgot Password?</a>
+                                                    </div>
+                                                    <div class="sf-password-input-wrap">
+                                                        <i class="ri-lock-line sf-input-start-icon"></i>
+                                                        <input type="password" id="login_password" class="sf-auth-input sf-password-input" placeholder="Enter your password" required autocomplete="current-password">
+                                                        <button type="button" class="sf-pwd-toggle-btn" aria-label="Toggle password visibility">
+                                                            <i class="ri-eye-line"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <label class="sf-checkbox-wrap">
+                                                        <input type="checkbox" id="rememberMe" checked>
+                                                        <span>Remember this device</span>
+                                                    </label>
+                                                </div>
+
+                                                <button type="submit" class="sf-btn-auth-primary">
+                                                    <span>Login with Password</span>
+                                                    <i class="ri-arrow-right-line ms-1"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <!-- 2. OTP Login Pane -->
+                                        <div class="tab-pane fade" id="login-otp-pane" role="tabpanel" aria-labelledby="otp-tab-btn">
+                                            <form action="#" method="post" onsubmit="event.preventDefault();">
+                                                <div class="mb-3">
+                                                    <label class="sf-input-label" for="otp_phone">Phone Number <span class="text-danger">*</span></label>
+                                                    <div class="sf-phone-input-group">
+                                                        <span class="sf-phone-prefix">
+                                                            <svg class="sf-bd-flag" width="20" height="13" viewBox="0 0 20 12">
+                                                                <rect width="20" height="12" fill="#006a4e"/>
+                                                                <circle cx="9" cy="6" r="4" fill="#f42a41"/>
+                                                            </svg>
+                                                            <span>+880</span>
+                                                        </span>
+                                                        <input type="tel" id="otp_phone" class="sf-auth-input" placeholder="01XXXXXXXXX" value="01712345678" maxlength="11" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                                        <label class="sf-input-label mb-0">6-Digit OTP Code <span class="text-danger">*</span></label>
+                                                        <span class="text-success small fw-semibold"><i class="ri-check-double-line"></i> Code sent to +880 1712345678</span>
+                                                    </div>
+                                                    <div class="sf-otp-box-wrap">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="5" placeholder="•" inputmode="numeric">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="8" placeholder="•" inputmode="numeric">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="2" placeholder="•" inputmode="numeric">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
+                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
+                                                    </div>
+                                                    <div class="sf-otp-timer-row d-flex justify-content-between align-items-center mt-2">
+                                                        <span class="text-muted small">
+                                                            <i class="ri-time-line me-1"></i> Resend code in <strong class="text-dark sf-timer-countdown">00:45s</strong>
+                                                        </span>
+                                                        <button type="button" class="sf-btn-resend-otp" disabled>Resend OTP</button>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="sf-btn-auth-primary mt-4">
+                                                    <span>Verify & Log In</span>
+                                                    <i class="ri-shield-check-line ms-1"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!-- Social Login Section -->
+                                    <div class="sf-auth-divider">
+                                        <span>OR CONTINUE WITH</span>
+                                    </div>
+
+                                    <div class="sf-social-buttons-row">
+                                        <a href="#!" class="sf-btn-social sf-btn-google" role="button">
+                                            <svg class="sf-social-icon" viewBox="0 0 24 24">
+                                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                                            </svg>
+                                            <span>Google</span>
+                                        </a>
+                                        <a href="#!" class="sf-btn-social sf-btn-facebook" role="button">
+                                            <svg class="sf-social-icon" viewBox="0 0 24 24" fill="#1877F2">
+                                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                            </svg>
+                                            <span>Facebook</span>
+                                        </a>
+                                    </div>
+
+                                    <p class="sf-auth-switch-text">
+                                        Don't have an account? <a href="register.html" class="sf-auth-switch-link">Register Now →</a>
+                                    </p>
+
+                                    <div class="sf-seller-switch-banner mt-3">
+                                        <i class="ri-store-2-line text-warning"></i>
+                                        <span>Are you a Merchant? <a href="seller-login.html">Login to Seller Center</a></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1542,6 +1653,6 @@
         <script defer src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script defer src="assets/js/vendor/owl.carousel.min.js"></script>
         <!-- Main Custom -->
-        <script defer src="assets/js/main.js?v=2190be95"></script>
+        <script defer src="assets/js/main.js?v=auth20261114"></script>
     </body>
 </html>

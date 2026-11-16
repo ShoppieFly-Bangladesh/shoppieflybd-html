@@ -2224,6 +2224,105 @@
         }
     }
 
+    /* ==========================================================================
+       ShoppieFlyBD Customer Dashboard Controller (account.html)
+       ========================================================================== */
+    function sfInitCustomerDashboard() {
+        if (!$(".sf-account-sidebar, .sf-account-content, #sfAccountMainWrapper").length) {
+            return;
+        }
+
+        var validTabs = ["dashboard", "orders", "profile", "addresses", "vouchers", "reviews", "returns", "support"];
+
+        function activateAccountTab(targetId, updateHash) {
+            if (!targetId) return;
+            targetId = targetId.replace(/^#/, "");
+            if (validTabs.indexOf(targetId) === -1) {
+                targetId = "dashboard";
+            }
+
+            // Update Desktop Sidebar Links
+            $(".sf-account-nav-link").removeClass("active");
+            $('.sf-account-nav-link[href="#' + targetId + '"]').addClass("active");
+
+            // Update Mobile Scroller Tabs
+            $(".sf-account-mobile-tab").removeClass("active");
+            $('.sf-account-mobile-tab[href="#' + targetId + '"]').addClass("active");
+
+            // Update Tab Panes (Direct children of #sfAccountTabContent only, preserving nested sub-tabs)
+            $("#sfAccountTabContent > .tab-pane").removeClass("show active");
+            var $targetPane = $("#sfAccountTabContent > #" + targetId);
+            if ($targetPane.length) {
+                $targetPane.addClass("show active");
+            }
+
+            // Sync URL Hash
+            if (updateHash !== false) {
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, null, "#" + targetId);
+                } else {
+                    window.location.hash = "#" + targetId;
+                }
+            }
+
+            // Auto-scroll mobile pill into center
+            var $scroller = $(".sf-account-scroller-inner");
+            var $activeMobilePill = $('.sf-account-mobile-tab[href="#' + targetId + '"]');
+            if ($scroller.length && $activeMobilePill.length) {
+                var containerWidth = $scroller.width();
+                var pillLeft = $activeMobilePill.position().left + $scroller.scrollLeft();
+                var pillWidth = $activeMobilePill.outerWidth();
+                var targetScroll = pillLeft - (containerWidth / 2) + (pillWidth / 2);
+                $scroller.stop().animate({ scrollLeft: Math.max(0, targetScroll) }, 200);
+            }
+        }
+
+        // Navigation Clicks (Desktop Sidebar & Mobile Scroller)
+        $(document).on("click", ".sf-account-nav-link, .sf-account-mobile-tab, .sf-account-tab-trigger", function (e) {
+            var href = $(this).attr("href");
+            if (href && href.startsWith("#")) {
+                e.preventDefault();
+                activateAccountTab(href);
+            }
+        });
+
+        // Metric Counter Cards Shortcut Click
+        $(document).on("click", "[data-sf-tab-target]", function (e) {
+            e.preventDefault();
+            var targetTab = $(this).data("sf-tab-target");
+            var filterStatus = $(this).data("sf-filter-status");
+
+            activateAccountTab(targetTab);
+
+            if (filterStatus) {
+                setTimeout(function () {
+                    var $filterBtn = $('#sfOrderFilterPills [data-sf-filter="' + filterStatus + '"], #sfOrderFilterPills [data-status="' + filterStatus + '"]');
+                    if ($filterBtn.length) {
+                        $filterBtn.trigger("click");
+                    }
+                }, 100);
+            }
+        });
+
+        // Initial Hash Navigation on Page Load
+        var initialHash = window.location.hash ? window.location.hash.replace(/^#/, "") : "dashboard";
+        activateAccountTab(initialHash, false);
+
+        // Listen for browser forward/backward buttons
+        $(window).on("hashchange", function () {
+            var currentHash = window.location.hash ? window.location.hash.replace(/^#/, "") : "dashboard";
+            activateAccountTab(currentHash, false);
+        });
+
+        // Initialize tooltips
+        if (typeof bootstrap !== "undefined" && bootstrap.Tooltip) {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        }
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
@@ -2232,6 +2331,7 @@
         sfInitSellerOnboarding();
         sfInitStorefront();
         sfInitCustomerAuth();
+        sfInitCustomerDashboard();
     });
 
 })(jQuery);

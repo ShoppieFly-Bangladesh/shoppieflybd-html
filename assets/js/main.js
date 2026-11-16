@@ -2043,10 +2043,19 @@
     }
 
     /* ==========================================================================
-       Customer Authentication UI (Login & Register)
+       Customer Authentication UI (Login, Register & Verify OTP)
        ========================================================================== */
     function sfInitCustomerAuth() {
-        if (!$(".sf-auth-section").length) return;
+        if (!$(".sf-auth-simple-section, .sf-auth-page, .sf-auth-section").length) return;
+
+        // Auto-activate tab from URL query param ?tab=otp or hash #otp
+        var authUrlParams = new URLSearchParams(window.location.search);
+        if (authUrlParams.get("tab") === "otp" || window.location.hash === "#otp") {
+            var $otpTabBtn = $("#otp-tab-btn");
+            if ($otpTabBtn.length && typeof bootstrap !== "undefined" && bootstrap.Tab) {
+                bootstrap.Tab.getOrCreateInstance($otpTabBtn[0]).show();
+            }
+        }
 
         // Password Show/Hide Visibility Toggle
         $(document).on("click", ".sf-pwd-toggle-btn", function (e) {
@@ -2095,28 +2104,124 @@
             }
         });
 
-        // Live OTP Countdown Timer Simulation
-        var $countdown = $(".sf-timer-countdown");
-        if ($countdown.length) {
-            var timeLeft = 45;
-            var otpInterval = setInterval(function () {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(otpInterval);
-                    $countdown.text("00:00s");
-                    $(".sf-btn-resend-otp").prop("disabled", false).addClass("text-primary");
-                } else {
-                    var formatted = timeLeft < 10 ? "0" + timeLeft : timeLeft;
-                    $countdown.text("00:" + formatted + "s");
-                }
-            }, 1000);
-        }
-
         // Phone Input Numeric-Only Sanitizer
         $(document).on("input", ".sf-phone-input-group input", function () {
             var val = $(this).val().replace(/[^0-9]/g, '');
             $(this).val(val);
         });
+
+        // Send OTP Handler on login.html
+        $("#sfLoginOtpForm").on("submit", function (e) {
+            e.preventDefault();
+            var $phoneInput = $("#otp_phone");
+            var phone = $phoneInput.val().trim();
+
+            if (!phone || !/^01[3-9]\d{8}$/.test(phone)) {
+                $phoneInput.addClass("is-invalid").focus();
+                alert("Please enter a valid 11-digit Bangladeshi mobile number (e.g. 01712345678)");
+                return;
+            }
+
+            $phoneInput.removeClass("is-invalid");
+            var $btn = $("#btnSendLoginOtp");
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Sending OTP...');
+
+            try {
+                sessionStorage.setItem("sf_verify_phone", phone);
+            } catch (err) {}
+
+            setTimeout(function () {
+                window.location.href = "verify-otp.html?phone=" + encodeURIComponent(phone);
+            }, 300);
+        });
+
+        // Dedicated OTP Verification Page Controller (verify-otp.html)
+        if ($("#sfVerifyOtpForm").length) {
+            var urlParams = new URLSearchParams(window.location.search);
+            var phoneParam = urlParams.get("phone");
+            var storedPhone = "";
+            try {
+                storedPhone = sessionStorage.getItem("sf_verify_phone");
+            } catch (err) {}
+            var activePhone = phoneParam || storedPhone || "01712345678";
+
+            // Format phone number: +880 1712345678
+            var formattedPhone = activePhone.replace(/^0/, '');
+            $("#sfDisplayPhone").text("+880 " + formattedPhone);
+
+            // Auto-focus first OTP digit input
+            setTimeout(function () {
+                $(".sf-otp-digit").first().focus();
+            }, 100);
+
+            // Handle OTP Countdown Timer
+            var timeLeft = 45;
+            var otpInterval = null;
+
+            function startOtpTimer() {
+                timeLeft = 45;
+                var $countdown = $(".sf-timer-countdown");
+                var $resendBtn = $("#btnResendOtp");
+                $resendBtn.prop("disabled", true).removeClass("text-primary");
+
+                if (otpInterval) clearInterval(otpInterval);
+                otpInterval = setInterval(function () {
+                    timeLeft--;
+                    if (timeLeft <= 0) {
+                        clearInterval(otpInterval);
+                        $countdown.text("00:00s");
+                        $resendBtn.prop("disabled", false).addClass("text-primary");
+                    } else {
+                        var formatted = timeLeft < 10 ? "0" + timeLeft : timeLeft;
+                        $countdown.text("00:" + formatted + "s");
+                    }
+                }, 1000);
+            }
+
+            startOtpTimer();
+
+            // Resend OTP Button Click
+            $("#btnResendOtp").on("click", function (e) {
+                e.preventDefault();
+                if ($(this).prop("disabled")) return;
+
+                var $alert = $("#sfOtpAlert");
+                $alert.removeClass("d-none alert-danger").addClass("alert-success")
+                    .html('<i class="ri-check-line me-1"></i> A fresh 6-digit OTP code has been sent to +880 ' + formattedPhone);
+
+                // Clear input boxes and focus first
+                $(".sf-otp-digit").val("");
+                $(".sf-otp-digit").first().focus();
+
+                startOtpTimer();
+            });
+
+            // Verify OTP Form Submission
+            $("#sfVerifyOtpForm").on("submit", function (e) {
+                e.preventDefault();
+                var otp = "";
+                $(".sf-otp-digit").each(function () {
+                    otp += $(this).val();
+                });
+
+                var $alert = $("#sfOtpAlert");
+                if (otp.length < 6) {
+                    $alert.removeClass("d-none alert-success").addClass("alert-danger")
+                        .html('<i class="ri-error-warning-line me-1"></i> Please enter the complete 6-digit verification code.');
+                    return;
+                }
+
+                $alert.removeClass("d-none alert-danger").addClass("alert-success")
+                    .html('<i class="ri-check-double-line me-1"></i> Verified successfully! Redirecting...');
+
+                var $btn = $("#btnVerifyOtp");
+                $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Logging In...');
+
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 600);
+            });
+        }
     }
 
     $(document).ready(function () {

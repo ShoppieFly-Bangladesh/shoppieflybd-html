@@ -60,7 +60,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preload" href="assets/fonts/icon/remixicon.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style">
-        <link rel="preload" href="assets/css/style.min.css?v=auth20261114" as="style">
+        <link rel="preload" href="assets/css/style.min.css?v=auth20261116" as="style">
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon">
         <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
@@ -74,7 +74,7 @@
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet">
         <!-- Main CSS -->
-        <link href="assets/css/style.min.css?v=auth20261114" id="mainCss" rel="stylesheet">
+        <link href="assets/css/style.min.css?v=auth20261116" id="mainCss" rel="stylesheet">
     </head>
     <body class="sf-auth-page" data-mn-mode="light">
         <main class="wrapper sb-default">
@@ -747,7 +747,7 @@
 
                                         <!-- 2. OTP Login Pane -->
                                         <div class="tab-pane fade" id="login-otp-pane" role="tabpanel" aria-labelledby="otp-tab-btn">
-                                            <form action="#" method="post" onsubmit="event.preventDefault();">
+                                            <form id="sfLoginOtpForm" action="verify-otp.html" method="get">
                                                 <div class="mb-3">
                                                     <label class="sf-input-label" for="otp_phone">Phone Number <span class="text-danger">*</span></label>
                                                     <div class="sf-phone-input-group">
@@ -758,34 +758,16 @@
                                                             </svg>
                                                             <span>+880</span>
                                                         </span>
-                                                        <input type="tel" id="otp_phone" class="sf-auth-input" placeholder="01XXXXXXXXX" value="01712345678" maxlength="11" required>
+                                                        <input type="tel" id="otp_phone" name="phone" class="sf-auth-input" placeholder="01XXXXXXXXX" maxlength="11" required autocomplete="tel">
+                                                    </div>
+                                                    <div class="sf-input-hint mt-2">
+                                                        <i class="ri-information-line me-1 text-primary"></i> We'll send an SMS with a 6-digit verification code to this number.
                                                     </div>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                                        <label class="sf-input-label mb-0">6-Digit OTP Code <span class="text-danger">*</span></label>
-                                                        <span class="text-success small fw-semibold"><i class="ri-check-double-line"></i> Code sent to +880 1712345678</span>
-                                                    </div>
-                                                    <div class="sf-otp-box-wrap">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="5" placeholder="•" inputmode="numeric">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="8" placeholder="•" inputmode="numeric">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" value="2" placeholder="•" inputmode="numeric">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                        <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                    </div>
-                                                    <div class="sf-otp-timer-row d-flex justify-content-between align-items-center mt-2">
-                                                        <span class="text-muted small">
-                                                            <i class="ri-time-line me-1"></i> Resend code in <strong class="text-dark sf-timer-countdown">00:45s</strong>
-                                                        </span>
-                                                        <button type="button" class="sf-btn-resend-otp" disabled>Resend OTP</button>
-                                                    </div>
-                                                </div>
-
-                                                <button type="submit" class="sf-btn-auth-primary mt-4">
-                                                    <span>Verify & Log In</span>
-                                                    <i class="ri-shield-check-line ms-1"></i>
+                                                <button type="submit" id="btnSendLoginOtp" class="sf-btn-auth-primary mt-4">
+                                                    <span>Send OTP Code</span>
+                                                    <i class="ri-arrow-right-line ms-1"></i>
                                                 </button>
                                             </form>
                                         </div>
@@ -1653,6 +1635,6 @@
         <script defer src="assets/js/vendor/bootstrap.bundle.min.js"></script>
         <script defer src="assets/js/vendor/owl.carousel.min.js"></script>
         <!-- Main Custom -->
-        <script defer src="assets/js/main.js?v=auth20261114"></script>
+        <script defer src="assets/js/main.js?v=auth20261116"></script>
     </body>
 </html>

@@ -1,210 +1,102 @@
 <!-- ======================================================================= -->
-<!-- ShoppieFlyBD Customer Dashboard: Perks Partial (Vouchers, Reviews, Returns) -->
+<!-- ShoppieFlyBD Customer Dashboard: Perks Partial (Ultra-Clean & Minimal)    -->
 <!-- Module: apps/web-html/account-partials/perks.html                          -->
 <!-- ======================================================================= -->
 
 <style>
 /* -------------------------------------------------- */
-/* ShoppieFlyBD Perks & Rewards Custom Styling        */
+/* Ultra-Clean Perks & Rewards Styling                */
 /* -------------------------------------------------- */
 
-/* Sub-Tab Navigation Styling */
-.sf-perks-subtabs {
-    border-bottom: 2px solid #e2e8f0;
+.sf-sub-nav {
+    display: flex;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
 }
-.sf-perks-subtabs .nav-link {
-    color: #64748b;
+.sf-sub-nav .nav-link {
+    font-size: 13.5px;
     font-weight: 600;
-    font-size: 14.5px;
-    padding: 10px 18px;
-    border-radius: 8px 8px 0 0;
-    border: none;
-    border-bottom: 3px solid transparent;
-    background: transparent;
+    color: #64748b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: #f8fafc;
     transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
 }
-.sf-perks-subtabs .nav-link:hover {
+.sf-sub-nav .nav-link:hover {
     color: #3a4ee5;
-    background: rgba(58, 78, 229, 0.04);
+    background: #eef2ff;
 }
-.sf-perks-subtabs .nav-link.active {
-    color: #3a4ee5;
-    border-bottom-color: #3a4ee5;
-    background: transparent;
+.sf-sub-nav .nav-link.active {
+    color: #ffffff;
+    background: #3a4ee5;
 }
-.sf-perks-subtabs .nav-link .badge {
+.sf-sub-nav .nav-link .badge {
     font-size: 11px;
-    font-weight: 700;
-    padding: 3px 7px;
-    border-radius: 12px;
+    margin-left: 4px;
 }
 
-/* -------------------------------------------------- */
-/* 1. Daraz-Style Ticket Voucher Cards                */
-/* -------------------------------------------------- */
-.sf-voucher-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 20px;
-}
-@media (max-width: 576px) {
-    .sf-voucher-grid {
-        grid-template-columns: 1fr;
-    }
-}
-.sf-voucher-card {
+/* Compact Voucher Ticket */
+.sf-coupon-row {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
     display: flex;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-.sf-voucher-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(58, 78, 229, 0.08);
-    border-color: #cbd5e1;
-}
-
-/* Left Discount Value Stub */
-.sf-voucher-stub {
-    width: 120px;
-    min-width: 120px;
-    background: linear-gradient(135deg, #3a4ee5 0%, #2234aa 100%);
-    color: #ffffff;
-    padding: 16px 10px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-}
-.sf-voucher-card.is-freeship .sf-voucher-stub {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
-}
-.sf-voucher-card.is-mega .sf-voucher-stub {
-    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-}
-.sf-voucher-card.is-expired .sf-voucher-stub {
-    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
-}
-
-.sf-voucher-stub-icon {
-    font-size: 20px;
-    margin-bottom: 4px;
-    opacity: 0.9;
-}
-.sf-voucher-stub-amount {
-    font-size: 19px;
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-}
-.sf-voucher-stub-sub {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.85;
-    margin-top: 4px;
-}
-
-/* Ticket Punch Hole Notches */
-.sf-voucher-stub::after {
-    content: '';
-    position: absolute;
-    right: -7px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    background-color: #f8fafc;
-    border-radius: 50%;
-    box-shadow: inset 0 0 2px rgba(0,0,0,0.15);
-    z-index: 2;
-}
-
-/* Voucher Details Right Area */
-.sf-voucher-details {
-    padding: 16px 18px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    background-color: #ffffff;
+    flex-wrap: wrap;
+    gap: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.sf-voucher-badge {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    letter-spacing: 0.3px;
-    margin-bottom: 6px;
+.sf-coupon-row:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
-.sf-voucher-badge.badge-storewide {
-    background: #eef2ff;
+.sf-coupon-discount {
+    font-size: 18px;
+    font-weight: 800;
     color: #3a4ee5;
+    letter-spacing: -0.5px;
+    min-width: 100px;
 }
-.sf-voucher-badge.badge-freeship {
-    background: #ecfdf5;
+.sf-coupon-discount.freeship {
     color: #059669;
 }
-.sf-voucher-badge.badge-mega {
-    background: #fff7ed;
+.sf-coupon-discount.mega {
     color: #ea580c;
 }
-.sf-voucher-badge.badge-expired {
+.sf-coupon-info {
+    flex-grow: 1;
+    min-width: 220px;
+}
+.sf-coupon-code-pill {
     background: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #0f172a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.sf-coupon-meta {
+    font-size: 12.5px;
     color: #64748b;
 }
 
-.sf-voucher-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 4px;
-    line-height: 1.25;
-}
-.sf-voucher-criteria {
-    font-size: 12.5px;
-    color: #64748b;
-    margin-bottom: 12px;
-}
-.sf-voucher-code-wrap {
-    background: #f8fafc;
-    border: 1px dashed #cbd5e1;
-    border-radius: 6px;
-    padding: 6px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-}
-.sf-voucher-code-val {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-weight: 700;
-    font-size: 13.5px;
-    color: #0f172a;
-    letter-spacing: 0.5px;
-}
 .sf-btn-copy-code {
     background: #ffffff;
     border: 1px solid #cbd5e1;
     color: #3a4ee5;
-    font-size: 11.5px;
+    font-size: 12px;
     font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 4px;
+    padding: 6px 14px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
@@ -222,329 +114,107 @@
     color: #ffffff !important;
 }
 
-.sf-voucher-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
-    border-top: 1px dashed #e2e8f0;
-}
-.sf-voucher-expiry {
-    font-size: 11.5px;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.sf-voucher-expiry.is-urgent {
-    color: #dc2626;
-    font-weight: 600;
-}
-.sf-voucher-shop-btn {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-/* Expired State Styling */
-.sf-voucher-card.is-expired {
-    opacity: 0.68;
-    filter: grayscale(40%);
-}
-.sf-voucher-card.is-expired:hover {
-    transform: none;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-}
-
-/* -------------------------------------------------- */
-/* 2. My Reviews Section Styling                      */
-/* -------------------------------------------------- */
-.sf-review-pending-card {
+/* Compact Review Items */
+.sf-review-row {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 16px;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-    transition: all 0.2s ease;
+    gap: 14px;
 }
-.sf-review-pending-card:hover {
+.sf-review-row:hover {
     border-color: #cbd5e1;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
-.sf-review-pending-thumb {
-    width: 72px;
-    height: 72px;
+.sf-review-thumb-48 {
+    width: 48px;
+    height: 48px;
     border-radius: 8px;
     object-fit: cover;
     border: 1px solid #e2e8f0;
-    background: #f8fafc;
+    flex-shrink: 0;
 }
-.sf-review-pending-info {
+.sf-review-content {
     flex-grow: 1;
-    min-width: 240px;
-}
-.sf-review-store-badge {
-    font-size: 11.5px;
-    color: #64748b;
-    margin-bottom: 4px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.sf-review-product-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 4px;
-    text-decoration: none;
-    display: block;
-}
-.sf-review-product-name:hover {
-    color: #3a4ee5;
-}
-.sf-review-meta {
-    font-size: 12px;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-/* Review History Card */
-.sf-review-history-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-}
-.sf-review-history-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #f1f5f9;
-    margin-bottom: 14px;
+    min-width: 220px;
 }
 .sf-review-stars {
-    display: flex;
-    align-items: center;
-    gap: 2px;
     color: #fbbf24;
-    font-size: 16px;
-}
-.sf-review-date {
-    font-size: 12px;
-    color: #94a3b8;
-}
-.sf-review-headline {
-    font-size: 15px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 8px;
-}
-.sf-review-body-text {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: #334155;
-    margin-bottom: 14px;
-}
-.sf-review-photos-grid {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-}
-.sf-review-photo-item {
-    width: 64px;
-    height: 64px;
-    border-radius: 6px;
-    object-fit: cover;
-    border: 1px solid #e2e8f0;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-.sf-review-photo-item:hover {
-    transform: scale(1.05);
-}
-
-/* Official Seller Reply Box */
-.sf-seller-reply-box {
-    background: #f8fafc;
-    border-left: 3px solid #3a4ee5;
-    border-radius: 0 8px 8px 0;
-    padding: 14px 16px;
-    margin-top: 14px;
-}
-.sf-seller-reply-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
-}
-.sf-seller-reply-title {
-    font-size: 12.5px;
-    font-weight: 700;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.sf-seller-reply-date {
-    font-size: 11.5px;
-    color: #94a3b8;
-}
-.sf-seller-reply-content {
     font-size: 13px;
+    margin-bottom: 2px;
+}
+.sf-seller-reply-mini {
+    background: #f8fafc;
+    border-left: 2px solid #3a4ee5;
+    padding: 6px 10px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
     color: #475569;
-    line-height: 1.5;
-    margin: 0;
+    margin-top: 6px;
 }
 
-/* -------------------------------------------------- */
-/* 3. Returns & Refunds Stepper & Summary             */
-/* -------------------------------------------------- */
-.sf-return-card {
+/* Clean Returns Card */
+.sf-return-clean-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    border-radius: 10px;
+    padding: 18px 20px;
 }
-.sf-return-header {
+.sf-return-progress-dots {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #f1f5f9;
-    margin-bottom: 20px;
-}
-
-/* Live Return Stepper */
-.sf-return-stepper-wrap {
-    padding: 20px 10px;
-    background: #f8fafc;
-    border-radius: 10px;
-    margin-bottom: 24px;
-}
-.sf-return-stepper {
-    display: flex;
-    justify-content: space-between;
     position: relative;
-    max-width: 860px;
-    margin: 0 auto;
+    margin: 20px 0 16px;
 }
-.sf-return-stepper::before {
+.sf-return-progress-dots::before {
     content: '';
     position: absolute;
-    top: 20px;
-    left: 40px;
-    right: 40px;
-    height: 3px;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 2px;
     background: #10b981;
+    transform: translateY(-50%);
     z-index: 1;
 }
-.sf-return-step {
+.sf-return-dot-step {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #ffffff;
+    padding: 0 8px;
     text-align: center;
-    flex: 1;
 }
-.sf-return-step-circle {
-    width: 42px;
-    height: 42px;
+.sf-return-dot {
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #10b981;
     color: #ffffff;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 700;
-    box-shadow: 0 0 0 5px #ecfdf5;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
-.sf-return-step-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 3px;
-}
-.sf-return-step-time {
+.sf-return-dot-label {
     font-size: 11.5px;
-    color: #64748b;
+    font-weight: 600;
+    color: #0f172a;
+    display: block;
 }
 
-@media (max-width: 768px) {
-    .sf-return-stepper {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .sf-return-stepper::before {
-        top: 20px;
-        bottom: 20px;
-        left: 20px;
-        right: auto;
-        width: 3px;
-        height: auto;
-    }
-    .sf-return-step {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-        gap: 16px;
-    }
-    .sf-return-step-circle {
-        margin-bottom: 0;
-        min-width: 42px;
-    }
-}
-
-/* Refund Disbursement Summary Card */
-.sf-refund-summary-box {
-    background: #ffffff;
-    border: 1px solid #bbf7d0;
-    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
-    border-radius: 10px;
-    padding: 20px;
-}
-.sf-refund-amount-tag {
-    font-size: 26px;
-    font-weight: 800;
-    color: #059669;
-    letter-spacing: -0.5px;
-}
-
-/* -------------------------------------------------- */
-/* 4. Write Review Modal Star Interactive Picker      */
-/* -------------------------------------------------- */
+/* Modal Star Picker */
 .sf-interactive-star-picker {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 32px;
+    font-size: 28px;
     color: #cbd5e1;
     cursor: pointer;
 }
@@ -557,25 +227,17 @@
 .sf-interactive-star-picker i.is-active {
     color: #fbbf24;
 }
-
-/* Upload Dropzone */
-.sf-review-dropzone {
-    border: 2px dashed #cbd5e1;
+.sf-review-dropzone-mini {
+    border: 1.5px dashed #cbd5e1;
     background: #f8fafc;
     border-radius: 8px;
-    padding: 24px;
+    padding: 16px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
-.sf-review-dropzone:hover {
+.sf-review-dropzone-mini:hover {
     border-color: #3a4ee5;
     background: #f1f5f9;
-}
-.sf-review-dropzone i {
-    font-size: 36px;
-    color: #3a4ee5;
-    margin-bottom: 8px;
 }
 </style>
 
@@ -583,41 +245,16 @@
 <!-- TAB PANE 1: VOUCHERS & COUPONS (#vouchers)                              -->
 <!-- ======================================================================= -->
 <div class="tab-pane fade" id="vouchers" role="tabpanel" aria-labelledby="tab-vouchers">
-    <!-- Header Section -->
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-        <div>
-            <h3 class="fw-bold mb-1 d-flex align-items-center gap-2" style="font-size: 22px; color: #0f172a;">
-                <i class="ri-coupon-3-line text-primary"></i>
-                Vouchers & Coupons
-            </h3>
-            <p class="text-muted mb-0" style="font-size: 13.5px;">
-                Collect discount vouchers and apply them at checkout to save big on your orders!
-            </p>
-        </div>
-
-        <!-- Voucher Code Input Form -->
-        <div class="d-flex align-items-center gap-2">
-            <div class="input-group input-group-sm" style="max-width: 280px;">
-                <input
-                    type="text"
-                    id="sfApplyVoucherInput"
-                    class="form-control text-uppercase"
-                    placeholder="Enter Coupon Code"
-                    aria-label="Coupon code"
-                    style="font-family: monospace; font-weight: 600;" />
-                <button
-                    class="btn btn-primary"
-                    type="button"
-                    id="sfBtnApplyVoucher"
-                    onclick="sfApplyVoucherHandler()">
-                    Apply
-                </button>
-            </div>
-        </div>
+    <!-- Clean Header -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">Vouchers &amp; Coupons</h4>
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
+            3 Available
+        </span>
     </div>
 
     <!-- Sub-tabs: Active vs Expired -->
-    <ul class="nav nav-pills sf-perks-subtabs" id="voucherTabNav" role="tablist">
+    <ul class="nav sf-sub-nav" id="voucherTabNav" role="tablist">
         <li class="nav-item" role="presentation">
             <button
                 class="nav-link active"
@@ -628,9 +265,7 @@
                 role="tab"
                 aria-controls="active-vouchers-pane"
                 aria-selected="true">
-                <i class="ri-checkbox-circle-line"></i>
-                Active Vouchers
-                <span class="badge bg-primary">3</span>
+                Active Vouchers (3)
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -643,202 +278,106 @@
                 role="tab"
                 aria-controls="expired-vouchers-pane"
                 aria-selected="false">
-                <i class="ri-history-line"></i>
-                Expired & Used
-                <span class="badge bg-secondary">2</span>
+                Expired (2)
             </button>
         </li>
     </ul>
 
-    <!-- Sub-tab Content -->
+    <!-- Tab Content -->
     <div class="tab-content" id="voucherTabContent">
-        <!-- 1.1 Active Vouchers Sub-pane -->
+        <!-- Active Vouchers -->
         <div class="tab-pane fade show active" id="active-vouchers-pane" role="tabpanel" aria-labelledby="active-vouchers-pill">
-            <div class="sf-voucher-grid">
-                <!-- Voucher Card 1: ৳50 OFF (Min Spend ৳999) - SHOPPIE50 -->
-                <div class="sf-voucher-card">
-                    <div class="sf-voucher-stub">
-                        <i class="ri-discount-percent-line sf-voucher-stub-icon"></i>
-                        <span class="sf-voucher-stub-amount">৳50</span>
-                        <span class="sf-voucher-stub-sub">DISCOUNT</span>
-                    </div>
-                    <div class="sf-voucher-details">
+            <!-- Voucher 1: ৳50 OFF -->
+            <div class="sf-coupon-row">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="sf-coupon-discount">৳50 OFF</span>
+                    <div class="sf-coupon-info">
                         <div>
-                            <span class="sf-voucher-badge badge-storewide">Storewide Voucher</span>
-                            <h4 class="sf-voucher-title">৳50 Flat OFF</h4>
-                            <p class="sf-voucher-criteria">
-                                Min Spend <strong class="text-dark">৳999</strong> • Applicable on all stores
-                            </p>
-                            <!-- Code box with Live Copy Button -->
-                            <div class="sf-voucher-code-wrap">
-                                <span class="sf-voucher-code-val">SHOPPIE50</span>
-                                <button
-                                    type="button"
-                                    class="sf-btn-copy-code"
-                                    data-code="SHOPPIE50"
-                                    onclick="sfCopyCode(this, 'SHOPPIE50')">
-                                    <i class="ri-file-copy-line"></i>
-                                    <span>Copy Code</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="sf-voucher-footer">
-                            <span class="sf-voucher-expiry">
-                                <i class="ri-time-line text-warning"></i>
-                                Expires in 5 days
-                            </span>
-                            <a href="shop.html" class="btn btn-outline-primary sf-voucher-shop-btn">
-                                Shop Now
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
+                            <span class="sf-coupon-code-pill">SHOPPIE50</span>
+                            <span class="sf-coupon-meta">Min. Spend ৳999 &bull; Expires in 5 days</span>
                         </div>
                     </div>
                 </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button
+                        type="button"
+                        class="sf-btn-copy-code"
+                        onclick="sfCopyCode(this, 'SHOPPIE50')">
+                        <i class="ri-file-copy-line"></i>
+                        <span>Copy Code</span>
+                    </button>
+                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
+                </div>
+            </div>
 
-                <!-- Voucher Card 2: FREE DELIVERY (Min Spend ৳1,999) - FREESHIP -->
-                <div class="sf-voucher-card is-freeship">
-                    <div class="sf-voucher-stub">
-                        <i class="ri-truck-line sf-voucher-stub-icon"></i>
-                        <span class="sf-voucher-stub-amount" style="font-size: 15px;">FREE</span>
-                        <span class="sf-voucher-stub-sub">SHIPPING</span>
-                    </div>
-                    <div class="sf-voucher-details">
+            <!-- Voucher 2: FREE DELIVERY -->
+            <div class="sf-coupon-row">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="sf-coupon-discount freeship">FREE SHIP</span>
+                    <div class="sf-coupon-info">
                         <div>
-                            <span class="sf-voucher-badge badge-freeship">Special Privilege</span>
-                            <h4 class="sf-voucher-title">Free Delivery Anywhere</h4>
-                            <p class="sf-voucher-criteria">
-                                Min Spend <strong class="text-dark">৳1,999</strong> • All Bangladesh Districts
-                            </p>
-                            <!-- Code box with Live Copy Button -->
-                            <div class="sf-voucher-code-wrap">
-                                <span class="sf-voucher-code-val">FREESHIP</span>
-                                <button
-                                    type="button"
-                                    class="sf-btn-copy-code"
-                                    data-code="FREESHIP"
-                                    onclick="sfCopyCode(this, 'FREESHIP')">
-                                    <i class="ri-file-copy-line"></i>
-                                    <span>Copy Code</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="sf-voucher-footer">
-                            <span class="sf-voucher-expiry">
-                                <i class="ri-time-line text-success"></i>
-                                Expires in 12 days
-                            </span>
-                            <a href="shop.html" class="btn btn-outline-success sf-voucher-shop-btn">
-                                Shop Now
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
+                            <span class="sf-coupon-code-pill">FREESHIP</span>
+                            <span class="sf-coupon-meta">Min. Spend ৳1,999 &bull; Expires in 12 days</span>
                         </div>
                     </div>
                 </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button
+                        type="button"
+                        class="sf-btn-copy-code"
+                        onclick="sfCopyCode(this, 'FREESHIP')">
+                        <i class="ri-file-copy-line"></i>
+                        <span>Copy Code</span>
+                    </button>
+                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
+                </div>
+            </div>
 
-                <!-- Voucher Card 3: 10% OFF (Max Discount ৳300) - MEGA10 -->
-                <div class="sf-voucher-card is-mega">
-                    <div class="sf-voucher-stub">
-                        <i class="ri-fire-line sf-voucher-stub-icon"></i>
-                        <span class="sf-voucher-stub-amount">10%</span>
-                        <span class="sf-voucher-stub-sub">OFF</span>
-                    </div>
-                    <div class="sf-voucher-details">
+            <!-- Voucher 3: 10% OFF -->
+            <div class="sf-coupon-row">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="sf-coupon-discount mega">10% OFF</span>
+                    <div class="sf-coupon-info">
                         <div>
-                            <span class="sf-voucher-badge badge-mega">Mega Campaign</span>
-                            <h4 class="sf-voucher-title">10% Off Your Cart</h4>
-                            <p class="sf-voucher-criteria">
-                                Max Discount <strong class="text-dark">৳300</strong> • Electronics & Fashion
-                            </p>
-                            <!-- Code box with Live Copy Button -->
-                            <div class="sf-voucher-code-wrap">
-                                <span class="sf-voucher-code-val">MEGA10</span>
-                                <button
-                                    type="button"
-                                    class="sf-btn-copy-code"
-                                    data-code="MEGA10"
-                                    onclick="sfCopyCode(this, 'MEGA10')">
-                                    <i class="ri-file-copy-line"></i>
-                                    <span>Copy Code</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="sf-voucher-footer">
-                            <span class="sf-voucher-expiry is-urgent">
-                                <i class="ri-alarm-warning-line"></i>
-                                Expires in 2 days!
-                            </span>
-                            <a href="shop.html" class="btn btn-outline-danger sf-voucher-shop-btn">
-                                Shop Now
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
+                            <span class="sf-coupon-code-pill">MEGA10</span>
+                            <span class="sf-coupon-meta">Max. Discount ৳300 &bull; Expires in 2 days</span>
                         </div>
                     </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <button
+                        type="button"
+                        class="sf-btn-copy-code"
+                        onclick="sfCopyCode(this, 'MEGA10')">
+                        <i class="ri-file-copy-line"></i>
+                        <span>Copy Code</span>
+                    </button>
+                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
                 </div>
             </div>
         </div>
 
-        <!-- 1.2 Expired & Used Vouchers Sub-pane -->
+        <!-- Expired Vouchers -->
         <div class="tab-pane fade" id="expired-vouchers-pane" role="tabpanel" aria-labelledby="expired-vouchers-pill">
-            <div class="sf-voucher-grid">
-                <!-- Expired Card 1: ৳100 OFF - WELCOME100 -->
-                <div class="sf-voucher-card is-expired">
-                    <div class="sf-voucher-stub">
-                        <i class="ri-time-line sf-voucher-stub-icon"></i>
-                        <span class="sf-voucher-stub-amount">৳100</span>
-                        <span class="sf-voucher-stub-sub">EXPIRED</span>
-                    </div>
-                    <div class="sf-voucher-details">
-                        <div>
-                            <span class="sf-voucher-badge badge-expired">Expired Voucher</span>
-                            <h4 class="sf-voucher-title">Welcome Bonus ৳100 OFF</h4>
-                            <p class="sf-voucher-criteria">
-                                Min Spend ৳1,200 • Expired on 15 Oct 2026
-                            </p>
-                            <div class="sf-voucher-code-wrap">
-                                <span class="sf-voucher-code-val text-muted text-decoration-line-through">WELCOME100</span>
-                                <span class="badge bg-light text-muted border">Expired</span>
-                            </div>
-                        </div>
-                        <div class="sf-voucher-footer">
-                            <span class="sf-voucher-expiry text-muted">
-                                <i class="ri-close-circle-line"></i> Expired 15 Oct 2026
-                            </span>
-                            <button type="button" class="btn btn-sm btn-light text-muted" disabled>
-                                Inactive
-                            </button>
-                        </div>
+            <div class="sf-coupon-row opacity-50">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="sf-coupon-discount text-muted">৳100 OFF</span>
+                    <div class="sf-coupon-info">
+                        <span class="sf-coupon-code-pill text-decoration-line-through">WELCOME100</span>
+                        <span class="sf-coupon-meta">Expired on 15 Oct 2026</span>
                     </div>
                 </div>
-
-                <!-- Expired Card 2: 15% OFF - AUTUMN15 -->
-                <div class="sf-voucher-card is-expired">
-                    <div class="sf-voucher-stub">
-                        <i class="ri-checkbox-circle-line sf-voucher-stub-icon"></i>
-                        <span class="sf-voucher-stub-amount">15%</span>
-                        <span class="sf-voucher-stub-sub">USED</span>
-                    </div>
-                    <div class="sf-voucher-details">
-                        <div>
-                            <span class="sf-voucher-badge badge-expired">Redeemed Voucher</span>
-                            <h4 class="sf-voucher-title">Autumn Fest 15% OFF</h4>
-                            <p class="sf-voucher-criteria">
-                                Redeemed on Order #SF-20261028-3912
-                            </p>
-                            <div class="sf-voucher-code-wrap">
-                                <span class="sf-voucher-code-val text-muted text-decoration-line-through">AUTUMN15</span>
-                                <span class="badge bg-light text-success border">Redeemed</span>
-                            </div>
-                        </div>
-                        <div class="sf-voucher-footer">
-                            <span class="sf-voucher-expiry text-muted">
-                                <i class="ri-check-line text-success"></i> Used on 28 Oct 2026
-                            </span>
-                            <button type="button" class="btn btn-sm btn-light text-muted" disabled>
-                                Redeemed
-                            </button>
-                        </div>
+                <span class="badge bg-light text-muted border">Expired</span>
+            </div>
+            <div class="sf-coupon-row opacity-50">
+                <div class="d-flex align-items-center gap-3">
+                    <span class="sf-coupon-discount text-muted">15% OFF</span>
+                    <div class="sf-coupon-info">
+                        <span class="sf-coupon-code-pill text-decoration-line-through">AUTUMN15</span>
+                        <span class="sf-coupon-meta">Used on 28 Oct 2026</span>
                     </div>
                 </div>
+                <span class="badge bg-light text-success border">Used</span>
             </div>
         </div>
     </div>
@@ -848,26 +387,16 @@
 <!-- TAB PANE 2: MY REVIEWS (#reviews)                                       -->
 <!-- ======================================================================= -->
 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="tab-reviews">
-    <!-- Header Section -->
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-        <div>
-            <h3 class="fw-bold mb-1 d-flex align-items-center gap-2" style="font-size: 22px; color: #0f172a;">
-                <i class="ri-star-line text-warning"></i>
-                My Product Reviews
-            </h3>
-            <p class="text-muted mb-0" style="font-size: 13.5px;">
-                Share your authentic feedback on received products and earn ShoppieFly reward coins!
-            </p>
-        </div>
-        <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle px-3 py-2 rounded-pill" style="font-size: 12.5px;">
-                <i class="ri-coin-line me-1"></i> Earn 50 Coins per review
-            </span>
-        </div>
+    <!-- Clean Header -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">My Reviews</h4>
+        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
+            +50 Coins / Review
+        </span>
     </div>
 
-    <!-- Review Sub-tabs: To Review (2) vs History (5) -->
-    <ul class="nav nav-pills sf-perks-subtabs" id="reviewTabNav" role="tablist">
+    <!-- Sub-tabs: To Review (2) vs History (5) -->
+    <ul class="nav sf-sub-nav" id="reviewTabNav" role="tablist">
         <li class="nav-item" role="presentation">
             <button
                 class="nav-link active"
@@ -878,9 +407,7 @@
                 role="tab"
                 aria-controls="to-review-pane"
                 aria-selected="true">
-                <i class="ri-edit-line"></i>
-                To Review
-                <span class="badge bg-primary">2</span>
+                To Review (2)
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -893,219 +420,107 @@
                 role="tab"
                 aria-controls="review-history-pane"
                 aria-selected="false">
-                <i class="ri-history-line"></i>
-                History
-                <span class="badge bg-secondary">5</span>
+                History (5)
             </button>
         </li>
     </ul>
 
-    <!-- Review Sub-tab Content -->
+    <!-- Review Tab Content -->
     <div class="tab-content" id="reviewTabContent">
-        <!-- 2.1 To Review Sub-pane -->
+        <!-- 2.1 To Review -->
         <div class="tab-pane fade show active" id="to-review-pane" role="tabpanel" aria-labelledby="to-review-pill">
-            <!-- Review Incentive Alert -->
-            <div class="alert alert-primary d-flex align-items-center gap-3 p-3 mb-4 rounded-3 border-0 bg-primary-subtle text-primary-emphasis" role="alert">
-                <i class="ri-gift-line fs-3 text-primary"></i>
-                <div style="font-size: 13.5px;">
-                    <strong>Review your recent purchases!</strong>
-                    Submit a review with at least 1 photo within 30 days of delivery to earn 50 reward coins credited instantly to your account.
-                </div>
-            </div>
-
-            <!-- Item 1 To Review: Smart Watch T900 Ultra -->
-            <div class="sf-review-pending-card">
+            <!-- Row 1: Smart Watch T900 Ultra -->
+            <div class="sf-review-row">
                 <div class="d-flex align-items-center gap-3">
-                    <img
-                        src="assets/img/product/1.webp"
-                        alt="Smart Watch T900 Ultra"
-                        class="sf-review-pending-thumb" />
-                    <div class="sf-review-pending-info">
-                        <div class="sf-review-store-badge">
-                            <i class="ri-store-2-line"></i>
-                            <span>Sold by <strong>Ocean Crate</strong></span>
-                            <i class="ri-verified-badge-fill text-primary ms-1" title="Verified Store"></i>
-                        </div>
-                        <a href="product.html" class="sf-review-product-name">
-                            Smart Watch T900 Ultra - Full Touch Display &amp; Bluetooth Calling
-                        </a>
-                        <div class="sf-review-meta">
-                            <span><i class="ri-calendar-check-line text-success me-1"></i> Delivered on <strong>10 Nov 2026</strong></span>
-                            <span>•</span>
-                            <span>Order <strong>#SF-20261110-8492</strong></span>
-                        </div>
+                    <img src="assets/img/product/1.webp" alt="Smart Watch T900 Ultra" class="sf-review-thumb-48" />
+                    <div class="sf-review-content">
+                        <h6 class="fw-bold mb-1" style="font-size: 14px; color: #0f172a;">Smart Watch T900 Ultra</h6>
+                        <span class="text-muted" style="font-size: 12px;">Delivered 10 Nov 2026 &bull; Ocean Crate</span>
                     </div>
                 </div>
-                <div class="text-end">
-                    <button
-                        type="button"
-                        class="btn btn-primary px-3 py-2 d-inline-flex align-items-center gap-2 rounded-3 sf-btn-trigger-review"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfWriteReviewModal"
-                        data-product-title="Smart Watch T900 Ultra - Full Touch Display &amp; Bluetooth Calling"
-                        data-product-store="Ocean Crate"
-                        data-product-img="assets/img/product/1.webp"
-                        data-order-id="#SF-20261110-8492">
-                        <i class="ri-pencil-line"></i>
-                        <span>Write Review</span>
-                    </button>
-                </div>
+                <button
+                    type="button"
+                    class="btn btn-sm btn-primary rounded-3 px-3 sf-btn-trigger-review"
+                    data-bs-toggle="modal"
+                    data-bs-target="#sfWriteReviewModal"
+                    data-product-title="Smart Watch T900 Ultra"
+                    data-product-store="Ocean Crate"
+                    data-product-img="assets/img/product/1.webp">
+                    <i class="ri-pencil-line me-1"></i> Write Review
+                </button>
             </div>
 
-            <!-- Item 2 To Review: Cotton Polo Shirt (Fashion Hub) -->
-            <div class="sf-review-pending-card">
+            <!-- Row 2: Cotton Polo Shirt -->
+            <div class="sf-review-row">
                 <div class="d-flex align-items-center gap-3">
-                    <img
-                        src="assets/img/product/10.webp"
-                        alt="Cotton Polo Shirt"
-                        class="sf-review-pending-thumb" />
-                    <div class="sf-review-pending-info">
-                        <div class="sf-review-store-badge">
-                            <i class="ri-store-2-line"></i>
-                            <span>Sold by <strong>Fashion Hub</strong></span>
-                            <i class="ri-verified-badge-fill text-primary ms-1" title="Verified Store"></i>
-                        </div>
-                        <a href="product.html" class="sf-review-product-name">
-                            Premium Slim-Fit Cotton Polo Shirt - Breathable Pique Fabric (Navy Blue)
-                        </a>
-                        <div class="sf-review-meta">
-                            <span><i class="ri-calendar-check-line text-success me-1"></i> Delivered on <strong>08 Nov 2026</strong></span>
-                            <span>•</span>
-                            <span>Order <strong>#SF-20261110-8492</strong></span>
-                        </div>
+                    <img src="assets/img/product/10.webp" alt="Cotton Polo Shirt" class="sf-review-thumb-48" />
+                    <div class="sf-review-content">
+                        <h6 class="fw-bold mb-1" style="font-size: 14px; color: #0f172a;">Slim-Fit Cotton Polo Shirt (Navy)</h6>
+                        <span class="text-muted" style="font-size: 12px;">Delivered 08 Nov 2026 &bull; Fashion Hub</span>
                     </div>
                 </div>
-                <div class="text-end">
-                    <button
-                        type="button"
-                        class="btn btn-primary px-3 py-2 d-inline-flex align-items-center gap-2 rounded-3 sf-btn-trigger-review"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfWriteReviewModal"
-                        data-product-title="Premium Slim-Fit Cotton Polo Shirt (Navy Blue)"
-                        data-product-store="Fashion Hub"
-                        data-product-img="assets/img/product/10.webp"
-                        data-order-id="#SF-20261110-8492">
-                        <i class="ri-pencil-line"></i>
-                        <span>Write Review</span>
-                    </button>
-                </div>
+                <button
+                    type="button"
+                    class="btn btn-sm btn-primary rounded-3 px-3 sf-btn-trigger-review"
+                    data-bs-toggle="modal"
+                    data-bs-target="#sfWriteReviewModal"
+                    data-product-title="Slim-Fit Cotton Polo Shirt (Navy)"
+                    data-product-store="Fashion Hub"
+                    data-product-img="assets/img/product/10.webp">
+                    <i class="ri-pencil-line me-1"></i> Write Review
+                </button>
             </div>
         </div>
 
-        <!-- 2.2 History Sub-pane -->
+        <!-- 2.2 History (5) -->
         <div class="tab-pane fade" id="review-history-pane" role="tabpanel" aria-labelledby="review-history-pill">
-            <!-- Review History Card 1: Wireless Earbuds Pro -->
-            <div class="sf-review-history-card">
-                <div class="sf-review-history-header">
+            <!-- History Row 1: Wireless Earbuds Pro -->
+            <div class="sf-review-row flex-column align-items-start">
+                <div class="d-flex align-items-center justify-content-between w-100 mb-1">
                     <div class="d-flex align-items-center gap-3">
-                        <img
-                            src="assets/img/product/12.webp"
-                            alt="Wireless Earbuds Pro"
-                            class="rounded-3 border"
-                            style="width: 56px; height: 56px; object-fit: cover;" />
+                        <img src="assets/img/product/12.webp" alt="Wireless Earbuds Pro" class="sf-review-thumb-48" />
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 15px; color: #0f172a;">
-                                Wireless Earbuds Pro with Active Noise Cancellation
-                            </h5>
-                            <div class="text-muted" style="font-size: 12px;">
-                                Sold by <strong>Ocean Crate</strong> • Delivered 28 Oct 2026
+                            <h6 class="fw-bold mb-0" style="font-size: 14px; color: #0f172a;">Wireless Earbuds Pro</h6>
+                            <div class="sf-review-stars">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="text-end">
-                        <div class="sf-review-stars mb-1">
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <span class="sf-review-date">Reviewed on 29 Oct 2026</span>
-                    </div>
+                    <span class="text-muted" style="font-size: 11.5px;">29 Oct 2026</span>
                 </div>
-
-                <!-- Review Content -->
-                <h6 class="sf-review-headline">"Excellent sound quality and fast delivery!"</h6>
-                <p class="sf-review-body-text">
-                    Excellent sound quality and fast delivery! The bass is punchy and ANC works very well in noisy public transport. Battery life easily lasts 6+ hours on a single charge with the charging case providing multiple top-ups. Steadfast courier delivered it in just 2 days. Highly recommended for daily office and gym use!
+                <p class="mb-1 text-secondary" style="font-size: 13px;">
+                    Excellent sound quality and fast delivery! ANC works great on the bus and battery life is impressive.
                 </p>
-
-                <!-- Attached Photos -->
-                <div class="sf-review-photos-grid">
-                    <img src="assets/img/product/12.webp" alt="Review photo 1" class="sf-review-photo-item" title="Click to enlarge" />
-                    <img src="assets/img/product/1.webp" alt="Review photo 2" class="sf-review-photo-item" title="Click to enlarge" />
-                </div>
-
-                <!-- Helpful Count -->
-                <div class="d-flex align-items-center gap-2 text-muted mb-2" style="font-size: 12.5px;">
-                    <i class="ri-thumb-up-line text-primary"></i>
-                    <span>14 people found this review helpful</span>
-                </div>
-
-                <!-- Official Seller Reply Box -->
-                <div class="sf-seller-reply-box">
-                    <div class="sf-seller-reply-head">
-                        <span class="sf-seller-reply-title">
-                            <i class="ri-reply-line text-primary"></i>
-                            Seller Response: <strong>Ocean Crate</strong>
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Merchant"></i>
-                        </span>
-                        <span class="sf-seller-reply-date">30 Oct 2026</span>
-                    </div>
-                    <p class="sf-seller-reply-content">
-                        Thank you for shopping with Ocean Crate! We are delighted to hear you are satisfied with the ANC audio quality and express shipping. Feel free to contact our customer support anytime if you need tips or accessories. Happy listening!
-                    </p>
+                <div class="sf-seller-reply-mini w-100">
+                    <strong>Seller (Ocean Crate):</strong> Thank you for shopping with Ocean Crate! Enjoy your music!
                 </div>
             </div>
 
-            <!-- Review History Card 2: Mechanical Gaming Keyboard -->
-            <div class="sf-review-history-card">
-                <div class="sf-review-history-header">
+            <!-- History Row 2: Mechanical Gaming Keyboard -->
+            <div class="sf-review-row flex-column align-items-start">
+                <div class="d-flex align-items-center justify-content-between w-100 mb-1">
                     <div class="d-flex align-items-center gap-3">
-                        <img
-                            src="assets/img/product/14.webp"
-                            alt="Mechanical Gaming Keyboard"
-                            class="rounded-3 border"
-                            style="width: 56px; height: 56px; object-fit: cover;" />
+                        <img src="assets/img/product/14.webp" alt="Gaming Keyboard" class="sf-review-thumb-48" />
                         <div>
-                            <h5 class="fw-bold mb-1" style="font-size: 15px; color: #0f172a;">
-                                RGB Mechanical Gaming Keyboard - Blue Clicky Switches
-                            </h5>
-                            <div class="text-muted" style="font-size: 12px;">
-                                Sold by <strong>TechNova BD</strong> • Delivered 12 Oct 2026
+                            <h6 class="fw-bold mb-0" style="font-size: 14px; color: #0f172a;">RGB Mechanical Gaming Keyboard</h6>
+                            <div class="sf-review-stars">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="text-end">
-                        <div class="sf-review-stars mb-1">
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                            <i class="ri-star-fill"></i>
-                        </div>
-                        <span class="sf-review-date">Reviewed on 14 Oct 2026</span>
-                    </div>
+                    <span class="text-muted" style="font-size: 11.5px;">14 Oct 2026</span>
                 </div>
-
-                <h6 class="sf-review-headline">"Super tactile feel and dazzling RGB backlighting"</h6>
-                <p class="sf-review-body-text">
-                    Typing on this keyboard is an absolute joy. Keys have great tactile feedback and the braided USB-C cable feels durable. Packaging was robust with air bubble pillows. 10/10 purchase from ShoppieFlyBD!
+                <p class="mb-0 text-secondary" style="font-size: 13px;">
+                    Super tactile feel, clicky switches, and bright RGB lighting. Sturdy packaging!
                 </p>
-
-                <div class="sf-seller-reply-box">
-                    <div class="sf-seller-reply-head">
-                        <span class="sf-seller-reply-title">
-                            <i class="ri-reply-line text-primary"></i>
-                            Seller Response: <strong>TechNova BD</strong>
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Merchant"></i>
-                        </span>
-                        <span class="sf-seller-reply-date">15 Oct 2026</span>
-                    </div>
-                    <p class="sf-seller-reply-content">
-                        Thank you for your fantastic feedback! We're glad the tactile switches and RGB lighting live up to your gaming standards. Welcome back anytime!
-                    </p>
-                </div>
             </div>
         </div>
     </div>
@@ -1115,192 +530,56 @@
 <!-- TAB PANE 3: RETURNS & REFUNDS (#returns)                                -->
 <!-- ======================================================================= -->
 <div class="tab-pane fade" id="returns" role="tabpanel" aria-labelledby="tab-returns">
-    <!-- Header Section -->
-    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-        <div>
-            <h3 class="fw-bold mb-1 d-flex align-items-center gap-2" style="font-size: 22px; color: #0f172a;">
-                <i class="ri-refund-2-line text-primary"></i>
-                Returns &amp; Refunds Management
-            </h3>
-            <p class="text-muted mb-0" style="font-size: 13.5px;">
-                Track your return parcel status, merchant quality control checks, and instant wallet refunds.
-            </p>
-        </div>
-        <a href="faq.html#returns" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
-            <i class="ri-question-line me-1"></i> Return Policy FAQ
-        </a>
+    <!-- Clean Header -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">Returns &amp; Refunds</h4>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
+            1 Return Case
+        </span>
     </div>
 
-    <!-- Active Return Request Card -->
-    <div class="sf-return-card">
-        <!-- Return Header Info -->
-        <div class="sf-return-header">
+    <!-- Single Clean Card -->
+    <div class="sf-return-clean-card">
+        <!-- Top Row -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pb-3 border-bottom">
             <div>
-                <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
-                    <span class="fw-bold" style="font-size: 16px; color: #0f172a;">
-                        Return Request <strong class="text-primary font-monospace">#RET-20261112-5819</strong>
-                    </span>
-                    <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1 rounded-pill">
-                        <i class="ri-checkbox-circle-fill me-1"></i> Refund Completed
-                    </span>
-                </div>
-                <div class="text-muted" style="font-size: 12.5px;">
-                    Linked to Master Order <strong>#SF-20261110-8492</strong> • Initiated on 12 Nov 2026, 10:30 AM
-                </div>
+                <span class="fw-bold" style="font-size: 14.5px; color: #0f172a;">Order #SF-8492</span>
+                <span class="text-muted ms-2" style="font-size: 12.5px;">&bull; 10 Nov 2026</span>
             </div>
-            <div class="text-end">
-                <button
-                    type="button"
-                    class="btn btn-light btn-sm border text-dark"
-                    onclick="window.print()"
-                    title="Print Return Invoice">
-                    <i class="ri-printer-line me-1"></i> Print Receipt
-                </button>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-2 py-1" style="font-size: 11.5px;">
+                    Return Processing
+                </span>
+                <span class="fw-bold text-success" style="font-size: 14px;">
+                    Refund: ৳ 804 (bKash)
+                </span>
             </div>
         </div>
 
-        <!-- Returned Product Item Row -->
-        <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3 mb-4">
-            <img
-                src="assets/img/product/1.webp"
-                alt="Smart Watch T900 Ultra"
-                class="rounded-3 border"
-                style="width: 64px; height: 64px; object-fit: cover;" />
-            <div class="flex-grow-1">
-                <span class="badge bg-white text-dark border mb-1" style="font-size: 11px;">Ocean Crate</span>
-                <h6 class="fw-bold mb-1" style="font-size: 14.5px; color: #0f172a;">
-                    Smart Watch T900 Ultra - Full Touch Display &amp; Bluetooth Calling
-                </h6>
-                <div class="d-flex align-items-center gap-3 flex-wrap text-muted" style="font-size: 12px;">
-                    <span>Qty: <strong>1</strong></span>
-                    <span>•</span>
-                    <span>Price: <strong>৳ 550</strong></span>
-                    <span>•</span>
-                    <span class="text-danger fw-semibold">
-                        <i class="ri-information-line me-1"></i>Reason: Defective Touchscreen Sensor
-                    </span>
-                </div>
+        <!-- Progress Dots Line -->
+        <div class="sf-return-progress-dots">
+            <div class="sf-return-dot-step">
+                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
+                <span class="sf-return-dot-label">Requested</span>
             </div>
-            <div class="text-end pe-2">
-                <span class="d-block text-muted" style="font-size: 11.5px;">Claimed Refund</span>
-                <strong class="text-success" style="font-size: 17px;">৳ 804</strong>
+            <div class="sf-return-dot-step">
+                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
+                <span class="sf-return-dot-label">Picked Up</span>
+            </div>
+            <div class="sf-return-dot-step">
+                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
+                <span class="sf-return-dot-label">QC Passed</span>
+            </div>
+            <div class="sf-return-dot-step">
+                <span class="sf-return-dot"><i class="ri-check-double-line"></i></span>
+                <span class="sf-return-dot-label text-success">Refunded</span>
             </div>
         </div>
 
-        <!-- Live Progress Stepper (4 Steps matching Daraz & ShoppieFly standard) -->
-        <div class="sf-return-stepper-wrap">
-            <h6 class="fw-bold mb-3 d-flex align-items-center gap-2" style="font-size: 14px; color: #0f172a;">
-                <i class="ri-route-line text-success"></i> Return Journey Timeline
-            </h6>
-            <div class="sf-return-stepper">
-                <!-- Step 1: Return Requested -->
-                <div class="sf-return-step">
-                    <div class="sf-return-step-circle">
-                        <i class="ri-check-line"></i>
-                    </div>
-                    <span class="sf-return-step-title">Return Requested</span>
-                    <span class="sf-return-step-time">12 Nov, 10:30 AM</span>
-                    <small class="text-muted d-block" style="font-size: 11px;">Auto-approved by system</small>
-                </div>
-
-                <!-- Step 2: Item Picked Up / Dropped -->
-                <div class="sf-return-step">
-                    <div class="sf-return-step-circle">
-                        <i class="ri-check-line"></i>
-                    </div>
-                    <span class="sf-return-step-title">Item Picked Up</span>
-                    <span class="sf-return-step-time">13 Nov, 03:20 PM</span>
-                    <small class="text-muted d-block" style="font-size: 11px;">Steadfast Courier (Mirpur)</small>
-                </div>
-
-                <!-- Step 3: Merchant QC Passed -->
-                <div class="sf-return-step">
-                    <div class="sf-return-step-circle">
-                        <i class="ri-check-line"></i>
-                    </div>
-                    <span class="sf-return-step-title">Merchant QC Passed</span>
-                    <span class="sf-return-step-time">14 Nov, 11:45 AM</span>
-                    <small class="text-muted d-block" style="font-size: 11px;">Ocean Crate Hub Verified</small>
-                </div>
-
-                <!-- Step 4: Refund Completed -->
-                <div class="sf-return-step">
-                    <div class="sf-return-step-circle">
-                        <i class="ri-check-double-line"></i>
-                    </div>
-                    <span class="sf-return-step-title text-success">Refund Completed</span>
-                    <span class="sf-return-step-time text-success fw-bold">14 Nov, 02:15 PM</span>
-                    <small class="text-success d-block" style="font-size: 11px;">Disbursed to bKash</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Refund Details Card -->
-        <div class="sf-refund-summary-box">
-            <div class="row g-4 align-items-center">
-                <!-- Left Details -->
-                <div class="col-md-7">
-                    <div class="d-flex align-items-center gap-2 mb-2">
-                        <i class="ri-shield-check-fill text-success fs-5"></i>
-                        <h5 class="fw-bold mb-0" style="font-size: 16px; color: #0f172a;">
-                            Refund Disbursement Details
-                        </h5>
-                    </div>
-                    <p class="text-muted mb-3" style="font-size: 13px;">
-                        The full refund amount including the original shipping fee has been successfully transferred to your mobile wallet.
-                    </p>
-
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block" style="font-size: 12px;">Refund Method:</span>
-                            <div class="d-flex align-items-center gap-2 mt-1">
-                                <span class="sf-bkash-logo-pill">bKash</span>
-                                <span class="fw-bold font-monospace" style="font-size: 13.5px; color: #0f172a;">
-                                    017****5678
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block" style="font-size: 12px;">Transaction ID:</span>
-                            <div class="d-flex align-items-center gap-2 mt-1">
-                                <span class="badge bg-white text-dark border font-monospace px-2 py-1" style="font-size: 12px;">
-                                    #TRX-94827104
-                                </span>
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-link p-0 text-primary"
-                                    onclick="navigator.clipboard.writeText('TRX-94827104'); alert('Transaction ID copied!');"
-                                    title="Copy TRX ID">
-                                    <i class="ri-file-copy-line"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Breakdown Summary -->
-                <div class="col-md-5">
-                    <div class="bg-white p-3 rounded-3 border">
-                        <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; color: #64748b;">
-                            <span>Returned Item Subtotal:</span>
-                            <span>৳ 754</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2" style="font-size: 12.5px; color: #64748b;">
-                            <span>Shipping Fee Reimbursed:</span>
-                            <span>৳ 50</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center pt-2 border-top">
-                            <span class="fw-bold text-dark" style="font-size: 14px;">Total Refund Amount:</span>
-                            <span class="sf-refund-amount-tag">৳ 804</span>
-                        </div>
-                        <div class="text-end mt-2">
-                            <span class="badge bg-success-subtle text-success border border-success-subtle" style="font-size: 11.5px;">
-                                <i class="ri-check-line me-1"></i> Credited to Wallet
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Receipt Summary Line -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 text-muted" style="font-size: 12.5px;">
+            <span>Item: Smart Watch T900 Ultra (৳ 754) + Shipping (৳ 50)</span>
+            <span>bKash: <strong>017****5678</strong> &bull; TRX: <code class="text-dark">#TRX-94827104</code></span>
         </div>
     </div>
 </div>
@@ -1309,135 +588,61 @@
 <!-- WRITE REVIEW MODAL (#sfWriteReviewModal)                                -->
 <!-- ======================================================================= -->
 <div class="modal fade" id="sfWriteReviewModal" tabindex="-1" aria-labelledby="sfWriteReviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 14px; overflow: hidden;">
-            <!-- Modal Header -->
-            <div class="modal-header bg-light border-bottom px-4 py-3">
-                <h5 class="modal-title fw-bold d-flex align-items-center gap-2" id="sfWriteReviewModalLabel" style="font-size: 17px; color: #0f172a;">
-                    <i class="ri-edit-line text-primary"></i>
-                    Write a Product Review
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow" style="border-radius: 12px; overflow: hidden;">
+            <div class="modal-header bg-light py-2 px-3 border-bottom">
+                <h5 class="modal-title fw-bold" id="sfWriteReviewModalLabel" style="font-size: 15px; color: #0f172a;">
+                    Write Review
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <!-- Modal Body Form -->
             <form id="sfWriteReviewForm" onsubmit="sfSubmitReviewHandler(event)">
-                <div class="modal-body p-4">
-                    <!-- Product Mini Card in Modal -->
-                    <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3 mb-4">
-                        <img
-                            id="sfModalProductImg"
-                            src="assets/img/product/1.webp"
-                            alt="Product Thumbnail"
-                            class="rounded-3 border"
-                            style="width: 58px; height: 58px; object-fit: cover;" />
+                <div class="modal-body p-3">
+                    <!-- Product Mini Summary -->
+                    <div class="d-flex align-items-center gap-2 p-2 bg-light rounded-2 mb-3">
+                        <img id="sfModalProductImg" src="assets/img/product/1.webp" alt="Thumb" class="rounded border" style="width: 40px; height: 40px; object-fit: cover;" />
                         <div>
-                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-1" id="sfModalProductStore" style="font-size: 11px;">
-                                Ocean Crate
-                            </span>
-                            <h6 class="fw-bold mb-0" id="sfModalProductTitle" style="font-size: 14px; color: #0f172a;">
-                                Smart Watch T900 Ultra - Full Touch Display &amp; Bluetooth Calling
-                            </h6>
-                            <small class="text-muted" id="sfModalOrderRef">Order #SF-20261110-8492</small>
+                            <h6 class="fw-bold mb-0" id="sfModalProductTitle" style="font-size: 13px; color: #0f172a;">Smart Watch T900 Ultra</h6>
+                            <small class="text-muted" id="sfModalProductStore">Ocean Crate</small>
                         </div>
                     </div>
 
-                    <!-- 1. Star Rating Picker -->
-                    <div class="mb-4 text-center">
-                        <label class="form-label fw-bold d-block mb-1" style="font-size: 14px; color: #0f172a;">
-                            Overall Rating <span class="text-danger">*</span>
-                        </label>
-                        <div class="sf-interactive-star-picker justify-content-center my-2" id="sfModalStarPicker">
-                            <i class="ri-star-fill is-active" data-val="1" title="Poor"></i>
-                            <i class="ri-star-fill is-active" data-val="2" title="Fair"></i>
-                            <i class="ri-star-fill is-active" data-val="3" title="Good"></i>
-                            <i class="ri-star-fill is-active" data-val="4" title="Very Good"></i>
-                            <i class="ri-star-fill is-active" data-val="5" title="Excellent"></i>
+                    <!-- 5-Star Rating Picker -->
+                    <div class="mb-3 text-center">
+                        <div class="sf-interactive-star-picker justify-content-center mb-1" id="sfModalStarPicker">
+                            <i class="ri-star-fill is-active" data-val="1"></i>
+                            <i class="ri-star-fill is-active" data-val="2"></i>
+                            <i class="ri-star-fill is-active" data-val="3"></i>
+                            <i class="ri-star-fill is-active" data-val="4"></i>
+                            <i class="ri-star-fill is-active" data-val="5"></i>
                         </div>
                         <input type="hidden" name="rating" id="sfModalRatingValue" value="5" />
-                        <span id="sfModalRatingLabel" class="badge bg-warning-subtle text-warning-emphasis fw-bold px-3 py-1 rounded-pill" style="font-size: 12.5px;">
-                            5 - Excellent! Loved it!
-                        </span>
+                        <span id="sfModalRatingLabel" class="text-muted fw-semibold" style="font-size: 12px;">5 - Excellent!</span>
                     </div>
 
-                    <!-- 2. Review Headline -->
-                    <div class="mb-3">
-                        <label for="sfReviewHeadline" class="form-label fw-bold" style="font-size: 13.5px; color: #0f172a;">
-                            Review Headline <span class="text-danger">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="sfReviewHeadline"
-                            placeholder="e.g. Exceptional sound quality and fast delivery!"
-                            required
-                            style="border-radius: 8px; font-size: 13.5px;" />
+                    <!-- Headline -->
+                    <div class="mb-2">
+                        <input type="text" class="form-control form-control-sm" id="sfReviewHeadline" placeholder="Headline (e.g. Great quality!)" required />
                     </div>
 
-                    <!-- 3. Detailed Experience Textarea -->
-                    <div class="mb-3">
-                        <label for="sfReviewDetail" class="form-label fw-bold" style="font-size: 13.5px; color: #0f172a;">
-                            Detailed Experience <span class="text-danger">*</span>
-                        </label>
-                        <textarea
-                            class="form-control"
-                            id="sfReviewDetail"
-                            rows="4"
-                            placeholder="How is the product build quality, performance, and seller packaging? Would you recommend it to fellow shoppers?"
-                            required
-                            minlength="15"
-                            style="border-radius: 8px; font-size: 13.5px;"></textarea>
-                        <div class="d-flex justify-content-between mt-1 text-muted" style="font-size: 11.5px;">
-                            <span>Minimum 15 characters</span>
-                            <span id="sfReviewCharCount">0 characters</span>
-                        </div>
+                    <!-- Detailed Textarea -->
+                    <div class="mb-2">
+                        <textarea class="form-control form-control-sm" id="sfReviewDetail" rows="3" placeholder="Write your experience..." required minlength="10"></textarea>
                     </div>
 
-                    <!-- 4. Photo/Video Upload Dropzone -->
-                    <div class="mb-3">
-                        <label class="form-label fw-bold d-flex justify-content-between" style="font-size: 13.5px; color: #0f172a;">
-                            <span>Attach Photos or Videos <small class="text-muted fw-normal">(Optional)</small></span>
-                            <span class="text-primary fw-semibold" style="font-size: 12px;">+50 Reward Coins</span>
-                        </label>
-                        <div
-                            class="sf-review-dropzone"
-                            onclick="document.getElementById('sfReviewFileInput').click()">
-                            <i class="ri-upload-cloud-2-line d-block"></i>
-                            <span class="fw-bold d-block mb-1" style="font-size: 13.5px; color: #0f172a;">
-                                Click to upload photos/video, or drag and drop
-                            </span>
-                            <small class="text-muted d-block" style="font-size: 12px;">
-                                JPG, PNG, WEBP, MP4 (Max 5 files, up to 10MB each)
-                            </small>
-                            <input
-                                type="file"
-                                id="sfReviewFileInput"
-                                class="d-none"
-                                multiple
-                                accept="image/*,video/*"
-                                onchange="sfHandleReviewFileSelect(this)" />
-                        </div>
-                        <div id="sfReviewFilePreviews" class="d-flex gap-2 mt-2 flex-wrap"></div>
+                    <!-- Upload Mini Dropzone -->
+                    <div class="sf-review-dropzone-mini mb-2" onclick="document.getElementById('sfReviewFileInput').click()">
+                        <i class="ri-camera-line text-primary me-1"></i>
+                        <span style="font-size: 12px;">Add Photos / Video</span>
+                        <input type="file" id="sfReviewFileInput" class="d-none" multiple accept="image/*,video/*" onchange="sfHandleReviewFileSelect(this)" />
                     </div>
-
-                    <!-- 5. Anonymous Checkbox -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="sfReviewAnonymous" />
-                        <label class="form-check-label text-muted" for="sfReviewAnonymous" style="font-size: 13px;">
-                            Submit review anonymously (hide my full name and show as "A***m")
-                        </label>
-                    </div>
+                    <div id="sfReviewFilePreviews" class="d-flex gap-1 flex-wrap"></div>
                 </div>
 
-                <!-- Modal Footer -->
-                <div class="modal-footer bg-light px-4 py-3">
-                    <button type="button" class="btn btn-outline-secondary px-4 rounded-3" data-bs-dismiss="modal">
-                        Cancel
-                    </button>
-                    <button type="submit" id="sfBtnSubmitReview" class="btn btn-primary px-4 rounded-3 d-inline-flex align-items-center gap-2">
-                        <i class="ri-send-plane-fill"></i>
-                        <span>Submit Review</span>
-                    </button>
+                <div class="modal-footer bg-light py-2 px-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" id="sfBtnSubmitReview" class="btn btn-sm btn-primary">Submit Review</button>
                 </div>
             </form>
         </div>
@@ -1445,174 +650,119 @@
 </div>
 
 <!-- ======================================================================= -->
-<!-- INTERACTIVE SCRIPTS FOR VOUCHERS, REVIEWS & MODALS                      -->
+<!-- SCRIPTS FOR VOUCHERS, REVIEWS & MODALS                                  -->
 <!-- ======================================================================= -->
 <script>
-/**
- * Copy Coupon Code to Clipboard with Instant Feedback
- */
-function sfCopyCode(buttonElement, codeString) {
+function sfCopyCode(btn, code) {
     if (!navigator.clipboard) {
-        // Fallback for older browsers
-        const tempInput = document.createElement('input');
-        tempInput.value = codeString;
-        document.body.appendChild(tempInput);
-        tempInput.select();
+        const input = document.createElement('input');
+        input.value = code;
+        document.body.appendChild(input);
+        input.select();
         document.execCommand('copy');
-        document.body.removeChild(tempInput);
+        document.body.removeChild(input);
     } else {
-        navigator.clipboard.writeText(codeString).catch(function(err) {
-            console.error('Clipboard copy failed:', err);
-        });
+        navigator.clipboard.writeText(code).catch(function() {});
     }
 
-    const originalHtml = buttonElement.innerHTML;
-    buttonElement.innerHTML = '<i class="ri-check-line"></i> Copied ✓';
-    buttonElement.classList.add('is-copied');
-
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="ri-check-line"></i> Copied ✓';
+    btn.classList.add('is-copied');
     setTimeout(function() {
-        buttonElement.innerHTML = originalHtml;
-        buttonElement.classList.remove('is-copied');
+        btn.innerHTML = orig;
+        btn.classList.remove('is-copied');
     }, 2000);
 }
 
-/**
- * Handle Header Voucher Apply Input
- */
-function sfApplyVoucherHandler() {
-    const input = document.getElementById('sfApplyVoucherInput');
-    const code = input ? input.value.trim().toUpperCase() : '';
-    if (!code) {
-        alert('Please enter a voucher code.');
-        return;
-    }
-
-    if (code === 'SHOPPIE50' || code === 'FREESHIP' || code === 'MEGA10') {
-        alert('Voucher "' + code + '" is active and already collected in your account!');
-    } else {
-        alert('Voucher code "' + code + '" collected successfully and added to your vouchers!');
-    }
-    input.value = '';
-}
-
-/**
- * Interactive Star Rating Picker inside Review Modal
- */
-(function initStarRatingPicker() {
+(function initReviewModal() {
     const picker = document.getElementById('sfModalStarPicker');
     if (!picker) return;
 
     const stars = picker.querySelectorAll('i');
-    const ratingInput = document.getElementById('sfModalRatingValue');
-    const ratingLabel = document.getElementById('sfModalRatingLabel');
+    const input = document.getElementById('sfModalRatingValue');
+    const label = document.getElementById('sfModalRatingLabel');
 
-    const ratingDescriptions = {
-        1: '1 - Poor! Disappointed',
-        2: '2 - Fair! Below expectations',
-        3: '3 - Good! Acceptable',
-        4: '4 - Very Good! Satisfied',
-        5: '5 - Excellent! Loved it!'
+    const desc = {
+        1: '1 - Poor',
+        2: '2 - Fair',
+        3: '3 - Good',
+        4: '4 - Very Good',
+        5: '5 - Excellent!'
     };
 
-    function updateStars(val) {
-        stars.forEach(function(star) {
-            const starVal = parseInt(star.getAttribute('data-val'), 10);
-            if (starVal <= val) {
-                star.classList.remove('ri-star-line');
-                star.classList.add('ri-star-fill', 'is-active');
+    function setStars(v) {
+        stars.forEach(function(s) {
+            const val = parseInt(s.getAttribute('data-val'), 10);
+            if (val <= v) {
+                s.className = 'ri-star-fill is-active';
             } else {
-                star.classList.remove('ri-star-fill', 'is-active');
-                star.classList.add('ri-star-line');
+                s.className = 'ri-star-line';
             }
         });
-        if (ratingInput) ratingInput.value = val;
-        if (ratingLabel) ratingLabel.textContent = ratingDescriptions[val] || (val + ' Stars');
+        if (input) input.value = v;
+        if (label) label.textContent = desc[v] || (v + ' Stars');
     }
 
-    stars.forEach(function(star) {
-        star.addEventListener('click', function() {
-            const val = parseInt(this.getAttribute('data-val'), 10);
-            updateStars(val);
+    stars.forEach(function(s) {
+        s.addEventListener('click', function() {
+            setStars(parseInt(this.getAttribute('data-val'), 10));
         });
     });
 
-    // Populate modal data when opening
     document.querySelectorAll('.sf-btn-trigger-review').forEach(function(btn) {
         btn.addEventListener('click', function() {
             const title = this.getAttribute('data-product-title');
             const store = this.getAttribute('data-product-store');
             const img = this.getAttribute('data-product-img');
-            const order = this.getAttribute('data-order-id');
 
             const titleEl = document.getElementById('sfModalProductTitle');
             const storeEl = document.getElementById('sfModalProductStore');
             const imgEl = document.getElementById('sfModalProductImg');
-            const orderEl = document.getElementById('sfModalOrderRef');
 
             if (titleEl && title) titleEl.textContent = title;
             if (storeEl && store) storeEl.textContent = store;
             if (imgEl && img) imgEl.src = img;
-            if (orderEl && order) orderEl.textContent = 'Order ' + order;
-
-            // Reset stars to 5 by default
-            updateStars(5);
+            setStars(5);
         });
     });
-
-    // Character counter for textarea
-    const textarea = document.getElementById('sfReviewDetail');
-    const counter = document.getElementById('sfReviewCharCount');
-    if (textarea && counter) {
-        textarea.addEventListener('input', function() {
-            counter.textContent = this.value.length + ' characters';
-        });
-    }
 })();
 
-/**
- * Handle File Selection in Review Modal
- */
 function sfHandleReviewFileSelect(input) {
-    const previewContainer = document.getElementById('sfReviewFilePreviews');
-    if (!previewContainer) return;
-    previewContainer.innerHTML = '';
-
+    const preview = document.getElementById('sfReviewFilePreviews');
+    if (!preview) return;
+    preview.innerHTML = '';
     if (input.files && input.files.length > 0) {
-        Array.from(input.files).forEach(function(file) {
-            const badge = document.createElement('span');
-            badge.className = 'badge bg-light text-dark border p-2 d-inline-flex align-items-center gap-1';
-            badge.style.fontSize = '12px';
-            badge.innerHTML = '<i class="ri-image-line text-primary"></i> ' + file.name + ' (' + Math.round(file.size / 1024) + ' KB)';
-            previewContainer.appendChild(badge);
+        Array.from(input.files).forEach(function(f) {
+            const tag = document.createElement('span');
+            tag.className = 'badge bg-light text-dark border';
+            tag.style.fontSize = '11px';
+            tag.textContent = f.name;
+            preview.appendChild(tag);
         });
     }
 }
 
-/**
- * Handle Submit Review Form
- */
-function sfSubmitReviewHandler(event) {
-    event.preventDefault();
+function sfSubmitReviewHandler(e) {
+    e.preventDefault();
     const btn = document.getElementById('sfBtnSubmitReview');
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Submitting...';
+        btn.textContent = 'Submitting...';
     }
-
     setTimeout(function() {
-        alert('Thank you! Your review has been submitted successfully and 50 ShoppieFly reward coins were credited to your wallet.');
+        alert('Review submitted! 50 reward coins credited.');
         const modalEl = document.getElementById('sfWriteReviewModal');
         if (modalEl && window.bootstrap && window.bootstrap.Modal) {
-            const modalInstance = window.bootstrap.Modal.getInstance(modalEl);
-            if (modalInstance) modalInstance.hide();
+            const inst = window.bootstrap.Modal.getInstance(modalEl);
+            if (inst) inst.hide();
         }
         if (btn) {
             btn.disabled = false;
-            btn.innerHTML = '<i class="ri-send-plane-fill"></i> <span>Submit Review</span>';
+            btn.textContent = 'Submit Review';
         }
         document.getElementById('sfWriteReviewForm').reset();
-        const previewContainer = document.getElementById('sfReviewFilePreviews');
-        if (previewContainer) previewContainer.innerHTML = '';
-    }, 1200);
+        const preview = document.getElementById('sfReviewFilePreviews');
+        if (preview) preview.innerHTML = '';
+    }, 1000);
 }
 </script>

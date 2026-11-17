@@ -22403,321 +22403,351 @@ body.sf-auth-page .mn-main-content {
    ShoppieFlyBD Customer Account Dashboard Styling
    ========================================================================== */
 
-/* 1. Account Layout & Desktop Sidebar */
+/* ==========================================================================
+   ShoppieFlyBD Customer Account - Evaly-Inspired Ultra-Clean Architecture
+   ========================================================================== */
+
+/* 1. Luxury Dark Radial Hero Banner (Evaly Benchmark) */
+.sf-account-hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(120% 140% at 0% 0%, #1e293b 0%, #0f172a 60%, #090d16 100%);
+    border-radius: 20px;
+    padding: 24px 28px;
+    color: #ffffff;
+    box-shadow: 0 16px 36px -18px rgba(15, 23, 42, 0.6);
+    isolation: isolate;
+}
+.sf-account-hero::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 170px;
+    height: 170px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+.sf-hero-content-wrap {
+    position: relative;
+    z-index: 1;
+}
+.sf-hero-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.sf-hero-avatar-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1877f2;
+    color: #ffffff;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0f172a;
+}
+.sf-hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2px;
+}
+.sf-hero-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+}
+.sf-hero-meta {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.sf-hero-member-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(253, 224, 71, 0.15);
+    color: #fde047;
+    border: 1px solid rgba(253, 224, 71, 0.3);
+}
+.sf-hero-chips-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.sf-hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.sf-hero-chip:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+.sf-hero-chip .sf-chip-num {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.sf-hero-chip .sf-chip-lbl {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+}
+.sf-hero-chip.has-pulse {
+    border-color: rgba(249, 115, 22, 0.45);
+    background: rgba(249, 115, 22, 0.15);
+}
+.sf-hero-chip.has-pulse .sf-chip-num {
+    color: #f97316;
+}
+
+/* 2. Breakthrough 4-Column App Grid on Mobile */
+.sf-account-app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+}
+.sf-account-tile-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 72px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1px solid transparent;
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    padding: 8px 4px;
+    text-align: center;
+}
+.sf-account-tile-btn i {
+    font-size: 20px;
+    color: #64748b;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.sf-account-tile-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+.sf-account-tile-btn.active {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 18px -6px rgba(15, 23, 42, 0.5);
+    border-color: #0f172a;
+}
+.sf-account-tile-btn.active i {
+    color: #f97316 !important;
+    transform: scale(1.1);
+}
+.sf-account-tile-btn .sf-tile-badge {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    font-size: 9.5px;
+    font-weight: 700;
+    background: #f97316;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 1px 5px;
+    line-height: 1.2;
+}
+.sf-account-tile-btn.active .sf-tile-badge {
+    background: #ffffff;
+    color: #0f172a;
+}
+.sf-account-tile-btn.sf-tile-logout:hover {
+    background: #fee2e2;
+    color: #ef4444;
+}
+.sf-account-tile-btn.sf-tile-logout:hover i {
+    color: #ef4444;
+}
+
+@media (max-width: 760px) {
+    .sf-account-hero {
+        padding: 20px 18px 18px;
+        border-radius: 18px;
+    }
+    .sf-hero-avatar {
+        width: 52px;
+        height: 52px;
+    }
+    .sf-hero-name {
+        font-size: 19px;
+    }
+    .sf-hero-chips-wrap {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-top: 10px;
+    }
+    .sf-hero-chip {
+        padding: 7px 6px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 2px;
+        border-radius: 12px;
+    }
+    .sf-hero-chip .sf-chip-num {
+        font-size: 14px;
+    }
+    .sf-hero-chip .sf-chip-lbl {
+        font-size: 10.5px;
+    }
+}
+
+/* 3. Refined Desktop Left Sidebar */
 .sf-account-sidebar {
     position: -webkit-sticky;
     position: sticky;
     top: 85px;
     z-index: 20;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+    border: 1px solid #f1f5f9;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
     overflow: hidden;
+    padding: 10px;
 }
-
 .sf-account-user-card {
-    padding: 24px 20px 20px;
-    text-align: center;
+    padding: 12px 14px 14px;
     border-bottom: 1px solid #f1f5f9;
-    background: linear-gradient(180deg, rgba(58, 78, 229, 0.04) 0%, rgba(255, 255, 255, 1) 100%);
-}
-
-.sf-account-user-avatar {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 3px 10px rgba(58, 78, 229, 0.15);
-}
-
-.sf-account-user-name {
-    font-size: 16px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-top: 10px;
-    margin-bottom: 2px;
-}
-
-.sf-account-user-phone {
-    font-size: 13px;
-    color: #64748b;
     margin-bottom: 8px;
 }
-
-.sf-account-member-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    color: #b45309;
-    border: 1px solid #fcd34d;
-    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.15);
+.sf-account-user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
 }
-
+.sf-account-user-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+}
+.sf-account-user-phone {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
 .sf-account-nav-list {
-    padding: 12px 10px 16px;
+    padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
-
 .sf-account-nav-item {
     margin: 0;
 }
-
 .sf-account-nav-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 600;
     color: #475569;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
     cursor: pointer;
     border: 1px solid transparent;
 }
-
 .sf-account-nav-link-left {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
 .sf-account-nav-link i {
     font-size: 18px;
     color: #64748b;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
-
 .sf-account-nav-link:hover {
     background-color: #f8fafc;
     color: #0f172a;
 }
-
 .sf-account-nav-link:hover i {
-    color: #3a4ee5;
+    color: #f97316;
 }
-
 .sf-account-nav-link.active {
-    background-color: rgba(58, 78, 229, 0.08);
-    color: #3a4ee5;
+    background-color: #0f172a !important;
+    color: #ffffff !important;
     font-weight: 600;
-    border-color: rgba(58, 78, 229, 0.15);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+    border-color: #0f172a;
 }
-
 .sf-account-nav-link.active i {
-    color: #3a4ee5;
+    color: #f97316 !important;
 }
-
 .sf-account-nav-link .badge {
     font-size: 11px;
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 10px;
 }
-
 .sf-account-nav-link.active .badge {
-    background-color: #3a4ee5 !important;
-    color: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
 }
-
 .sf-account-nav-link.sf-logout-link {
     color: #dc2626;
 }
-
 .sf-account-nav-link.sf-logout-link i {
     color: #dc2626;
 }
-
 .sf-account-nav-link.sf-logout-link:hover {
     background-color: rgba(220, 38, 38, 0.08);
     color: #b91c1c;
-}
-
-/* 2. Mobile Horizontal Scrollable Tab Bar */
-.sf-account-nav-scroller {
-    display: none;
-}
-
-@media (max-width: 991.98px) {
-    .sf-account-nav-scroller {
-        display: block;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 58px;
-        z-index: 1015;
-        background: #ffffff;
-        border-bottom: 1px solid #e2e8f0;
-        padding: 10px 14px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .sf-account-scroller-inner {
-        display: flex;
-        gap: 8px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 2px;
-    }
-
-    .sf-account-scroller-inner::-webkit-scrollbar {
-        display: none;
-    }
-
-    .sf-account-mobile-tab {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 14px;
-        border-radius: 50rem;
-        font-size: 13px;
-        font-weight: 600;
-        color: #475569;
-        background: #f1f5f9;
-        border: 1px solid #e2e8f0;
-        white-space: nowrap;
-        flex-shrink: 0;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        cursor: pointer;
-    }
-
-    .sf-account-mobile-tab i {
-        font-size: 15px;
-        color: #64748b;
-    }
-
-    .sf-account-mobile-tab .badge {
-        font-size: 10.5px;
-        padding: 2px 6px;
-        border-radius: 8px;
-    }
-
-    .sf-account-mobile-tab:hover {
-        background: #e2e8f0;
-        color: #0f172a;
-    }
-
-    .sf-account-mobile-tab.active {
-        background: #3a4ee5;
-        color: #ffffff;
-        border-color: #3a4ee5;
-        box-shadow: 0 2px 8px rgba(58, 78, 229, 0.25);
-    }
-
-    .sf-account-mobile-tab.active i {
-        color: #ffffff;
-    }
-
-    .sf-account-mobile-tab.active .badge {
-        background: #ffffff !important;
-        color: #3a4ee5 !important;
-    }
-}
-
-/* 3. Dashboard Overview & Metric Cards */
-.sf-account-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px 24px;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-    margin-bottom: 24px;
-}
-
-.sf-dashboard-welcome-banner {
-    background: linear-gradient(135deg, #3a4ee5 0%, #1e293b 100%);
-    color: #ffffff;
-    border-radius: 14px;
-    padding: 24px 28px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(58, 78, 229, 0.18);
-    margin-bottom: 24px;
-}
-
-.sf-account-metric-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 18px 20px;
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-}
-
-.sf-account-metric-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(58, 78, 229, 0.08);
-    border-color: #cbd5e1;
-}
-
-.sf-metric-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-}
-
-.sf-metric-icon.is-orders {
-    background: rgba(58, 78, 229, 0.1);
-    color: #3a4ee5;
-}
-
-.sf-metric-icon.is-transit {
-    background: rgba(245, 158, 11, 0.12);
-    color: #d97706;
-}
-
-.sf-metric-icon.is-toship {
-    background: rgba(14, 165, 233, 0.12);
-    color: #0284c7;
-}
-
-.sf-metric-icon.is-wishlist {
-    background: rgba(239, 68, 68, 0.12);
-    color: #dc2626;
-}
-
-.sf-metric-icon.is-coupons {
-    background: rgba(16, 185, 129, 0.12);
-    color: #059669;
-}
-
-.sf-metric-val {
-    font-size: 26px;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.1;
-    margin-bottom: 2px;
-}
-
-.sf-metric-lbl {
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748b;
 }
 
 /* 4. Pulse & Status Elements */
@@ -23329,4 +23359,198 @@ body.sf-auth-page .mn-main-content {
     font-size: 36px;
     color: #3a4ee5;
     margin-bottom: 8px;
+}
+
+
+/* -------------------------------------------------- */
+/* Ultra-Clean Perks & Rewards Styling                */
+/* -------------------------------------------------- */
+
+.sf-sub-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+}
+.sf-sub-nav .nav-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #64748b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+}
+.sf-sub-nav .nav-link:hover {
+    color: #3a4ee5;
+    background: #eef2ff;
+}
+.sf-sub-nav .nav-link.active {
+    color: #ffffff;
+    background: #3a4ee5;
+}
+.sf-sub-nav .nav-link .badge {
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+/* Compact Voucher Ticket */
+.sf-coupon-row {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.sf-coupon-row:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.sf-coupon-discount {
+    font-size: 18px;
+    font-weight: 800;
+    color: #3a4ee5;
+    letter-spacing: -0.5px;
+    min-width: 100px;
+}
+.sf-coupon-discount.freeship {
+    color: #059669;
+}
+.sf-coupon-discount.mega {
+    color: #ea580c;
+}
+.sf-coupon-info {
+    flex-grow: 1;
+    min-width: 220px;
+}
+.sf-coupon-code-pill {
+    background: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 12.5px;
+    color: #0f172a;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+.sf-coupon-meta {
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+/* Compact Review Items */
+.sf-review-row {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+.sf-review-row:hover {
+    border-color: #cbd5e1;
+}
+.sf-review-thumb-48 {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+.sf-review-content {
+    flex-grow: 1;
+    min-width: 220px;
+}
+.sf-review-stars {
+    color: #fbbf24;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+.sf-seller-reply-mini {
+    background: #f8fafc;
+    border-left: 2px solid #3a4ee5;
+    padding: 6px 10px;
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: #475569;
+    margin-top: 6px;
+}
+
+/* Clean Returns Card */
+.sf-return-clean-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px;
+}
+.sf-return-progress-dots {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 20px 0 16px;
+}
+.sf-return-progress-dots::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: #10b981;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.sf-return-dot-step {
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+    padding: 0 8px;
+    text-align: center;
+}
+.sf-return-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #10b981;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.sf-return-dot-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #0f172a;
+    display: block;
+}
+
+.sf-review-dropzone-mini {
+    border: 1.5px dashed #cbd5e1;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+.sf-review-dropzone-mini:hover {
+    border-color: #3a4ee5;
+    background: #f1f5f9;
 }

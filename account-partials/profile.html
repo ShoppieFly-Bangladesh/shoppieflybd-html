@@ -1,573 +1,230 @@
 <!-- ============================================================== -->
 <!-- PROFILE PARTIAL: apps/web-html/account-partials/profile.html   -->
-<!-- Profile Settings, Security, 2FA & Account Preferences          -->
+<!-- Clean, Modern 2-Column Profile & Security Settings             -->
 <!-- ============================================================== -->
 
 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="sf-profile-partial">
+        <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-4">
+            <div class="row g-4">
+                <!-- Column 1: Personal Information -->
+                <div class="col-12 col-lg-6 border-end-lg pe-lg-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
+                            <i class="ri-user-3-line text-primary"></i>
+                            Personal Information
+                        </h5>
+                    </div>
 
-        <!-- 1. Profile Header Card -->
-        <div class="sf-account-card mb-4 border rounded-3 p-3 p-md-4 bg-white shadow-sm">
-            <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-center justify-content-between gap-3">
-                <div class="d-flex flex-column flex-sm-row align-items-center gap-3 text-center text-sm-start">
-                    <!-- Circular Avatar with Camera Overlay -->
-                    <div class="position-relative d-inline-block flex-shrink-0">
-                        <div class="sf-avatar-wrapper position-relative rounded-circle p-1 bg-white border border-2 border-primary-subtle shadow-sm" style="width: 96px; height: 96px;">
+                    <!-- Small Avatar Change Trigger (48px) + Button -->
+                    <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+                        <div class="position-relative">
                             <img
                                 src="assets/img/user/user.jpg"
                                 onerror="this.onerror=null; this.src='assets/img/user/1.webp';"
-                                alt="Ariful Islam"
-                                class="rounded-circle object-fit-cover w-100 h-100 sf-avatar-preview"
-                                id="sfProfileAvatarPreview" />
-                            <!-- Instant Image Change Trigger -->
-                            <label
-                                for="sfProfileAvatarInput"
-                                class="position-absolute bottom-0 end-0 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center cursor-pointer shadow border border-2 border-white sf-avatar-upload-badge"
-                                style="width: 32px; height: 32px; transform: translate(4px, 4px);"
-                                title="Change profile photo"
-                                data-bs-toggle="tooltip">
-                                <i class="ri-camera-fill font-size-14"></i>
-                                <input
-                                    type="file"
-                                    id="sfProfileAvatarInput"
-                                    class="d-none"
-                                    accept="image/png, image/jpeg, image/webp"
-                                    aria-label="Upload profile image" />
+                                alt="Avatar"
+                                class="rounded-circle object-fit-cover border shadow-sm sf-avatar-preview"
+                                id="sfProfileAvatarPreview"
+                                width="48"
+                                height="48" />
+                        </div>
+                        <div>
+                            <input
+                                type="file"
+                                id="sfProfileAvatarInput"
+                                class="d-none"
+                                accept="image/png, image/jpeg, image/webp"
+                                aria-label="Upload profile image" />
+                            <label for="sfProfileAvatarInput" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 cursor-pointer mb-0 fw-medium">
+                                <i class="ri-camera-line me-1"></i> Change Avatar
                             </label>
                         </div>
                     </div>
 
-                    <!-- User Meta & Badges -->
-                    <div>
-                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start gap-2 mb-1">
-                            <h4 class="mb-0 fw-bold text-dark fs-5" id="sfProfileDisplayHeaderName">Ariful Islam</h4>
-                            <!-- Gold Member Badge -->
-                            <span class="badge rounded-pill bg-warning-subtle text-warning border border-warning-subtle px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                <i class="ri-vip-crown-fill text-warning"></i>
-                                <span>Gold Member</span>
-                            </span>
-                            <!-- Verified Badge -->
-                            <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                <i class="ri-checkbox-circle-fill"></i>
-                                <span>Verified Customer</span>
-                            </span>
-                        </div>
-                        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start gap-3 text-muted small">
-                            <span class="d-inline-flex align-items-center gap-1">
-                                <i class="ri-phone-line text-primary"></i>
-                                <span id="sfProfileDisplayHeaderPhone">+880 1712-345678</span>
-                            </span>
-                            <span class="d-inline-flex align-items-center gap-1">
-                                <i class="ri-mail-line text-primary"></i>
-                                <span>ariful.islam@example.com</span>
-                            </span>
-                            <span class="d-inline-flex align-items-center gap-1">
-                                <i class="ri-calendar-line text-muted"></i>
-                                <span>Member since Nov 2024</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fast Loyalty Stats Pill -->
-                <div class="d-flex align-items-center gap-2 bg-light px-3 py-2 rounded-3 border flex-shrink-0 text-center text-sm-end">
-                    <i class="ri-coin-line fs-4 text-warning"></i>
-                    <div>
-                        <div class="fs-6 fw-bold text-dark lh-1">480 Coins</div>
-                        <small class="text-muted fs-xs">৳ 48 Wallet Value</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-4">
-            <!-- 2. Personal Info Form (Left / Top Column) -->
-            <div class="col-12 col-lg-7">
-                <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm h-100">
-                    <div class="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom">
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary rounded-2 p-2">
-                                <i class="ri-user-3-line fs-5"></i>
-                            </span>
-                            <div>
-                                <h5 class="mb-0 fw-bold text-dark fs-6">Personal Information</h5>
-                                <p class="text-muted small mb-0">Update your personal and contact details</p>
-                            </div>
-                        </div>
-                        <span class="badge bg-light text-muted border fs-xs">Identity Profile</span>
-                    </div>
-
                     <form id="sfPersonalInfoForm" novalidate>
-                        <div class="row g-3">
-                            <!-- Full Name -->
-                            <div class="col-12">
-                                <label for="sf_full_name" class="form-label small fw-semibold text-dark">
-                                    Full Name <span class="text-danger">*</span>
-                                </label>
-                                <div class="position-relative">
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-muted border-end-0">
-                                            <i class="ri-user-line"></i>
-                                        </span>
-                                        <input
-                                            type="text"
-                                            class="form-control border-start-0"
-                                            id="sf_full_name"
-                                            name="full_name"
-                                            value="Ariful Islam"
-                                            required
-                                            placeholder="Enter your full name" />
-                                    </div>
-                                    <div class="invalid-feedback">Please enter your full name.</div>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="sf_full_name" class="form-label small fw-semibold text-dark mb-1">Full Name</label>
+                            <input
+                                type="text"
+                                class="form-control form-control-sm rounded-2"
+                                id="sf_full_name"
+                                name="full_name"
+                                value="Ariful Islam"
+                                required />
+                        </div>
 
-                            <!-- Phone Number -->
-                            <div class="col-12">
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <label for="sf_phone_number" class="form-label small fw-semibold text-dark mb-0">
-                                        Phone Number <span class="text-danger">*</span>
-                                    </label>
-                                    <a
-                                        href="javascript:void(0)"
-                                        class="text-primary small fw-semibold text-decoration-none d-inline-flex align-items-center gap-1"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#sfChangePhoneModal">
-                                        <i class="ri-edit-line"></i> Change Phone
-                                    </a>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-muted border-end-0">
-                                        <i class="ri-phone-line"></i>
-                                    </span>
-                                    <input
-                                        type="tel"
-                                        class="form-control border-start-0 border-end-0 bg-light"
-                                        id="sf_phone_number"
-                                        name="phone_number"
-                                        value="+880 1712-345678"
-                                        readonly />
-                                    <span class="input-group-text bg-light border-start-0 pe-2">
-                                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                            <i class="ri-checkbox-circle-fill"></i> Verified ✓
-                                        </span>
-                                    </span>
-                                </div>
-                                <small class="text-muted d-block mt-1 fs-xs">Primary contact number for order tracking and secure OTP login.</small>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label for="sf_phone_number" class="form-label small fw-semibold text-dark mb-0">Phone Number</label>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="text-primary small fw-semibold text-decoration-none"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#sfChangePhoneModal">
+                                    Change Phone
+                                </a>
                             </div>
-
-                            <!-- Email Address -->
-                            <div class="col-12">
-                                <label for="sf_email_address" class="form-label small fw-semibold text-dark">
-                                    Email Address <span class="text-danger">*</span>
-                                </label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-muted border-end-0">
-                                        <i class="ri-mail-line"></i>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text bg-light text-muted border-end-0">+880</span>
+                                <input
+                                    type="tel"
+                                    class="form-control border-start-0 border-end-0 bg-light"
+                                    id="sf_phone_number"
+                                    value="1712-345678"
+                                    readonly />
+                                <span class="input-group-text bg-light border-start-0 pe-2">
+                                    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-0.5 fs-xs fw-semibold">
+                                        Verified ✓
                                     </span>
-                                    <input
-                                        type="email"
-                                        class="form-control border-start-0 border-end-0"
-                                        id="sf_email_address"
-                                        name="email"
-                                        value="ariful.islam@example.com"
-                                        required
-                                        placeholder="name@example.com" />
-                                    <span class="input-group-text bg-white border-start-0 pe-2">
-                                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                            <i class="ri-checkbox-circle-fill"></i> Verified ✓
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </span>
                             </div>
+                        </div>
 
-                            <!-- Gender Radio Pills -->
+                        <div class="mb-3">
+                            <label for="sf_email_address" class="form-label small fw-semibold text-dark mb-1">Email Address</label>
+                            <input
+                                type="email"
+                                class="form-control form-control-sm rounded-2"
+                                id="sf_email_address"
+                                name="email"
+                                value="ariful.islam@example.com"
+                                required />
+                        </div>
+
+                        <div class="row g-2 mb-3">
                             <div class="col-12 col-sm-6">
-                                <label class="form-label small fw-semibold text-dark d-block">Gender</label>
-                                <div class="btn-group w-100 sf-gender-pill-group" role="group" aria-label="Gender selection">
+                                <label class="form-label small fw-semibold text-dark mb-1 d-block">Gender</label>
+                                <div class="btn-group w-100" role="group">
                                     <input type="radio" class="btn-check" name="sf_gender" id="gender_male" value="Male" checked>
-                                    <label class="btn btn-outline-secondary btn-sm py-2" for="gender_male">
-                                        <i class="ri-men-line me-1"></i> Male
-                                    </label>
+                                    <label class="btn btn-outline-secondary btn-sm py-1" for="gender_male">Male</label>
 
                                     <input type="radio" class="btn-check" name="sf_gender" id="gender_female" value="Female">
-                                    <label class="btn btn-outline-secondary btn-sm py-2" for="gender_female">
-                                        <i class="ri-women-line me-1"></i> Female
-                                    </label>
+                                    <label class="btn btn-outline-secondary btn-sm py-1" for="gender_female">Female</label>
 
                                     <input type="radio" class="btn-check" name="sf_gender" id="gender_other" value="Other">
-                                    <label class="btn btn-outline-secondary btn-sm py-2" for="gender_other">
-                                        <i class="ri-user-line me-1"></i> Other
-                                    </label>
+                                    <label class="btn btn-outline-secondary btn-sm py-1" for="gender_other">Other</label>
                                 </div>
                             </div>
-
-                            <!-- Date of Birth with Calendar Icon -->
                             <div class="col-12 col-sm-6">
-                                <label for="sf_dob" class="form-label small fw-semibold text-dark">Date of Birth</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-muted border-end-0">
-                                        <i class="ri-calendar-line"></i>
-                                    </span>
-                                    <input
-                                        type="date"
-                                        class="form-control border-start-0"
-                                        id="sf_dob"
-                                        name="dob"
-                                        value="1995-08-15" />
-                                </div>
-                            </div>
-
-                            <!-- Save Changes Action with Spinner State -->
-                            <div class="col-12 pt-3 border-top mt-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
-                                <div class="small text-muted" id="sfProfileLastUpdatedText">
-                                    <i class="ri-time-line me-1"></i> Last updated: Today, 10:45 AM
-                                </div>
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 rounded-3 shadow-sm"
-                                    id="sfSaveProfileBtn">
-                                    <span class="spinner-border spinner-border-sm d-none" id="sfSaveProfileSpinner" role="status" aria-hidden="true"></span>
-                                    <i class="ri-save-3-line" id="sfSaveProfileIcon"></i>
-                                    <span id="sfSaveProfileText">Save Changes</span>
-                                </button>
+                                <label for="sf_dob" class="form-label small fw-semibold text-dark mb-1">Date of Birth</label>
+                                <input
+                                    type="date"
+                                    class="form-control form-control-sm rounded-2"
+                                    id="sf_dob"
+                                    name="dob"
+                                    value="1995-08-15" />
                             </div>
                         </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-sm px-4 py-2 fw-semibold rounded-2 shadow-sm d-inline-flex align-items-center gap-2"
+                            id="sfSaveProfileBtn">
+                            <span class="spinner-border spinner-border-sm d-none" id="sfSaveProfileSpinner" role="status" aria-hidden="true"></span>
+                            <span id="sfSaveProfileText">Save Changes</span>
+                        </button>
                     </form>
                 </div>
-            </div>
 
-            <!-- 3. Security & Password Form (Right / Bottom Column) -->
-            <div class="col-12 col-lg-5">
-                <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm h-100">
-                    <div class="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom">
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center justify-content-center bg-danger-subtle text-danger rounded-2 p-2">
-                                <i class="ri-lock-password-line fs-5"></i>
-                            </span>
-                            <div>
-                                <h5 class="mb-0 fw-bold text-dark fs-6">Security & Password</h5>
-                                <p class="text-muted small mb-0">Manage credentials and passwords</p>
-                            </div>
-                        </div>
-                        <i class="ri-shield-keyhole-line text-muted fs-5"></i>
+                <!-- Column 2: Security & Password -->
+                <div class="col-12 col-lg-6 ps-lg-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
+                            <i class="ri-lock-password-line text-primary"></i>
+                            Security & Password
+                        </h5>
                     </div>
 
                     <form id="sfPasswordForm" novalidate>
-                        <div class="row g-3">
-                            <!-- Current Password -->
-                            <div class="col-12">
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <label for="sf_current_password" class="form-label small fw-semibold text-dark mb-0">
-                                        Current Password <span class="text-danger">*</span>
-                                    </label>
-                                    <a href="javascript:void(0)" class="text-primary small text-decoration-none">Forgot?</a>
-                                </div>
-                                <div class="position-relative">
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-muted border-end-0">
-                                            <i class="ri-lock-line"></i>
-                                        </span>
-                                        <input
-                                            type="password"
-                                            class="form-control border-start-0 border-end-0 sf-pwd-field"
-                                            id="sf_current_password"
-                                            name="current_password"
-                                            placeholder="Enter current password"
-                                            autocomplete="current-password"
-                                            required />
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary border-start-0 bg-white sf-toggle-pwd-btn"
-                                            data-target="sf_current_password"
-                                            aria-label="Toggle password visibility">
-                                            <i class="ri-eye-line"></i>
-                                        </button>
-                                    </div>
-                                    <div class="invalid-feedback">Please enter your current password.</div>
-                                </div>
-                            </div>
-
-                            <!-- New Password -->
-                            <div class="col-12">
-                                <label for="sf_new_password" class="form-label small fw-semibold text-dark">
-                                    New Password <span class="text-danger">*</span>
-                                </label>
-                                <div class="position-relative">
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-muted border-end-0">
-                                            <i class="ri-key-2-line"></i>
-                                        </span>
-                                        <input
-                                            type="password"
-                                            class="form-control border-start-0 border-end-0 sf-pwd-field"
-                                            id="sf_new_password"
-                                            name="new_password"
-                                            placeholder="Min. 8 characters"
-                                            autocomplete="new-password"
-                                            required />
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary border-start-0 bg-white sf-toggle-pwd-btn"
-                                            data-target="sf_new_password"
-                                            aria-label="Toggle password visibility">
-                                            <i class="ri-eye-line"></i>
-                                        </button>
-                                    </div>
-                                    <div class="invalid-feedback">Password must be at least 8 characters.</div>
-                                </div>
-
-                                <!-- Password Strength Indicator Bar -->
-                                <div class="sf-password-strength-container mt-2">
-                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <small class="text-muted fs-xs">Password Strength:</small>
-                                        <small class="fw-semibold text-warning fs-xs" id="sfPwdStrengthText">Medium</small>
-                                    </div>
-                                    <div class="progress" style="height: 4px; background-color: #f1f5f9;">
-                                        <div
-                                            class="progress-bar bg-warning transition-all"
-                                            id="sfPwdStrengthMeter"
-                                            role="progressbar"
-                                            style="width: 60%;"
-                                            aria-valuenow="60"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="text-muted mt-1 fs-xs">
-                                        Must include 8+ characters, a number, and a symbol.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Confirm New Password -->
-                            <div class="col-12">
-                                <label for="sf_confirm_password" class="form-label small fw-semibold text-dark">
-                                    Confirm New Password <span class="text-danger">*</span>
-                                </label>
-                                <div class="position-relative">
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light text-muted border-end-0">
-                                            <i class="ri-check-double-line"></i>
-                                        </span>
-                                        <input
-                                            type="password"
-                                            class="form-control border-start-0 border-end-0 sf-pwd-field"
-                                            id="sf_confirm_password"
-                                            name="confirm_password"
-                                            placeholder="Re-enter new password"
-                                            autocomplete="new-password"
-                                            required />
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-secondary border-start-0 bg-white sf-toggle-pwd-btn"
-                                            data-target="sf_confirm_password"
-                                            aria-label="Toggle password visibility">
-                                            <i class="ri-eye-line"></i>
-                                        </button>
-                                    </div>
-                                    <div class="invalid-feedback" id="sfConfirmPasswordFeedback">Passwords do not match.</div>
-                                </div>
-                            </div>
-
-                            <!-- Update Password Button -->
-                            <div class="col-12 pt-3 border-top mt-4">
+                        <div class="mb-3">
+                            <label for="sf_current_password" class="form-label small fw-semibold text-dark mb-1">Current Password</label>
+                            <div class="position-relative">
+                                <input
+                                    type="password"
+                                    class="form-control form-control-sm rounded-2 pe-5 sf-pwd-field"
+                                    id="sf_current_password"
+                                    name="current_password"
+                                    placeholder="Enter current password"
+                                    autocomplete="current-password"
+                                    required />
                                 <button
-                                    type="submit"
-                                    class="btn btn-dark w-100 py-2 fw-semibold d-inline-flex align-items-center justify-content-center gap-2 rounded-3 shadow-sm"
-                                    id="sfUpdatePwdBtn">
-                                    <span class="spinner-border spinner-border-sm d-none" id="sfUpdatePwdSpinner" role="status" aria-hidden="true"></span>
-                                    <i class="ri-shield-keyhole-line" id="sfUpdatePwdIcon"></i>
-                                    <span id="sfUpdatePwdText">Update Password</span>
+                                    type="button"
+                                    class="btn btn-link text-muted position-absolute end-0 top-50 translate-middle-y pe-2 py-0 border-0 sf-toggle-pwd-btn"
+                                    data-target="sf_current_password"
+                                    aria-label="Toggle password visibility">
+                                    <i class="ri-eye-line"></i>
                                 </button>
                             </div>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="sf_new_password" class="form-label small fw-semibold text-dark mb-1">New Password</label>
+                            <div class="position-relative">
+                                <input
+                                    type="password"
+                                    class="form-control form-control-sm rounded-2 pe-5 sf-pwd-field"
+                                    id="sf_new_password"
+                                    name="new_password"
+                                    placeholder="Min. 8 characters"
+                                    autocomplete="new-password"
+                                    required />
+                                <button
+                                    type="button"
+                                    class="btn btn-link text-muted position-absolute end-0 top-50 translate-middle-y pe-2 py-0 border-0 sf-toggle-pwd-btn"
+                                    data-target="sf_new_password"
+                                    aria-label="Toggle password visibility">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="sf_confirm_password" class="form-label small fw-semibold text-dark mb-1">Confirm Password</label>
+                            <div class="position-relative">
+                                <input
+                                    type="password"
+                                    class="form-control form-control-sm rounded-2 pe-5 sf-pwd-field"
+                                    id="sf_confirm_password"
+                                    name="confirm_password"
+                                    placeholder="Re-enter new password"
+                                    autocomplete="new-password"
+                                    required />
+                                <button
+                                    type="button"
+                                    class="btn btn-link text-muted position-absolute end-0 top-50 translate-middle-y pe-2 py-0 border-0 sf-toggle-pwd-btn"
+                                    data-target="sf_confirm_password"
+                                    aria-label="Toggle password visibility">
+                                    <i class="ri-eye-line"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-dark btn-sm px-4 py-2 fw-semibold rounded-2 shadow-sm d-inline-flex align-items-center gap-2"
+                            id="sfUpdatePwdBtn">
+                            <span class="spinner-border spinner-border-sm d-none" id="sfUpdatePwdSpinner" role="status" aria-hidden="true"></span>
+                            <span id="sfUpdatePwdText">Update Password</span>
+                        </button>
                     </form>
                 </div>
             </div>
 
-            <!-- 4. Two-Factor Authentication & Account Preferences Card (Full Width) -->
-            <div class="col-12">
-                <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm">
-                    <div class="d-flex align-items-center justify-content-between pb-3 mb-4 border-bottom">
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center justify-content-center bg-success-subtle text-success rounded-2 p-2">
-                                <i class="ri-shield-check-line fs-5"></i>
-                            </span>
-                            <div>
-                                <h5 class="mb-0 fw-bold text-dark fs-6">Two-Factor Authentication & Account Preferences</h5>
-                                <p class="text-muted small mb-0">Enhanced security policies, connected social identities, and active sessions</p>
-                            </div>
-                        </div>
-                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2.5 py-1 fs-xs fw-semibold">
-                            <i class="ri-lock-2-line"></i> High Security Level
-                        </span>
-                    </div>
-
-                    <div class="row g-4">
-                        <!-- Left Sub-column: 2FA & Connected Accounts -->
-                        <div class="col-12 col-lg-6">
-                            <!-- 2FA SMS Toggle -->
-                            <div class="p-3 rounded-3 border bg-light-subtle mb-4">
-                                <div class="d-flex align-items-start justify-content-between gap-3">
-                                    <div class="d-flex align-items-start gap-3">
-                                        <div class="p-2 bg-primary-subtle text-primary rounded-circle flex-shrink-0">
-                                            <i class="ri-message-3-line fs-5"></i>
-                                        </div>
-                                        <div>
-                                            <div class="d-flex align-items-center gap-2">
-                                                <h6 class="mb-0 fw-bold text-dark fs-7">2FA SMS Login Verification</h6>
-                                                <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle fs-xs fw-semibold" id="sf2FaStatusBadge">Active</span>
-                                            </div>
-                                            <p class="text-muted small mb-0 mt-1">
-                                                Requires a 6-digit SMS OTP sent to <strong>+880 1712-345678</strong> when logging in from unknown browsers or devices.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-check form-switch fs-5 flex-shrink-0 pt-1">
-                                        <input
-                                            class="form-check-input cursor-pointer"
-                                            type="checkbox"
-                                            role="switch"
-                                            id="sf2FaToggle"
-                                            checked
-                                            aria-label="Toggle 2FA SMS Login" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Connected Social Accounts -->
-                            <div class="border rounded-3 p-3">
-                                <h6 class="fw-bold text-dark fs-7 mb-3 d-flex align-items-center gap-2">
-                                    <i class="ri-links-line text-primary"></i>
-                                    Connected Social Accounts
-                                </h6>
-
-                                <!-- Google Account (Connected) -->
-                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2.5 mb-2 rounded-2 bg-light border">
-                                    <div class="d-flex align-items-center gap-2.5">
-                                        <span class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm p-1.5" style="width: 32px; height: 32px;">
-                                            <svg viewBox="0 0 24 24" width="18" height="18">
-                                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-                                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
-                                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
-                                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                                            </svg>
-                                        </span>
-                                        <div>
-                                            <div class="fw-semibold text-dark fs-7 lh-1 mb-1">Google</div>
-                                            <small class="text-muted fs-xs">ariful.islam@example.com</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                            <i class="ri-check-line"></i> Connected
-                                        </span>
-                                        <button
-                                            type="button"
-                                            class="btn btn-sm btn-link text-muted p-0 fs-xs text-decoration-none hover-danger"
-                                            onclick="alert('To disconnect Google, ensure you have set a strong password.');">
-                                            Disconnect
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- Facebook Account (Not connected) -->
-                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2.5 rounded-2 bg-light border">
-                                    <div class="d-flex align-items-center gap-2.5">
-                                        <span class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle shadow-sm" style="width: 32px; height: 32px;">
-                                            <i class="ri-facebook-fill fs-5"></i>
-                                        </span>
-                                        <div>
-                                            <div class="fw-semibold text-dark fs-7 lh-1 mb-1">Facebook</div>
-                                            <small class="text-muted fs-xs">Not connected</small>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button
-                                            type="button"
-                                            class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1"
-                                            onclick="this.innerHTML='<span class=\'spinner-border spinner-border-sm me-1\'></span> Connecting...'; setTimeout(() => { this.className='badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-1 fs-xs fw-semibold'; this.innerHTML='<i class=\'ri-check-line me-1\'></i> Connected'; }, 1000);">
-                                            <i class="ri-add-line"></i> Connect
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right Sub-column: Active Sessions Card -->
-                        <div class="col-12 col-lg-6">
-                            <div class="border rounded-3 p-3 h-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <h6 class="fw-bold text-dark fs-7 mb-0 d-flex align-items-center gap-2">
-                                            <i class="ri-macbook-line text-primary"></i>
-                                            Active Sessions
-                                        </h6>
-                                        <span class="badge bg-light text-muted border fs-xs">2 Devices</span>
-                                    </div>
-
-                                    <!-- Session 1: Current Device -->
-                                    <div class="p-2.5 rounded-2 bg-success-subtle border border-success-subtle mb-3">
-                                        <div class="d-flex align-items-start justify-content-between gap-2">
-                                            <div class="d-flex align-items-start gap-2.5">
-                                                <div class="p-2 bg-white text-success rounded-2 shadow-sm flex-shrink-0">
-                                                    <i class="ri-computer-line fs-5"></i>
-                                                </div>
-                                                <div>
-                                                    <div class="d-flex align-items-center gap-2 flex-wrap">
-                                                        <span class="fw-bold text-dark fs-7">Windows PC • Google Chrome</span>
-                                                        <span class="badge rounded-pill bg-success text-white fs-xs px-2 py-0.5">Current Device</span>
-                                                    </div>
-                                                    <div class="text-muted small mt-1 fs-xs">
-                                                        <i class="ri-map-pin-line text-muted"></i> Dhaka, Bangladesh • IP: 103.145.72.***
-                                                    </div>
-                                                    <div class="text-success small fw-semibold mt-0.5 fs-xs d-flex align-items-center gap-1">
-                                                        <span class="d-inline-block rounded-circle bg-success" style="width: 6px; height: 6px;"></span>
-                                                        Active Now
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Session 2: Mobile App -->
-                                    <div class="p-2.5 rounded-2 bg-light border mb-2" id="sfSessionMobileCard">
-                                        <div class="d-flex align-items-start justify-content-between gap-2">
-                                            <div class="d-flex align-items-start gap-2.5">
-                                                <div class="p-2 bg-white text-muted rounded-2 border flex-shrink-0">
-                                                    <i class="ri-smartphone-line fs-5"></i>
-                                                </div>
-                                                <div>
-                                                    <div class="fw-semibold text-dark fs-7">Xiaomi Redmi Note 13 • ShoppieFly App</div>
-                                                    <div class="text-muted small mt-1 fs-xs">
-                                                        <i class="ri-map-pin-line text-muted"></i> Dhaka, Bangladesh • Last active 2 hours ago
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button
-                                                type="button"
-                                                class="btn btn-outline-danger btn-sm rounded-pill px-2.5 py-0.5 fs-xs flex-shrink-0"
-                                                onclick="document.getElementById('sfSessionMobileCard').style.opacity='0.4'; setTimeout(() => { document.getElementById('sfSessionMobileCard').remove(); }, 400);"
-                                                title="Revoke session">
-                                                Log Out
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pt-3 border-top mt-3 text-end">
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-danger btn-sm fw-medium d-inline-flex align-items-center gap-1.5 rounded-pill px-3 py-1.5"
-                                        onclick="if(confirm('Log out from all devices except this one?')) { alert('All other sessions revoked successfully.'); if(document.getElementById('sfSessionMobileCard')) document.getElementById('sfSessionMobileCard').remove(); }">
-                                        <i class="ri-shut-down-line"></i>
-                                        <span>Sign out of other devices</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Single-line 2FA switch at the bottom -->
+            <div class="pt-3 border-top mt-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="ri-shield-keyhole-line text-success fs-5"></i>
+                    <span class="fw-semibold text-dark small">Two-Factor SMS Login</span>
+                    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-0.5 fs-xs fw-semibold" id="sf2FaStatusBadge">Active</span>
+                </div>
+                <div class="form-check form-switch fs-5 mb-0">
+                    <input
+                        class="form-check-input cursor-pointer"
+                        type="checkbox"
+                        role="switch"
+                        id="sf2FaToggle"
+                        checked
+                        aria-label="Toggle Two-Factor SMS Login" />
                 </div>
             </div>
         </div>
@@ -585,14 +242,13 @@
                             </span>
                             <div>
                                 <h5 class="modal-title fw-bold text-dark fs-6" id="sfChangePhoneModalLabel">Change Phone Number</h5>
-                                <p class="text-muted small mb-0">We will send a 6-digit verification code to your new number</p>
+                                <p class="text-muted small mb-0">Verify via 6-digit OTP</p>
                             </div>
                         </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body p-4">
-                        <!-- Step 1: Input New Phone Number -->
                         <div id="sfChangePhoneStep1">
                             <div class="mb-3">
                                 <label for="sfNewPhoneInput" class="form-label small fw-semibold text-dark">
@@ -607,7 +263,6 @@
                                         placeholder="1XXXXXXXXX"
                                         maxlength="10" />
                                 </div>
-                                <small class="text-muted fs-xs">Example: 1712345678 (Without leading 0)</small>
                             </div>
                             <button
                                 type="button"
@@ -619,12 +274,10 @@
                             </button>
                         </div>
 
-                        <!-- Step 2: Enter 6-digit OTP (Hidden initially) -->
                         <div id="sfChangePhoneStep2" class="d-none text-center">
                             <div class="p-3 bg-light rounded-3 mb-3">
-                                <i class="ri-mail-send-line fs-2 text-primary d-block mb-1"></i>
-                                <h6 class="fw-bold mb-1">Verify Your New Number</h6>
-                                <p class="text-muted small mb-0">Enter the 6-digit OTP code sent to <strong id="sfDisplayTargetNewPhone">+880 1XXXXXXXXX</strong></p>
+                                <h6 class="fw-bold mb-1">Enter 6-digit Code</h6>
+                                <p class="text-muted small mb-0">Sent to <strong id="sfDisplayTargetNewPhone">+880 1XXXXXXXXX</strong></p>
                             </div>
                             <div class="d-flex justify-content-center gap-2 mb-3">
                                 <input type="text" maxlength="1" class="form-control text-center fw-bold fs-5 sf-otp-digit" style="width: 44px; height: 48px;" autofocus>
@@ -636,7 +289,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center small mb-3">
                                 <a href="javascript:void(0)" class="text-muted text-decoration-none" id="sfBackToPhoneStep">← Back</a>
-                                <span class="text-muted">Resend OTP in <strong id="sfOtpTimer">0:45</strong></span>
+                                <span class="text-muted">Resend OTP in <strong>0:45</strong></span>
                             </div>
                             <button
                                 type="button"
@@ -678,7 +331,7 @@
                     pwdToggleButtons.forEach(btn => {
                         btn.addEventListener('click', function () {
                             const targetId = this.getAttribute('data-target');
-                            const input = targetId ? document.getElementById(targetId) : this.closest('.position-relative, .input-group').querySelector('input[type="password"], input[type="text"]');
+                            const input = targetId ? document.getElementById(targetId) : this.closest('.position-relative').querySelector('input');
                             if (input) {
                                 const isPassword = input.type === 'password';
                                 input.type = isPassword ? 'text' : 'password';
@@ -696,42 +349,10 @@
                         });
                     });
 
-                    // 3. Dynamic Password Strength Meter
-                    const newPwdInput = document.getElementById('sf_new_password');
-                    const meter = document.getElementById('sfPwdStrengthMeter');
-                    const label = document.getElementById('sfPwdStrengthText');
-                    if (newPwdInput && meter && label) {
-                        newPwdInput.addEventListener('input', function () {
-                            const val = this.value;
-                            let score = 0;
-                            if (val.length >= 6) score += 20;
-                            if (val.length >= 8) score += 20;
-                            if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score += 20;
-                            if (/\d/.test(val)) score += 20;
-                            if (/[^A-Za-z0-9]/.test(val)) score += 20;
-
-                            meter.style.width = Math.max(score, 5) + '%';
-                            if (score < 40) {
-                                meter.className = 'progress-bar bg-danger transition-all';
-                                label.className = 'fw-semibold text-danger fs-xs';
-                                label.textContent = 'Weak';
-                            } else if (score < 70) {
-                                meter.className = 'progress-bar bg-warning transition-all';
-                                label.className = 'fw-semibold text-warning fs-xs';
-                                label.textContent = 'Medium';
-                            } else {
-                                meter.className = 'progress-bar bg-success transition-all';
-                                label.className = 'fw-semibold text-success fs-xs';
-                                label.textContent = 'Strong';
-                            }
-                        });
-                    }
-
-                    // 4. Save Personal Info Form with Spinner State
+                    // 3. Save Personal Info Form with Spinner State
                     const profileForm = document.getElementById('sfPersonalInfoForm');
                     const saveProfileBtn = document.getElementById('sfSaveProfileBtn');
                     const saveSpinner = document.getElementById('sfSaveProfileSpinner');
-                    const saveIcon = document.getElementById('sfSaveProfileIcon');
                     const saveText = document.getElementById('sfSaveProfileText');
                     if (profileForm && saveProfileBtn) {
                         profileForm.addEventListener('submit', function (e) {
@@ -744,17 +365,12 @@
 
                             saveProfileBtn.disabled = true;
                             if (saveSpinner) saveSpinner.classList.remove('d-none');
-                            if (saveIcon) saveIcon.classList.add('d-none');
                             if (saveText) saveText.textContent = 'Saving...';
 
                             setTimeout(() => {
                                 saveProfileBtn.disabled = false;
                                 if (saveSpinner) saveSpinner.classList.add('d-none');
-                                if (saveIcon) saveIcon.classList.remove('d-none');
                                 if (saveText) saveText.textContent = 'Save Changes';
-
-                                const headerName = document.getElementById('sfProfileDisplayHeaderName');
-                                if (headerName) headerName.textContent = fullNameVal;
 
                                 if (window.iziToast) {
                                     window.iziToast.success({
@@ -765,15 +381,14 @@
                                 } else {
                                     alert('Personal details updated successfully!');
                                 }
-                            }, 900);
+                            }, 800);
                         });
                     }
 
-                    // 5. Update Password Form with Validation & Spinner State
+                    // 4. Update Password Form with Validation & Spinner State
                     const pwdForm = document.getElementById('sfPasswordForm');
                     const updatePwdBtn = document.getElementById('sfUpdatePwdBtn');
                     const updatePwdSpinner = document.getElementById('sfUpdatePwdSpinner');
-                    const updatePwdIcon = document.getElementById('sfUpdatePwdIcon');
                     const updatePwdText = document.getElementById('sfUpdatePwdText');
                     if (pwdForm && updatePwdBtn) {
                         pwdForm.addEventListener('submit', function (e) {
@@ -797,36 +412,29 @@
 
                             updatePwdBtn.disabled = true;
                             if (updatePwdSpinner) updatePwdSpinner.classList.remove('d-none');
-                            if (updatePwdIcon) updatePwdIcon.classList.add('d-none');
                             if (updatePwdText) updatePwdText.textContent = 'Updating...';
 
                             setTimeout(() => {
                                 updatePwdBtn.disabled = false;
                                 if (updatePwdSpinner) updatePwdSpinner.classList.add('d-none');
-                                if (updatePwdIcon) updatePwdIcon.classList.remove('d-none');
                                 if (updatePwdText) updatePwdText.textContent = 'Update Password';
 
                                 pwdForm.reset();
-                                if (meter) meter.style.width = '60%';
-                                if (label) {
-                                    label.textContent = 'Medium';
-                                    label.className = 'fw-semibold text-warning fs-xs';
-                                }
 
                                 if (window.iziToast) {
                                     window.iziToast.success({
                                         title: 'Security',
-                                        message: 'Password changed successfully! Keep it safe.',
+                                        message: 'Password updated successfully!',
                                         position: 'topRight'
                                     });
                                 } else {
-                                    alert('Password changed successfully!');
+                                    alert('Password updated successfully!');
                                 }
-                            }, 1000);
+                            }, 800);
                         });
                     }
 
-                    // 6. 2FA Toggle Switch State
+                    // 5. 2FA Toggle Switch State
                     const twoFaToggle = document.getElementById('sf2FaToggle');
                     const twoFaBadge = document.getElementById('sf2FaStatusBadge');
                     if (twoFaToggle && twoFaBadge) {
@@ -841,7 +449,7 @@
                         });
                     }
 
-                    // 7. Change Phone Modal Handler
+                    // 6. Change Phone Modal Handler
                     const sendOtpBtn = document.getElementById('sfSendPhoneOtpBtn');
                     const step1 = document.getElementById('sfChangePhoneStep1');
                     const step2 = document.getElementById('sfChangePhoneStep2');
@@ -854,7 +462,7 @@
                         sendOtpBtn.addEventListener('click', function () {
                             const val = (phoneInput.value || '').trim();
                             if (val.length < 9) {
-                                alert('Please enter a valid Bangladesh mobile number.');
+                                alert('Please enter a valid mobile number.');
                                 return;
                             }
                             this.disabled = true;
@@ -867,7 +475,7 @@
                                 step1.classList.add('d-none');
                                 step2.classList.remove('d-none');
                                 if (targetDisplay) targetDisplay.textContent = '+880 ' + val;
-                            }, 800);
+                            }, 600);
                         });
                     }
 
@@ -880,11 +488,9 @@
 
                     if (confirmOtpBtn) {
                         confirmOtpBtn.addEventListener('click', function () {
-                            const newNumberFormatted = '+880 ' + (phoneInput.value || '1712-345678');
+                            const newNumberFormatted = (phoneInput.value || '1712-345678');
                             const phoneField = document.getElementById('sf_phone_number');
-                            const headerPhone = document.getElementById('sfProfileDisplayHeaderPhone');
                             if (phoneField) phoneField.value = newNumberFormatted;
-                            if (headerPhone) headerPhone.textContent = newNumberFormatted;
 
                             const modalEl = document.getElementById('sfChangePhoneModal');
                             if (modalEl && window.bootstrap && window.bootstrap.Modal) {
@@ -899,11 +505,11 @@
                             if (window.iziToast) {
                                 window.iziToast.success({
                                     title: 'Phone Verified',
-                                    message: 'Primary phone number updated to ' + newNumberFormatted,
+                                    message: 'Phone number updated successfully!',
                                     position: 'topRight'
                                 });
                             } else {
-                                alert('Primary phone number updated to ' + newNumberFormatted);
+                                alert('Phone number updated successfully!');
                             }
                         });
                     }

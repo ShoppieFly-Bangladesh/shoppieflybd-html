@@ -2232,7 +2232,7 @@
             return;
         }
 
-        var validTabs = ["dashboard", "orders", "profile", "addresses", "vouchers", "reviews", "returns", "support"];
+        var validTabs = ["dashboard", "orders", "wishlist", "profile", "addresses", "vouchers", "reviews", "returns", "support"];
 
         function activateAccountTab(targetId, updateHash) {
             if (!targetId) return;
@@ -2245,7 +2245,11 @@
             $(".sf-account-nav-link").removeClass("active");
             $('.sf-account-nav-link[href="#' + targetId + '"]').addClass("active");
 
-            // Update Mobile Scroller Tabs
+            // Update Mobile App Grid Tiles
+            $(".sf-account-tile-btn").removeClass("active");
+            $('.sf-account-tile-btn[href="#' + targetId + '"]').addClass("active");
+
+            // Update Mobile Scroller Tabs (if any)
             $(".sf-account-mobile-tab").removeClass("active");
             $('.sf-account-mobile-tab[href="#' + targetId + '"]').addClass("active");
 
@@ -2265,6 +2269,22 @@
                 }
             }
 
+            // Update Breadcrumb Text
+            var tabLabelMap = {
+                dashboard: "Dashboard",
+                orders: "My Orders",
+                wishlist: "My Wishlist",
+                profile: "Manage Profile",
+                addresses: "Address Book",
+                vouchers: "Vouchers & Coupons",
+                reviews: "My Reviews",
+                returns: "Returns & Refunds",
+                support: "Help Center"
+            };
+            if (tabLabelMap[targetId]) {
+                $("#sfActiveBreadcrumb").text(tabLabelMap[targetId]);
+            }
+
             // Auto-scroll mobile pill into center
             var $scroller = $(".sf-account-scroller-inner");
             var $activeMobilePill = $('.sf-account-mobile-tab[href="#' + targetId + '"]');
@@ -2277,12 +2297,21 @@
             }
         }
 
-        // Navigation Clicks (Desktop Sidebar & Mobile Scroller)
-        $(document).on("click", ".sf-account-nav-link, .sf-account-mobile-tab, .sf-account-tab-trigger", function (e) {
+        // Navigation Clicks (Desktop Sidebar, Mobile App Grid & Triggers)
+        $(document).on("click", ".sf-account-nav-link, .sf-account-tile-btn, .sf-account-mobile-tab, .sf-account-tab-trigger", function (e) {
             var href = $(this).attr("href");
             if (href && href.startsWith("#")) {
                 e.preventDefault();
                 activateAccountTab(href);
+                // On small screens, scroll smoothly down to content pane
+                if (window.innerWidth < 992 && !$(this).hasClass("sf-account-nav-link")) {
+                    var $content = $("#sfAccountTabContent");
+                    if ($content.length) {
+                        $("html, body").stop().animate({
+                            scrollTop: $content.offset().top - 80
+                        }, 250);
+                    }
+                }
             }
         });
 

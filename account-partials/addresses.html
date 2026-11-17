@@ -1,172 +1,96 @@
 <!-- ============================================================== -->
 <!-- ADDRESSES PARTIAL: ShoppieFlyBD Customer Dashboard            -->
-<!-- Saved Delivery Addresses & Cascading Address Modal            -->
+<!-- Saved Delivery Addresses (Ultra-Clean & Minimalist)           -->
 <!-- ============================================================== -->
 
 <div class="sf-addresses-partial">
     <!-- Header Bar -->
     <div class="sf-pane-header d-flex flex-wrap align-items-center justify-content-between gap-3 pb-3 mb-4 border-bottom">
-        <div class="d-flex align-items-center gap-2">
-            <h4 class="mb-0 fw-bold text-dark fs-5">Saved Delivery Addresses</h4>
-            <span class="badge rounded-pill bg-primary-subtle text-primary px-3 py-1 fs-xs fw-semibold border border-primary-subtle" id="sfAddressCountBadge">2 Addresses</span>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary d-inline-flex align-items-center gap-2 px-3 py-2 fw-medium rounded-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal" id="sfBtnAddNewAddress">
-                <i class="ri-add-line fs-5"></i>
-                <span>Add New Address</span>
-            </button>
-        </div>
+        <h4 class="mb-0 fw-bold text-dark fs-5">Saved Addresses</h4>
+        <button type="button" class="btn btn-primary btn-sm d-inline-flex align-items-center gap-1.5 px-3 py-2 fw-medium rounded-3" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal" id="sfBtnAddNewAddress">
+            <i class="ri-add-line fs-6"></i>
+            <span>Add New Address</span>
+        </button>
     </div>
 
-    <!-- Saved Address Cards Grid -->
-    <div class="row g-3 g-md-4" id="sfAddressListContainer">
-        <!-- Card 1: Default Home Address -->
-        <div class="col-12 col-xl-6" id="sfAddressCard-1" data-id="1" data-tag="Home" data-name="Ariful Islam" data-phone="01712345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Mirpur" data-address="House 42, Road 11, Section-10, Mirpur, Dhaka-1216" data-landmark="Near Mirpur Benaroshi Polli" data-default-shipping="true" data-default-billing="true">
-            <div class="card h-100 border rounded-3 sf-address-card shadow-sm position-relative overflow-hidden">
-                <!-- Top Status Strip -->
-                <div class="card-header bg-white border-bottom-0 pt-3 px-3 pb-0 d-flex flex-wrap align-items-center justify-content-between gap-2">
-                    <div class="d-flex flex-wrap align-items-center gap-1.5">
-                        <!-- Tag Badge: Home (Blue Pill) -->
-                        <span class="badge rounded-pill bg-primary text-white px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                            <i class="ri-home-4-line"></i> Home
-                        </span>
-                        <!-- Default Shipping (Green Pill) -->
-                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1 sf-badge-shipping">
-                            <i class="ri-truck-line"></i> Default Shipping
-                        </span>
-                        <!-- Default Billing (Purple Pill) -->
-                        <span class="badge rounded-pill px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1 sf-badge-billing" style="background-color: #f3e8ff; color: #7c3aed; border: 1px solid #ddd6fe;">
-                            <i class="ri-bill-line"></i> Default Billing
-                        </span>
-                    </div>
-
-                    <!-- Quick Indicator -->
-                    <div class="text-success small fw-medium d-inline-flex align-items-center gap-1 sf-default-indicator">
-                        <i class="ri-checkbox-circle-fill"></i>
-                        <span class="d-none d-sm-inline">Primary Address</span>
-                    </div>
+    <!-- Minimalist Address Cards Grid -->
+    <div class="row g-3" id="sfAddressListContainer">
+        <!-- Card 1: Home (Default) -->
+        <div class="col-12 col-md-6" id="sfAddressCard-1" data-id="1" data-tag="Home" data-name="Ariful Islam" data-phone="01712345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Mirpur" data-address="House 42, Road 11, Section-10, Mirpur, Dhaka-1216" data-landmark="Near Mirpur Benaroshi Polli" data-default-shipping="true">
+            <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
+                <!-- Top Row: Recipient Name • Phone • Tag • Default badge -->
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                    <span class="fw-bold text-dark sf-card-name">Ariful Islam</span>
+                    <span class="text-muted small">&bull;</span>
+                    <span class="text-muted small sf-card-phone">+880 1712-345678</span>
+                    <span class="badge rounded-pill bg-primary-subtle text-primary px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag">Home</span>
+                    <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold sf-badge-default">Default</span>
                 </div>
 
-                <!-- Card Body -->
-                <div class="card-body p-3">
-                    <div class="d-flex align-items-center justify-content-between mb-1">
-                        <h5 class="card-title fw-bold text-dark mb-0 fs-6 sf-card-name">Ariful Islam</h5>
-                    </div>
+                <!-- Address: 1-2 clean lines -->
+                <p class="text-secondary small mb-3 flex-grow-1 sf-card-address">House 42, Road 11, Section-10, Mirpur, Dhaka-1216</p>
 
-                    <div class="d-flex align-items-center gap-2 text-muted small mb-2 sf-card-phone-wrap">
-                        <i class="ri-phone-line text-primary"></i>
-                        <span class="fw-medium text-dark sf-card-phone">+880 1712-345678</span>
-                    </div>
-
-                    <div class="text-secondary small mb-2 sf-card-address-wrap d-flex align-items-start gap-2">
-                        <i class="ri-map-pin-2-line text-danger flex-shrink-0 mt-0.5"></i>
-                        <span class="sf-card-address">House 42, Road 11, Section-10, Mirpur, Dhaka-1216</span>
-                    </div>
-
-                    <div class="text-muted small mb-3 sf-card-landmark-wrap d-flex align-items-center gap-2">
-                        <i class="ri-compass-3-line text-muted flex-shrink-0"></i>
-                        <span>Landmark: <strong class="text-dark fw-medium sf-card-landmark">Near Mirpur Benaroshi Polli</strong></span>
-                    </div>
-                </div>
-
-                <!-- Card Footer Actions -->
-                <div class="card-footer bg-light-subtle border-top py-2.5 px-3 d-flex align-items-center justify-content-between">
-                    <div class="sf-card-meta-left">
-                        <span class="text-muted small"><i class="ri-shield-check-line text-success me-1"></i>Verified Address</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-2 sf-card-actions">
-                        <button type="button" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-edit-address" onclick="sfEditAddressCard(1)">
-                            <i class="ri-edit-line"></i>
-                            <span>Edit</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-delete-address" onclick="sfDeleteAddressCard(1)">
-                            <i class="ri-delete-bin-line"></i>
-                            <span>Delete</span>
-                        </button>
-                    </div>
+                <!-- Action Row: Clean text links Edit • Delete • Set as Default / Indicator -->
+                <div class="d-flex align-items-center gap-2 pt-2 border-top small sf-card-action-row">
+                    <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(1)">
+                        <i class="ri-edit-line me-1"></i>Edit
+                    </button>
+                    <span class="text-muted">&bull;</span>
+                    <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(1)">
+                        <i class="ri-delete-bin-line me-1"></i>Delete
+                    </button>
+                    <span class="text-muted">&bull;</span>
+                    <span class="sf-default-action-wrap text-success fw-medium">
+                        <i class="ri-check-line me-0.5"></i>Default Address
+                    </span>
                 </div>
             </div>
         </div>
 
-        <!-- Card 2: Office Address -->
-        <div class="col-12 col-xl-6" id="sfAddressCard-2" data-id="2" data-tag="Office" data-name="Ariful Islam" data-phone="01812345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Tejgaon" data-address="Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215" data-landmark="Opposite to WASA Bhaban" data-default-shipping="false" data-default-billing="false">
-            <div class="card h-100 border rounded-3 sf-address-card shadow-sm position-relative overflow-hidden">
-                <!-- Top Status Strip -->
-                <div class="card-header bg-white border-bottom-0 pt-3 px-3 pb-0 d-flex flex-wrap align-items-center justify-content-between gap-2">
-                    <div class="d-flex flex-wrap align-items-center gap-1.5">
-                        <!-- Tag Badge: Office (Orange Pill) -->
-                        <span class="badge rounded-pill bg-warning text-dark px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1" style="background-color: #ff9800 !important; color: #ffffff !important;">
-                            <i class="ri-building-line"></i> Office
-                        </span>
-                        <!-- Optional shipping status container -->
-                        <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2.5 py-1 fs-xs fw-semibold d-none align-items-center gap-1 sf-badge-shipping">
-                            <i class="ri-truck-line"></i> Default Shipping
-                        </span>
-                        <span class="badge rounded-pill px-2.5 py-1 fs-xs fw-semibold d-none align-items-center gap-1 sf-badge-billing" style="background-color: #f3e8ff; color: #7c3aed; border: 1px solid #ddd6fe;">
-                            <i class="ri-bill-line"></i> Default Billing
-                        </span>
-                    </div>
-
-                    <!-- Action Link / Default Switcher -->
-                    <div class="sf-default-action-wrap">
-                        <button type="button" class="btn btn-xs btn-outline-primary rounded-pill px-2.5 py-0.5 fs-xs fw-medium d-inline-flex align-items-center gap-1 sf-btn-set-default" onclick="sfSetDefaultShipping(2)">
-                            <i class="ri-checkbox-circle-line"></i>
-                            <span>Set as Default Shipping</span>
-                        </button>
-                    </div>
+        <!-- Card 2: Office -->
+        <div class="col-12 col-md-6" id="sfAddressCard-2" data-id="2" data-tag="Office" data-name="Ariful Islam" data-phone="01812345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Tejgaon" data-address="Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215" data-landmark="Opposite to WASA Bhaban" data-default-shipping="false">
+            <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
+                <!-- Top Row: Recipient Name • Phone • Tag • Default badge (hidden) -->
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                    <span class="fw-bold text-dark sf-card-name">Ariful Islam</span>
+                    <span class="text-muted small">&bull;</span>
+                    <span class="text-muted small sf-card-phone">+880 1812-345678</span>
+                    <span class="badge rounded-pill px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag" style="background-color: #fff3e0 !important; color: #e65100 !important;">Office</span>
+                    <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold d-none sf-badge-default">Default</span>
                 </div>
 
-                <!-- Card Body -->
-                <div class="card-body p-3">
-                    <div class="d-flex align-items-center justify-content-between mb-1">
-                        <h5 class="card-title fw-bold text-dark mb-0 fs-6 sf-card-name">Ariful Islam</h5>
-                    </div>
+                <!-- Address: 1-2 clean lines -->
+                <p class="text-secondary small mb-3 flex-grow-1 sf-card-address">Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215</p>
 
-                    <div class="d-flex align-items-center gap-2 text-muted small mb-2 sf-card-phone-wrap">
-                        <i class="ri-phone-line text-primary"></i>
-                        <span class="fw-medium text-dark sf-card-phone">+880 1812-345678</span>
-                    </div>
-
-                    <div class="text-secondary small mb-2 sf-card-address-wrap d-flex align-items-start gap-2">
-                        <i class="ri-map-pin-2-line text-danger flex-shrink-0 mt-0.5"></i>
-                        <span class="sf-card-address">Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215</span>
-                    </div>
-
-                    <div class="text-muted small mb-3 sf-card-landmark-wrap d-flex align-items-center gap-2">
-                        <i class="ri-compass-3-line text-muted flex-shrink-0"></i>
-                        <span>Landmark: <strong class="text-dark fw-medium sf-card-landmark">Opposite to WASA Bhaban</strong></span>
-                    </div>
-                </div>
-
-                <!-- Card Footer Actions -->
-                <div class="card-footer bg-light-subtle border-top py-2.5 px-3 d-flex align-items-center justify-content-between">
-                    <div class="sf-card-meta-left">
-                        <span class="text-muted small"><i class="ri-time-line text-muted me-1"></i>Delivers 9 AM - 6 PM</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-2 sf-card-actions">
-                        <button type="button" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-edit-address" onclick="sfEditAddressCard(2)">
-                            <i class="ri-edit-line"></i>
-                            <span>Edit</span>
+                <!-- Action Row: Clean text links Edit • Delete • Set as Default -->
+                <div class="d-flex align-items-center gap-2 pt-2 border-top small sf-card-action-row">
+                    <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(2)">
+                        <i class="ri-edit-line me-1"></i>Edit
+                    </button>
+                    <span class="text-muted">&bull;</span>
+                    <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(2)">
+                        <i class="ri-delete-bin-line me-1"></i>Delete
+                    </button>
+                    <span class="text-muted">&bull;</span>
+                    <span class="sf-default-action-wrap">
+                        <button type="button" class="btn btn-link p-0 text-decoration-none text-muted fw-medium sf-btn-set-default" onclick="sfSetDefaultShipping(2)">
+                            Set as Default
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-delete-address" onclick="sfDeleteAddressCard(2)">
-                            <i class="ri-delete-bin-line"></i>
-                            <span>Delete</span>
-                        </button>
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Empty State Container (Hidden by default, shown if all cards are deleted) -->
+    <!-- Empty State Container (Hidden by default) -->
     <div id="sfAddressEmptyState" class="text-center py-5 d-none">
-        <div class="avatar-lg mx-auto mb-3 bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 72px; height: 72px;">
-            <i class="ri-map-pin-line text-muted fs-1"></i>
+        <div class="avatar-lg mx-auto mb-3 bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
+            <i class="ri-map-pin-line text-muted fs-2"></i>
         </div>
-        <h5 class="fw-bold text-dark">No Saved Addresses Found</h5>
-        <p class="text-muted small mb-3">Add your delivery addresses to enjoy faster and smoother checkout.</p>
-        <button type="button" class="btn btn-primary rounded-3 px-4 py-2" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal">
-            <i class="ri-add-line me-1"></i> Add Your First Address
+        <h6 class="fw-bold text-dark">No Saved Addresses</h6>
+        <p class="text-muted small mb-3">Add your delivery address for fast and easy checkout.</p>
+        <button type="button" class="btn btn-primary btn-sm rounded-3 px-3 py-2" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal">
+            <i class="ri-add-line me-1"></i> Add Address
         </button>
     </div>
 </div>
@@ -180,13 +104,10 @@
             <!-- Modal Header -->
             <div class="modal-header border-bottom bg-light-subtle px-4 py-3">
                 <div class="d-flex align-items-center gap-2">
-                    <div class="rounded-circle bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
-                        <i class="ri-map-pin-2-fill fs-5"></i>
+                    <div class="rounded-circle bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                        <i class="ri-map-pin-2-fill fs-6"></i>
                     </div>
-                    <div>
-                        <h5 class="modal-title fw-bold text-dark mb-0 fs-6" id="sfAddressModalTitle">Add New Delivery Address</h5>
-                        <p class="text-muted small mb-0">Fill in accurate details to ensure smooth courier delivery</p>
-                    </div>
+                    <h5 class="modal-title fw-bold text-dark mb-0 fs-6" id="sfAddressModalTitle">Add Delivery Address</h5>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="sfBtnCloseAddressModal"></button>
             </div>
@@ -200,26 +121,23 @@
                         <!-- Address Tag Selector -->
                         <div class="col-12">
                             <label class="form-label fw-semibold text-dark small mb-1.5 d-flex align-items-center gap-1">
-                                <span>Address Label / Type</span>
+                                <span>Address Tag</span>
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="d-flex flex-wrap gap-2 sf-address-tag-selector">
                                 <input type="radio" class="btn-check" name="sf_address_tag" id="sfTagHome" value="Home" checked>
-                                <label class="btn btn-outline-primary rounded-pill px-3 py-1.5 fs-sm d-inline-flex align-items-center gap-1.5 cursor-pointer" for="sfTagHome">
-                                    <i class="ri-home-4-line"></i>
-                                    <span>Home</span>
+                                <label class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1 fs-xs d-inline-flex align-items-center gap-1 cursor-pointer" for="sfTagHome">
+                                    <i class="ri-home-4-line"></i> Home
                                 </label>
 
                                 <input type="radio" class="btn-check" name="sf_address_tag" id="sfTagOffice" value="Office">
-                                <label class="btn btn-outline-warning rounded-pill px-3 py-1.5 fs-sm d-inline-flex align-items-center gap-1.5 cursor-pointer text-dark" for="sfTagOffice">
-                                    <i class="ri-building-line"></i>
-                                    <span>Office</span>
+                                <label class="btn btn-outline-warning btn-sm rounded-pill px-3 py-1 fs-xs d-inline-flex align-items-center gap-1 cursor-pointer text-dark" for="sfTagOffice">
+                                    <i class="ri-building-line"></i> Office
                                 </label>
 
                                 <input type="radio" class="btn-check" name="sf_address_tag" id="sfTagOther" value="Other">
-                                <label class="btn btn-outline-secondary rounded-pill px-3 py-1.5 fs-sm d-inline-flex align-items-center gap-1.5 cursor-pointer" for="sfTagOther">
-                                    <i class="ri-map-pin-user-line"></i>
-                                    <span>Other</span>
+                                <label class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-1 fs-xs d-inline-flex align-items-center gap-1 cursor-pointer" for="sfTagOther">
+                                    <i class="ri-map-pin-user-line"></i> Other
                                 </label>
                             </div>
                         </div>
@@ -227,7 +145,7 @@
                         <!-- Recipient Full Name -->
                         <div class="col-md-6 col-12">
                             <label for="sfInputFullName" class="form-label fw-semibold text-dark small mb-1.5">
-                                <span>Recipient Full Name</span>
+                                <span>Recipient Name</span>
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
@@ -240,15 +158,14 @@
                         <!-- Contact Phone Number with (+880) prefix -->
                         <div class="col-md-6 col-12">
                             <label for="sfInputPhone" class="form-label fw-semibold text-dark small mb-1.5">
-                                <span>Contact Phone Number</span>
+                                <span>Phone Number</span>
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0 fw-semibold text-secondary px-2.5">+880</span>
                                 <input type="tel" class="form-control" id="sfInputPhone" placeholder="1712-345678" pattern="0?1[3-9][0-9]{8}" required autocomplete="tel">
                             </div>
-                            <div class="form-text text-muted fs-xs">Standard Bangladesh 11-digit mobile number (e.g. 017XXXXXXXX).</div>
-                            <div class="invalid-feedback small">Please enter a valid Bangladesh phone number.</div>
+                            <div class="invalid-feedback small">Please enter a valid phone number.</div>
                         </div>
 
                         <!-- Cascading Bangladesh Selects -->
@@ -320,43 +237,36 @@
                                 <option value="Savar">Savar</option>
                                 <option value="Keraniganj">Keraniganj</option>
                             </select>
-                            <div class="invalid-feedback small">Please select a thana / upazila.</div>
+                            <div class="invalid-feedback small">Please select a thana.</div>
                         </div>
 
-                        <!-- Detailed Street / House / Road / Landmark -->
+                        <!-- Detailed Street / House / Road -->
                         <div class="col-12">
                             <label for="sfInputAddressDetails" class="form-label fw-semibold text-dark small mb-1.5">
-                                <span>Detailed Street / House / Road / Flat Address</span>
+                                <span>Street Address</span>
                                 <span class="text-danger">*</span>
                             </label>
-                            <textarea class="form-control" id="sfInputAddressDetails" rows="2" placeholder="e.g. House 42, Road 11, Section-10, Mirpur, Dhaka-1216" required></textarea>
-                            <div class="invalid-feedback small">Please provide full address details.</div>
+                            <textarea class="form-control" id="sfInputAddressDetails" rows="2" placeholder="House 42, Road 11, Section-10, Mirpur, Dhaka-1216" required></textarea>
+                            <div class="invalid-feedback small">Please provide address details.</div>
                         </div>
 
                         <!-- Landmark Input -->
                         <div class="col-12">
                             <label for="sfInputLandmark" class="form-label fw-semibold text-dark small mb-1.5 d-flex align-items-center justify-content-between">
-                                <span>Prominent Landmark <span class="text-muted fw-normal fs-xs">(Optional)</span></span>
-                                <span class="text-muted fs-xs">Helps delivery rider locate faster</span>
+                                <span>Landmark <span class="text-muted fw-normal fs-xs">(Optional)</span></span>
                             </label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-end-0 text-muted"><i class="ri-compass-3-line"></i></span>
-                                <input type="text" class="form-control border-start-0 ps-1" id="sfInputLandmark" placeholder="e.g. Near Mirpur Benaroshi Polli or Opposite to WASA Bhaban">
+                                <input type="text" class="form-control border-start-0 ps-1" id="sfInputLandmark" placeholder="e.g. Near Mirpur Benaroshi Polli">
                             </div>
                         </div>
 
-                        <!-- Default Checkboxes -->
+                        <!-- Default Checkbox -->
                         <div class="col-12 pt-2 border-top">
-                            <div class="form-check mb-2">
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="sfCheckDefaultShipping">
                                 <label class="form-check-label text-dark small cursor-pointer" for="sfCheckDefaultShipping">
-                                    <strong>Set as default shipping address</strong> <span class="text-muted">(Used automatically during checkout)</span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="sfCheckDefaultBilling">
-                                <label class="form-check-label text-dark small cursor-pointer" for="sfCheckDefaultBilling">
-                                    <strong>Set as default billing address</strong> <span class="text-muted">(Used for invoicing & payment receipts)</span>
+                                    Set as default delivery address
                                 </label>
                             </div>
                         </div>
@@ -365,10 +275,10 @@
 
                 <!-- Modal Footer -->
                 <div class="modal-footer border-top bg-light-subtle px-4 py-3 d-flex align-items-center justify-content-end gap-2">
-                    <button type="button" class="btn btn-outline-secondary px-3 py-2 rounded-3 fw-medium" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-outline-secondary btn-sm px-3 py-2 rounded-3 fw-medium" data-bs-dismiss="modal">
                         Cancel
                     </button>
-                    <button type="submit" class="btn btn-primary px-4 py-2 rounded-3 fw-medium d-inline-flex align-items-center gap-2" id="sfBtnSaveAddress">
+                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-3 fw-medium d-inline-flex align-items-center gap-2" id="sfBtnSaveAddress">
                         <span class="spinner-border spinner-border-sm d-none" id="sfBtnSaveAddressSpinner" role="status" aria-hidden="true"></span>
                         <span id="sfBtnSaveAddressText">Save Address</span>
                     </button>
@@ -490,20 +400,10 @@
                 title: title || (type === 'success' ? 'Success' : 'Notice'),
                 message: message,
                 position: 'topRight',
-                timeout: 3500,
-                transitionIn: 'fadeInDown',
-                transitionOut: 'fadeOutUp'
+                timeout: 3000
             });
         } else if (typeof displayToast === 'function') {
             displayToast(type, { message: message, title: title });
-        } else {
-            // Fallback lightweight banner/alert if iziToast is pending
-            const alertBox = document.createElement('div');
-            alertBox.className = `alert alert-${type === 'error' ? 'danger' : 'success'} alert-dismissible fade show position-fixed top-0 end-0 m-3 shadow`;
-            alertBox.style.zIndex = '9999';
-            alertBox.innerHTML = `<strong>${title || ''}:</strong> ${message} <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
-            document.body.appendChild(alertBox);
-            setTimeout(() => { alertBox.remove(); }, 3500);
         }
     };
 
@@ -528,7 +428,6 @@
                 districtSelect.appendChild(opt);
             });
 
-            // If a district is targeted or default first
             const activeDistrict = selectedDistrict || Object.keys(divisionData.districts)[0];
             if (activeDistrict && districtSelect.querySelector(`option[value="${activeDistrict}"]`)) {
                 districtSelect.value = activeDistrict;
@@ -577,18 +476,16 @@
                 form.classList.remove('was-validated');
             }
             document.getElementById('sfAddressCardId').value = '';
-            document.getElementById('sfAddressModalTitle').textContent = 'Add New Delivery Address';
+            document.getElementById('sfAddressModalTitle').textContent = 'Add Delivery Address';
             document.getElementById('sfBtnSaveAddressText').textContent = 'Save Address';
             document.getElementById('sfTagHome').checked = true;
 
-            // Default location: Dhaka -> Dhaka City -> Mirpur
             const divSelect = document.getElementById('sfSelectDivision');
             if (divSelect) {
                 divSelect.value = 'Dhaka';
                 sfOnDivisionChange('Dhaka', 'Dhaka City', 'Mirpur');
             }
             document.getElementById('sfCheckDefaultShipping').checked = false;
-            document.getElementById('sfCheckDefaultBilling').checked = false;
         });
     }
 
@@ -606,24 +503,19 @@
         const address = card.getAttribute('data-address') || '';
         const landmark = card.getAttribute('data-landmark') || '';
         const isShipping = card.getAttribute('data-default-shipping') === 'true';
-        const isBilling = card.getAttribute('data-default-billing') === 'true';
 
         document.getElementById('sfAddressCardId').value = cardId;
         document.getElementById('sfAddressModalTitle').textContent = 'Edit Delivery Address';
         document.getElementById('sfBtnSaveAddressText').textContent = 'Update Address';
 
-        // Set Tag radio
         if (tag === 'Home') document.getElementById('sfTagHome').checked = true;
         else if (tag === 'Office') document.getElementById('sfTagOffice').checked = true;
         else document.getElementById('sfTagOther').checked = true;
 
-        // Set Inputs
         document.getElementById('sfInputFullName').value = name;
-        // Strip 880 prefix if present in stored value
         const cleanPhone = phone.replace(/^(\+?880)/, '').replace(/^0/, '');
         document.getElementById('sfInputPhone').value = cleanPhone;
 
-        // Populate selects
         const divSelect = document.getElementById('sfSelectDivision');
         divSelect.value = division;
         sfOnDivisionChange(division, district, thana);
@@ -631,9 +523,7 @@
         document.getElementById('sfInputAddressDetails').value = address;
         document.getElementById('sfInputLandmark').value = landmark;
         document.getElementById('sfCheckDefaultShipping').checked = isShipping;
-        document.getElementById('sfCheckDefaultBilling').checked = isBilling;
 
-        // Open modal via Bootstrap modal instance
         const modalEl = document.getElementById('sfAddAddressModal');
         if (modalEl) {
             const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
@@ -652,11 +542,11 @@
                 Swal.fire({
                     icon: 'warning',
                     title: 'Cannot Delete Default Address',
-                    text: 'Please set another address as your default shipping address before deleting this one.',
+                    text: 'Please set another address as your default before deleting this one.',
                     confirmButtonColor: '#2563eb'
                 });
             } else {
-                sfShowAddressToast('warning', 'Please set another address as default before deleting.', 'Default Address');
+                sfShowAddressToast('warning', 'Set another address as default before deleting.', 'Default Address');
             }
             return;
         }
@@ -668,14 +558,14 @@
             setTimeout(() => {
                 card.remove();
                 sfUpdateAddressCount();
-                sfShowAddressToast('success', 'Address removed successfully.', 'Address Deleted');
+                sfShowAddressToast('success', 'Address removed successfully.', 'Deleted');
             }, 300);
         };
 
         if (typeof Swal !== 'undefined') {
             Swal.fire({
                 title: 'Delete this address?',
-                text: 'Are you sure you want to remove this delivery address from your account?',
+                text: 'Are you sure you want to remove this delivery address?',
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#dc3545',
@@ -699,49 +589,36 @@
         const cards = document.querySelectorAll('#sfAddressListContainer [id^="sfAddressCard-"]');
         cards.forEach(card => {
             const id = card.getAttribute('data-id');
-            const shippingBadge = card.querySelector('.sf-badge-shipping');
-            const defaultIndicator = card.querySelector('.sf-default-indicator');
+            const defaultBadge = card.querySelector('.sf-badge-default');
             const actionWrap = card.querySelector('.sf-default-action-wrap');
 
             if (id == cardId) {
                 card.setAttribute('data-default-shipping', 'true');
-                if (shippingBadge) shippingBadge.classList.remove('d-none');
-                if (defaultIndicator) defaultIndicator.classList.remove('d-none');
-                if (actionWrap) actionWrap.innerHTML = `
-                    <div class="text-success small fw-medium d-inline-flex align-items-center gap-1 sf-default-indicator">
-                        <i class="ri-checkbox-circle-fill"></i>
-                        <span class="d-none d-sm-inline">Primary Address</span>
-                    </div>
-                `;
+                if (defaultBadge) defaultBadge.classList.remove('d-none');
+                if (actionWrap) {
+                    actionWrap.className = 'sf-default-action-wrap text-success fw-medium';
+                    actionWrap.innerHTML = '<i class="ri-check-line me-0.5"></i>Default Address';
+                }
             } else {
                 card.setAttribute('data-default-shipping', 'false');
-                if (shippingBadge) shippingBadge.classList.add('d-none');
-                if (defaultIndicator) defaultIndicator.classList.add('d-none');
-                if (actionWrap) actionWrap.innerHTML = `
-                    <button type="button" class="btn btn-xs btn-outline-primary rounded-pill px-2.5 py-0.5 fs-xs fw-medium d-inline-flex align-items-center gap-1 sf-btn-set-default" onclick="sfSetDefaultShipping(${id})">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <span>Set as Default Shipping</span>
-                    </button>
-                `;
+                if (defaultBadge) defaultBadge.classList.add('d-none');
+                if (actionWrap) {
+                    actionWrap.className = 'sf-default-action-wrap';
+                    actionWrap.innerHTML = `<button type="button" class="btn btn-link p-0 text-decoration-none text-muted fw-medium sf-btn-set-default" onclick="sfSetDefaultShipping(${id})">Set as Default</button>`;
+                }
             }
         });
 
-        sfShowAddressToast('success', 'Default shipping address has been updated.', 'Default Updated');
+        sfShowAddressToast('success', 'Default address updated.', 'Updated');
     };
 
     // 7. Update Address Count & Empty State
     window.sfUpdateAddressCount = function() {
         const cards = document.querySelectorAll('#sfAddressListContainer [id^="sfAddressCard-"]');
-        const countBadge = document.getElementById('sfAddressCountBadge');
         const emptyState = document.getElementById('sfAddressEmptyState');
         const listContainer = document.getElementById('sfAddressListContainer');
 
-        const count = cards.length;
-        if (countBadge) {
-            countBadge.textContent = `${count} ${count === 1 ? 'Address' : 'Addresses'}`;
-        }
-
-        if (count === 0) {
+        if (cards.length === 0) {
             if (emptyState) emptyState.classList.remove('d-none');
             if (listContainer) listContainer.classList.add('d-none');
         } else {
@@ -762,7 +639,6 @@
             return;
         }
 
-        // Show spinner on Save button
         const saveBtn = document.getElementById('sfBtnSaveAddress');
         const spinner = document.getElementById('sfBtnSaveAddressSpinner');
         const btnText = document.getElementById('sfBtnSaveAddressText');
@@ -784,10 +660,8 @@
             const address = document.getElementById('sfInputAddressDetails').value.trim();
             const landmark = document.getElementById('sfInputLandmark').value.trim();
             const isShipping = document.getElementById('sfCheckDefaultShipping').checked;
-            const isBilling = document.getElementById('sfCheckDefaultBilling').checked;
 
             if (cardId) {
-                // Update existing card
                 const targetCard = document.getElementById('sfAddressCard-' + cardId);
                 if (targetCard) {
                     targetCard.setAttribute('data-tag', tag);
@@ -799,85 +673,54 @@
                     targetCard.setAttribute('data-address', address);
                     targetCard.setAttribute('data-landmark', landmark);
                     targetCard.setAttribute('data-default-shipping', isShipping ? 'true' : 'false');
-                    targetCard.setAttribute('data-default-billing', isBilling ? 'true' : 'false');
 
-                    // Update visible text
                     const nameEl = targetCard.querySelector('.sf-card-name');
                     if (nameEl) nameEl.textContent = name;
                     const phoneEl = targetCard.querySelector('.sf-card-phone');
                     if (phoneEl) phoneEl.textContent = formattedPhone;
                     const addrEl = targetCard.querySelector('.sf-card-address');
                     if (addrEl) addrEl.textContent = address;
-                    const landEl = targetCard.querySelector('.sf-card-landmark');
-                    if (landEl) landEl.textContent = landmark || 'Not specified';
 
-                    sfShowAddressToast('success', 'Address details updated successfully.', 'Address Updated');
+                    const tagEl = targetCard.querySelector('.sf-card-tag');
+                    if (tagEl) {
+                        tagEl.textContent = tag;
+                        tagEl.className = `badge rounded-pill px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag ${tag === 'Home' ? 'bg-primary-subtle text-primary' : (tag === 'Office' ? 'bg-warning-subtle text-warning-emphasis' : 'bg-secondary-subtle text-secondary')}`;
+                        if (tag === 'Office') {
+                            tagEl.style.backgroundColor = '#fff3e0';
+                            tagEl.style.color = '#e65100';
+                        } else {
+                            tagEl.style.backgroundColor = '';
+                            tagEl.style.color = '';
+                        }
+                    }
+
+                    sfShowAddressToast('success', 'Address updated successfully.', 'Updated');
                 }
             } else {
-                // Add new card
                 const newId = Date.now();
                 const newCardHtml = `
-                    <div class="col-12 col-xl-6" id="sfAddressCard-${newId}" data-id="${newId}" data-tag="${tag}" data-name="${name}" data-phone="${rawPhone}" data-division="${division}" data-district="${district}" data-thana="${thana}" data-address="${address}" data-landmark="${landmark}" data-default-shipping="${isShipping ? 'true' : 'false'}" data-default-billing="${isBilling ? 'true' : 'false'}">
-                        <div class="card h-100 border rounded-3 sf-address-card shadow-sm position-relative overflow-hidden">
-                            <div class="card-header bg-white border-bottom-0 pt-3 px-3 pb-0 d-flex flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="d-flex flex-wrap align-items-center gap-1.5">
-                                    <span class="badge rounded-pill ${tag === 'Home' ? 'bg-primary text-white' : (tag === 'Office' ? 'bg-warning text-dark' : 'bg-secondary text-white')} px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                        <i class="${tag === 'Home' ? 'ri-home-4-line' : (tag === 'Office' ? 'ri-building-line' : 'ri-map-pin-user-line')}"></i> ${tag}
-                                    </span>
-                                    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2.5 py-1 fs-xs fw-semibold ${isShipping ? 'd-inline-flex' : 'd-none'} align-items-center gap-1 sf-badge-shipping">
-                                        <i class="ri-truck-line"></i> Default Shipping
-                                    </span>
-                                    <span class="badge rounded-pill px-2.5 py-1 fs-xs fw-semibold ${isBilling ? 'd-inline-flex' : 'd-none'} align-items-center gap-1 sf-badge-billing" style="background-color: #f3e8ff; color: #7c3aed; border: 1px solid #ddd6fe;">
-                                        <i class="ri-bill-line"></i> Default Billing
-                                    </span>
-                                </div>
-                                <div class="sf-default-action-wrap">
-                                    ${isShipping ? `
-                                        <div class="text-success small fw-medium d-inline-flex align-items-center gap-1 sf-default-indicator">
-                                            <i class="ri-checkbox-circle-fill"></i>
-                                            <span class="d-none d-sm-inline">Primary Address</span>
-                                        </div>
-                                    ` : `
-                                        <button type="button" class="btn btn-xs btn-outline-primary rounded-pill px-2.5 py-0.5 fs-xs fw-medium d-inline-flex align-items-center gap-1 sf-btn-set-default" onclick="sfSetDefaultShipping(${newId})">
-                                            <i class="ri-checkbox-circle-line"></i>
-                                            <span>Set as Default Shipping</span>
-                                        </button>
-                                    `}
-                                </div>
+                    <div class="col-12 col-md-6" id="sfAddressCard-${newId}" data-id="${newId}" data-tag="${tag}" data-name="${name}" data-phone="${rawPhone}" data-division="${division}" data-district="${district}" data-thana="${thana}" data-address="${address}" data-landmark="${landmark}" data-default-shipping="${isShipping ? 'true' : 'false'}">
+                        <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                <span class="fw-bold text-dark sf-card-name">${name}</span>
+                                <span class="text-muted small">&bull;</span>
+                                <span class="text-muted small sf-card-phone">${formattedPhone}</span>
+                                <span class="badge rounded-pill px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag ${tag === 'Home' ? 'bg-primary-subtle text-primary' : (tag === 'Office' ? 'bg-warning-subtle text-warning-emphasis' : 'bg-secondary-subtle text-secondary')}" ${tag === 'Office' ? 'style="background-color: #fff3e0 !important; color: #e65100 !important;"' : ''}>${tag}</span>
+                                <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold ${isShipping ? '' : 'd-none'} sf-badge-default">Default</span>
                             </div>
-                            <div class="card-body p-3">
-                                <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <h5 class="card-title fw-bold text-dark mb-0 fs-6 sf-card-name">${name}</h5>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 text-muted small mb-2 sf-card-phone-wrap">
-                                    <i class="ri-phone-line text-primary"></i>
-                                    <span class="fw-medium text-dark sf-card-phone">${formattedPhone}</span>
-                                </div>
-                                <div class="text-secondary small mb-2 sf-card-address-wrap d-flex align-items-start gap-2">
-                                    <i class="ri-map-pin-2-line text-danger flex-shrink-0 mt-0.5"></i>
-                                    <span class="sf-card-address">${address}</span>
-                                </div>
-                                ${landmark ? `
-                                    <div class="text-muted small mb-3 sf-card-landmark-wrap d-flex align-items-center gap-2">
-                                        <i class="ri-compass-3-line text-muted flex-shrink-0"></i>
-                                        <span>Landmark: <strong class="text-dark fw-medium sf-card-landmark">${landmark}</strong></span>
-                                    </div>
-                                ` : ''}
-                            </div>
-                            <div class="card-footer bg-light-subtle border-top py-2.5 px-3 d-flex align-items-center justify-content-between">
-                                <div class="sf-card-meta-left">
-                                    <span class="text-muted small"><i class="ri-map-pin-line text-muted me-1"></i>${thana}, ${district}</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2 sf-card-actions">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-edit-address" onclick="sfEditAddressCard(${newId})">
-                                        <i class="ri-edit-line"></i>
-                                        <span>Edit</span>
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1 rounded-2 px-2.5 py-1 sf-btn-delete-address" onclick="sfDeleteAddressCard(${newId})">
-                                        <i class="ri-delete-bin-line"></i>
-                                        <span>Delete</span>
-                                    </button>
-                                </div>
+                            <p class="text-secondary small mb-3 flex-grow-1 sf-card-address">${address}</p>
+                            <div class="d-flex align-items-center gap-2 pt-2 border-top small sf-card-action-row">
+                                <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(${newId})">
+                                    <i class="ri-edit-line me-1"></i>Edit
+                                </button>
+                                <span class="text-muted">&bull;</span>
+                                <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(${newId})">
+                                    <i class="ri-delete-bin-line me-1"></i>Delete
+                                </button>
+                                <span class="text-muted">&bull;</span>
+                                <span class="sf-default-action-wrap ${isShipping ? 'text-success fw-medium' : ''}">
+                                    ${isShipping ? '<i class="ri-check-line me-0.5"></i>Default Address' : `<button type="button" class="btn btn-link p-0 text-decoration-none text-muted fw-medium sf-btn-set-default" onclick="sfSetDefaultShipping(${newId})">Set as Default</button>`}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -887,7 +730,7 @@
                 if (container) {
                     container.insertAdjacentHTML('beforeend', newCardHtml);
                 }
-                sfShowAddressToast('success', 'New delivery address added successfully.', 'Address Saved');
+                sfShowAddressToast('success', 'New address added successfully.', 'Saved');
             }
 
             if (isShipping) {
@@ -896,7 +739,6 @@
 
             sfUpdateAddressCount();
 
-            // Reset spinner state & hide modal
             if (saveBtn && spinner && btnText) {
                 saveBtn.disabled = false;
                 spinner.classList.add('d-none');
@@ -908,7 +750,7 @@
                 const modalInstance = bootstrap.Modal.getInstance(modalEl);
                 if (modalInstance) modalInstance.hide();
             }
-        }, 500);
+        }, 400);
     };
 })();
 </script>

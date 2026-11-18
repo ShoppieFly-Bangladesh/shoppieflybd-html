@@ -23554,3 +23554,15 @@ body.sf-auth-page .mn-main-content {
     border-color: #3a4ee5;
     background: #f1f5f9;
 }
+
+/* Flexbox Utilities */
+.min-w-0 {
+    min-width: 0 !important;
+}
+
+.line-clamp-2 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}

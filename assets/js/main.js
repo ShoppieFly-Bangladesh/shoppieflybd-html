@@ -237,12 +237,12 @@
         if ($(this).hasClass("active")) {
             $(this).removeClass("active");
             $("footer").after(
-                '<div class="mn-wish-notify"><p class="wish-note remove">Removed product from <a href="wishlist.html">Wishlist</a> successfully!</p></div>',
+                '<div class="mn-wish-notify"><p class="wish-note remove">Removed product from <a href="account.html#wishlist">Wishlist</a> successfully!</p></div>',
             );
         } else {
             $(this).addClass("active");
             $("footer").after(
-                '<div class="mn-wish-notify"><p class="wish-note add">Added product to <a href="wishlist.html">Wishlist</a> successfully!</p></div>',
+                '<div class="mn-wish-notify"><p class="wish-note add">Added product to <a href="account.html#wishlist">Wishlist</a> successfully!</p></div>',
             );
         }
 

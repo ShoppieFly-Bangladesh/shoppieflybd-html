@@ -60,7 +60,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preload" href="assets/fonts/icon/remixicon.woff2" as="font" type="font/woff2" crossorigin>
         <link rel="preload" href="assets/css/vendor/bootstrap.min.css" as="style">
-        <link rel="preload" href="assets/css/style.min.css?v=2190be95" as="style">
+        <link rel="preload" href="assets/css/style.min.css?v=4e8a129f" as="style">
         <!-- App favicon -->
         <link href="assets/img/favicon/favicon.png" rel="shortcut icon">
         <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
@@ -74,7 +74,7 @@
         <link href="assets/css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/vendor/owl.carousel.min.css" rel="stylesheet">
         <!-- Main CSS -->
-        <link href="assets/css/style.min.css?v=2190be95" id="mainCss" rel="stylesheet">
+        <link href="assets/css/style.min.css?v=4e8a129f" id="mainCss" rel="stylesheet">
     </head>
     <body data-mn-mode="light">
         <main class="wrapper sb-default">
@@ -657,77 +657,538 @@
             </header>
             <!-- Main Content -->
             <div class="mn-main-content">
+                <!-- Breadcrumb -->
+                <nav class="sf-breadcrumb-nav" aria-label="breadcrumb">
+                    <ul class="mn-breadcrumb-list">
+                        <li class="mn-breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="mn-breadcrumb-item active">Contact Us</li>
+                    </ul>
+                </nav>
 
-                
-                <!-- Contact us section -->
-                <section class="mn-contact p-b-15">
-                    <div class="mn-title d-none">
-                        <h2>
-                            Get in
-                            <span>Touch</span>
-                        </h2>
-                        <p>
-                            Please select a topic below related to you inquiry. If you don't fint what you need, fill
-                            out our contact form.
+                <!-- Modern Contact Section -->
+                                <section class="sf-contact-section">
+
+                    <!-- Desktop Layout (Visible on lg and up) -->
+                    <div class="sf-contact-desktop-layout d-none d-lg-block">
+<!-- 1. Hero Banner -->
+                    <div class="sf-contact-hero">
+                        <span class="sf-contact-hero-tag">
+                            <i class="ri-customer-service-2-fill"></i> Customer Care &amp; Support
+                        </span>
+                        <h1 class="sf-contact-hero-title">We’re Here to Help You</h1>
+                        <p class="sf-contact-hero-subtitle">
+                            Have questions about your order, fast delivery across Bangladesh, returns, or seller partnership? Reach out to our dedicated support team through any of the channels below.
                         </p>
+                        <div class="sf-contact-trust-badges">
+                            <span class="sf-contact-trust-badge">
+                                <span class="sf-contact-live-dot"></span> Live Support Active
+                            </span>
+                            <span class="sf-contact-trust-badge">
+                                <i class="ri-flashlight-fill text-warning"></i> Avg. Response Time: &lt; 15 Mins
+                            </span>
+                            <span class="sf-contact-trust-badge">
+                                <i class="ri-phone-fill text-primary"></i> 24/7 Helpline: +880 9612-000222
+                            </span>
+                        </div>
                     </div>
-                    <div class="row p-t-80">
-                        <div class="col-md-6 mn-contact-detail m-b-m-30">
-                            <div class="mn-box m-b-30">
-                                <div class="detail">
-                                    <div class="icon"><i class="ri-mail-send-line"></i></div>
-                                    <div class="info">
-                                        <h3 class="title">Contact Mail</h3>
-                                        <p>support@shoppiefly.com</p>
+
+                    <!-- 2. Top 4 Contact Channels Grid -->
+                    <div class="sf-contact-channels-grid">
+                        <!-- Card 1: 24/7 Hotline -->
+                        <div class="sf-contact-channel-card">
+                            <div>
+                                <div class="sf-channel-icon-wrap phone">
+                                    <i class="ri-phone-fill"></i>
+                                </div>
+                                <div class="sf-channel-label">24/7 Phone Support</div>
+                                <div class="sf-channel-main">+880 9612-000222</div>
+                                <div class="sf-channel-note">Toll-free from any operator across Bangladesh, available 24 hours a day, 7 days a week.</div>
+                            </div>
+                            <a class="sf-channel-btn" href="tel:+8809612000222">
+                                <i class="ri-phone-line"></i> Call Hotline
+                            </a>
+                        </div>
+
+                        <!-- Card 2: WhatsApp Live Support -->
+                        <div class="sf-contact-channel-card whatsapp">
+                            <div>
+                                <div class="sf-channel-icon-wrap whatsapp">
+                                    <i class="ri-whatsapp-fill"></i>
+                                </div>
+                                <div class="sf-channel-label">WhatsApp Live Chat</div>
+                                <div class="sf-channel-main">+880 9612-000222</div>
+                                <div class="sf-channel-note">Instant messaging for quick order verification, parcel photos, and dispute assistance.</div>
+                            </div>
+                            <a class="sf-channel-btn" href="https://wa.me/8809612000222" target="_blank" rel="noopener noreferrer">
+                                <i class="ri-whatsapp-line"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+
+                        <!-- Card 3: Email Support -->
+                        <div class="sf-contact-channel-card">
+                            <div>
+                                <div class="sf-channel-icon-wrap email">
+                                    <i class="ri-mail-send-fill"></i>
+                                </div>
+                                <div class="sf-channel-label">Email Helpdesk</div>
+                                <div class="sf-channel-main">support@shoppieflybd.com</div>
+                                <div class="sf-channel-note">Official ticketing channel for formal disputes, billing clarifications, and corporate inquiries.</div>
+                            </div>
+                            <a class="sf-channel-btn" href="mailto:support@shoppieflybd.com">
+                                <i class="ri-mail-line"></i> Send Email
+                            </a>
+                        </div>
+
+                        <!-- Card 4: Corporate Headquarters -->
+                        <div class="sf-contact-channel-card">
+                            <div>
+                                <div class="sf-channel-icon-wrap office">
+                                    <i class="ri-map-pin-2-fill"></i>
+                                </div>
+                                <div class="sf-channel-label">Corporate Office</div>
+                                <div class="sf-channel-main">Mirpur-10, Dhaka</div>
+                                <div class="sf-channel-note">House 42, Road 11, Section-10, Mirpur, Dhaka-1216, Bangladesh. (Sun - Thu: 9 AM - 6 PM)</div>
+                            </div>
+                            <a class="sf-channel-btn" href="#sfOfficeMap">
+                                <i class="ri-map-pin-line"></i> View on Map
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Core Workspace: Form + Sidebar Hub -->
+                    <div class="sf-contact-workspace">
+                        <!-- Left: Customer Inquiry Form -->
+                        <div class="sf-contact-form-card">
+                            <h2 class="sf-form-title">Send Us a Direct Message</h2>
+                            <p class="sf-form-subtitle">Have a specific question or issue? Fill out the form below and our support team will reply within 2 to 4 business hours.</p>
+
+                            <form action="#" method="post" id="sfContactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="sf-form-group">
+                                            <label for="contact_name" class="sf-form-label">Full Name <span class="req">*</span></label>
+                                            <input class="sf-form-control" id="contact_name" name="name" placeholder="Enter your full name" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="sf-form-group">
+                                            <label for="contact_phone" class="sf-form-label">Phone Number <span class="req">*</span></label>
+                                            <div class="sf-phone-input-group">
+                                                <span class="sf-phone-prefix">
+                                                    <svg width="18" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect width="20" height="12" fill="#006A4E"/>
+                                                        <circle cx="9" cy="6" r="4" fill="#F42A41"/>
+                                                    </svg>
+                                                    +880
+                                                </span>
+                                                <input class="sf-form-control sf-phone-input" id="contact_phone" name="phone" placeholder="01XXXXXXXXX" type="tel" required pattern="[0-9]{10,11}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="sf-form-group">
+                                            <label for="contact_email" class="sf-form-label">Email Address <span class="req">*</span></label>
+                                            <input class="sf-form-control" id="contact_email" name="email" placeholder="name@example.com" type="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="sf-form-group">
+                                            <label for="contact_order" class="sf-form-label">Order ID (Optional)</label>
+                                            <input class="sf-form-control" id="contact_order" name="order_id" placeholder="e.g. SF-982341" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sf-form-group">
+                                    <label for="contact_topic" class="sf-form-label">Inquiry Category / Department <span class="req">*</span></label>
+                                    <select class="sf-form-control" id="contact_topic" name="topic" required>
+                                        <option value="" disabled selected>Select a topic related to your inquiry...</option>
+                                        <option value="order_tracking">Order Tracking &amp; Delivery Status</option>
+                                        <option value="return_refund">Return, Replacement &amp; Refund Request</option>
+                                        <option value="product_query">Product Inquiry &amp; Availability</option>
+                                        <option value="payment_issue">Payment, bKash &amp; Voucher Assistance</option>
+                                        <option value="merchant_onboard">Merchant / Seller Onboarding Inquiry</option>
+                                        <option value="bulk_order">Corporate &amp; Bulk Purchasing</option>
+                                        <option value="feedback">General Feedback &amp; Suggestions</option>
+                                    </select>
+                                </div>
+
+                                <div class="sf-form-group">
+                                    <label for="contact_message" class="sf-form-label">Your Message <span class="req">*</span></label>
+                                    <textarea
+                                        class="sf-form-control"
+                                        id="contact_message"
+                                        name="message"
+                                        placeholder="Please provide complete details regarding your inquiry or issue..."
+                                        rows="5"
+                                        required></textarea>
+                                </div>
+
+                                <button class="sf-btn-contact-submit" type="submit">
+                                    <i class="ri-send-plane-fill"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Right: Support Hub & Operating Hours -->
+                        <div class="sf-contact-sidebar">
+                            <!-- Card 1: Operating Hours -->
+                            <div class="sf-contact-hub-card">
+                                <h3 class="sf-hub-card-title">
+                                    <i class="ri-time-line"></i> Support Operating Hours
+                                </h3>
+                                <div class="sf-hours-list">
+                                    <div class="sf-hour-item">
+                                        <span class="sf-hour-label">24/7 Customer Hotline:</span>
+                                        <span class="sf-hour-val open"><i class="ri-checkbox-circle-fill"></i> Always Open (7 Days)</span>
+                                    </div>
+                                    <div class="sf-hour-item">
+                                        <span class="sf-hour-label">WhatsApp Live Chat:</span>
+                                        <span class="sf-hour-val">8:00 AM - 11:00 PM</span>
+                                    </div>
+                                    <div class="sf-hour-item">
+                                        <span class="sf-hour-label">Dispute &amp; Return QC:</span>
+                                        <span class="sf-hour-val">9:00 AM - 8:00 PM</span>
+                                    </div>
+                                    <div class="sf-hour-item">
+                                        <span class="sf-hour-label">Corporate Office:</span>
+                                        <span class="sf-hour-val">Sun - Thu: 9 AM - 6 PM</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mn-box m-b-30">
-                                <div class="detail">
-                                    <div class="icon"><i class="ri-customer-service-2-line"></i></div>
-                                    <div class="info">
-                                        <h3 class="title">Contact Phone</h3>
-                                        <p>+880 1700-000000</p>
+
+                            <!-- Card 2: Instant Self-Service Shortcuts -->
+                            <div class="sf-contact-hub-card">
+                                <h3 class="sf-hub-card-title">
+                                    <i class="ri-questionnaire-line"></i> Instant Self-Service Help
+                                </h3>
+                                <div class="sf-quick-links-grid">
+                                    <a class="sf-quick-link-btn" href="track-order.html">
+                                        <div class="sf-quick-link-left">
+                                            <i class="ri-truck-line"></i>
+                                            <span>Track Live Order Status</span>
+                                        </div>
+                                        <i class="ri-arrow-right-s-line text-muted"></i>
+                                    </a>
+                                    <a class="sf-quick-link-btn" href="return-refund-policy.html">
+                                        <div class="sf-quick-link-left">
+                                            <i class="ri-arrow-go-back-line"></i>
+                                            <span>7-Day Return &amp; Refund Policy</span>
+                                        </div>
+                                        <i class="ri-arrow-right-s-line text-muted"></i>
+                                    </a>
+                                    <a class="sf-quick-link-btn" href="shipping-policy.html">
+                                        <div class="sf-quick-link-left">
+                                            <i class="ri-takeaway-line"></i>
+                                            <span>Shipping Charges &amp; Delivery Times</span>
+                                        </div>
+                                        <i class="ri-arrow-right-s-line text-muted"></i>
+                                    </a>
+                                    <a class="sf-quick-link-btn" href="faq.html">
+                                        <div class="sf-quick-link-left">
+                                            <i class="ri-question-answer-line"></i>
+                                            <span>Frequently Asked Questions (FAQ)</span>
+                                        </div>
+                                        <i class="ri-arrow-right-s-line text-muted"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Merchant Partnership Callout -->
+                            <div class="sf-contact-partner-card">
+                                <span class="sf-partner-badge">Sell on ShoppieFlyBD</span>
+                                <h3 class="sf-partner-title">Grow Your Business With Us</h3>
+                                <p class="sf-partner-desc">Are you a merchant, manufacturer, or brand? Join 500+ verified sellers and access millions of shoppers nationwide.</p>
+                                <a class="sf-partner-btn" href="become-seller.html">
+                                    <span>Become a Seller</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Location Map Card -->
+                    <div class="sf-contact-map-card" id="sfOfficeMap">
+                        <div class="sf-map-header">
+                            <div class="sf-map-title-wrap">
+                                <div class="sf-map-icon">
+                                    <i class="ri-map-pin-range-fill"></i>
+                                </div>
+                                <div>
+                                    <h3 class="sf-map-title">Corporate Headquarters Location</h3>
+                                    <p class="sf-map-address">House 42, Road 11, Section-10, Mirpur, Dhaka-1216, Bangladesh (Near Mirpur-10 Metro Station)</p>
+                                </div>
+                            </div>
+                            <a class="sf-map-directions-btn" href="https://maps.google.com/?q=Mirpur-10+Dhaka+Bangladesh" target="_blank" rel="noopener noreferrer">
+                                <i class="ri-direction-line"></i> Get Directions
+                            </a>
+                        </div>
+                        <div class="sf-contact-map-frame">
+                            <iframe
+                                title="ShoppieFlyBD Corporate Office Location"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14602.700319409893!2d90.3654215!3d23.8093124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0d6f6e520d3%3A0x6b4ef8fa90740a35!2sMirpur-10%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+                                width="600"
+                                height="450"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Mobile Layout: Option 1 App-Style 2-Tab Architecture (Visible on < lg) -->
+                    <div class="sf-contact-mobile-layout d-lg-none">
+                        <!-- Mobile Compact Hero Banner -->
+                        <div class="sf-mob-contact-hero">
+                            <span class="sf-contact-hero-tag">
+                                <i class="ri-customer-service-2-fill"></i> Customer Care
+                            </span>
+                            <h1 class="sf-mob-hero-title">We’re Here to Help You</h1>
+                            <div class="sf-mob-trust-badges">
+                                <span class="sf-contact-trust-badge">
+                                    <span class="sf-contact-live-dot"></span> Live Support Active
+                                </span>
+                                <span class="sf-contact-trust-badge">
+                                    <i class="ri-phone-fill text-primary"></i> +880 9612-000222
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Segmented 2-Tab Switcher -->
+                        <div class="sf-mob-tab-switcher">
+                            <button type="button" class="sf-mob-tab-btn active" id="sfMobTabQuick" data-tab="quick">
+                                <i class="ri-flashlight-fill"></i>
+                                <span>Quick Connect</span>
+                            </button>
+                            <button type="button" class="sf-mob-tab-btn" id="sfMobTabMsg" data-tab="msg">
+                                <i class="ri-mail-send-line"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </div>
+
+                        <!-- Tab Pane 1: Quick Connect -->
+                        <div class="sf-mob-pane active" id="sfMobPaneQuick">
+                            <!-- Dual Instant Action Cards -->
+                            <div class="sf-mob-action-grid">
+                                <a class="sf-mob-action-card phone" href="tel:+8809612000222">
+                                    <div class="sf-mob-action-top">
+                                        <div class="sf-mob-icon-wrap phone">
+                                            <i class="ri-phone-fill"></i>
+                                        </div>
+                                        <span class="sf-mob-action-badge phone">24/7 Helpline</span>
+                                    </div>
+                                    <div class="sf-mob-action-main">+880 9612-000222</div>
+                                    <div class="sf-mob-action-sub">Toll-free, all operators</div>
+                                    <div class="sf-mob-action-btn phone">
+                                        <i class="ri-phone-line"></i> Call Now
+                                    </div>
+                                </a>
+
+                                <a class="sf-mob-action-card whatsapp" href="https://wa.me/8809612000222" target="_blank" rel="noopener noreferrer">
+                                    <div class="sf-mob-action-top">
+                                        <div class="sf-mob-icon-wrap whatsapp">
+                                            <i class="ri-whatsapp-fill"></i>
+                                        </div>
+                                        <span class="sf-mob-action-badge whatsapp">WhatsApp</span>
+                                    </div>
+                                    <div class="sf-mob-action-main">Instant Chat</div>
+                                    <div class="sf-mob-action-sub">Fast replies & photos</div>
+                                    <div class="sf-mob-action-btn whatsapp">
+                                        <i class="ri-whatsapp-line"></i> Chat Live
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- 2x2 Secondary Channel Tiles -->
+                            <div class="sf-mob-sub-grid">
+                                <a class="sf-mob-sub-tile" href="mailto:support@shoppieflybd.com">
+                                    <div class="sf-mob-sub-icon email">
+                                        <i class="ri-mail-send-fill"></i>
+                                    </div>
+                                    <div class="sf-mob-sub-info">
+                                        <div class="sf-mob-sub-label">Email Helpdesk</div>
+                                        <div class="sf-mob-sub-val">support@shoppieflybd.com</div>
+                                    </div>
+                                </a>
+                                <a class="sf-mob-sub-tile" href="#sfMobOfficeMap">
+                                    <div class="sf-mob-sub-icon office">
+                                        <i class="ri-map-pin-2-fill"></i>
+                                    </div>
+                                    <div class="sf-mob-sub-info">
+                                        <div class="sf-mob-sub-label">HQ Office</div>
+                                        <div class="sf-mob-sub-val">Mirpur-10, Dhaka</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Self-Service Solutions Card -->
+                            <div class="sf-mob-self-service">
+                                <div class="sf-mob-card-head">
+                                    <div class="sf-mob-card-title">
+                                        <i class="ri-questionnaire-line"></i> Instant Self-Service Help
+                                    </div>
+                                    <span class="sf-mob-card-subtitle">Save time</span>
+                                </div>
+                                <div class="sf-mob-chips-grid">
+                                    <a class="sf-mob-chip-btn" href="track-order.html">
+                                        <i class="ri-truck-line text-primary"></i>
+                                        <span>Track Live Order</span>
+                                    </a>
+                                    <a class="sf-mob-chip-btn" href="return-refund-policy.html">
+                                        <i class="ri-arrow-go-back-line text-warning"></i>
+                                        <span>7-Day Return Policy</span>
+                                    </a>
+                                    <a class="sf-mob-chip-btn" href="shipping-policy.html">
+                                        <i class="ri-takeaway-line text-success"></i>
+                                        <span>Delivery & Charges</span>
+                                    </a>
+                                    <a class="sf-mob-chip-btn" href="faq.html">
+                                        <i class="ri-question-answer-line text-info"></i>
+                                        <span>FAQ & Guides</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Support Operating Hours Micro-Card -->
+                            <div class="sf-mob-hours-card">
+                                <div class="sf-mob-card-head">
+                                    <div class="sf-mob-card-title">
+                                        <i class="ri-time-line"></i> Support Operating Hours
+                                    </div>
+                                </div>
+                                <div class="sf-mob-hours-list">
+                                    <div class="sf-mob-hour-row">
+                                        <span>24/7 Customer Helpline:</span>
+                                        <span class="sf-hour-val open"><i class="ri-checkbox-circle-fill"></i> Always Open</span>
+                                    </div>
+                                    <div class="sf-mob-hour-row">
+                                        <span>WhatsApp Live Chat:</span>
+                                        <span class="sf-hour-val">8:00 AM - 11:00 PM</span>
+                                    </div>
+                                    <div class="sf-mob-hour-row">
+                                        <span>Dispute & Return QC:</span>
+                                        <span class="sf-hour-val">9:00 AM - 8:00 PM</span>
+                                    </div>
+                                    <div class="sf-mob-hour-row">
+                                        <span>Corporate Office:</span>
+                                        <span class="sf-hour-val">Sun - Thu: 9 AM - 6 PM</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mn-box m-b-30">
-                                <div class="detail">
-                                    <div class="icon"><i class="ri-map-pin-line"></i></div>
-                                    <div class="info">
-                                        <h3 class="title">Address</h3>
-                                        <p>House #12, Road #4, Dhanmondi, Dhaka - 1205, Bangladesh.</p>
+
+                            <!-- Corporate Location Map Card -->
+                            <div class="sf-mob-map-card" id="sfMobOfficeMap">
+                                <div class="sf-mob-map-head">
+                                    <div class="sf-mob-map-info">
+                                        <div class="sf-mob-sub-icon office">
+                                            <i class="ri-map-pin-range-fill"></i>
+                                        </div>
+                                        <div>
+                                            <div class="sf-mob-map-title">Corporate Headquarters</div>
+                                            <div class="sf-mob-map-addr">Mirpur-10, Dhaka-1216</div>
+                                        </div>
                                     </div>
+                                    <a class="sf-mob-map-dir-btn" href="https://maps.google.com/?q=Mirpur-10+Dhaka+Bangladesh" target="_blank" rel="noopener noreferrer">
+                                        <i class="ri-direction-line"></i> Directions
+                                    </a>
+                                </div>
+                                <div class="sf-mob-map-frame">
+                                    <iframe
+                                        title="ShoppieFlyBD Corporate Office Location Mobile"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14602.700319409893!2d90.3654215!3d23.8093124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0d6f6e520d3%3A0x6b4ef8fa90740a35!2sMirpur-10%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+                                        width="100%"
+                                        height="220"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 m-t-767">
-                            <form action="#" method="post">
-                                <div class="form-group mb-3">
-                                    <label for="contact_name" class="form-label fw-bold small mb-1">Full Name *</label>
-                                    <input class="form-control" id="contact_name" name="name" placeholder="Enter your full name" type="text" required="" style="border-radius: 10px; padding: 10px;">
+
+                        <!-- Tab Pane 2: Send Message Form -->
+                        <div class="sf-mob-pane" id="sfMobPaneMsg">
+                            <div class="sf-mob-form-card">
+                                <div class="sf-form-header">
+                                    <h2 class="sf-form-title">Send Us a Direct Message</h2>
+                                    <p class="sf-form-subtitle">Fill out the form below and our dedicated support team will reply within 2 to 4 business hours.</p>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="contact_email" class="form-label fw-bold small mb-1">Email Address *</label>
-                                    <input class="form-control" id="contact_email" name="email" placeholder="Enter your email" type="email" required="" style="border-radius: 10px; padding: 10px;">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="contact_phone" class="form-label fw-bold small mb-1">Phone Number</label>
-                                    <input class="form-control" id="contact_phone" name="phone" placeholder="e.g. 017XXXXXXXX" type="tel" style="border-radius: 10px; padding: 10px;">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="contact_message" class="form-label fw-bold small mb-1">Your Message *</label>
-                                    <textarea
-                                        class="form-control"
-                                        id="contact_message"
-                                        name="message"
-                                        placeholder="Write your message or inquiry..."
-                                        rows="5"
-                                        required=""
-                                        style="border-radius: 10px; padding: 10px;"></textarea>
-                                </div>
-                                <button class="btn btn-primary mn-btn-2 px-4 py-2" type="submit"><span>Send Message</span></button>
-                            </form>
+
+                                <form action="#" method="post" id="sfContactFormMobile">
+                                    <div class="sf-form-group">
+                                        <label for="contact_name_mob" class="sf-form-label">Full Name <span class="req">*</span></label>
+                                        <input class="sf-form-control" id="contact_name_mob" name="name" placeholder="Enter your full name" type="text" required>
+                                    </div>
+
+                                    <div class="sf-form-group">
+                                        <label for="contact_phone_mob" class="sf-form-label">Phone Number <span class="req">*</span></label>
+                                        <div class="sf-phone-input-group">
+                                            <span class="sf-phone-prefix">
+                                                <svg width="18" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="20" height="12" fill="#006A4E"/>
+                                                    <circle cx="9" cy="6" r="4" fill="#F42A41"/>
+                                                </svg>
+                                                +880
+                                            </span>
+                                            <input class="sf-form-control sf-phone-input" id="contact_phone_mob" name="phone" placeholder="01XXXXXXXXX" type="tel" required pattern="[0-9]{10,11}">
+                                        </div>
+                                    </div>
+
+                                    <div class="sf-form-group">
+                                        <label for="contact_email_mob" class="sf-form-label">Email Address <span class="req">*</span></label>
+                                        <input class="sf-form-control" id="contact_email_mob" name="email" placeholder="name@example.com" type="email" required>
+                                    </div>
+
+                                    <div class="sf-form-group">
+                                        <label for="contact_order_mob" class="sf-form-label">Order ID (Optional)</label>
+                                        <input class="sf-form-control" id="contact_order_mob" name="order_id" placeholder="e.g. SF-982341" type="text">
+                                    </div>
+
+                                    <div class="sf-form-group">
+                                        <label for="contact_topic_mob" class="sf-form-label">Inquiry Department <span class="req">*</span></label>
+                                        <select class="sf-form-control" id="contact_topic_mob" name="topic" required>
+                                            <option value="" disabled selected>Select an inquiry topic...</option>
+                                            <option value="order_tracking">Order Tracking &amp; Delivery Status</option>
+                                            <option value="return_refund">Return, Replacement &amp; Refund Request</option>
+                                            <option value="product_query">Product Inquiry &amp; Availability</option>
+                                            <option value="payment_issue">Payment, bKash &amp; Voucher Assistance</option>
+                                            <option value="merchant_onboard">Merchant / Seller Onboarding Inquiry</option>
+                                            <option value="bulk_order">Corporate &amp; Bulk Purchasing</option>
+                                            <option value="feedback">General Feedback &amp; Suggestions</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="sf-form-group">
+                                        <label for="contact_message_mob" class="sf-form-label">Your Message <span class="req">*</span></label>
+                                        <textarea
+                                            class="sf-form-control"
+                                            id="contact_message_mob"
+                                            name="message"
+                                            placeholder="Please provide details regarding your inquiry..."
+                                            rows="4"
+                                            required></textarea>
+                                    </div>
+
+                                    <button class="sf-btn-contact-submit" type="submit">
+                                        <i class="ri-send-plane-fill"></i>
+                                        <span>Send Message</span>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Merchant Partnership Card on Mobile -->
+                            <div class="sf-contact-partner-card mt-3">
+                                <span class="sf-partner-badge">Sell on ShoppieFlyBD</span>
+                                <h3 class="sf-partner-title">Grow Your Business With Us</h3>
+                                <p class="sf-partner-desc">Join 500+ verified sellers and access millions of shoppers nationwide.</p>
+                                <a class="sf-partner-btn" href="become-seller.html">
+                                    <span>Become a Seller</span>
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>

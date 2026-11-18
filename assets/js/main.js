@@ -10,6 +10,54 @@
             });
         }
     }
+    function sfInitContactPage() {
+        if (!$(".sf-contact-section").length) return;
+
+        // Mobile Tab Switcher
+        $(document).on("click", ".sf-mob-tab-btn", function (e) {
+            e.preventDefault();
+            var tab = $(this).data("tab");
+            $(".sf-mob-tab-btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".sf-mob-pane").removeClass("active");
+            if (tab === "quick") {
+                $("#sfMobPaneQuick").addClass("active");
+            } else if (tab === "msg") {
+                $("#sfMobPaneMsg").addClass("active");
+            }
+        });
+
+        // Hash Navigation on load (e.g. #message opens Send Message tab)
+        if (window.location.hash === "#message" || window.location.hash === "#contact-form" || window.location.hash === "#form") {
+            $("#sfMobTabMsg").trigger("click");
+        }
+
+        // Form Submission (Desktop & Mobile)
+        $("#sfContactForm, #sfContactFormMobile").on("submit", function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnHtml = $btn.html();
+
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $form[0].reset();
+                if (typeof iziToast !== "undefined") {
+                    iziToast.success({
+                        title: "Message Sent!",
+                        message: "Thank you for contacting ShoppieFlyBD. Our support team will get back to you shortly.",
+                        position: "topRight"
+                    });
+                } else {
+                    alert("Thank you! Your message has been sent successfully.");
+                }
+            }, 750);
+        });
+    }
+
     $(document).ready(function () {
         setTimeout(dismissLoader, 200);
     });
@@ -691,6 +739,54 @@
     }
 
     /*== Cart page Apply Coupan Toggle ==*/
+    function sfInitContactPage() {
+        if (!$(".sf-contact-section").length) return;
+
+        // Mobile Tab Switcher
+        $(document).on("click", ".sf-mob-tab-btn", function (e) {
+            e.preventDefault();
+            var tab = $(this).data("tab");
+            $(".sf-mob-tab-btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".sf-mob-pane").removeClass("active");
+            if (tab === "quick") {
+                $("#sfMobPaneQuick").addClass("active");
+            } else if (tab === "msg") {
+                $("#sfMobPaneMsg").addClass("active");
+            }
+        });
+
+        // Hash Navigation on load (e.g. #message opens Send Message tab)
+        if (window.location.hash === "#message" || window.location.hash === "#contact-form" || window.location.hash === "#form") {
+            $("#sfMobTabMsg").trigger("click");
+        }
+
+        // Form Submission (Desktop & Mobile)
+        $("#sfContactForm, #sfContactFormMobile").on("submit", function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnHtml = $btn.html();
+
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $form[0].reset();
+                if (typeof iziToast !== "undefined") {
+                    iziToast.success({
+                        title: "Message Sent!",
+                        message: "Thank you for contacting ShoppieFlyBD. Our support team will get back to you shortly.",
+                        position: "topRight"
+                    });
+                } else {
+                    alert("Thank you! Your message has been sent successfully.");
+                }
+            }, 750);
+        });
+    }
+
     $(document).ready(function () {
         $(".mn-cart-coupan").on("click", function () {
             $(".mn-cart-coupan-content").slideToggle("slow");
@@ -798,6 +894,54 @@
     /*== Unused color hover & list-view purged for clean grid ==*/
 
     /*== Product & shop page category Toggle == */
+    function sfInitContactPage() {
+        if (!$(".sf-contact-section").length) return;
+
+        // Mobile Tab Switcher
+        $(document).on("click", ".sf-mob-tab-btn", function (e) {
+            e.preventDefault();
+            var tab = $(this).data("tab");
+            $(".sf-mob-tab-btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".sf-mob-pane").removeClass("active");
+            if (tab === "quick") {
+                $("#sfMobPaneQuick").addClass("active");
+            } else if (tab === "msg") {
+                $("#sfMobPaneMsg").addClass("active");
+            }
+        });
+
+        // Hash Navigation on load (e.g. #message opens Send Message tab)
+        if (window.location.hash === "#message" || window.location.hash === "#contact-form" || window.location.hash === "#form") {
+            $("#sfMobTabMsg").trigger("click");
+        }
+
+        // Form Submission (Desktop & Mobile)
+        $("#sfContactForm, #sfContactFormMobile").on("submit", function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnHtml = $btn.html();
+
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $form[0].reset();
+                if (typeof iziToast !== "undefined") {
+                    iziToast.success({
+                        title: "Message Sent!",
+                        message: "Thank you for contacting ShoppieFlyBD. Our support team will get back to you shortly.",
+                        position: "topRight"
+                    });
+                } else {
+                    alert("Thank you! Your message has been sent successfully.");
+                }
+            }, 750);
+        });
+    }
+
     $(document).ready(function () {
         $(".mn-sidebar-block.drop .mn-sb-block-content ul li ul").addClass("mn-cat-sub-dropdown");
 
@@ -904,6 +1048,54 @@
     });
 
     /*  Footer Toggle  */
+    function sfInitContactPage() {
+        if (!$(".sf-contact-section").length) return;
+
+        // Mobile Tab Switcher
+        $(document).on("click", ".sf-mob-tab-btn", function (e) {
+            e.preventDefault();
+            var tab = $(this).data("tab");
+            $(".sf-mob-tab-btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".sf-mob-pane").removeClass("active");
+            if (tab === "quick") {
+                $("#sfMobPaneQuick").addClass("active");
+            } else if (tab === "msg") {
+                $("#sfMobPaneMsg").addClass("active");
+            }
+        });
+
+        // Hash Navigation on load (e.g. #message opens Send Message tab)
+        if (window.location.hash === "#message" || window.location.hash === "#contact-form" || window.location.hash === "#form") {
+            $("#sfMobTabMsg").trigger("click");
+        }
+
+        // Form Submission (Desktop & Mobile)
+        $("#sfContactForm, #sfContactFormMobile").on("submit", function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnHtml = $btn.html();
+
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $form[0].reset();
+                if (typeof iziToast !== "undefined") {
+                    iziToast.success({
+                        title: "Message Sent!",
+                        message: "Thank you for contacting ShoppieFlyBD. Our support team will get back to you shortly.",
+                        position: "topRight"
+                    });
+                } else {
+                    alert("Thank you! Your message has been sent successfully.");
+                }
+            }, 750);
+        });
+    }
+
     $(document).ready(function () {
         $(".mn-footer-links").addClass("mn-footer-dropdown");
 
@@ -2554,6 +2746,54 @@
         }
     }
 
+    function sfInitContactPage() {
+        if (!$(".sf-contact-section").length) return;
+
+        // Mobile Tab Switcher
+        $(document).on("click", ".sf-mob-tab-btn", function (e) {
+            e.preventDefault();
+            var tab = $(this).data("tab");
+            $(".sf-mob-tab-btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".sf-mob-pane").removeClass("active");
+            if (tab === "quick") {
+                $("#sfMobPaneQuick").addClass("active");
+            } else if (tab === "msg") {
+                $("#sfMobPaneMsg").addClass("active");
+            }
+        });
+
+        // Hash Navigation on load (e.g. #message opens Send Message tab)
+        if (window.location.hash === "#message" || window.location.hash === "#contact-form" || window.location.hash === "#form") {
+            $("#sfMobTabMsg").trigger("click");
+        }
+
+        // Form Submission (Desktop & Mobile)
+        $("#sfContactForm, #sfContactFormMobile").on("submit", function (e) {
+            e.preventDefault();
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var originalBtnHtml = $btn.html();
+
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $form[0].reset();
+                if (typeof iziToast !== "undefined") {
+                    iziToast.success({
+                        title: "Message Sent!",
+                        message: "Thank you for contacting ShoppieFlyBD. Our support team will get back to you shortly.",
+                        position: "topRight"
+                    });
+                } else {
+                    alert("Thank you! Your message has been sent successfully.");
+                }
+            }, 750);
+        });
+    }
+
     $(document).ready(function () {
         sfInitModernCart();
         sfInitModernCheckout();
@@ -2564,6 +2804,7 @@
         sfInitCustomerAuth();
         sfInitForgotPassword();
         sfInitCustomerDashboard();
+        sfInitContactPage();
     });
 
 })(jQuery);

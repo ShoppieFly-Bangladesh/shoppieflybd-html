@@ -23566,3 +23566,456 @@ body.sf-auth-page .mn-main-content {
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
 }
+
+/* ==========================================================================
+   404 Page Not Found Styles (.sf-404-*)
+   ========================================================================== */
+.sf-404-section {
+    background: #ffffff;
+    min-height: calc(100vh - 320px);
+    display: flex;
+    align-items: center;
+    padding: 40px 0 60px 0;
+}
+
+.sf-404-card {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.sf-404-number {
+    font-size: clamp(80px, 14vw, 150px);
+    font-weight: 900;
+    line-height: 1;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -2px;
+    user-select: none;
+}
+
+.sf-404-zero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(70px, 12vw, 130px);
+    height: clamp(70px, 12vw, 130px);
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    border-radius: 50%;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+    margin: 0 10px;
+    font-size: clamp(35px, 6vw, 65px);
+    animation: sfFloatZero 3s ease-in-out infinite;
+}
+
+@keyframes sfFloatZero {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.sf-404-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.sf-404-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.sf-404-search-box {
+    max-width: 480px;
+    margin: 28px auto 20px auto;
+}
+
+.sf-404-input-group {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 5px 6px 5px 14px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s ease;
+}
+
+.sf-404-input-group:focus-within {
+    border-color: #f97316;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);
+}
+
+.sf-404-search-icon {
+    font-size: 18px;
+    color: #94a3b8;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.sf-404-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #0f172a;
+    width: 100%;
+    padding: 8px 4px;
+}
+
+.sf-404-input::placeholder {
+    color: #94a3b8;
+}
+
+.sf-404-search-btn {
+    background: #f97316;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+}
+
+.sf-404-search-btn:hover {
+    background: #ea580c;
+}
+
+.sf-btn-404-home {
+    background: #f97316;
+    color: #ffffff !important;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+    transition: all 0.2s ease;
+}
+
+.sf-btn-404-home:hover {
+    background: #ea580c;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.35);
+}
+
+.sf-btn-404-shop {
+    background: #f8fafc;
+    color: #0f172a !important;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.sf-btn-404-shop:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.sf-404-pills-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sf-404-pill {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.sf-404-pill i {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.sf-404-pill:hover {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.sf-404-pill:hover i {
+    color: #ea580c;
+}
+
+/* ==========================================================================
+   Password Reset & Strength Indicator Styles (.sf-pwd-strength-*)
+   ========================================================================== */
+.sf-pwd-strength-bar {
+    width: 100%;
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.sf-pwd-strength-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.sf-pwd-strength-weak {
+    width: 30%;
+    background-color: #ef4444 !important;
+}
+
+.sf-pwd-strength-medium {
+    width: 65%;
+    background-color: #f59e0b !important;
+}
+
+.sf-pwd-strength-strong {
+    width: 100%;
+    background-color: #10b981 !important;
+}
+
+/* ==========================================================================
+   Policy & Legal Pages Styles (.sf-policy-*)
+   ========================================================================== */
+.sf-policy-section {
+    background: #f8fafc;
+    padding: 30px 0 60px 0;
+}
+
+.sf-policy-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 16px;
+    padding: 36px 30px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.sf-policy-hero-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(249, 115, 22, 0.15);
+    border: 1.5px solid rgba(249, 115, 22, 0.4);
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #f97316;
+    margin-bottom: 16px;
+}
+
+.sf-policy-hero-title {
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.sf-policy-hero-subtitle {
+    font-size: 14.5px;
+    color: #94a3b8;
+    max-width: 650px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.sf-policy-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sf-policy-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.sf-policy-trust-badge i {
+    color: #10b981;
+    font-size: 14px;
+}
+
+.sf-policy-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    margin-bottom: 24px;
+}
+
+.sf-policy-card-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sf-policy-card-title i {
+    color: #f97316;
+    font-size: 22px;
+}
+
+.sf-policy-card p {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.sf-policy-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 16px;
+}
+
+.sf-policy-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sf-policy-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #10b981;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sf-policy-step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.sf-policy-step-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.sf-policy-step-card:hover {
+    border-color: #f97316;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.08);
+}
+
+.sf-policy-step-num {
+    width: 32px;
+    height: 32px;
+    background: #f97316;
+    color: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.sf-policy-step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.sf-policy-step-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.sf-delivery-rate-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.sf-delivery-rate-card.featured {
+    border-color: #f97316;
+    box-shadow: 0 6px 25px rgba(249, 115, 22, 0.1);
+}
+
+.sf-delivery-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #ffedd5;
+    color: #ea580c;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.sf-delivery-price {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 12px 0 6px 0;
+}
+
+.sf-delivery-price span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+}

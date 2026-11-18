@@ -2225,6 +2225,208 @@
     }
 
     /* ==========================================================================
+       ShoppieFlyBD Forgot & Reset Password Controller (forgot-password.html)
+       ========================================================================== */
+    function sfInitForgotPassword() {
+        if (!$("#sfForgotStep1").length) return;
+
+        var userPhone = "";
+        var resendTimer = null;
+        var countdown = 45;
+
+        // Step 1: Submit Phone Number
+        $("#sfForgotPhoneForm").on("submit", function (e) {
+            e.preventDefault();
+            var rawPhone = $("#sf_forgot_phone").val().trim();
+            var cleanPhone = rawPhone.replace(/\D/g, "");
+            if (cleanPhone.length === 10 && cleanPhone.startsWith("1")) {
+                cleanPhone = "0" + cleanPhone;
+            }
+            if (!/^01[3-9]\d{8}$/.test(cleanPhone)) {
+                alert("Please enter a valid 11-digit Bangladeshi mobile number (e.g. 01712345678).");
+                $("#sf_forgot_phone").focus();
+                return;
+            }
+
+            userPhone = cleanPhone;
+            var formattedDisplay = "+880 " + cleanPhone.substring(0, 4) + "-" + cleanPhone.substring(4);
+            $("#sfForgotDisplayPhone").text(formattedDisplay);
+
+            var $btn = $("#sfBtnSendForgotOtp");
+            var originalBtnHtml = $btn.html();
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Sending Code...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(originalBtnHtml);
+                $("#sfForgotStep1").slideUp(200, function () {
+                    $("#sfForgotStep2").slideDown(250);
+                    $(".sf-forgot-otp").first().focus();
+                    startForgotTimer();
+                });
+            }, 600);
+        });
+
+        // Step 2: Back to Step 1
+        $("#sfForgotBackToStep1, #sfForgotEditPhoneBtn").on("click", function (e) {
+            e.preventDefault();
+            clearInterval(resendTimer);
+            $("#sfForgotStep2").slideUp(200, function () {
+                $("#sfForgotStep1").slideDown(250);
+                $("#sf_forgot_phone").focus();
+            });
+        });
+
+        // Step 2: OTP Digit Auto-Advance & Paste
+        $(".sf-forgot-otp").on("input", function () {
+            var $this = $(this);
+            var val = $this.val().replace(/\D/g, "");
+            $this.val(val);
+            if (val.length === 1) {
+                var $next = $this.next(".sf-forgot-otp");
+                if ($next.length) {
+                    $next.focus();
+                }
+            }
+        });
+
+        $(".sf-forgot-otp").on("keydown", function (e) {
+            var $this = $(this);
+            if (e.key === "Backspace" && !$this.val()) {
+                var $prev = $this.prev(".sf-forgot-otp");
+                if ($prev.length) {
+                    $prev.focus().val("");
+                }
+            }
+        });
+
+        $(".sf-forgot-otp").first().on("paste", function (e) {
+            e.preventDefault();
+            var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
+            var pastedData = clipboardData.getData("text").replace(/\D/g, "");
+            if (pastedData.length >= 6) {
+                $(".sf-forgot-otp").each(function (idx) {
+                    $(this).val(pastedData[idx] || "");
+                });
+                $(".sf-forgot-otp").last().focus();
+            }
+        });
+
+        // Step 2: Resend Timer
+        function startForgotTimer() {
+            clearInterval(resendTimer);
+            countdown = 45;
+            var $timer = $("#sfForgotCountdown");
+            var $btnResend = $("#sfBtnResendForgotOtp");
+            $btnResend.prop("disabled", true);
+
+            resendTimer = setInterval(function () {
+                countdown--;
+                var secs = countdown < 10 ? "0" + countdown : countdown;
+                $timer.text("00:" + secs + "s");
+
+                if (countdown <= 0) {
+                    clearInterval(resendTimer);
+                    $timer.text("Expired");
+                    $btnResend.prop("disabled", false);
+                }
+            }, 1000);
+        }
+
+        $("#sfBtnResendForgotOtp").on("click", function () {
+            $(".sf-forgot-otp").val("");
+            $(".sf-forgot-otp").first().focus();
+            $("#sfForgotOtpAlert").removeClass("d-none alert-danger").addClass("alert-success")
+                .html('<i class="ri-checkbox-circle-line me-1"></i> New verification code sent to your mobile phone.');
+            startForgotTimer();
+            setTimeout(function () {
+                $("#sfForgotOtpAlert").addClass("d-none");
+            }, 4000);
+        });
+
+        // Step 2: Verify OTP Submit
+        $("#sfForgotOtpForm").on("submit", function (e) {
+            e.preventDefault();
+            var otp = "";
+            $(".sf-forgot-otp").each(function () {
+                otp += $(this).val();
+            });
+
+            var $alert = $("#sfForgotOtpAlert");
+            if (otp.length < 6) {
+                $alert.removeClass("d-none alert-success").addClass("alert-danger")
+                    .html('<i class="ri-error-warning-line me-1"></i> Please enter the complete 6-digit verification code.');
+                return;
+            }
+
+            var $btn = $("#sfBtnVerifyForgotOtp");
+            var origText = $btn.html();
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Verifying...');
+
+            setTimeout(function () {
+                $btn.prop("disabled", false).html(origText);
+                clearInterval(resendTimer);
+                $("#sfForgotStep2").slideUp(200, function () {
+                    $("#sfForgotStep3").slideDown(250);
+                    $("#sf_new_password").focus();
+                });
+            }, 600);
+        });
+
+        // Step 3: Password Strength Indicator
+        $("#sf_new_password").on("input", function () {
+            var val = $(this).val();
+            var $fill = $("#sfPwdStrengthFill");
+            var $text = $("#sfPwdStrengthText");
+
+            $fill.removeClass("sf-pwd-strength-weak sf-pwd-strength-medium sf-pwd-strength-strong");
+
+            if (val.length === 0) {
+                $text.text("Minimum 6 characters").css("color", "#64748b");
+            } else if (val.length < 6) {
+                $fill.addClass("sf-pwd-strength-weak");
+                $text.text("Too weak (at least 6 characters required)").css("color", "#ef4444");
+            } else if (val.length < 8 || !/[0-9]/.test(val) || !/[A-Za-z]/.test(val)) {
+                $fill.addClass("sf-pwd-strength-medium");
+                $text.text("Good (add letters and numbers for better strength)").css("color", "#f59e0b");
+            } else {
+                $fill.addClass("sf-pwd-strength-strong");
+                $text.text("Strong password ✓").css("color", "#10b981");
+            }
+        });
+
+        // Step 3: Save New Password
+        $("#sfForgotNewPwdForm").on("submit", function (e) {
+            e.preventDefault();
+            var newPwd = $("#sf_new_password").val();
+            var confirmPwd = $("#sf_confirm_password").val();
+
+            if (newPwd.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                $("#sf_new_password").focus();
+                return;
+            }
+
+            if (newPwd !== confirmPwd) {
+                $("#sfPwdMatchAlert").removeClass("d-none");
+                $("#sf_confirm_password").focus();
+                return;
+            } else {
+                $("#sfPwdMatchAlert").addClass("d-none");
+            }
+
+            var $btn = $("#sfBtnSavePassword");
+            var origText = $btn.html();
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Saving Password...');
+
+            setTimeout(function () {
+                $("#sfForgotStep3").slideUp(200, function () {
+                    $("#sfForgotStep4").slideDown(250);
+                });
+            }, 700);
+        });
+    }
+
+    /* ==========================================================================
        ShoppieFlyBD Customer Dashboard Controller (account.html)
        ========================================================================== */
     function sfInitCustomerDashboard() {
@@ -2360,6 +2562,7 @@
         sfInitSellerOnboarding();
         sfInitStorefront();
         sfInitCustomerAuth();
+        sfInitForgotPassword();
         sfInitCustomerDashboard();
     });
 

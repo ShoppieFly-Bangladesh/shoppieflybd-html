@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Official Tax Invoice & Cash Memo - ShoppieFlyBD Multi-Store Marketplace" />
+    <meta name="keywords" content="invoice, cash memo, order receipt, ShoppieFlyBD, Bangladesh ecommerce" />
+    <title>Tax Invoice #INV-2026-8492 - ShoppieFlyBD</title>
+
+    <!-- Site Icon -->
+    <link rel="icon" href="assets/img/logo/favicon.png" type="image/x-icon" />
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/vendor/remixicon.min.css" />
+
+    <!-- Main CSS with Invoice & Print Styles -->
+    <link rel="stylesheet" href="assets/css/style.min.css?v=inv20261119" />
+</head>
+<body class="sf-invoice-page">
+
+    <!-- Screen Action Bar (Hidden during Print) -->
+    <header class="sf-invoice-action-bar">
+        <div class="sf-invoice-bar-inner">
+            <div class="d-flex align-items-center gap-2">
+                <a href="account.html#orders" class="sf-invoice-bar-btn sf-invoice-btn-back">
+                    <i class="ri-arrow-left-line"></i>
+                    <span>Back to Orders</span>
+                </a>
+                <a href="track-order.html?order=SF-8492" id="invTrackBtn" class="sf-invoice-bar-btn sf-invoice-btn-track d-none d-sm-inline-flex">
+                    <i class="ri-map-pin-line"></i>
+                    <span>Track Shipment</span>
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <button type="button" class="sf-invoice-bar-btn sf-invoice-btn-back" onclick="window.print()" title="Save as PDF via Print dialog">
+                    <i class="ri-download-2-line"></i>
+                    <span class="d-none d-md-inline">Download PDF</span>
+                </button>
+                <button type="button" class="sf-invoice-bar-btn sf-invoice-btn-print" onclick="window.print()">
+                    <i class="ri-printer-line"></i>
+                    <span>Print Invoice</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Printable Invoice Sheet -->
+    <main class="container-fluid px-3 px-sm-4">
+        <div class="sf-invoice-sheet">
+
+            <!-- Invoice Header -->
+            <div class="sf-invoice-header">
+                <div class="row align-items-start gy-4">
+                    <div class="col-12 col-md-7">
+                        <a href="index.html" class="d-inline-block text-decoration-none mb-2">
+                            <img src="assets/img/logo/ShoppieFly-logo.webp" alt="ShoppieFlyBD Logo" class="sf-invoice-logo-img" width="180" height="48" />
+                        </a>
+                        <p class="sf-invoice-brand-tagline">
+                            <strong>ShoppieFlyBD Ltd.</strong> • Leading Multi-Store eCommerce Platform in Bangladesh
+                        </p>
+                        <div class="sf-invoice-meta-row mt-2">
+                            <span><i class="ri-map-pin-line text-muted me-1"></i> House 42, Road 11, Section-10, Mirpur, Dhaka-1216, Bangladesh</span><br />
+                            <span><i class="ri-phone-line text-muted me-1"></i> Helpline: +880 9612-000222 | Email: support@shoppieflybd.com</span><br />
+                            <span><i class="ri-government-line text-muted me-1"></i> Trade License: TRAD/DNCC/019284/2023 | BIN: 004928172-0101</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 text-md-end">
+                        <h1 class="sf-invoice-title">Tax Invoice</h1>
+                        <p class="text-muted small mb-2">CASH MEMO &amp; SALES RECEIPT</p>
+                        <div class="mb-3">
+                            <span class="sf-invoice-meta-badge paid">
+                                <i class="ri-checkbox-circle-fill"></i>
+                                <span>Paid via bKash</span>
+                            </span>
+                        </div>
+                        <div class="sf-invoice-meta-row">
+                            <div><strong>Invoice No:</strong> <span id="invNumber">#INV-2026-8492</span></div>
+                            <div><strong>Order ID:</strong> <span id="invOrderId">#SF-8492</span></div>
+                            <div><strong>Invoice Date:</strong> 19 Nov 2026, 02:30 PM</div>
+                            <div><strong>Payment Channel:</strong> bKash (TrxID: BKASH93821092)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer & Logistics 2-Column Grid -->
+            <div class="sf-invoice-grid">
+                <!-- Billed & Shipped To -->
+                <div class="sf-invoice-card-box">
+                    <div class="sf-invoice-card-title">
+                        <i class="ri-user-location-line text-primary"></i>
+                        <span>Billed &amp; Shipped To (Customer)</span>
+                    </div>
+                    <div class="sf-invoice-card-body">
+                        <p><strong class="fs-6">Ariful Islam</strong></p>
+                        <p><i class="ri-phone-line text-muted me-1"></i> +880 1712-345678</p>
+                        <p><i class="ri-mail-line text-muted me-1"></i> arif.islam@email.com</p>
+                        <p><i class="ri-map-pin-2-line text-muted me-1"></i> House 12, Road 5, Block-C, Section-10, Mirpur, Dhaka-1216, Bangladesh</p>
+                        <p class="text-muted small"><i class="ri-compass-3-line me-1"></i> Landmark: Near Mirpur Indoor Stadium</p>
+                    </div>
+                </div>
+
+                <!-- Shipping & Courier Details -->
+                <div class="sf-invoice-card-box">
+                    <div class="sf-invoice-card-title">
+                        <i class="ri-truck-line text-success"></i>
+                        <span>Shipping Logistics &amp; Consignment</span>
+                    </div>
+                    <div class="sf-invoice-card-body">
+                        <p><strong>Courier Partner:</strong> Steadfast Express Courier</p>
+                        <p><strong>Consignment No:</strong> <code class="text-dark bg-white px-2 py-1 rounded border">STEAD-8492-SF</code></p>
+                        <p><strong>Delivery Hub:</strong> Mirpur Metro Dispatch Center (Dhaka)</p>
+                        <p><strong>Service Type:</strong> Standard Home Delivery (24-48 Hours)</p>
+                        <p class="text-success small fw-semibold">
+                            <i class="ri-shield-check-fill me-1"></i> Doorstep Parcel Inspection Allowed Before Acceptance
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Itemized Products Table -->
+            <div class="sf-invoice-table-wrap table-responsive">
+                <table class="sf-invoice-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">#</th>
+                            <th style="width: 45%;">Item Description &amp; Specifications</th>
+                            <th style="width: 18%;">Store / Seller</th>
+                            <th style="width: 10%;" class="text-center">Qty</th>
+                            <th style="width: 11%;" class="text-end">Unit Price</th>
+                            <th style="width: 11%;" class="text-end">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-muted fw-bold">1</td>
+                            <td>
+                                <span class="sf-invoice-item-title">Smart Watch T900 Ultra Series 8</span>
+                                <span class="sf-invoice-item-variant">Color: Titanium Black | Strap: Silicone | SKU: T900-BLK-V2</span>
+                            </td>
+                            <td>
+                                <span class="sf-invoice-store-pill">Ocean Crate</span>
+                            </td>
+                            <td class="text-center fw-semibold">1</td>
+                            <td class="text-end">৳1,850</td>
+                            <td class="text-end fw-bold">৳1,850</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted fw-bold">2</td>
+                            <td>
+                                <span class="sf-invoice-item-title">ANC Wireless Earbuds Pro</span>
+                                <span class="sf-invoice-item-variant">Color: Matte Black | Active Noise Cancellation | 36h Battery</span>
+                            </td>
+                            <td>
+                                <span class="sf-invoice-store-pill">Ocean Crate</span>
+                            </td>
+                            <td class="text-center fw-semibold">1</td>
+                            <td class="text-end">৳1,450</td>
+                            <td class="text-end fw-bold">৳1,450</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted fw-bold">3</td>
+                            <td>
+                                <span class="sf-invoice-item-title">Genuine Leather Bifold Wallet</span>
+                                <span class="sf-invoice-item-variant">Color: Vintage Brown | Material: 100% Cowhide | RFID Blocking</span>
+                            </td>
+                            <td>
+                                <span class="sf-invoice-store-pill">Fashion Hub</span>
+                            </td>
+                            <td class="text-center fw-semibold">1</td>
+                            <td class="text-end">৳850</td>
+                            <td class="text-end fw-bold">৳850</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Financial Summary & Notes -->
+            <div class="sf-invoice-summary-grid">
+                <!-- Notes & Verification QR -->
+                <div class="sf-invoice-notes-box">
+                    <div class="sf-invoice-notes-title">
+                        <i class="ri-information-line text-primary"></i>
+                        <span>Customer Notice &amp; Return Terms</span>
+                    </div>
+                    <ul class="sf-invoice-notes-list">
+                        <li><strong>৭ দিনের রিটার্ন গ্যারান্টি:</strong> পণ্যে কোনো সমস্যা থাকলে আনবক্সিং ভিডিওসহ ৭ দিনের মধ্যে রিটার্ন রিকোয়েস্ট করুন।</li>
+                        <li><strong>ডোরস্টেপ ওপেন-বক্স চেক:</strong> ডেলিভারি রাইডারের উপস্থিতিতে পার্সেল চেক করে গ্রহণ করুন।</li>
+                        <li><strong>কাস্টমার সাপোর্ট:</strong> যেকোনো তথ্যের জন্য কল করুন <strong>+880 9612-000222</strong> অথবা ইমেইল করুন <strong>support@shoppieflybd.com</strong>।</li>
+                    </ul>
+                    <div class="sf-invoice-qr-wrap">
+                        <!-- Verification QR Code SVG Representation -->
+                        <svg class="sf-invoice-qr-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="#ffffff" />
+                            <path d="M10 10h30v30h-30zM15 15h20v20h-20zM20 20h10v10h-10z" fill="#0f172a" />
+                            <path d="M60 10h30v30h-30zM65 15h20v20h-20zM70 20h10v10h-10z" fill="#0f172a" />
+                            <path d="M10 60h30v30h-30zM15 65h20v20h-20zM20 70h10v10h-10z" fill="#0f172a" />
+                            <circle cx="50" cy="50" r="10" fill="#f97316" />
+                            <path d="M45 20h10v5h-10zM50 30h5v10h-5zM60 50h15v5h-15zM70 60h20v5h-20zM55 75h10v15h-10zM75 75h15v15h-15zM20 45h5v10h-5zM30 45h10v5h-10z" fill="#0f172a" />
+                        </svg>
+                        <div class="sf-invoice-qr-desc">
+                            <strong>Scan to Verify Authenticity</strong><br />
+                            Online verification &amp; real-time consignment tracking for Order <strong>#SF-8492</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculation Table -->
+                <div>
+                    <table class="sf-invoice-calc-table">
+                        <tbody>
+                            <tr>
+                                <td>Subtotal (3 items)</td>
+                                <td>৳4,150</td>
+                            </tr>
+                            <tr>
+                                <td>Store Voucher Discount (<span class="text-success fw-bold">OCEANWINTER</span>)</td>
+                                <td class="text-success">-৳100</td>
+                            </tr>
+                            <tr>
+                                <td>Shipping &amp; Delivery (Dhaka Metro)</td>
+                                <td>৳70</td>
+                            </tr>
+                            <tr>
+                                <td>VAT / Estimated Tax (0% Inclusive)</td>
+                                <td>৳0.00</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>Total Amount Paid</td>
+                                <td>৳4,120</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="sf-invoice-in-words">
+                        <strong>In Words:</strong> Four Thousand One Hundred Twenty Taka Only.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer & Digital Authorization -->
+            <div class="sf-invoice-footer">
+                <p class="sf-invoice-footer-text">
+                    This is a computer-generated tax invoice and sales memo issued by ShoppieFlyBD Ltd. Under the Bangladesh Electronic Transactions Act, 2006, this document does not require a physical signature.<br />
+                    For inquiries: <strong>support@shoppieflybd.com</strong> | <strong>shoppieflybd.com</strong>
+                </p>
+                <div class="sf-invoice-seal-wrap">
+                    <div class="sf-invoice-seal-badge">
+                        <i class="ri-shield-check-fill fs-5"></i>
+                        <span>ShoppieFlyBD Verified</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script to handle URL Query Parameters for Dynamic Order IDs -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const orderId = params.get('order') || params.get('order_id');
+            const invId = params.get('inv') || params.get('invoice');
+
+            if (orderId) {
+                const formattedOrder = orderId.startsWith('#') ? orderId : '#' + orderId;
+                const orderEl = document.getElementById('invOrderId');
+                if (orderEl) orderEl.textContent = formattedOrder;
+
+                const trackBtn = document.getElementById('invTrackBtn');
+                if (trackBtn) trackBtn.href = 'track-order.html?order=' + encodeURIComponent(orderId.replace('#', ''));
+            }
+
+            if (invId) {
+                const formattedInv = invId.startsWith('#') ? invId : '#' + invId;
+                const invEl = document.getElementById('invNumber');
+                if (invEl) invEl.textContent = formattedInv;
+            }
+        });
+    </script>
+</body>
+</html>

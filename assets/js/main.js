@@ -1,15 +1,6 @@
 (function ($) {
     "use strict";
 
-    /*== Fast Non-Blocking Loader ==*/
-    function dismissLoader() {
-        var $overlay = $("#mn-overlay");
-        if ($overlay.length && $overlay.is(":visible")) {
-            $overlay.fadeOut(200, function () {
-                $(this).remove();
-            });
-        }
-    }
     function sfInitContactPage() {
         if (!$(".sf-contact-section").length) return;
 
@@ -57,12 +48,6 @@
             }, 750);
         });
     }
-
-    $(document).ready(function () {
-        setTimeout(dismissLoader, 200);
-    });
-    $(window).on("load", dismissLoader);
-    setTimeout(dismissLoader, 800);
 
     /*== Sticky Header (High Performance Passive rAF) ==*/
     var isSticky = false;

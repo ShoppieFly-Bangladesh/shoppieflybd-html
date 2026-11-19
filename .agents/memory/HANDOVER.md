@@ -7,6 +7,25 @@
 
 ---
 
+## সক্রিয় কাজ · Storefront preloader ও skeleton
+
+- **অগ্রগতি ১/৫ (২০%)।** `shop.html` থেকে full-page `#mn-overlay` মার্কআপ সরানো হয়েছে। Shared CSS ও JS এখনও অন্য ২৭টি overlay-যুক্ত HTML ফাইলের জন্য ব্যবহৃত হচ্ছে।
+- **যাচাই।** স্থানীয় Chrome-এ ছয়টি প্রস্থে ১২টি product card ও horizontal overflow পরীক্ষা পাস। তিনটি ধীর নেটওয়ার্ক run-এ Shop আর loader image request করে না। JavaScript বন্ধেও পণ্যের তথ্য পড়া যায়, যেখানে baseline-এ overlay সামনে ছিল। মোবাইল মেনু, search drawer, filter, sort ও Add to Cart feedback পাস। Safari ও বাস্তব ফোন যাচাই বাকি।
+- **পরিবর্তিত ফাইল।** `shop.html` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **অগ্রগতি ২/৫ (৪০%)।** `assets/css/style.css` ও `assets/css/style.min.css`-এ reusable skeleton shapes, card, gallery ও সীমিত shimmer যোগ হয়েছে। Root-এর `docs/reports/skeleton-loading-demo.html`-এ mock scenarios আছে। এই ধাপে live HTML ও shared JavaScript বদলায়নি।
+- **ধাপ ২ যাচাই।** Chrome-এ ছয়টি viewport-এ card, image, gallery cover ও thumbnail-এর মাপ loading ও ready অবস্থায় মিলেছে। Empty, error, timeout, keyboard retry, concurrent scenario replacement, reduced motion ও print পাস। CSS-এর ৩,০৪৯টি parsed rule মিলেছে। Scope বজায় রাখতে কেবল নতুন section minify করা হয়েছে, কারণ পুরো পুরনো stylesheet চালালে minifier বিদ্যমান `env(safe-area-inset-bottom)` expression-এর lexical form বদলায়। Safari, বাস্তব ফোন ও screen reader দিয়ে শোনার পরীক্ষা বাকি।
+- **ধাপ ২-এর ফাইল।** `assets/css/{style,style.min}.css`, root-এর `docs/reports/skeleton-loading-demo.html` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **অগ্রগতি ৩/৫ (৬০%)।** `shop.html`-এর ১২টি product image link-এ `.sf-product-image-placeholder` আছে। CSS স্থির background ও ৪৫০:৫০৬ media ratio দেয়। আগের Image link, alt text ও native lazy loading আছে।
+- **ধাপ ৩ যাচাই।** ৩২০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলের Chrome session-এ delayed WebP-এর আগে-পরে card ও image box-এর মাপ মিলেছে। ৩২০ ও ১৪৪০ পিক্সেলে ৪০৪ fallback, ৩৭৫ পিক্সেলে warm cache ও ছবি আসার আগেই Add to Cart, এবং JavaScript বন্ধ অবস্থায় placeholder পাস। CSS source ও minified-এর ৩,০৫১টি parsed rule মিলেছে। Safari ও বাস্তব ফোনে পরীক্ষা বাকি।
+- **ধাপ ৩-এর ফাইল।** `shop.html`, `assets/css/{style,style.min}.css` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **অগ্রগতি ৪/৫ (৮০%)।** বাকি ২৭টি HTML ফাইল থেকে full-page preloader সরানো হয়েছে। Shared stylesheet ও JS-এ overlay-এর নিজস্ব rules, keyframes, listener ও timer সরানো হয়েছে। Action spinner এবং অন্য animation তাদের আগের আচরণে আছে।
+- **ধাপ ৪ যাচাই।** Chrome-এ Shop-সহ ২৮টি page/route দুই প্রস্থে, ২৬টি JavaScript বন্ধ অবস্থায়, এবং দুইটি vendor meta redirect পরীক্ষা পাস। JavaScript চালু অবস্থায় vendor redirect দুটো query ধরে রেখেছে। Home, Product, Cart, Checkout ও Account ধীর নেটওয়ার্কে পাস। মোবাইল navigation, Gallery, Cart quantity, Checkout হিসাব, Account deep link ও modal এবং Track Order feedback কাজ করেছে। CSS source/minified-এর ৩,০৪৩টি parsed rule মিলে গেছে। Safari ও বাস্তব ফোন যাচাই বাকি।
+- **ধাপ ৪-এর ফাইল।** `{404,about-us,account,blog,blog-detail,cart,categories,checkout,compare,contact-us,faq,forgot-password,index,login,order-success,privacy-policy,product,register,return-refund-policy,shipping-policy,store,stores,terms,track-order,vendor-list,vendor-store,verify-otp}.html`, `assets/css/{style,style.min}.css`, `assets/js/main.js`, `.agents/rules/03-performance-assets.md` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **অগ্রগতি ৫/৫ (১০০%)।** Shop-সহ ২৮টি পেজ/রুটের ১৬৮টি Chrome responsive check পাস। পরীক্ষিত প্রস্থ ৩২০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেল। কোনো আড়াআড়ি overflow পাওয়া যায়নি। ২৬টি পেজে JavaScript বন্ধ অবস্থায় কন্টেন্ট, দুইটি vendor redirect এবং নির্বাচিত পাঁচটি পেজ ধীর নেটওয়ার্কে পাস। Shop-এর cached/ধীর/৪০৪ ছবি ও প্রধান storefront interactions পুনরায় যাচাই হয়েছে।
+- **Performance ও accessibility।** ৩৭৫ পিক্সেলে তিন জোড়া cold-cache throttled Shop run-এ median LCP ২.৪৫২ সেকেন্ড ছিল। Median FCP ১.৮৮৮ থেকে ১.৯৪০ সেকেন্ড এবং CLS প্রায় ০.০০০৫২। নতুন সংস্করণের তিন রানেই overlay ছাড়াই কন্টেন্ট দেখা গেছে। Demo-তে keyboard retry, reduced motion ও Chrome accessibility tree পাস। Shimmer-এর ৬০০ ms নমুনায় browser layout event শূন্য।
+- **Cache ও portability।** Deploy workflow-এর cache-busting command ৩৪টি HTML কপিতে দুইটি sample SHA দিয়ে চালানো হয়েছে। প্রতিবার ৬১টি CSS ও ৩২টি JS reference সঠিকভাবে version হয়েছে। CSS source/minified-এর ৩,০৪৩টি parsed rule মিলেছে। Framework conversion-এ `.sf-skeleton*` classes, token ও component markup reuse হবে। Request logic তখন সংশ্লিষ্ট framework-এর।
+- **ধাপ ৫-এর ফাইল ও সীমা।** শুধু root ও মডিউলের `.agents/memory/HANDOVER.md` বদলেছে। Safari, বাস্তব ফোন, সরাসরি screen reader শুনে দেখা এবং live deployment এই স্থানীয় যাচাইয়ে বাকি।
+
 ## সক্রিয় কাজ · Customer Panel-এর ডিজাইন ও রেসপন্সিভ ফিক্স
 
 - **Account প্যান পুনর্নকশা ১০০%।** Overview-তে চলমান ও সাম্প্রতিক অর্ডার, Orders-এ স্ট্যাটাসসহ কার্ড, Wishlist-এ পণ্যের গ্রিড, Profile ও Addresses-এ আলাদা কার্ড, Vouchers-এ কুপন, Reviews-এ পণ্যের তালিকা, Returns-এ অগ্রগতি ও Help Center-এ FAQ সাজানো হয়েছে। হিরো, সাইডবার ও মোবাইল শর্টকাটের নকশা রাখা হয়েছে।

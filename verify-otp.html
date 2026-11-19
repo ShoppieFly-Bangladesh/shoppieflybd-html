@@ -76,7 +76,7 @@
         <!-- Main CSS -->
         <link href="assets/css/style.min.css?v=auth20261116" id="mainCss" rel="stylesheet">
     </head>
-    <body class="sf-auth-page" data-mn-mode="light">
+    <body class="sf-auth-page sf-customer-auth sf-customer-recovery" data-mn-mode="light">
         <main class="wrapper sb-default">
             <!-- Sidebar -->
             <div class="mn-sidebar-overlay"></div>
@@ -674,52 +674,41 @@
                             <!-- Right: Dedicated Cardless OTP Verification Form -->
                             <div class="col-12 col-lg-6 col-xl-5">
                                 <div class="sf-auth-simple-form-wrap">
-                                    <a href="login.html" class="sf-auth-back-link">
-                                        <i class="ri-arrow-left-line"></i>
-                                        <span>Back to Login</span>
-                                    </a>
-
                                     <div class="sf-auth-header">
-                                        <h1 class="sf-auth-title">Verify Your Phone</h1>
+                                        <h1 class="sf-auth-title">Enter verification code</h1>
                                         <p class="sf-auth-subtitle">
-                                            We sent a 6-digit verification code to <span class="text-nowrap"><strong id="sfDisplayPhone" class="text-dark">+880 1712345678</strong> <a href="login.html" class="sf-edit-phone-btn" title="Change Phone Number"><i class="ri-edit-2-line"></i></a></span>
+                                            Code sent to <strong id="sfDisplayPhone" class="text-nowrap">+880 1712345678</strong>. <a class="sf-auth-switch-link" href="login.html?tab=otp">Change number</a>
                                         </p>
                                     </div>
 
                                     <form id="sfVerifyOtpForm" action="index.html" method="get">
                                         <div class="mb-3">
-                                            <label class="sf-input-label mb-2">Enter 6-Digit OTP Code <span class="text-danger">*</span></label>
-                                            <div class="sf-otp-box-wrap" id="sfOtpBoxes">
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric" autocomplete="one-time-code" autofocus>
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
-                                                <input type="text" class="sf-otp-digit" maxlength="1" placeholder="•" inputmode="numeric">
+                                            <div class="sf-otp-box-wrap" id="sfOtpBoxes" role="group" aria-label="Verification code">
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 1" inputmode="numeric" autocomplete="one-time-code" autofocus>
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 2" inputmode="numeric">
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 3" inputmode="numeric">
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 4" inputmode="numeric">
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 5" inputmode="numeric">
+                                                <input type="text" class="sf-otp-digit" maxlength="1" aria-label="Digit 6" inputmode="numeric">
                                             </div>
                                             <div class="sf-otp-timer-row d-flex justify-content-between align-items-center mt-3">
                                                 <span class="text-muted small">
-                                                    <i class="ri-time-line me-1"></i> Resend code in <strong class="text-dark sf-timer-countdown">00:45s</strong>
+                                                    Resend in <strong class="text-dark sf-timer-countdown">00:45s</strong>
                                                 </span>
-                                                <button type="button" class="sf-btn-resend-otp" id="btnResendOtp" disabled>Resend OTP</button>
+                                                <button type="button" class="sf-btn-resend-otp" id="btnResendOtp" disabled>Resend code</button>
                                             </div>
                                             <div id="sfOtpAlert" class="sf-otp-alert mt-3 d-none"></div>
                                         </div>
 
-                                        <button type="submit" id="btnVerifyOtp" class="sf-btn-auth-primary mt-4">
-                                            <span>Verify & Log In</span>
-                                            <i class="ri-shield-check-line ms-1"></i>
+                                        <button type="submit" id="btnVerifyOtp" class="sf-btn-auth-primary">
+                                            <span>Verify</span>
                                         </button>
                                     </form>
 
                                     <p class="sf-auth-switch-text mt-4">
-                                        Want to use password instead? <a href="login.html" class="sf-auth-switch-link text-nowrap">Login with Password →</a>
+                                        <a href="login.html" class="sf-auth-switch-link">Log in with password</a>
                                     </p>
 
-                                    <div class="sf-seller-switch-banner mt-3 text-muted small">
-                                        <i class="ri-question-line text-primary"></i>
-                                        <span>Didn't receive code? Check SMS or <a href="contact-us.html">Contact Support</a></span>
-                                    </div>
                                 </div>
                             </div>
                         </div>

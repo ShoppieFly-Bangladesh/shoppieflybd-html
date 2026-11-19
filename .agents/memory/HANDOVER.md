@@ -7,6 +7,26 @@
 
 ---
 
+## সম্পন্ন · Storefront সার্চবারের গ্র্যাডিয়েন্ট বর্ডার
+
+- **স্থানীয় সংশোধন ১০০%।** সার্চবারের ভিজ্যুয়াল স্তরের মাপ এখন বারের প্রস্থ থেকে আসে। ফলে চওড়া ট্যাবলেটেও অ্যানিমেশন গোল প্রান্ত ঢেকে রাখে। Reduced motion-এ স্থির গ্র্যাডিয়েন্ট দেখা যায়।
+- **যাচাই ও ফাইল।** Chrome-এ Home, Shop ও Product মিলিয়ে নয়টি viewport check পাস। ৯৭৪ পিক্সেলে তিনটি render frame-এ দুই প্রান্ত, ওপর ও নিচে রং বদল নিশ্চিত। Source/minified মিলেছে। `apps/web-html/assets/css/{style,style.min}.css` ও দুই হ্যান্ডওভার বদলেছে। বাস্তব ফোন ও Safari-তে ভিজ্যুয়াল যাচাই বাকি।
+
+## সম্পন্ন · Customer কোড যাচাই ও পাসওয়ার্ড রিসেটের ডিজাইন
+
+- **ধাপ ৩ ১০০%।** Verify OTP ও Forgot Password-এ Login/Registration-এর সাদা বিন্যাস, ছোট লেবেল, নীল বাটন ও মোবাইলে এক কলাম। কোডের ঘর ও ফেরার পথ দৃশ্যমান। বাড়তি ব্যানার ও সাজানোর আইকন সরানো হয়েছে। শেয়ার করা Seller Reset তার নিজস্ব shell ও Seller Login-এর লিংক ব্যবহার করে।
+- **যাচাই।** Chrome-এ ছয় প্রস্থে দুই পেজ ও Reset-এর চার অবস্থা, focus ring, ২০০% CSS zoom ও কম উচ্চতার viewport পাস। Customer ও Seller Reset-এর পুরো নমুনা প্রবাহ যাচাই হয়েছে। নতুন CSS source ও minified মিলে গেছে। Safari ও বাস্তব ফোন যাচাই বাকি।
+- **ফাইল।** `apps/web-html/{verify-otp,forgot-password}.html`, `apps/web-html/assets/css/{style,style.min}.css`, `apps/web-html/assets/js/main.js` (shared seller reset-এর visual class ও সরানো control), পরিকল্পনা ও দুই হ্যান্ডওভার।
+
+## সম্পন্ন · Customer Login ও Registration-এর ডিজাইন
+
+- **Google ও Facebook ডিজাইন আপডেট ১০০%।** Login ও Registration-এর প্রধান বাটনের নিচে দুই বিকল্প পাশাপাশি। Chrome-এ ৩২০–১৪৪০ পিক্সেলে ১২টি চেক ও CSS মিল পাস। পরিবর্তিত ফাইল `apps/web-html/{login,register}.html`, `apps/web-html/assets/css/{style,style.min}.css`, পরিকল্পনা ও দুই হ্যান্ডওভার। বাস্তব ফোন ও Safari যাচাই বাকি।
+- **ফর্ম সরলীকরণ ১০০%।** Customer Login-এ Password ও SMS code, Registration-এ নাম, ফোন, পাসওয়ার্ড ও সংক্ষিপ্ত সম্মতি। অতিরিক্ত ভূমিকা, আইকন, সোশ্যাল বাটন ও seller banner সরানো হয়েছে। ৩৭৫ পিক্সেলে Login বাটনের নিচের প্রান্ত ৫৭২ → ৫২৬ এবং Registration ৬১৯ → ৫৬৬। Chrome-এ ১২টি পেজ/প্রস্থ, tab keyboard focus, ছোট viewport-এ bottom nav থেকে clearance ও ২০০% CSS zoom পাস। বাস্তব ফোন ও Safari যাচাই বাকি। পরিবর্তিত ফাইল `apps/web-html/{login,register}.html`, `apps/web-html/assets/css/{style,style.min}.css`, পরিকল্পনা ও দুই হ্যান্ডওভার।
+- **ব্যাকগ্রাউন্ড সংশোধন সম্পন্ন।** Login ও Registration এখন সাদা পেজে। সেকশনের ধূসর রং, ইলাস্ট্রেশনের রঙিন প্যানেল ও ফর্ম কার্ডের বর্ডার/আবরণ সরানো হয়েছে। ছয় প্রস্থে দুই পেজ ও CSS মিল যাচাই হয়েছে। এই সংশোধনে `apps/web-html/assets/css/{style,style.min}.css` ও দুই হ্যান্ডওভার বদলেছে। বাস্তব ফোন ও Safari যাচাই বাকি।
+- **অনুমোদিত স্থানীয় ডিজাইন ১০০%।** মোবাইলে storefront search strip সরিয়ে ফর্ম ওপরে আনা হয়েছে। ৩৭৫ পিক্সেলে শিরোনাম ২০৮ → ১৪৩ এবং Registration বাটনের নিচের প্রান্ত ৭০৭ → ৬১৯ পিক্সেল। Login tab, password toggle ও checkbox label অন্তত ৪৪ পিক্সেল। ডেস্কটপে বিদ্যমান ছবি ও ফর্মের দুই কলাম, ট্যাবলেটে কেন্দ্রীয় এক কলাম।
+- **যাচাই।** Chrome-এ ৩২০–১৪৪০ পিক্সেলে ১২টি পেজ/প্রস্থ, Login-এর দুই tab ও focus, ৩২০×৪৪০ viewport-এ CTA scroll ও bottom nav clearance, ২০০% CSS zoom, তিনটি রঙের contrast (৪.৭৬:১–৬.৫৯:১) পাস। নতুন ২৪টি CSS rule source ও minified-এ সমান। বাস্তব ফোন ও Safari যাচাই বাকি।
+- **ফাইল।** `apps/web-html/{login,register}.html`, `apps/web-html/assets/css/{style,style.min}.css`, `docs/reports/web-html-customer-auth/implementation_plan.md` ও দুই হ্যান্ডওভার।
+
 ## সক্রিয় কাজ · Seller Center পেজের নকশা
 
 - **চার ধাপ সম্পন্ন (১০০% স্থানীয় পরিধি)।** Chrome ও Firefox ESR-এ Seller landing, Login, Registration ও Reset ৩২০–১৪৪০ পিক্সেলের ছয় প্রস্থে যাচাই হয়েছে। Firefox-এ ২৪টি পেজ/প্রস্থ ও পুরোনো URL থেকে Registration, Login ও Reset পর্যন্ত লিংক পাস। Chrome-এ সম্মিলিত seller journey, seller/buyer reset, buyer OTP, কিবোর্ড, ২০০% CSS zoom, কম উচ্চতার mobile viewport, accessibility tree ও reduced motion পাস। Seller Reset-এর নমুনা রানে CLS ০, JavaScript exception শূন্য। ১৩০টি স্থানীয় লিংক/অ্যাসেট ও sitemap যাচাই হয়েছে।

@@ -2275,14 +2275,13 @@
             $resetForm.find('a[href="login.html"]').attr("href", "seller-login.html");
             $resetForm.find("#sfForgotStep1 .sf-auth-title").text("Reset seller password");
             $resetForm.find("#sfForgotStep1 .sf-auth-subtitle").text("Enter a Bangladeshi mobile number to continue.");
-            $resetForm.find(".sf-input-hint").remove();
             $("#sfForgotOtpLead").text("Enter any six digits for the sample number");
             $("#sfBtnSendForgotOtp span").text("Continue to verification");
             $resetForm.find("#sfForgotStep4 .sf-auth-title").text("Password reset preview complete");
             $resetForm.find("#sfForgotStep4 .sf-auth-subtitle").text("Open live Seller Center to reset your account password.");
             $("#sfBuyerResetPage").prop("hidden", true);
             $("#sfSellerResetPage").prop("hidden", false);
-            $("body").removeClass("sf-auth-page").addClass("sf-seller-shell sf-seller-access");
+            $("body").removeClass("sf-auth-page sf-customer-auth sf-customer-recovery").addClass("sf-seller-shell sf-seller-access");
             document.title = "Reset Seller Password - ShoppieFlyBD";
         }
 
@@ -2340,7 +2339,7 @@
         });
 
         // Step 2: Back to Step 1
-        $("#sfForgotBackToStep1, #sfForgotEditPhoneBtn").on("click", function (e) {
+        $("#sfForgotBackToStep1").on("click", function (e) {
             e.preventDefault();
             clearInterval(resendTimer);
             changeResetStep(2, 1, function () {

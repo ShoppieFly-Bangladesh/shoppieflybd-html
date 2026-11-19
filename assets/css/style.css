@@ -14177,16 +14177,15 @@ footer.mn-footer {
     z-index: 1 !important;
 }
 
-/* Running Gradient Border Animation */
+/* Size the rotating square to cover the pill, including both ends at every angle. */
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::before {
     content: "" !important;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
-    width: 600px !important;
-    height: 600px !important;
-    margin-top: -300px !important;
-    margin-left: -300px !important;
+    width: calc(100% + 16px) !important;
+    aspect-ratio: 1 !important;
+    translate: -50% -50% !important;
     background: conic-gradient(
         from 0deg,
         #3a4ee5 0deg,
@@ -14217,10 +14216,6 @@ footer.mn-footer {
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover {
     color: #1e293b !important;
     box-shadow: 0 4px 15px rgba(58, 78, 229, 0.22) !important;
-}
-
-.mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover::before {
-    animation-duration: 1.6s !important;
 }
 
 .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn:hover::after {
@@ -14412,10 +14407,9 @@ footer.mn-footer {
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
-        width: 600px !important;
-        height: 600px !important;
-        margin-top: -300px !important;
-        margin-left: -300px !important;
+        width: calc(100% + 16px) !important;
+        aspect-ratio: 1 !important;
+        translate: -50% -50% !important;
         background: conic-gradient(
             from 0deg,
             #3a4ee5 0deg,
@@ -14445,10 +14439,6 @@ footer.mn-footer {
 
     .sf-mobile-search-bar > a.sf-instant-search-btn:hover {
         box-shadow: 0 4px 20px rgba(58, 78, 229, 0.22) !important;
-    }
-
-    .sf-mobile-search-bar > a.sf-instant-search-btn:hover::before {
-        animation-duration: 1.6s !important;
     }
 
     .sf-mobile-search-bar > a.sf-instant-search-btn i {
@@ -14645,6 +14635,13 @@ footer.mn-footer {
 
 .sf-topbar .sf-topbar-mobile-only {
     display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mn-header .mn-header-items .desktop-center-search .sf-instant-search-btn::before,
+    .sf-mobile-search-bar > a.sf-instant-search-btn::before {
+        animation: none !important;
+    }
 }
 
 /*==================================================
@@ -27942,8 +27939,7 @@ body.sf-seller-access {
     min-height: 44px;
     color: #3043c5;
 }
-#sfForgotBackToStep1,
-#sfForgotEditPhoneBtn {
+#sfForgotBackToStep1 {
     border: 0;
     background: transparent;
 }
@@ -28078,4 +28074,164 @@ body.sf-seller-access {
         animation: none;
         transition: none;
     }
+}
+
+/* Customer login and registration layout */
+.sf-customer-auth .sf-auth-simple-section {
+    padding: clamp(20px, 3vw, 36px) 0;
+}
+.sf-customer-auth .sf-auth-simple-form-wrap {
+    max-width: 480px;
+    padding: clamp(24px, 3vw, 36px);
+}
+.sf-customer-auth .sf-auth-pure-img-wrap {
+    max-width: 480px;
+    padding: clamp(16px, 3vw, 40px);
+}
+.sf-customer-auth .sf-auth-header {
+    margin-bottom: 18px;
+}
+.sf-customer-auth .sf-auth-title {
+    color: #172044;
+    font-family: system-ui, sans-serif;
+    font-size: clamp(1.625rem, 3vw, 2.125rem);
+    line-height: 1.15;
+    font-weight: 750;
+}
+.sf-customer-auth .sf-auth-subtitle {
+    color: #475569;
+    line-height: 1.5;
+}
+.sf-customer-auth .sf-auth-switch-tabs {
+    flex-wrap: nowrap;
+    margin-bottom: 16px;
+}
+.sf-customer-auth .sf-auth-switch-tabs .nav-item {
+    min-width: 0;
+}
+.sf-customer-auth .sf-auth-switch-tabs .nav-link {
+    min-height: 44px;
+    padding: 6px;
+    color: #475569;
+    white-space: normal;
+    line-height: 1.2;
+}
+.sf-customer-auth .sf-auth-switch-tabs .nav-link.active {
+    background: #e9edff;
+    box-shadow: none;
+    color: #3043c5;
+}
+.sf-customer-auth .sf-auth-input {
+    min-height: 46px;
+    font-size: 16px;
+}
+.sf-customer-auth .sf-auth-input::placeholder {
+    color: #64748b;
+}
+.sf-customer-auth .sf-auth-input:focus {
+    border-color: #3a4ee5;
+    box-shadow: 0 0 0 2px #dde1ff;
+}
+.sf-customer-auth .sf-password-input-wrap .sf-auth-input {
+    padding-inline: 14px 50px;
+}
+.sf-customer-auth .sf-pwd-toggle-btn {
+    right: 1px;
+    width: 44px;
+    height: 44px;
+    color: #475569;
+}
+.sf-customer-auth .sf-checkbox-wrap {
+    min-height: 44px;
+    gap: 10px;
+    line-height: 1.45;
+}
+.sf-customer-auth .sf-checkbox-wrap input {
+    flex: none;
+    margin: 0;
+    accent-color: #3a4ee5;
+}
+.sf-customer-auth .sf-auth-simple-form-wrap :is(.sf-forgot-link, .sf-auth-switch-link) {
+    color: #3043c5;
+}
+.sf-customer-auth .sf-btn-auth-primary {
+    background: #3a4ee5;
+    color: #fff;
+    box-shadow: none;
+}
+.sf-customer-auth .sf-btn-auth-primary:hover {
+    background: #2f40c7;
+    box-shadow: none;
+    transform: none;
+}
+.sf-customer-auth .sf-auth-simple-form-wrap :is(button, a, input):focus-visible {
+    outline: 2px solid #3043c5;
+    outline-offset: 1px;
+}
+.sf-customer-auth .sf-auth-simple-form-wrap :focus-visible {
+    scroll-margin-block: 80px;
+}
+@media (max-width: 991.98px) {
+    body.sf-customer-auth .mn-main-content {
+        padding-top: 0 !important;
+    }
+    .sf-customer-auth .mn-main-content > .sf-breadcrumb-nav {
+        display: none;
+    }
+}
+@media (max-width: 767.98px) {
+    .sf-customer-auth header .sf-mobile-search-bar {
+        display: none !important;
+    }
+    .sf-customer-auth .sf-auth-simple-section {
+        min-height: auto;
+        padding: 16px 0 calc(76px + env(safe-area-inset-bottom));
+    }
+    .sf-customer-auth .sf-auth-simple-form-wrap {
+        padding: 0;
+    }
+    .sf-customer-auth .sf-auth-header {
+        margin-bottom: 14px;
+    }
+    .sf-customer-auth .sf-auth-simple-form-wrap form .mb-3 {
+        margin-bottom: 12px !important;
+    }
+}
+
+/* Customer phone verification and password reset */
+.sf-customer-recovery .sf-auth-back-link,
+.sf-customer-recovery .sf-btn-resend-otp {
+    min-height: 44px;
+    color: #3043c5;
+}
+.sf-customer-recovery .sf-otp-box-wrap {
+    justify-content: flex-start;
+    gap: 3px;
+}
+.sf-customer-recovery .sf-otp-digit {
+    height: 46px;
+}
+.sf-customer-recovery .sf-otp-digit:focus {
+    border-color: #3a4ee5;
+    background: #fff;
+    box-shadow: 0 0 0 2px #dde1ff;
+}
+.sf-customer-recovery .sf-otp-timer-row {
+    flex-wrap: wrap;
+    gap: 0 12px;
+}
+
+/* Customer authentication providers */
+.sf-customer-auth .sf-auth-divider {
+    margin: 16px 0 12px;
+    color: #64748b;
+    text-transform: none;
+}
+.sf-customer-auth .sf-social-buttons-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+.sf-customer-auth .sf-btn-social {
+    min-height: 44px;
+    padding-inline: 8px;
 }

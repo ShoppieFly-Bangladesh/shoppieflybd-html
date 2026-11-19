@@ -7,6 +7,12 @@
 
 ---
 
+## সক্রিয় কাজ · Product, Cart ও Checkout-এর মোবাইল ডিজাইন
+
+- **বর্তমান ডিজাইন পাস ১০০%।** তিন পেজের mobile action bar-এ একই button hierarchy ও price typography। Product variant-এর size ও color option ৪৪×৪৪ পিক্সেল। Cart subtotal ও checkout action পাশাপাশি। Checkout delivery form, store summary ও payment selection নতুন visual hierarchy পেয়েছে।
+- **ফাইল।** `{product,cart,checkout}.html`, `assets/css/{style,style.min}.css` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **যাচাই ও পরবর্তী কাজ।** ৩২০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলে ১৮টি Chrome check পাস। চারপাশে overflow নেই, mobile CTA অন্তত ৪৪ পিক্সেল এবং CSS source/minified সমান। Safari ও বাস্তব ফোনে visual review বাকি। Laravel ধাপে ডেটা ও সম্পর্কিত আচরণ যুক্ত হবে।
+
 ## সক্রিয় কাজ · Storefront preloader ও skeleton
 
 - **অগ্রগতি ১/৫ (২০%)।** `shop.html` থেকে full-page `#mn-overlay` মার্কআপ সরানো হয়েছে। Shared CSS ও JS এখনও অন্য ২৭টি overlay-যুক্ত HTML ফাইলের জন্য ব্যবহৃত হচ্ছে।

@@ -7,6 +7,12 @@
 
 ---
 
+## সক্রিয় কাজ · Store Directory ও Store page-এর মোবাইল ডিজাইন
+
+- **বর্তমান ডিজাইন পাস ১০০%।** Directory card-এ ২ লাইনের দোকানের নাম, rating, demo পণ্যের সংখ্যা ও followers। সার্চ, sort ও category filter ছোট স্ক্রিনে সাজানো। Store page-এ compact cover ও logo-সহ পরিচিতি, ৪৪ পিক্সেল actions ও tabs এবং দুটো product grid-এ `.sf-catalog-grid` পুনর্ব্যবহার।
+- **ফাইল।** `{stores,store}.html`, `assets/css/{style,style.min}.css` ও মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **যাচাই।** ৩২০, ৩৭৫, ৪১২, ৫৭৫, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলে ১৪টি Chrome check। Directory search, filter, product-count sort এবং Store tabs পাস। ৩,০৬৫টি parsed CSS rule মিলে গেছে। Safari ও বাস্তব ফোনে ভিজ্যুয়াল যাচাই বাকি।
+
 ## সক্রিয় কাজ · Home, Categories ও Shop-এর মোবাইল ডিজাইন
 
 - **বর্তমান ডিজাইন পাস ১০০%।** Home ও Shop-এর মোবাইল product card-এ একই ছবি, ব্যাজ, দাম ও button layout। Shop-এর Filter/Sort toolbar কম্প্যাক্ট এবং Sort menu কেটে যায় না। Categories-এ সমান tile, কম্প্যাক্ট search ও Home-এর সঙ্গে ১৮টি category ছবির মিল। Home-এর সরু hero-তে আগের assets ব্যবহার হয়েছে।

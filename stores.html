@@ -76,7 +76,7 @@
         <!-- Main CSS -->
         <link href="assets/css/style.min.css?v=store20261111" id="mainCss" rel="stylesheet">
     </head>
-    <body data-mn-mode="light">
+    <body data-mn-mode="light" class="sf-store-directory-page">
         <main class="wrapper sb-default">
             <!-- Sidebar -->
             <div class="mn-sidebar-overlay"></div>
@@ -721,12 +721,12 @@
 
                 <!-- 2. Interactive Store Filter & Toolbar -->
                 <div class="sf-store-filter-bar">
-                    <div class="row align-items-center g-3 mb-3">
+                    <div class="row align-items-center g-2 g-md-3 mb-2 mb-md-3">
                         <!-- Search Box -->
                         <div class="col-lg-8 col-md-7 sf-store-search-box">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="ri-search-line"></i></span>
-                                <input type="text" id="sfStoreSearchInput" class="form-control" placeholder="Search stores by name, category, or city (e.g. Dhaka, Mirpur)..." aria-label="Search stores">
+                                <input type="text" id="sfStoreSearchInput" class="form-control" placeholder="Store name, category or city" aria-label="Search stores">
                                 <button type="button" class="sf-store-search-clear" id="sfStoreSearchClear" title="Clear search">
                                     <i class="ri-close-circle-fill"></i>
                                 </button>
@@ -736,12 +736,12 @@
                         <!-- Sort Dropdown -->
                         <div class="col-lg-4 col-md-5">
                             <div class="d-flex align-items-center justify-content-md-end gap-2">
-                                <label for="sfStoreSortSelect" class="text-muted small fw-semibold text-nowrap mb-0">Sort By:</label>
+                                <label for="sfStoreSortSelect" class="text-muted small fw-semibold text-nowrap mb-0">Sort by</label>
                                 <select class="form-select form-select-sm py-2" id="sfStoreSortSelect" style="max-width: 220px; border-radius: 8px; font-size: 13px; border-color: #e2e8f0;">
                                     <option value="featured" selected>Featured &amp; Verified</option>
-                                    <option value="rating">Top Rated (Highest Star)</option>
+                                    <option value="rating">Top rated</option>
                                     <option value="products">Most Products</option>
-                                    <option value="followers">Most Popular (Followers)</option>
+                                    <option value="followers">Most followed</option>
                                 </select>
                             </div>
                         </div>
@@ -802,7 +802,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.8</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">1.2k+ Sold</span>
+                                        <span class="sf-meta-products">358 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">3.5k Followers</span>
                                     </div>
@@ -845,7 +845,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.9</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">2.5k+ Sold</span>
+                                        <span class="sf-meta-products">512 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">5.2k Followers</span>
                                     </div>
@@ -888,7 +888,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.7</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">850+ Sold</span>
+                                        <span class="sf-meta-products">184 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">2.1k Followers</span>
                                     </div>
@@ -931,7 +931,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.6</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">940+ Sold</span>
+                                        <span class="sf-meta-products">230 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">3.8k Followers</span>
                                     </div>
@@ -974,7 +974,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.9</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">3.1k+ Sold</span>
+                                        <span class="sf-meta-products">410 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">6.4k Followers</span>
                                     </div>
@@ -1017,7 +1017,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.8</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">620+ Sold</span>
+                                        <span class="sf-meta-products">195 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">1.9k Followers</span>
                                     </div>
@@ -1060,7 +1060,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.8</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">1.5k+ Sold</span>
+                                        <span class="sf-meta-products">276 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">4.1k Followers</span>
                                     </div>
@@ -1103,7 +1103,7 @@
                                     <div class="sf-store-card-meta">
                                         <span class="sf-meta-rating"><i class="ri-star-fill"></i> 4.9</span>
                                         <span class="sf-meta-dot">&bull;</span>
-                                        <span class="sf-meta-sold">780+ Sold</span>
+                                        <span class="sf-meta-products">142 products</span>
                                         <span class="sf-meta-dot">&bull;</span>
                                         <span class="sf-meta-followers">2.8k Followers</span>
                                     </div>

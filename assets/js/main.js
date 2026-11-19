@@ -1762,7 +1762,9 @@
     $(document).on("click", ".sf-toggle-pwd-btn", function () {
         var $input = $(this).siblings("input");
         var $icon = $(this).find("i");
-        if ($input.attr("type") === "password") {
+        var showPassword = $input.attr("type") === "password";
+        $(this).attr("aria-pressed", String(showPassword));
+        if (showPassword) {
             $input.attr("type", "text");
             $icon.removeClass("ri-eye-line").addClass("ri-eye-off-line");
         } else {
@@ -1771,352 +1773,211 @@
         }
     });
 
+    function sfInitSellerLogin() {
+        var $form = $("#sfSellerLoginForm");
+        if (!$form.length) return;
+
+        var identifier = document.getElementById("sf_login_phone");
+        var $password = $("#sf_login_password");
+        var $submit = $("#sfBtnSellerLogin");
+        var $status = $("#sfSellerLoginStatus");
+
+        $(identifier).on("input", function () {
+            identifier.setCustomValidity("");
+            $status.text("");
+        });
+
+        $form.on("submit", function (event) {
+            event.preventDefault();
+            var value = identifier.value.trim();
+            var phone = value.replace(/[\s-]/g, "");
+            var validPhone = /^(?:\+880|880|0)1[3-9]\d{8}$/.test(phone);
+            var validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            if (!validPhone && !validEmail) {
+                identifier.setCustomValidity("Enter a valid Bangladeshi mobile number or email address.");
+                identifier.reportValidity();
+                return;
+            }
+
+            $submit.prop("disabled", true).text("Loading preview…");
+            $status.text("");
+            $password.val("").attr("type", "password");
+            $form.find(".sf-toggle-pwd-btn").attr("aria-pressed", "false").find("i")
+                .removeClass("ri-eye-off-line").addClass("ri-eye-line");
+            setTimeout(function () {
+                $submit.prop("disabled", false).text("Preview login");
+                $status.text("Preview complete. Open live Seller Center to sign in.");
+            }, 300);
+        });
+
+        $submit.prop("disabled", false);
+    }
+
     function sfInitSellerOnboarding() {
-        var $stepperCard = $(".sf-stepper-card");
-        if (!$stepperCard.length) return;
+        var $registration = $("#sfSellerRegistration");
+        if (!$registration.length) return;
 
-        var currentStep = 1;
-        var userPhone = "";
-        var otpTimer = null;
-        var countdownSeconds = 59;
-
-        // Elements
-        var $pane1 = $("#sfPaneStep1");
-        var $pane2 = $("#sfPaneStep2");
-        var $pane3 = $("#sfPaneStep3");
-        var $pane4 = $("#sfPaneStep4");
-
-        var $stepNode1 = $("#sfStepNode1");
-        var $stepNode2 = $("#sfStepNode2");
-        var $stepNode3 = $("#sfStepNode3");
-
-        var $stepLine1 = $("#sfStepLine1");
-        var $stepLine2 = $("#sfStepLine2");
-
-        var $phoneInput = $("#sf_seller_phone");
+        var $panes = $registration.children("section");
+        var $progress = $("#sfRegisterProgress");
+        var $phone = $("#sf_seller_phone");
         var $phoneError = $("#sfPhoneError");
-        var $btnSendOtp = $("#sfBtnSendOtp");
-
-        var $displayPhone = $("#sfDisplayPhone");
-        var $btnEditPhone = $("#sfBtnEditPhone");
-        var $otpBoxes = $(".sf-otp-box");
+        var $otp = $("#sfRegisterOtp");
         var $otpError = $("#sfOtpError");
-        var $btnVerifyOtp = $("#sfBtnVerifyOtp");
-        var $btnBackStep1 = $("#sfBtnBackStep1");
-        var $otpTimerWrap = $("#sfOtpTimerWrap");
-        var $otpTimerVal = $("#sfOtpTimerVal");
-        var $btnResendOtp = $("#sfBtnResendOtp");
+        var $otpStatus = $("#sfRegisterOtpStatus");
+        var $countdown = $("#sfOtpTimerVal");
+        var $resend = $("#sfBtnResendOtp");
+        var $storeForm = $("#sfRegisterStoreForm");
+        var $storeError = $("#sfStep3Error");
+        var $name = $("#sf_seller_name");
+        var $store = $("#sf_store_name");
+        var $password = $("#sf_seller_password");
+        var $confirmation = $("#sf_seller_confirm_pwd");
+        var $terms = $("#sfAgreeTerms");
 
-        var $sellerNameInput = $("#sf_seller_name");
-        var $storeNameInput = $("#sf_store_name");
-        var $storeSlugPreview = $("#sfStoreSlugPreview");
-        var $pwdInput = $("#sf_seller_password");
-        var $confirmPwdInput = $("#sf_seller_confirm_pwd");
-        var $agreeTerms = $("#sfAgreeTerms");
-        var $step3Error = $("#sfStep3Error");
-        var $btnCompleteRegister = $("#sfBtnCompleteRegister");
+        var step = 1;
+        var resendTimer;
+        var expiresAt;
+        var demoCode = "123456";
 
-        var $successStoreName = $("#sfSuccessStoreName");
-        var $successSellerPhone = $("#sfSuccessSellerPhone");
-
-        // Helper: Normalize Phone Number (handles 10 or 11 digits, with/without 0 prefix)
-        function normalizePhone(raw) {
-            if (!raw) return "";
-            var digits = raw.toString().replace(/\D/g, "");
-            // If starts with 8801 and 13 digits: 88017... -> 017...
-            if (digits.startsWith("8801") && digits.length === 13) {
-                digits = digits.substring(2);
-            }
-            // If 10 digits starting with 1[3-9]: 17... -> 017...
-            if (digits.length === 10 && /^1[3-9]/.test(digits)) {
-                digits = "0" + digits;
-            }
-            return digits;
+        function showStep(nextStep) {
+            step = nextStep;
+            var complete = step === $panes.length;
+            $panes.prop("hidden", true).eq(step - 1).prop("hidden", false).find("h2").focus();
+            $progress.text("Step " + step + " of 3").prop("hidden", complete);
+            $("#sfRegisterExistingAccount").prop("hidden", complete);
         }
 
-        // Helper: Format Phone Number for display
-        function formatPhone(raw) {
-            var digits = normalizePhone(raw);
-            if (digits.length === 11 && digits.startsWith("0")) {
-                var national = digits.substring(1);
-                return "+880 " + national.substring(0, 4) + "-" + national.substring(4);
-            }
-            return "+880 " + digits;
+        function showError($field, $message, text) {
+            $message.text(text).prop("hidden", false);
+            $field.attr({ "aria-invalid": "true", "aria-errormessage": $message.attr("id") }).focus();
         }
 
-        // Helper: Switch Step
-        function goToStep(step) {
-            currentStep = step;
-
-            // Panes
-            $pane1.addClass("d-none").removeClass("active");
-            $pane2.addClass("d-none").removeClass("active");
-            $pane3.addClass("d-none").removeClass("active");
-            $pane4.addClass("d-none").removeClass("active");
-
-            // Header nodes reset
-            $stepNode1.removeClass("active completed");
-            $stepNode2.removeClass("active completed");
-            $stepNode3.removeClass("active completed");
-            $stepLine1.removeClass("active completed");
-            $stepLine2.removeClass("active completed");
-
-            if (step === 1) {
-                $pane1.removeClass("d-none").addClass("active");
-                $stepNode1.addClass("active");
-                if (userPhone) $phoneInput.val(userPhone);
-                $phoneInput.focus();
-            } else if (step === 2) {
-                $pane2.removeClass("d-none").addClass("active");
-                $stepNode1.addClass("completed");
-                $stepLine1.addClass("completed");
-                $stepNode2.addClass("active");
-                $otpBoxes.first().focus();
-                startOtpTimer();
-            } else if (step === 3) {
-                $pane3.removeClass("d-none").addClass("active");
-                $stepNode1.addClass("completed");
-                $stepLine1.addClass("completed");
-                $stepNode2.addClass("completed");
-                $stepLine2.addClass("completed");
-                $stepNode3.addClass("active");
-                $sellerNameInput.focus();
-            } else if (step === 4) {
-                $pane4.removeClass("d-none").addClass("active");
-                $stepNode1.addClass("completed");
-                $stepLine1.addClass("completed");
-                $stepNode2.addClass("completed");
-                $stepLine2.addClass("completed");
-                $stepNode3.addClass("completed");
-            }
+        function clearError($fields, $message) {
+            $fields.removeAttr("aria-invalid aria-errormessage");
+            $message.prop("hidden", true).empty();
         }
 
-        // Helper: Slugify
-        function slugify(text) {
-            return text
-                .toString()
-                .toLowerCase()
-                .trim()
-                .replace(/\s+/g, "-")
-                .replace(/[^\w\-]+/g, "")
-                .replace(/\-\-+/g, "-")
-                .replace(/^-+/, "")
-                .replace(/-+$/, "");
-        }
-
-        // Helper: OTP Timer
-        function startOtpTimer() {
-            if (otpTimer) clearInterval(otpTimer);
-            countdownSeconds = 59;
-            $otpTimerWrap.removeClass("d-none");
-            $btnResendOtp.addClass("d-none");
-            $otpTimerVal.text("00:59");
-
-            otpTimer = setInterval(function () {
-                countdownSeconds--;
-                if (countdownSeconds <= 0) {
-                    clearInterval(otpTimer);
-                    $otpTimerWrap.addClass("d-none");
-                    $btnResendOtp.removeClass("d-none");
-                } else {
-                    var secStr = countdownSeconds < 10 ? "0" + countdownSeconds : "" + countdownSeconds;
-                    $otpTimerVal.text("00:" + secStr);
-                }
-            }, 1000);
-        }
-
-        // 1. Phone input digits only
-        $phoneInput.on("input", function () {
-            var val = $(this).val().replace(/\D/g, "");
-            $(this).val(val);
-            if (val.length > 0) {
-                $phoneError.addClass("d-none");
-            }
-        });
-
-        // 2. Step 1: Send OTP Click
-        $btnSendOtp.on("click", function () {
-            var raw = $phoneInput.val().trim();
-            var normalized = normalizePhone(raw);
-            var bdPhonePattern = /^01[3-9]\d{8}$/;
-            if (!bdPhonePattern.test(normalized)) {
-                $phoneError.removeClass("d-none");
-                $phoneInput.focus();
-                return;
-            }
-
-            userPhone = normalized;
-            $phoneInput.val(normalized);
-            $phoneError.addClass("d-none");
-
-            // Loading state
-            $btnSendOtp.prop("disabled", true);
-            $btnSendOtp.find(".sf-btn-text").text("Sending OTP...");
-            $btnSendOtp.find(".sf-btn-icon").addClass("d-none");
-            $btnSendOtp.find(".spinner-border").removeClass("d-none");
-
-            setTimeout(function () {
-                $btnSendOtp.prop("disabled", false);
-                $btnSendOtp.find(".sf-btn-text").text("Send Verification Code");
-                $btnSendOtp.find(".sf-btn-icon").removeClass("d-none");
-                $btnSendOtp.find(".spinner-border").addClass("d-none");
-
-                $displayPhone.text(formatPhone(userPhone));
-                goToStep(2);
-            }, 450);
-        });
-
-        // Edit Phone from Step 2
-        $btnEditPhone.on("click", function () {
-            goToStep(1);
-        });
-        $btnBackStep1.on("click", function () {
-            goToStep(1);
-        });
-
-        // 3. OTP Boxes Auto-advance & Backspace
-        $otpBoxes.each(function (idx) {
-            var $box = $(this);
-
-            $box.on("input", function (e) {
-                var val = $(this).val().replace(/\D/g, "");
-                $(this).val(val);
-                $otpError.addClass("d-none");
-
-                if (val && idx < $otpBoxes.length - 1) {
-                    $otpBoxes.eq(idx + 1).focus();
-                }
+        function normalizeDigits(value) {
+            return value.replace(/[০-৯]/g, function (digit) {
+                return String(digit.charCodeAt(0) - "০".charCodeAt(0));
             });
+        }
 
-            $box.on("keydown", function (e) {
-                if (e.key === "Backspace" && !$(this).val() && idx > 0) {
-                    $otpBoxes.eq(idx - 1).focus();
-                }
-            });
+        function updateOtpCountdown() {
+            var remaining = Math.max(0, Math.ceil((expiresAt - Date.now()) / 1000));
+            $countdown.text(remaining + "s");
+            if (remaining === 0) {
+                clearInterval(resendTimer);
+                $("#sfOtpTimerWrap").prop("hidden", true);
+                $resend.prop("hidden", false);
+                $otpStatus.text("Demo code expired. Request a new code to continue.");
+            }
+        }
 
-            // Paste handling on any OTP box
-            $box.on("paste", function (e) {
-                var clipboardData = e.originalEvent.clipboardData || window.clipboardData;
-                if (!clipboardData) return;
-                var pasted = clipboardData.getData("text").replace(/\D/g, "");
-                if (pasted.length >= 6) {
-                    e.preventDefault();
-                    for (var i = 0; i < 6; i++) {
-                        $otpBoxes.eq(i).val(pasted[i]);
-                    }
-                    $otpBoxes.eq(5).focus();
-                    $otpError.addClass("d-none");
-                }
-            });
+        function issueDemoCode(message) {
+            clearInterval(resendTimer);
+            expiresAt = Date.now() + 59000;
+            $otp.val("");
+            clearError($otp, $otpError);
+            $("#sfOtpTimerWrap").prop("hidden", false);
+            $resend.prop("hidden", true);
+            $otpStatus.text(message);
+            updateOtpCountdown();
+            resendTimer = setInterval(updateOtpCountdown, 1000);
+        }
+
+        $phone.on("input", function () {
+            clearError($phone, $phoneError);
         });
 
-        // Resend OTP Click
-        $btnResendOtp.on("click", function () {
-            $otpBoxes.val("");
-            $otpBoxes.first().focus();
-            startOtpTimer();
-            // Feedback
-            var origText = $(this).html();
-            $(this).html('<i class="ri-check-line me-1"></i> Sent!');
-            var $btn = $(this);
-            setTimeout(function () {
-                $btn.html(origText);
-            }, 1500);
+        $("#sfRegisterPhoneForm").on("submit", function (event) {
+            event.preventDefault();
+            if (step !== 1) return;
+
+            var number = normalizeDigits($phone.val().trim()).replace(/[\s()-]/g, "");
+            var match = /^(?:\+?880|0)?(1[3-9]\d{8})$/.exec(number);
+            if (!match) {
+                showError($phone, $phoneError, "Enter a valid Bangladeshi mobile number, such as 01700000000.");
+                return;
+            }
+
+            clearError($phone, $phoneError);
+            $("#sfDisplayPhone").text("+880 " + match[1].slice(0, 4) + "-" + match[1].slice(4));
+            issueDemoCode("");
+            showStep(2);
         });
 
-        // 4. Step 2: Verify OTP Click
-        $btnVerifyOtp.on("click", function () {
-            var code = "";
-            $otpBoxes.each(function () {
-                code += $(this).val().trim();
-            });
-
-            if (code.length < 6) {
-                $otpError.removeClass("d-none").text("Please enter the complete 6-digit verification code.");
-                return;
-            }
-
-            $otpError.addClass("d-none");
-
-            // Loading state
-            $btnVerifyOtp.prop("disabled", true);
-            $btnVerifyOtp.find(".sf-btn-text").text("Verifying...");
-            $btnVerifyOtp.find(".sf-btn-icon").addClass("d-none");
-            $btnVerifyOtp.find(".spinner-border").removeClass("d-none");
-
-            setTimeout(function () {
-                $btnVerifyOtp.prop("disabled", false);
-                $btnVerifyOtp.find(".sf-btn-text").text("Verify & Continue");
-                $btnVerifyOtp.find(".sf-btn-icon").removeClass("d-none");
-                $btnVerifyOtp.find(".spinner-border").addClass("d-none");
-
-                goToStep(3);
-            }, 400);
+        $("#sfBtnEditPhone").on("click", function () {
+            clearInterval(resendTimer);
+            showStep(1);
+            $phone.focus();
         });
 
-        // 5. Step 3: Live Store Slug Preview
-        $storeNameInput.on("input", function () {
-            var raw = $(this).val();
-            var slug = slugify(raw);
-            $storeSlugPreview.text(slug || "your-store");
+        $otp.on("input", function () {
+            this.value = normalizeDigits(this.value).replace(/\D/g, "").slice(0, 6);
+            clearError($otp, $otpError);
         });
 
-
-
-        // 6. Step 3: Complete Registration Click
-        $btnCompleteRegister.on("click", function () {
-            var name = $sellerNameInput.val().trim();
-            var store = $storeNameInput.val().trim();
-            var pwd = $pwdInput.val();
-            var confirmPwd = $confirmPwdInput.val();
-            var agreed = $agreeTerms.is(":checked");
-
-            if (!name) {
-                $step3Error.removeClass("d-none").text("Please enter your full name.");
-                $sellerNameInput.focus();
-                return;
-            }
-            if (!store) {
-                $step3Error.removeClass("d-none").text("Please enter your store or shop name.");
-                $storeNameInput.focus();
-                return;
-            }
-            if (!pwd || pwd.length < 8) {
-                $step3Error.removeClass("d-none").text("Password must be at least 8 characters long.");
-                $pwdInput.focus();
-                return;
-            }
-            if (pwd !== confirmPwd) {
-                $step3Error.removeClass("d-none").text("Passwords do not match. Please check again.");
-                $confirmPwdInput.focus();
-                return;
-            }
-            if (!agreed) {
-                $step3Error.removeClass("d-none").text("You must agree to the Seller Agreement to continue.");
-                return;
-            }
-
-            $step3Error.addClass("d-none");
-
-            // Loading state
-            $btnCompleteRegister.prop("disabled", true);
-            $btnCompleteRegister.find(".sf-btn-text").text("Creating Account...");
-            $btnCompleteRegister.find(".sf-btn-icon").addClass("d-none");
-            $btnCompleteRegister.find(".spinner-border").removeClass("d-none");
-
-            setTimeout(function () {
-                $btnCompleteRegister.prop("disabled", false);
-                $btnCompleteRegister.find(".sf-btn-text").text("Create Seller Account");
-                $btnCompleteRegister.find(".sf-btn-icon").removeClass("d-none");
-                $btnCompleteRegister.find(".spinner-border").addClass("d-none");
-
-                // Populate success card
-                $successStoreName.text(store);
-                $successSellerPhone.text(formatPhone(userPhone));
-
-                goToStep(4);
-            }, 600);
+        $resend.on("click", function () {
+            issueDemoCode("A new demo code is ready.");
+            $otp.focus();
         });
+
+        $("#sfRegisterOtpForm").on("submit", function (event) {
+            event.preventDefault();
+            if (step !== 2) return;
+
+            if (Date.now() >= expiresAt) {
+                updateOtpCountdown();
+                showError($otp, $otpError, "This code expired. Select Resend demo code to continue.");
+                return;
+            }
+            if ($otp.val() !== demoCode) {
+                showError($otp, $otpError, "Enter the six-digit demo code 123456.");
+                return;
+            }
+
+            clearInterval(resendTimer);
+            showStep(3);
+        });
+
+        $storeForm.on("input change", "input", function () {
+            clearError($storeForm.find("[aria-invalid]"), $storeError);
+        });
+
+        $storeForm.on("submit", function (event) {
+            event.preventDefault();
+            if (step !== 3) return;
+
+            if (!$name.val().trim()) {
+                showError($name, $storeError, "Enter your full name.");
+                return;
+            }
+            if (!$store.val().trim()) {
+                showError($store, $storeError, "Enter your store name.");
+                return;
+            }
+            if ($password.val().length < 8) {
+                showError($password, $storeError, "Use at least eight characters for the sample password.");
+                return;
+            }
+            if ($password.val() !== $confirmation.val()) {
+                showError($confirmation, $storeError, "The sample passwords do not match.");
+                return;
+            }
+            if (!$terms.is(":checked")) {
+                showError($terms, $storeError, "Agree to the seller terms to continue.");
+                return;
+            }
+
+            $("#sfSuccessStoreName").text($store.val().trim());
+            $storeForm[0].reset();
+            $otp.val("");
+            $phone.val("");
+            showStep(4);
+        });
+
+        $("#sfBtnSendOtp").prop("disabled", false);
     }
 
     /*==================================================
@@ -2407,7 +2268,39 @@
     function sfInitForgotPassword() {
         if (!$("#sfForgotStep1").length) return;
 
-        var userPhone = "";
+        var sellerPortal = new URLSearchParams(window.location.search).get("portal") === "seller";
+        if (sellerPortal) {
+            var $resetForm = $("#sfForgotStep1").closest(".sf-auth-simple-form-wrap");
+            $resetForm.appendTo("#sfSellerResetContent");
+            $resetForm.find('a[href="login.html"]').attr("href", "seller-login.html");
+            $resetForm.find("#sfForgotStep1 .sf-auth-title").text("Reset seller password");
+            $resetForm.find("#sfForgotStep1 .sf-auth-subtitle").text("Enter a Bangladeshi mobile number to continue.");
+            $resetForm.find(".sf-input-hint").remove();
+            $("#sfForgotOtpLead").text("Enter any six digits for the sample number");
+            $("#sfBtnSendForgotOtp span").text("Continue to verification");
+            $resetForm.find("#sfForgotStep4 .sf-auth-title").text("Password reset preview complete");
+            $resetForm.find("#sfForgotStep4 .sf-auth-subtitle").text("Open live Seller Center to reset your account password.");
+            $("#sfBuyerResetPage").prop("hidden", true);
+            $("#sfSellerResetPage").prop("hidden", false);
+            $("body").removeClass("sf-auth-page").addClass("sf-seller-shell sf-seller-access");
+            document.title = "Reset Seller Password - ShoppieFlyBD";
+        }
+
+        function changeResetStep(from, to, onShown) {
+            var $from = $("#sfForgotStep" + from);
+            var $to = $("#sfForgotStep" + to);
+            if (sellerPortal && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                $from.hide();
+                $to.show();
+                onShown();
+                return;
+            }
+
+            $from.slideUp(200, function () {
+                $to.slideDown(250, onShown);
+            });
+        }
+
         var resendTimer = null;
         var countdown = 45;
 
@@ -2425,18 +2318,21 @@
                 return;
             }
 
-            userPhone = cleanPhone;
-            var formattedDisplay = "+880 " + cleanPhone.substring(0, 4) + "-" + cleanPhone.substring(4);
+            var displayPhone = sellerPortal ? cleanPhone.substring(1) : cleanPhone;
+            var formattedDisplay = "+880 " + displayPhone.substring(0, 4) + "-" + displayPhone.substring(4);
             $("#sfForgotDisplayPhone").text(formattedDisplay);
+            if (sellerPortal) {
+                $(".sf-forgot-otp").val("");
+                $("#sfForgotOtpAlert").addClass("d-none");
+            }
 
             var $btn = $("#sfBtnSendForgotOtp");
             var originalBtnHtml = $btn.html();
-            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Sending Code...');
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span> ' + (sellerPortal ? "Loading preview…" : "Sending Code..."));
 
             setTimeout(function () {
                 $btn.prop("disabled", false).html(originalBtnHtml);
-                $("#sfForgotStep1").slideUp(200, function () {
-                    $("#sfForgotStep2").slideDown(250);
+                changeResetStep(1, 2, function () {
                     $(".sf-forgot-otp").first().focus();
                     startForgotTimer();
                 });
@@ -2447,8 +2343,7 @@
         $("#sfForgotBackToStep1, #sfForgotEditPhoneBtn").on("click", function (e) {
             e.preventDefault();
             clearInterval(resendTimer);
-            $("#sfForgotStep2").slideUp(200, function () {
-                $("#sfForgotStep1").slideDown(250);
+            changeResetStep(2, 1, function () {
                 $("#sf_forgot_phone").focus();
             });
         });
@@ -2513,7 +2408,7 @@
             $(".sf-forgot-otp").val("");
             $(".sf-forgot-otp").first().focus();
             $("#sfForgotOtpAlert").removeClass("d-none alert-danger").addClass("alert-success")
-                .html('<i class="ri-checkbox-circle-line me-1"></i> New verification code sent to your mobile phone.');
+                .text(sellerPortal ? "Demo code refreshed. Enter any six digits." : "New verification code sent to your mobile phone.");
             startForgotTimer();
             setTimeout(function () {
                 $("#sfForgotOtpAlert").addClass("d-none");
@@ -2542,8 +2437,7 @@
             setTimeout(function () {
                 $btn.prop("disabled", false).html(origText);
                 clearInterval(resendTimer);
-                $("#sfForgotStep2").slideUp(200, function () {
-                    $("#sfForgotStep3").slideDown(250);
+                changeResetStep(2, 3, function () {
                     $("#sf_new_password").focus();
                 });
             }, 600);
@@ -2561,13 +2455,13 @@
                 $text.text("Minimum 6 characters").css("color", "#64748b");
             } else if (val.length < 6) {
                 $fill.addClass("sf-pwd-strength-weak");
-                $text.text("Too weak (at least 6 characters required)").css("color", "#ef4444");
+                $text.text("Too weak (at least 6 characters required)").css("color", sellerPortal ? "#b42318" : "#ef4444");
             } else if (val.length < 8 || !/[0-9]/.test(val) || !/[A-Za-z]/.test(val)) {
                 $fill.addClass("sf-pwd-strength-medium");
-                $text.text("Good (add letters and numbers for better strength)").css("color", "#f59e0b");
+                $text.text("Good (add letters and numbers for better strength)").css("color", sellerPortal ? "#854d0e" : "#f59e0b");
             } else {
                 $fill.addClass("sf-pwd-strength-strong");
-                $text.text("Strong password ✓").css("color", "#10b981");
+                $text.text("Strong password ✓").css("color", sellerPortal ? "#166534" : "#10b981");
             }
         });
 
@@ -2593,11 +2487,14 @@
 
             var $btn = $("#sfBtnSavePassword");
             var origText = $btn.html();
-            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Saving Password...');
+            $btn.prop("disabled", true).html('<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span> ' + (sellerPortal ? "Completing preview…" : "Saving Password..."));
 
             setTimeout(function () {
-                $("#sfForgotStep3").slideUp(200, function () {
-                    $("#sfForgotStep4").slideDown(250);
+                if (sellerPortal) {
+                    $("#sf_new_password, #sf_confirm_password").val("");
+                }
+                changeResetStep(3, 4, function () {
+                    if (sellerPortal) $("#sfForgotStep4 .sf-auth-title").attr("tabindex", "-1").focus();
                 });
             }, 700);
         });
@@ -2779,6 +2676,7 @@
         sfInitOrderSuccess();
         sfInitTrackOrder();
         sfInitSellerOnboarding();
+        sfInitSellerLogin();
         sfInitStorefront();
         sfInitCustomerAuth();
         sfInitForgotPassword();

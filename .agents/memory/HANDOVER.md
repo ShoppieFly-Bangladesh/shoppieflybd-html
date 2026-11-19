@@ -7,6 +7,25 @@
 
 ---
 
+## সক্রিয় কাজ · Seller Center পেজের নকশা
+
+- **চার ধাপ সম্পন্ন (১০০% স্থানীয় পরিধি)।** Chrome ও Firefox ESR-এ Seller landing, Login, Registration ও Reset ৩২০–১৪৪০ পিক্সেলের ছয় প্রস্থে যাচাই হয়েছে। Firefox-এ ২৪টি পেজ/প্রস্থ ও পুরোনো URL থেকে Registration, Login ও Reset পর্যন্ত লিংক পাস। Chrome-এ সম্মিলিত seller journey, seller/buyer reset, buyer OTP, কিবোর্ড, ২০০% CSS zoom, কম উচ্চতার mobile viewport, accessibility tree ও reduced motion পাস। Seller Reset-এর নমুনা রানে CLS ০, JavaScript exception শূন্য। ১৩০টি স্থানীয় লিংক/অ্যাসেট ও sitemap যাচাই হয়েছে।
+- **ধাপ ৪-এ সংশোধন।** Reduced motion চালু থাকলে Seller Reset-এর ধাপ তাৎক্ষণিক বদলায়। Password নির্দেশনার রং গাঢ় করা হয়েছে। পরীক্ষিত রঙে contrast ৬.১৭:১–৭.৬৮:১। CSS source/minified-এ ৩,১৫১টি করে parsed rule, নতুন ৮৬টি rule একই।
+- **ধাপ ৪-এর ফাইল।** `apps/web-html/assets/js/main.js`, `apps/web-html/assets/css/{style,style.min}.css`, দুই হ্যান্ডওভার ও `docs/reports/web-html-seller-refresh/implementation_plan.md`।
+- **পরবর্তী যাচাই।** বাস্তব iOS Safari ও Android Chrome, OS কিবোর্ড, স্ক্রিন রিডারে শুনে দেখা এবং লাইভ ডেপ্লয়। Seller Login, Registration এবং Reset-এ বাস্তব authentication আলাদা Laravel ধাপে।
+
+- **ধাপ ৩ সম্পন্ন।** Seller Registration-এ দৃশ্যমান শিরোনাম, তিন ধাপের progress, এক কলামের ফর্ম ও শেষে Seller Login-এর লিংক আছে। স্থানীয় বা +880 নম্বর, বাংলা/ইংরেজি অঙ্ক, এক ঘরে ছয় অঙ্কের OTP, ভুল কোড, ৫৯ সেকেন্ডে মেয়াদ শেষ ও resend সমর্থিত। সম্মতি ব্যবহারকারী নিজে দেন, বাংলা দোকানের নাম রাখা হয় এবং slug preview বাদ গেছে। এটি JavaScript-নির্ভর নমুনা, SMS পাঠায় না ও অ্যাকাউন্ট তৈরি করে না।
+- **ধাপ ৩ যাচাই।** Chrome-এ ৩২০ থেকে ১৪৪০ পিক্সেলের ছয় প্রস্থে সম্পূর্ণ flow পাস। Keyboard submit, ধাপ বদলে focus, ভুল OTP, নম্বর বদল, বাংলা অঙ্কসহ একবারে ছয় অঙ্ক ইনপুট, সময় এগিয়ে expiry/resend, password mismatch, সম্মতি ও বাংলা নামসহ সম্পন্ন অবস্থা যাচাই হয়েছে। নতুন ২১টি CSS rule source ও minified-এ সমান।
+- **ধাপ ৩-এর ফাইল।** `apps/web-html/seller-register.html`, `apps/web-html/assets/js/main.js`, `apps/web-html/assets/css/{style,style.min}.css`, দুই হ্যান্ডওভার ও `docs/reports/web-html-seller-refresh/implementation_plan.md`।
+
+- **ধাপ ২ সম্পন্ন।** Seller Login-এ লাইভ Seller Center-এর স্পষ্ট লিংক এবং আলাদা নমুনা ফর্ম আছে। ফোন/ইমেইল যাচাই, keyboard submit, password visibility এবং loading/complete অবস্থা যুক্ত হয়েছে। নমুনা submit-এ credential নেটওয়ার্কে পাঠানো হয় না। `forgot-password.html?portal=seller` একই ফর্মকে Seller Center শেলে দেখায় এবং শুরু ও শেষ ধাপে seller login-এর লিংক দেয়। JavaScript চালু থাকতে হবে।
+- **ধাপ ২ যাচাই।** Chrome-এ ছয় প্রস্থে ১৮টি পেজ পরীক্ষা। ৩২০ পিক্সেলে ফোন/ইমেইল, ভুল identifier, password toggle, আড়াআড়ি overflow, seller ও buyer reset-এর সঠিক লিংক, অসম্পূর্ণ OTP এবং password mismatch পরীক্ষা পাস। নতুন ২৫টি CSS rule source ও minified-এ মিলে গেছে। বাস্তব Safari/Android, স্ক্রিন রিডার ও লাইভ ডেপ্লয় যাচাই বাকি।
+- **ধাপ ২-এর ফাইল।** `apps/web-html/{seller-login,forgot-password}.html`, `apps/web-html/assets/js/main.js`, `apps/web-html/assets/css/{style,style.min}.css`, দুই হ্যান্ডওভার ও `docs/reports/web-html-seller-refresh/implementation_plan.md`।
+
+- **ধাপ ১ সম্পন্ন।** `become-seller.html` মূল landing। শিরোনাম ও অ্যাকশন ছবির আগে, Seller Center নাম মোবাইলেও দৃশ্যমান, তিনটি সুবিধা, শুরুর ধাপ ও কিবোর্ডে ব্যবহারযোগ্য FAQ। ব্যবসায়িকভাবে যাচাইবিহীন ফি, payout সময় ও বিক্রির পরিসংখ্যান সরানো হয়েছে। Hero-তে ImageGen-এ তৈরি ১২০০×৯০০ WebP।
+- **URL ও যাচাই।** `become-vendor.html` query ও fragment ধরে নতুন URL-এ যায়। JavaScript বন্ধ থাকলে সরাসরি লিংক। Landing, Login ও Registration নেভিগেশন ৩২০–১৪৪০ পিক্সেলের ছয় প্রস্থে ১৮টি Chrome চেকে পাস করেছে। দৃশ্যমান header action অন্তত ৪৪ পিক্সেল। ছবি decode, মোবাইলে ছবির আগে অ্যাকশন, FAQ Enter/Space, পুরোনো URL, storefront entry ও sitemap যাচাই হয়েছে। নতুন ৩৯টি CSS rule source/minified-এ সমান। দুই stylesheet-এর আগের ৩,০৬৫টি rule নিজ নিজ সংস্করণে অপরিবর্তিত। বাস্তব iOS Safari, Android ও স্ক্রিন রিডার পরীক্ষা বাকি।
+- **পরিবর্তিত ফাইল।** `apps/web-html/{become-seller,become-vendor,seller-login,seller-register}.html`, `apps/web-html/sitemap.xml`, `apps/web-html/assets/css/{style,style.min}.css`, `apps/web-html/assets/img/common/seller-hero.webp`, root ও মডিউলের `.agents/memory/HANDOVER.md` এবং `docs/reports/web-html-seller-refresh/implementation_plan.md`। Seller entry link বদলানো হয়েছে `apps/web-html`-এর `{404,about-us,account,blog-detail,blog,cart,categories,checkout,compare,contact-us,faq,forgot-password,index,login,order-success,privacy-policy,product,register,return-refund-policy,shipping-policy,shop,store,stores,terms,track-order,vendor-list,vendor-store,verify-otp}.html` ফাইলে।
+
 ## সক্রিয় কাজ · Store Directory ও Store page-এর মোবাইল ডিজাইন
 
 - **বর্তমান ডিজাইন পাস ১০০%।** Directory card-এ ২ লাইনের দোকানের নাম, rating, demo পণ্যের সংখ্যা ও followers। সার্চ, sort ও category filter ছোট স্ক্রিনে সাজানো। Store page-এ compact cover ও logo-সহ পরিচিতি, ৪৪ পিক্সেল actions ও tabs এবং দুটো product grid-এ `.sf-catalog-grid` পুনর্ব্যবহার।

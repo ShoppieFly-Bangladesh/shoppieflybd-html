@@ -27617,3 +27617,465 @@ textarea.sf-form-control {
         padding-top: 10px;
     }
 }
+
+/* Seller Center navigation and landing */
+.sf-seller-navbar :is(.sf-seller-nav-brand, .sf-seller-btn-login, .sf-seller-btn-register) {
+    min-height: 44px;
+}
+.sf-seller-navbar .sf-seller-btn-register,
+.sf-merchant-primary {
+    background: #3a4ee5;
+    color: #fff;
+    box-shadow: none;
+}
+.sf-seller-navbar .sf-seller-btn-register:hover,
+.sf-merchant-primary:hover {
+    background: #2f40c7;
+    color: #fff;
+    transform: none;
+    box-shadow: none;
+}
+.sf-seller-navbar .sf-seller-brand-tag {
+    color: #3a4ee5;
+    text-transform: none;
+}
+.sf-seller-navbar .sf-seller-btn-login {
+    padding-inline: 12px;
+}
+.sf-seller-navbar a:focus-visible,
+.sf-seller-landing main :is(a, summary):focus-visible,
+.sf-seller-landing footer a:focus-visible {
+    outline: 2px solid #3a4ee5;
+    outline-offset: 3px;
+}
+.sf-seller-landing {
+    background: #fff;
+    color: #172044;
+}
+.sf-merchant-hero {
+    background: #f3f5ff;
+    padding: clamp(28px, 6vw, 84px) 0;
+}
+.sf-merchant-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 5vw, 72px);
+    align-items: center;
+}
+.sf-seller-landing main :is(h1, h2, h3) {
+    font-family: system-ui, sans-serif;
+}
+.sf-merchant-intro h1 {
+    max-width: 15ch;
+    margin: 0 0 16px;
+    color: #172044;
+    font-size: clamp(2rem, 4.5vw, 4.375rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -.045em;
+}
+.sf-merchant-intro p {
+    max-width: 48ch;
+    margin: 0 0 20px;
+    color: #475569;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.6;
+}
+.sf-merchant-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    align-items: center;
+}
+.sf-merchant-primary,
+.sf-merchant-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.sf-merchant-primary {
+    padding-inline: 16px;
+}
+.sf-merchant-secondary {
+    color: #3043c5;
+}
+.sf-merchant-secondary:hover {
+    color: #2737a2;
+    text-decoration: underline;
+}
+.sf-merchant-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 18px;
+    background: #e5e9f8;
+}
+.sf-merchant-section {
+    padding: clamp(28px, 5vw, 64px) 0;
+}
+.sf-merchant-section + .sf-merchant-section {
+    border-top: 1px solid #e5e5e5;
+}
+.sf-merchant-section h2 {
+    margin: 0 0 24px;
+    color: #172044;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 750;
+    letter-spacing: -.025em;
+}
+.sf-merchant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sf-merchant-grid li {
+    padding: clamp(16px, 3vw, 28px);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+.sf-merchant-grid i {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #3a4ee5;
+    font-size: 26px;
+    line-height: 1;
+}
+.sf-merchant-grid h3 {
+    margin: 0 0 8px;
+    color: #172044;
+    font-size: 1.0625rem;
+    font-weight: 700;
+}
+.sf-merchant-grid p,
+.sf-merchant-questions p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.6;
+}
+.sf-merchant-steps {
+    list-style: decimal;
+    padding-inline-start: 24px;
+    gap: 16px 36px;
+}
+.sf-merchant-steps li {
+    padding: 0 8px 0 4px;
+    border: 0;
+}
+.sf-merchant-steps li::marker {
+    color: #3a4ee5;
+    font-weight: 750;
+}
+.sf-merchant-faq {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px 32px;
+}
+.sf-merchant-faq .sf-merchant-secondary {
+    padding-inline: 0;
+}
+.sf-merchant-questions details {
+    border-bottom: 1px solid #e2e8f0;
+}
+.sf-merchant-questions summary {
+    align-content: center;
+    min-height: 52px;
+    padding: 12px 4px;
+    color: #172044;
+    font-weight: 650;
+    cursor: pointer;
+}
+.sf-merchant-questions p {
+    padding: 0 4px 16px;
+}
+.sf-seller-landing .sf-seller-footer {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    color: #475569;
+}
+.sf-seller-landing .sf-seller-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #334155;
+}
+.sf-seller-landing .sf-seller-footer a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 767.98px) {
+    .sf-merchant-hero-grid,
+    .sf-merchant-faq,
+    .sf-merchant-grid {
+        grid-template-columns: 1fr;
+    }
+    .sf-merchant-photo {
+        aspect-ratio: 16 / 10;
+        object-position: center 40%;
+    }
+    .sf-merchant-section h2 {
+        margin-bottom: 16px;
+    }
+}
+@media (max-width: 575.98px) {
+    .sf-seller-navbar .sf-seller-nav-brand {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-inline: 2px;
+        gap: 2px;
+    }
+    .sf-seller-navbar .sf-seller-brand-tag {
+        display: initial !important;
+        font-size: 11px;
+        line-height: 1.1;
+    }
+    .sf-seller-navbar .sf-seller-btn-register {
+        padding-inline: 12px;
+    }
+}
+
+/* Seller Center login and password reset */
+body.sf-seller-access {
+    background: #f3f5ff;
+}
+#sfSellerResetPage:not([hidden]) {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+.sf-seller-access-main {
+    flex: 1 0 auto;
+    padding: clamp(20px, 5vw, 64px) 12px;
+}
+.sf-seller-access-card {
+    max-width: 500px;
+    margin-inline: auto;
+    padding: clamp(16px, 5vw, 32px);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+    color: #172044;
+}
+.sf-seller-access-card :is(h1, h2) {
+    font-family: system-ui, sans-serif;
+    color: #172044;
+}
+.sf-seller-access-title {
+    margin: 0 0 8px;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 750;
+}
+.sf-seller-access-intro,
+.sf-seller-login-preview > p {
+    color: #475569;
+    margin: 0 0 16px;
+}
+.sf-seller-live-link {
+    justify-content: center;
+    width: 100%;
+}
+.sf-seller-login-preview {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+.sf-seller-login-preview h2 {
+    margin: 0 0 6px;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+.sf-seller-access :is(.sf-auth-input, .sf-otp-digit) {
+    min-height: 44px;
+    font-size: 16px;
+}
+.sf-seller-access :is(.sf-auth-input, .sf-otp-digit):focus {
+    border-color: #3a4ee5;
+    box-shadow: 0 0 0 2px #dde1ff;
+    background: #fff;
+}
+.sf-seller-access :is(a, button):focus-visible {
+    outline: 2px solid #3a4ee5;
+    outline-offset: 2px;
+}
+.sf-seller-access .sf-toggle-pwd-btn,
+.sf-seller-access .sf-pwd-toggle-btn {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    right: 0;
+    place-items: center;
+    color: #475569;
+}
+.sf-seller-access .sf-password-input-wrap .sf-auth-input {
+    padding-inline: 14px 48px;
+}
+.sf-seller-demo-submit {
+    min-height: 44px;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #3a4ee5;
+    border-radius: 8px;
+    background: #fff;
+    color: #3043c5;
+    font-weight: 700;
+}
+.sf-seller-demo-submit:hover:not(:disabled) {
+    background: #f3f5ff;
+}
+.sf-seller-demo-submit:disabled {
+    opacity: .65;
+}
+.sf-seller-demo-status:not(:empty) {
+    margin: 10px 0 0;
+    color: #334155;
+}
+.sf-seller-access :is(.sf-auth-back-link, .sf-btn-resend-otp) {
+    min-height: 44px;
+    color: #3043c5;
+}
+#sfForgotBackToStep1,
+#sfForgotEditPhoneBtn {
+    border: 0;
+    background: transparent;
+}
+#sfForgotBackToStep1 {
+    padding: 0;
+}
+.sf-seller-access .sf-btn-auth-primary {
+    min-height: 44px;
+    background: #3a4ee5;
+    color: #fff;
+    box-shadow: none;
+}
+.sf-seller-access .sf-btn-auth-primary:hover:not(:disabled) {
+    background: #2f40c7;
+}
+.sf-seller-access .sf-seller-footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+/* Seller registration demo */
+.sf-seller-register-card [hidden] {
+    display: none !important;
+}
+.sf-seller-register-card h2 {
+    margin: 0 0 16px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    scroll-margin-top: 84px;
+}
+.sf-register-progress {
+    margin: 20px 0 14px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    color: #3043c5;
+    font-size: .875rem;
+    font-weight: 700;
+}
+.sf-register-field {
+    margin-bottom: 16px;
+}
+.sf-register-hint,
+.sf-register-error,
+.sf-register-status {
+    margin: 8px 0 0;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+.sf-register-hint {
+    color: #475569;
+}
+.sf-register-error {
+    color: #b42318;
+}
+.sf-register-status {
+    color: #334155;
+}
+.sf-register-status:empty {
+    margin: 0;
+}
+.sf-seller-register-card [aria-invalid="true"] {
+    border-color: #b42318;
+}
+.sf-seller-register-card .sf-btn-auth-primary {
+    margin-top: 18px;
+    justify-content: center;
+}
+.sf-register-phone,
+.sf-register-resend,
+.sf-register-consent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 12px;
+}
+.sf-register-phone,
+.sf-register-resend {
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: .875rem;
+}
+.sf-register-resend {
+    min-height: 44px;
+    margin: 8px 0 0;
+}
+.sf-register-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #3043c5;
+    font-weight: 650;
+    text-decoration: underline;
+}
+.sf-register-link:hover {
+    color: #2737a2;
+}
+.sf-seller-register-card .sf-register-otp {
+    max-width: 14rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .3em;
+}
+.sf-register-consent label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    cursor: pointer;
+}
+.sf-register-consent input {
+    width: 18px;
+    height: 18px;
+    accent-color: #3a4ee5;
+}
+.sf-register-account {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 8px;
+    margin: 14px 0 0;
+    color: #475569;
+}
+#sfSuccessStoreName {
+    overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :is(.sf-seller-landing, .sf-seller-access) :is(a, button, input, .spinner-border) {
+        animation: none;
+        transition: none;
+    }
+}

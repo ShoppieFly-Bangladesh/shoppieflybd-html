@@ -7,6 +7,12 @@
 
 ---
 
+## সক্রিয় কাজ · Home, Categories ও Shop-এর মোবাইল ডিজাইন
+
+- **বর্তমান ডিজাইন পাস ১০০%।** Home ও Shop-এর মোবাইল product card-এ একই ছবি, ব্যাজ, দাম ও button layout। Shop-এর Filter/Sort toolbar কম্প্যাক্ট এবং Sort menu কেটে যায় না। Categories-এ সমান tile, কম্প্যাক্ট search ও Home-এর সঙ্গে ১৮টি category ছবির মিল। Home-এর সরু hero-তে আগের assets ব্যবহার হয়েছে।
+- **ফাইল।** `{index,categories,shop}.html`, `assets/css/{style,style.min}.css` এবং মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **যাচাই ও পরবর্তী কাজ।** ৩২০ থেকে ১৪৪০ পিক্সেলে সাতটি viewport, মোট ২১টি Chrome check। আড়াআড়ি overflow নেই। Category image, Shop toolbar interaction ও source/minified CSS parity পাস। Safari ও বাস্তব ফোনে visual review বাকি।
+
 ## সক্রিয় কাজ · Product, Cart ও Checkout-এর মোবাইল ডিজাইন
 
 - **বর্তমান ডিজাইন পাস ১০০%।** তিন পেজের mobile action bar-এ একই button hierarchy ও price typography। Product variant-এর size ও color option ৪৪×৪৪ পিক্সেল। Cart subtotal ও checkout action পাশাপাশি। Checkout delivery form, store summary ও payment selection নতুন visual hierarchy পেয়েছে।

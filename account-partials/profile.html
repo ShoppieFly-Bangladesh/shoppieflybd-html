@@ -1,48 +1,17 @@
-<!-- ============================================================== -->
-<!-- PROFILE PARTIAL: apps/web-html/account-partials/profile.html   -->
-<!-- Clean, Modern 2-Column Profile & Security Settings             -->
-<!-- ============================================================== -->
+<section id="profile" class="sf-account-panel" aria-labelledby="sfHeading-profile" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-profile">Profile</h2>
 
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="sf-profile-partial">
-        <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-4">
-            <div class="row g-4">
-                <!-- Column 1: Personal Information -->
-                <div class="col-12 col-lg-6 border-end-lg pe-lg-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
-                            <i class="ri-user-3-line text-primary"></i>
-                            Personal Information
-                        </h5>
-                    </div>
-
-                    <!-- Small Avatar Change Trigger (48px) + Button -->
-                    <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
-                        <div class="position-relative">
-                            <img
-                                src="assets/img/user/user.jpg"
-                                onerror="this.onerror=null; this.src='assets/img/user/1.webp';"
-                                alt="Avatar"
-                                class="rounded-circle object-fit-cover border shadow-sm sf-avatar-preview"
-                                id="sfProfileAvatarPreview"
-                                width="48"
-                                height="48" />
-                        </div>
-                        <div>
-                            <input
-                                type="file"
-                                id="sfProfileAvatarInput"
-                                class="d-none"
-                                accept="image/png, image/jpeg, image/webp"
-                                aria-label="Upload profile image" />
-                            <label for="sfProfileAvatarInput" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 cursor-pointer mb-0 fw-medium">
-                                <i class="ri-camera-line me-1"></i> Change Avatar
-                            </label>
-                        </div>
-                    </div>
-
-                    <form id="sfPersonalInfoForm" novalidate>
-                        <div class="mb-3">
+    </div>
+<div class="sf-panel-settings">
+        <article class="sf-panel-surface"><h3>Personal information</h3>
+            <div class="sf-panel-avatar-row">
+                <img width="48" height="48" id="sfProfileAvatarPreview" src="assets/img/user/1.webp" alt="Profile photo">
+                <input type="file" id="sfProfileAvatarInput" class="d-none" accept="image/png,image/jpeg,image/webp">
+                <label for="sfProfileAvatarInput" class="sf-panel-button sf-panel-outline"><i class="ri-camera-line" aria-hidden="true"></i> Change photo</label>
+            </div>
+            <form id="sfPersonalInfoForm" novalidate>
+                        <div class="sf-panel-form-row">
                             <label for="sf_full_name" class="form-label small fw-semibold text-dark mb-1">Full Name</label>
                             <input
                                 type="text"
@@ -53,7 +22,7 @@
                                 required />
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <label for="sf_phone_number" class="form-label small fw-semibold text-dark mb-0">Phone Number</label>
                                 <a
@@ -80,7 +49,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_email_address" class="form-label small fw-semibold text-dark mb-1">Email Address</label>
                             <input
                                 type="email"
@@ -124,19 +93,10 @@
                             <span id="sfSaveProfileText">Save Changes</span>
                         </button>
                     </form>
-                </div>
-
-                <!-- Column 2: Security & Password -->
-                <div class="col-12 col-lg-6 ps-lg-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
-                            <i class="ri-lock-password-line text-primary"></i>
-                            Security & Password
-                        </h5>
-                    </div>
-
-                    <form id="sfPasswordForm" novalidate>
-                        <div class="mb-3">
+        </article>
+        <article class="sf-panel-surface"><h3>Password</h3>
+            <form id="sfPasswordForm" novalidate>
+                        <div class="sf-panel-form-row">
                             <label for="sf_current_password" class="form-label small fw-semibold text-dark mb-1">Current Password</label>
                             <div class="position-relative">
                                 <input
@@ -157,7 +117,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_new_password" class="form-label small fw-semibold text-dark mb-1">New Password</label>
                             <div class="position-relative">
                                 <input
@@ -178,7 +138,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_confirm_password" class="form-label small fw-semibold text-dark mb-1">Confirm Password</label>
                             <div class="position-relative">
                                 <input
@@ -207,32 +167,11 @@
                             <span id="sfUpdatePwdText">Update Password</span>
                         </button>
                     </form>
-                </div>
-            </div>
+        </article>
+    </div>
+</section>
 
-            <!-- Single-line 2FA switch at the bottom -->
-            <div class="pt-3 border-top mt-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="ri-shield-keyhole-line text-success fs-5"></i>
-                    <span class="fw-semibold text-dark small">Two-Factor SMS Login</span>
-                    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-0.5 fs-xs fw-semibold" id="sf2FaStatusBadge">Active</span>
-                </div>
-                <div class="form-check form-switch fs-5 mb-0">
-                    <input
-                        class="form-check-input cursor-pointer"
-                        type="checkbox"
-                        role="switch"
-                        id="sf2FaToggle"
-                        checked
-                        aria-label="Toggle Two-Factor SMS Login" />
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================================================== -->
-        <!-- CHANGE PHONE NUMBER MODAL (#sfChangePhoneModal)                -->
-        <!-- ============================================================== -->
-        <div class="modal fade" id="sfChangePhoneModal" tabindex="-1" aria-labelledby="sfChangePhoneModalLabel" aria-hidden="true">
+<div class="modal fade" id="sfChangePhoneModal" tabindex="-1" aria-labelledby="sfChangePhoneModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content border-0 shadow rounded-3">
                     <div class="modal-header border-bottom pb-3">
@@ -537,5 +476,3 @@
                 }
             })();
         </script>
-    </div>
-</div>

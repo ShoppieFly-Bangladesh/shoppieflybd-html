@@ -1,218 +1,58 @@
-<!-- ======================================================================= -->
-<!-- TAB PANE: MY WISHLIST (#wishlist)                                       -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
-    <!-- Wishlist Header Strip -->
-    <div class="card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-3 mb-md-4">
-        <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="rounded-circle bg-danger-subtle text-danger d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 20px;">
-                    <i class="ri-heart-3-fill"></i>
-                </div>
-                <div>
-                    <h4 class="fs-5 fw-bold text-dark mb-0 d-flex align-items-center gap-2">
-                        My Wishlist
-                        <span class="badge rounded-pill bg-danger-subtle text-danger fs-xs fw-semibold">5 Items</span>
-                    </h4>
-                    <p class="text-muted small mb-0">Your saved products. Move them to your cart or purchase anytime.</p>
-                </div>
-            </div>
-            <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1.5 fw-semibold d-inline-flex align-items-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'All in-stock wishlist items added to cart!'});}">
-                    <i class="ri-shopping-cart-2-line"></i>
-                    <span>Add All to Cart</span>
-                </button>
-            </div>
-        </div>
+<section id="wishlist" class="sf-account-panel" aria-labelledby="sfHeading-wishlist" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-wishlist">Wishlist</h2>
+        <a class="sf-panel-button sf-panel-outline" href="shop.html">Continue shopping</a>
     </div>
-
-    <!-- Wishlist Items Grid / Card List -->
-    <div class="row g-3 g-md-4" id="sfWishlistGrid">
-        <!-- Wishlist Item 1: Smart Watch T900 Ultra -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-1">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-1'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/1.webp" alt="Smart Watch T900 Ultra Series 8" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">33% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Ocean Crate
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Store"></i>
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Smart Watch T900 Ultra Series 8 (Matte Black)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 804</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 1,200</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Smart Watch T900 Ultra added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+<div class="sf-panel-products">
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Smart Watch T900 Ultra Series 8"><img src="assets/img/product/12.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Smart Watch T900 Ultra Series 8 from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-        </div>
-
-        <!-- Wishlist Item 2: Wireless Earbuds Pro -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-2">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-2'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/2.webp" alt="Wireless Earbuds Pro" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">28% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> TechNova
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Store"></i>
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Wireless Earbuds Pro with ANC (Pearl White)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 1,290</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 1,800</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Wireless Earbuds Pro added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+            <div class="sf-panel-product-body"><small>Ocean Crate</small><h3><a href="product.html">Smart Watch T900 Ultra Series 8</a></h3>
+                <p class="sf-panel-money"><strong>৳ 804</strong> <del>৳ 1,200</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-        </div>
-
-        <!-- Wishlist Item 3: Men's Cotton Polo -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-3'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/1.webp" alt="Men's Solid Slim Fit Classic Round Neck Polo" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">30% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Fashion Hub
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Men's Solid Slim Fit Classic Round Neck Polo (Navy Blue)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 450</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 650</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Men\'s Solid Polo added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Wireless Earbuds Pro with ANC"><img src="assets/img/product/account-earbuds.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Wireless Earbuds Pro with ANC from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-        </div>
-
-        <!-- Wishlist Item 4: Pure Mustard Oil -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-4">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-4'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/3.webp" alt="100% Pure Cold-Pressed Mustard Oil 1L" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">16% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Organic Harvest
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            100% Pure Cold-Pressed Mustard Oil 1L (Grade A)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 320</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 380</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Mustard Oil 1L added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+            <div class="sf-panel-product-body"><small>TechNova</small><h3><a href="product.html">Wireless Earbuds Pro with ANC</a></h3>
+                <p class="sf-panel-money"><strong>৳ 1,290</strong> <del>৳ 1,800</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-        </div>
-
-        <!-- Wishlist Item 5: Leather Wallet -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-5">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-5'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/2.webp" alt="Handcrafted Genuine Leather Bi-fold Wallet" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">31% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Leather Craft BD
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Handcrafted Genuine Leather Bi-fold Wallet (Brown)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 650</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 950</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Leather Wallet added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Slim-fit cotton polo shirt"><img src="assets/img/product/account-polo.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Slim-fit cotton polo shirt from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-        </div>
+            <div class="sf-panel-product-body"><small>Fashion Hub</small><h3><a href="product.html">Slim-fit cotton polo shirt</a></h3>
+                <p class="sf-panel-money"><strong>৳ 450</strong> <del>৳ 650</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
+            </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Cold-pressed mustard oil"><img src="assets/img/product/account-mustard-oil.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Cold-pressed mustard oil from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
+            </div>
+            <div class="sf-panel-product-body"><small>Organic Harvest</small><h3><a href="product.html">Cold-pressed mustard oil</a></h3>
+                <p class="sf-panel-money"><strong>৳ 320</strong> <del>৳ 380</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
+            </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Genuine leather bifold wallet"><img src="assets/img/product/account-wallet.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Genuine leather bifold wallet from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
+            </div>
+            <div class="sf-panel-product-body"><small>Leather Craft BD</small><h3><a href="product.html">Genuine leather bifold wallet</a></h3>
+                <p class="sf-panel-money"><strong>৳ 650</strong> <del>৳ 950</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
+            </div>
+        </article>
     </div>
-</div>
+</section>

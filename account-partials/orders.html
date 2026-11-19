@@ -1,389 +1,40 @@
-<!-- Orders Management Partial: apps/web-html/account-partials/orders.html -->
-<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-    <!-- Orders Section Header & Search/Filter Toolbar (Decluttered & Ultra-Clean) -->
-    <div class="sf-account-card mb-3 border rounded-3 p-3 bg-white shadow-sm">
-        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
-            <h4 class="fs-5 fw-bold text-dark mb-0 d-flex align-items-center gap-2">
-                <i class="ri-shopping-bag-3-fill text-primary"></i>
-                My Orders
-            </h4>
-            <!-- Compact Search Input -->
-            <div class="sf-order-search-box position-relative" style="min-width: 260px; max-width: 100%;">
-                <input
-                    type="text"
-                    class="form-control form-control-sm pe-4 ps-3 py-1.5 rounded-pill border-secondary-subtle"
-                    id="sfOrderSearchInput"
-                    placeholder="Search by Order # or Product..."
-                    aria-label="Search Orders" />
-                <i class="ri-search-line position-absolute top-50 end-0 translate-middle-y me-3 text-muted pointer-events-none"></i>
-            </div>
-        </div>
+<section id="orders" class="sf-account-panel" aria-labelledby="sfHeading-orders" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-orders">Orders</h2>
 
-        <!-- 1. Status Filter Pills with Clean Counters -->
-        <div class="sf-order-status-nav overflow-auto pb-1">
-            <ul class="nav nav-pills sf-status-pills flex-nowrap gap-2" id="sfOrderFilterPills" role="tablist">
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link active rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-all-btn"
-                        data-bs-toggle="pill"
-                        data-filter="all"
-                        type="button"
-                        role="tab">
-                        <span>All</span>
-                        <span class="badge rounded-pill bg-primary text-white">12</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-pending-btn"
-                        data-bs-toggle="pill"
-                        data-filter="pending"
-                        type="button"
-                        role="tab">
-                        <span>Pending</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-processing-btn"
-                        data-bs-toggle="pill"
-                        data-filter="processing"
-                        type="button"
-                        role="tab">
-                        <span>Processing</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">2</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-shipped-btn"
-                        data-bs-toggle="pill"
-                        data-filter="shipped"
-                        type="button"
-                        role="tab">
-                        <span>Shipped</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-delivered-btn"
-                        data-bs-toggle="pill"
-                        data-filter="delivered"
-                        type="button"
-                        role="tab">
-                        <span>Delivered</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">7</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-cancelled-btn"
-                        data-bs-toggle="pill"
-                        data-filter="cancelled"
-                        type="button"
-                        role="tab">
-                        <span>Cancelled</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
+    </div>
+<div class="sf-panel-toolbar">
+        <label class="sf-panel-field"><span>Search orders</span><input type="search" id="sfOrderSearchInput" placeholder="Order ID or product"></label>
+        <label class="sf-panel-field"><span>Status</span><select id="sfOrderStatusFilter">
+            <option value="">All statuses</option><option value="processing">Processing</option><option value="shipped">Out for delivery</option><option value="delivered">Delivered</option>
+        </select></label>
+    </div>
+    <div class="sf-panel-stack" id="sfOrdersContainer">
+        <article class="sf-panel-surface sf-panel-order" data-order-status="shipped">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261110-8492</h3><small>Placed 10 Nov 2026</small></div><span class="sf-panel-status sf-panel-amber">Out for delivery</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/12.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Smart Watch T900 Ultra Series 8</strong><small>Matte black</small></div><span class="sf-panel-money">৳ 550 × 1</span></li>
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-polo.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Slim-fit cotton polo shirt</strong><small>Navy blue · L</small></div><span class="sf-panel-money">৳ 254 × 1</span></li>
             </ul>
-        </div>
+            <div class="sf-panel-order-foot"><div><small>Cash on delivery</small><strong class="sf-panel-money">Total ৳ 804</strong></div><div class="sf-panel-actions"><a class="sf-panel-button sf-panel-primary" href="track-order.html?order=SF-20261110-8492">Track order</a> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-order" data-order-status="processing">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261115-9921</h3><small>Placed 15 Nov 2026</small></div><span class="sf-panel-status sf-panel-blue">Processing</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-mustard-oil.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Cold-pressed mustard oil</strong><small>1 litre</small></div><span class="sf-panel-money">৳ 320 × 1</span></li>
+            </ul>
+            <div class="sf-panel-order-foot"><div><small>Cash on delivery</small><strong class="sf-panel-money">Total ৳ 320</strong></div><div class="sf-panel-actions"><button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfCancelOrderModal">Cancel order</button> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-order" data-order-status="delivered">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261028-3912</h3><small>Placed 28 Oct 2026</small></div><span class="sf-panel-status sf-panel-green">Delivered</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-earbuds.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Wireless Earbuds Pro with ANC</strong><small>Pearl white</small></div><span class="sf-panel-money">৳ 1,290 × 1</span></li>
+            </ul>
+            <div class="sf-panel-order-foot"><div><small>bKash</small><strong class="sf-panel-money">Total ৳ 1,290</strong></div><div class="sf-panel-actions"><button type="button" class="sf-panel-button sf-panel-primary sf-btn-trigger-review" data-bs-toggle="modal" data-bs-target="#sfWriteReviewModal" data-product-title="Wireless Earbuds Pro" data-product-store="TechNova" data-product-img="assets/img/product/account-earbuds.webp">Write review</button> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
     </div>
-
-    <!-- 2. Slim Order Cards (Evaly/Apple Minimalism) -->
-    <div class="sf-orders-list-wrap d-flex flex-column gap-3" id="sfOrdersContainer">
-
-        <!-- CARD 1: Active In-Transit Order (Multi-Store: Ocean Crate + Fashion Hub) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="shipped">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261110-8492</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">10 Nov 2026</span>
-                </div>
-                <!-- Pulsing Orange Badge: Out for Delivery -->
-                <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <span class="spinner-grow spinner-grow-sm text-warning" style="width: 7px; height: 7px;" role="status" aria-hidden="true"></span>
-                    Out for Delivery
-                </span>
-            </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <!-- Store 1: Ocean Crate -->
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Ocean Crate
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/11.webp"
-                                alt="Smart Watch T900 Ultra"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Smart Watch T900 Ultra Series 8 Bluetooth Calling Fitness Tracker
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Matte Black</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 550</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-0 border-secondary-subtle opacity-25" />
-
-                <!-- Store 2: Fashion Hub -->
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Fashion Hub
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/27.webp"
-                                alt="Cotton Polo Shirt"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Men's Solid Slim Fit Classic Round Neck Cotton Fabric T-Shirt
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Navy Blue &bull; L</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 254</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 804</span>
-                    <span class="text-muted fs-8">(2 Items)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-secondary border rounded-pill fs-8">Cash on Delivery</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons: Track Order & Details -->
-                <div class="d-flex align-items-center gap-2">
-                    <a
-                        href="track-order.html?order=SF-20261110-8492"
-                        class="btn btn-primary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold fs-7 shadow-sm">
-                        <i class="ri-truck-line"></i>
-                        <span>Track Order</span>
-                    </a>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal">
-                        <span>Details</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 2: Delivered Order (TechNova Store) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="delivered">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261028-3912</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">28 Oct 2026</span>
-                </div>
-                <!-- Green Badge: Delivered -->
-                <span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <i class="ri-checkbox-circle-fill text-success"></i>
-                    Delivered
-                </span>
-            </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> TechNova
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/12.webp"
-                                alt="Wireless Earbuds Pro"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Wireless Earbuds Pro with Active Noise Cancellation
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Pearl White</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 1,290</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 1,290</span>
-                    <span class="text-muted fs-8">(1 Item)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-primary border border-primary-subtle rounded-pill fs-8">bKash</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons for Delivered Orders: Buy Again & Review (Plus Details) -->
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="btn btn-outline-warning text-dark btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfWriteReviewModal">
-                        <i class="ri-star-line text-warning"></i>
-                        <span>Review</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-primary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold fs-7 shadow-sm">
-                        <i class="ri-repeat-line"></i>
-                        <span>Buy Again</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-2.5 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal"
-                        title="Order Details">
-                        <span>Details</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD 3: Processing Order (Organic Harvest) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="processing">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261115-9921</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">15 Nov 2026</span>
-                </div>
-                <!-- Blue Badge: Processing -->
-                <span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <i class="ri-loader-4-line spin-fast"></i>
-                    Processing
-                </span>
-            </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Organic Harvest
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/24.webp"
-                                alt="Pure Mustard Oil 1L"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        100% Pure Cold-Pressed Mustard Oil 1L
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Grade A Cold-Pressed</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 320</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 320</span>
-                    <span class="text-muted fs-8">(1 Item)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-secondary border rounded-pill fs-8">Cash on Delivery</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons: Cancel & Details -->
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="btn btn-outline-danger btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfCancelOrderModal">
-                        <span>Cancel</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal">
-                        <span>Details</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Empty State Container (for zero search or filter results) -->
-    <div class="sf-orders-empty-state d-none text-center py-5 my-4 border rounded-3 bg-white" id="sfOrdersEmptyState">
-        <div class="avatar-lg mx-auto mb-3 text-muted">
-            <i class="ri-inbox-line display-4 text-secondary"></i>
-        </div>
-        <h5 class="fw-bold text-dark mb-1">No Orders Found</h5>
-        <p class="text-muted fs-7 mb-3">You don't have any orders matching the selected filter or search keyword.</p>
-        <a href="shop.html" class="btn btn-primary btn-sm px-4 py-2 rounded-pill fw-semibold">
-            <i class="ri-shopping-basket-line me-1"></i> Start Shopping
-        </a>
-    </div>
-
-</div>
+    <p class="sf-panel-surface" id="sfOrdersEmptyState" hidden>No orders match your search.</p>
+</section>
 
 <!-- 3. Complete Order Details Modal (#sfOrderDetailsModal) -->
 <div class="modal fade" id="sfOrderDetailsModal" tabindex="-1" aria-labelledby="sfOrderDetailsModalLabel" aria-hidden="true">
@@ -393,11 +44,12 @@
             <div class="modal-header bg-light bg-opacity-75 py-3 px-4 border-bottom">
                 <div>
                     <h5 class="modal-title fw-bold text-dark fs-5 mb-1" id="sfOrderDetailsModalLabel">
-                        Order Details &bull; <span class="font-monospace text-primary">#SF-20261110-8492</span>
+                        Order Details <span class="sf-order-modal-separator" aria-hidden="true">&bull;</span>
+                        <span class="sf-order-modal-number font-monospace text-primary">#SF-20261110-8492</span>
                     </h5>
-                    <div class="d-flex align-items-center gap-2 fs-7 text-muted">
+                    <div class="sf-order-modal-meta d-flex align-items-center gap-2 fs-7 text-muted">
                         <span>Placed on: <strong>10 Nov 2026, 02:45 PM</strong></span>
-                        <span>&bull;</span>
+                        <span class="sf-order-separator" aria-hidden="true">&bull;</span>
                         <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-0.5">
                             Out for Delivery
                         </span>
@@ -413,10 +65,10 @@
                     <h6 class="fs-7 text-uppercase fw-bold text-muted mb-3 d-flex align-items-center gap-2">
                         <i class="ri-radar-line text-primary"></i> Order Delivery Lifecycle
                     </h6>
-                    <div class="d-flex align-items-center justify-content-between position-relative px-2">
+                    <div class="sf-order-lifecycle d-flex justify-content-between position-relative px-2">
                         <!-- Step 1: Placed -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Placed</div>
@@ -424,8 +76,8 @@
                         </div>
 
                         <!-- Step 2: Confirmed -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Confirmed</div>
@@ -433,8 +85,8 @@
                         </div>
 
                         <!-- Step 3: Shipped -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Shipped</div>
@@ -442,8 +94,8 @@
                         </div>
 
                         <!-- Step 4: Out for Delivery (Active) -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-warning text-white d-inline-flex align-items-center justify-content-center mb-1 shadow-sm" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-warning text-white d-inline-flex align-items-center justify-content-center mb-1 shadow-sm">
                                 <i class="ri-truck-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-warning-emphasis fs-8">On The Way</div>
@@ -451,8 +103,8 @@
                         </div>
 
                         <!-- Step 5: Delivered (Pending) -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-secondary-subtle text-muted d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-secondary-subtle text-muted d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-checkbox-circle-line fs-6"></i>
                             </div>
                             <div class="fw-medium text-muted fs-8">Delivered</div>
@@ -538,7 +190,7 @@
                                     <td class="ps-3 py-3">
                                         <div class="d-flex align-items-center gap-2.5">
                                             <img
-                                                src="assets/img/product/11.webp"
+                                                src="assets/img/product/12.webp"
                                                 alt="Smart Watch"
                                                 class="rounded border object-fit-cover flex-shrink-0"
                                                 width="48"
@@ -563,7 +215,7 @@
                                     <td class="ps-3 py-3">
                                         <div class="d-flex align-items-center gap-2.5">
                                             <img
-                                                src="assets/img/product/27.webp"
+                                                src="assets/img/product/account-polo.webp"
                                                 alt="Cotton Polo"
                                                 class="rounded border object-fit-cover flex-shrink-0"
                                                 width="48"
@@ -629,7 +281,7 @@
                     <i class="ri-printer-line"></i>
                     <span>Print Invoice</span>
                 </button>
-                <div class="d-flex align-items-center gap-2">
+                <div class="sf-order-modal-actions d-flex align-items-center gap-2">
                     <button type="button" class="btn btn-light btn-sm px-3 py-1.5 rounded-2" data-bs-dismiss="modal">
                         Close
                     </button>

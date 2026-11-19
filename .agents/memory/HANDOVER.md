@@ -7,6 +7,36 @@
 
 ---
 
+## সক্রিয় কাজ · Customer Panel-এর ডিজাইন ও রেসপন্সিভ ফিক্স
+
+- **Account প্যান পুনর্নকশা ১০০%।** Overview-তে চলমান ও সাম্প্রতিক অর্ডার, Orders-এ স্ট্যাটাসসহ কার্ড, Wishlist-এ পণ্যের গ্রিড, Profile ও Addresses-এ আলাদা কার্ড, Vouchers-এ কুপন, Reviews-এ পণ্যের তালিকা, Returns-এ অগ্রগতি ও Help Center-এ FAQ সাজানো হয়েছে। হিরো, সাইডবার ও মোবাইল শর্টকাটের নকশা রাখা হয়েছে।
+- **যাচাই।** Chrome-এ ৩২০, ৩৬০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলে সব প্যান ফিট করেছে এবং শিরোনাম sticky header-এর নিচে দেখা গেছে। সরাসরি Wishlist লিংক, মোবাইল Orders শর্টকাট, নমুনা ফিল্টার, চারটি modal ও বিদ্যমান Wishlist ছবি যাচাই করা হয়েছে। CSS source ও minified-এর ৩,০১৯টি parsed rule মিলেছে।
+- **পরিবর্তিত ফাইল।** `account.html`, `account-partials/{addresses,orders,perks,profile,wishlist}.html`, `assets/js/main.js`, `assets/css/{style,style.min}.css` এবং এই মডিউল ও root-এর `.agents/memory/HANDOVER.md`।
+- **পরবর্তী কাজ।** বাস্তব ফোন ও Safari-তে নতুন account প্যানগুলোর ভিজ্যুয়াল পর্যালোচনা।
+
+- **Scope।** থিমের ভিজ্যুয়াল ডিজাইন ও রেসপন্সিভ লেআউট, মোবাইল ৯০% অগ্রাধিকার। কার্যকারিতা Laravel/Blade রূপান্তরের পর্যায়ে।
+- **অডিটের অগ্রগতি ১০০%।** Root `docs/reports/web-html-design-audit-2026-11-19.md`-এ ১৬টি ফিক্স ও screenshot evidence আছে। Account-এর ৯টি pane ১১টি প্রস্থে, পাঁচটি modal পাঁচটি প্রস্থে ও নির্বাচিত ১৯টি storefront পেজ পর্যালোচনা হয়েছে।
+- **ফিক্সের অগ্রগতি ৩/১৬ (১৯%)।** A01–A03 সম্পন্ন। Account pane scroll offset দৃশ্যমান header-এর উচ্চতা ধরে। ছোট স্ক্রিনে Orders card-এর metadata, product title, total ও buttons ফিট করে। Order Details-এর mobile timeline উল্লম্ব এবং body scroll করলেও footer স্থির।
+- **যাচাই।** Chrome-এ ৩২০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলে যাচাই। ৩২০ পিক্সেলে দীর্ঘ order ID ও product name-সহ card overflow হয়নি। সরাসরি account section link-ও যাচাই করা হয়েছে। বাস্তব ফোন/Safari যাচাই বাকি।
+- **ফিক্সের বর্তমান অগ্রগতি ১০/১৬ (৬৩%)।** A04–A10 সম্পন্ন। Overview কমপ্যাক্ট হয়েছে। Mobile menu-তে Returns ও Help Center আছে। Orders status phone-এ দুই সারিতে। Vouchers/Reviews/Help Center text wrap, Address modal-এর body scroll, Returns timeline baseline এবং account thumbnail mapping ঠিক হয়েছে।
+- **ধাপ ২ যাচাই।** ৩২০, ৩৬০, ৩৭৫, ৪১২, ৭৬৮, ১০২৪ ও ১৪৪০ পিক্সেলে Chrome-এ যাচাই। পাঁচটি Wishlist thumbnail ১৪০×১৪০ পিক্সেল frame-এ render করে। A01–A03 পুনরায় পাস এবং CSS-এর ২,৯১৯টি parsed rule মিলেছে। বাস্তব ফোন/Safari যাচাই বাকি।
+- **ধাপ ২ ফাইল।** `account.html`, `account-partials/{addresses,orders,perks,wishlist}.html`, `assets/css/{style,style.min}.css`, `assets/img/product/account-{earbuds,keyboard,mustard-oil,polo,wallet}.webp`, `.agents/memory/HANDOVER.md`।
+- **ফিক্সের বর্তমান অগ্রগতি ১৩/১৬ (৮১%)।** T01–T03 সম্পন্ন। Tablet topbar clipping ঠিক হয়েছে। Product cover ও thumbnails Slick ছাড়াও আগে থেকে স্থান ধরে। CTA contrast ও mobile tap area বেড়েছে।
+- **ধাপ ৩ যাচাই।** Topbar ৩৪টি route/viewport সমন্বয়, gallery সাতটি প্রস্থ ও CTA ছয়টি প্রস্থে Chrome-এ পাস। ৩৭৫ পিক্সেলের তিনটি slow-load run-এ CLS ০–০.০১৭৬, পূর্বে ০.৩৯১৩। Buy Now ৫.৪৮:১, checkout ৫.১৮:১। CSS source ও minified-এর ২,৯২৯টি parsed rule মিলেছে। বাস্তব ফোন ও Safari যাচাই বাকি।
+- **ধাপ ৩ ফাইল।** `assets/css/style.css`, `assets/css/style.min.css`, `.agents/memory/HANDOVER.md`।
+- **ফিক্সের চূড়ান্ত অগ্রগতি ১৬/১৬ (১০০%)।** T04–T06 সম্পন্ন। Homepage-এ ১৮টি category যাচাই ও ১৪টির asset mapping ঠিক হয়েছে। মোবাইল Compare-এ স্থির attribute column ও দুই পণ্য পাশাপাশি। Invoice item মোবাইলে stacked এবং Store directory-এর সরু card-এ metrics wrap করে।
+- **ধাপ ৪ যাচাই।** Home সাতটি প্রস্থে, Compare/Invoice/Stores বারোটি প্রস্থে Chrome-এ পাস। তিন-item ও ২৪-item invoice যথাক্রমে এক ও দুই A4 পৃষ্ঠায় যাচাই হয়েছে। CSS source/minified-এর ২,৯৩৮টি parsed rule মিলেছে। বাস্তব ফোন/Safari যাচাই বাকি।
+- **ধাপ ৪ ফাইল।** `index.html`, `compare.html`, `invoice.html`, `assets/css/style.css`, `assets/css/style.min.css`, `assets/img/category/home-{kids-baby,smartphones,headphones,vegetables,fresh-fruits,meat-fish,dairy-eggs,bakery,spices-oil,home-kitchen,sports-gear,skincare}.webp` ও `.agents/memory/HANDOVER.md`।
+- **পরবর্তী কাজ।** বাস্তব ফোন/Safari-তে visual review। Laravel Blade রূপান্তর আলাদা অনুমোদিত ধাপে।
+- **এই ধাপে পরিবর্তিত ফাইল।** `account.html`, `account-partials/orders.html`, `assets/js/main.js`, `assets/css/style.css`, `assets/css/style.min.css`, `.agents/memory/HANDOVER.md`।
+
+## পূর্ববর্তী মোবাইল-কেন্দ্রিক অডিট · ১৯ নভেম্বর ২০২৬
+
+- **সক্রিয় লক্ষ্য।** Static template-এর ডিজাইন আগে শেষ করা হবে, মোবাইল ৯০% অগ্রাধিকার। Template শেষ হলে Laravel Blade রূপান্তর শুরু হবে।
+- **অডিট ১০০%।** `78a2c49` revision-এর ৩৪টি route ও ৫টি account partial পর্যালোচনা হয়েছে। Root `docs/reports/web-html-mobile-audit-2026-11-19.md`-এ ১৮টি ইস্যু আছে। এই repository-তে শুধু `.agents/memory/HANDOVER.md` পরিবর্তিত হয়েছে।
+- **ঐতিহাসিক অগ্রাধিকার।** Checkout/OTP ও cart state Laravel রূপান্তরের জন্য রাখা হয়েছে। ভিজ্যুয়াল কাজের বর্তমান অগ্রাধিকার নতুন রিপোর্টে আছে।
+- **যাচাই।** স্থানীয় Chrome emulation ও নমুনা data ব্যবহৃত হয়েছে। বাস্তব iOS/Safari ও field performance বাকি।
+
 ## 1. Module Overview & Production Target
 
 - **Module Purpose:** Standalone high-performance HTML5, Bootstrap 5, and JavaScript eCommerce storefront template for ShoppieFlyBD.

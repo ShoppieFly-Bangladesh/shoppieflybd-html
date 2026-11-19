@@ -122,56 +122,56 @@
 
             <!-- Itemized Products Table -->
             <div class="sf-invoice-table-wrap table-responsive">
-                <table class="sf-invoice-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 5%;">#</th>
-                            <th style="width: 45%;">Item Description &amp; Specifications</th>
-                            <th style="width: 18%;">Store / Seller</th>
-                            <th style="width: 10%;" class="text-center">Qty</th>
-                            <th style="width: 11%;" class="text-end">Unit Price</th>
-                            <th style="width: 11%;" class="text-end">Total</th>
+                <table class="sf-invoice-table" role="table" aria-label="Invoice items">
+                    <thead role="rowgroup">
+                        <tr role="row">
+                            <th scope="col" role="columnheader" style="width: 5%;">#</th>
+                            <th scope="col" role="columnheader" style="width: 45%;">Item Description &amp; Specifications</th>
+                            <th scope="col" role="columnheader" style="width: 18%;">Store / Seller</th>
+                            <th scope="col" role="columnheader" style="width: 10%;" class="text-center">Qty</th>
+                            <th scope="col" role="columnheader" style="width: 11%;" class="text-end">Unit Price</th>
+                            <th scope="col" role="columnheader" style="width: 11%;" class="text-end">Total</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-muted fw-bold">1</td>
-                            <td>
+                    <tbody role="rowgroup">
+                        <tr role="row">
+                            <td class="sf-invoice-line-number text-muted fw-bold" role="cell">1</td>
+                            <td class="sf-invoice-line-description" role="cell">
                                 <span class="sf-invoice-item-title">Smart Watch T900 Ultra Series 8</span>
                                 <span class="sf-invoice-item-variant">Color: Titanium Black | Strap: Silicone | SKU: T900-BLK-V2</span>
                             </td>
-                            <td>
+                            <td class="sf-invoice-line-seller" role="cell">
                                 <span class="sf-invoice-store-pill">Ocean Crate</span>
                             </td>
-                            <td class="text-center fw-semibold">1</td>
-                            <td class="text-end">৳1,850</td>
-                            <td class="text-end fw-bold">৳1,850</td>
+                            <td class="sf-invoice-line-quantity text-center fw-semibold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Qty</span>1</td>
+                            <td class="sf-invoice-line-price text-end" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Unit Price</span>৳1,850</td>
+                            <td class="sf-invoice-line-price text-end fw-bold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Total</span>৳1,850</td>
                         </tr>
-                        <tr>
-                            <td class="text-muted fw-bold">2</td>
-                            <td>
+                        <tr role="row">
+                            <td class="sf-invoice-line-number text-muted fw-bold" role="cell">2</td>
+                            <td class="sf-invoice-line-description" role="cell">
                                 <span class="sf-invoice-item-title">ANC Wireless Earbuds Pro</span>
                                 <span class="sf-invoice-item-variant">Color: Matte Black | Active Noise Cancellation | 36h Battery</span>
                             </td>
-                            <td>
+                            <td class="sf-invoice-line-seller" role="cell">
                                 <span class="sf-invoice-store-pill">Ocean Crate</span>
                             </td>
-                            <td class="text-center fw-semibold">1</td>
-                            <td class="text-end">৳1,450</td>
-                            <td class="text-end fw-bold">৳1,450</td>
+                            <td class="sf-invoice-line-quantity text-center fw-semibold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Qty</span>1</td>
+                            <td class="sf-invoice-line-price text-end" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Unit Price</span>৳1,450</td>
+                            <td class="sf-invoice-line-price text-end fw-bold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Total</span>৳1,450</td>
                         </tr>
-                        <tr>
-                            <td class="text-muted fw-bold">3</td>
-                            <td>
+                        <tr role="row">
+                            <td class="sf-invoice-line-number text-muted fw-bold" role="cell">3</td>
+                            <td class="sf-invoice-line-description" role="cell">
                                 <span class="sf-invoice-item-title">Genuine Leather Bifold Wallet</span>
                                 <span class="sf-invoice-item-variant">Color: Vintage Brown | Material: 100% Cowhide | RFID Blocking</span>
                             </td>
-                            <td>
+                            <td class="sf-invoice-line-seller" role="cell">
                                 <span class="sf-invoice-store-pill">Fashion Hub</span>
                             </td>
-                            <td class="text-center fw-semibold">1</td>
-                            <td class="text-end">৳850</td>
-                            <td class="text-end fw-bold">৳850</td>
+                            <td class="sf-invoice-line-quantity text-center fw-semibold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Qty</span>1</td>
+                            <td class="sf-invoice-line-price text-end" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Unit Price</span>৳850</td>
+                            <td class="sf-invoice-line-price text-end fw-bold" role="cell"><span class="sf-invoice-cell-label" aria-hidden="true">Total</span>৳850</td>
                         </tr>
                     </tbody>
                 </table>

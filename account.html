@@ -288,8 +288,8 @@
                     <!-- 1. Luxury Dark Radial Hero Banner (Evaly Benchmark - Top User Bar) -->
                     <section class="sf-account-hero mb-3 mb-lg-4">
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 sf-hero-content-wrap">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="position-relative">
+                            <div class="sf-hero-identity d-flex align-items-center gap-3">
+                                <div class="position-relative flex-shrink-0">
                                     <img
                                         src="assets/img/user/user.jpg"
                                         onerror="this.onerror=null; this.src='assets/img/user/1.webp';"
@@ -325,8 +325,8 @@
                         </div>
                     </section>
 
-                    <!-- 2. Breakthrough 4-Column App Grid on Mobile (< 992px) -->
-                    <div class="sf-account-app-grid d-lg-none mb-3">
+                    <!-- Customer account shortcuts on mobile -->
+                    <nav class="sf-account-app-grid d-lg-none mb-3" aria-label="My Account">
                         <a class="sf-account-tile-btn active" href="#dashboard">
                             <i class="ri-dashboard-3-line"></i>
                             <span>Overview</span>
@@ -343,7 +343,7 @@
                         </a>
                         <a class="sf-account-tile-btn" href="#addresses">
                             <i class="ri-map-pin-user-line"></i>
-                            <span>Addresses</span>
+                            <span>Address</span>
                         </a>
                         <a class="sf-account-tile-btn" href="#profile">
                             <i class="ri-user-settings-line"></i>
@@ -359,20 +359,28 @@
                             <span>Reviews</span>
                             <span class="sf-tile-badge">2</span>
                         </a>
+                        <a class="sf-account-tile-btn" href="#returns">
+                            <i class="ri-refund-2-line"></i>
+                            <span>Returns</span>
+                        </a>
+                        <a class="sf-account-tile-btn" href="#support">
+                            <i class="ri-customer-service-2-line"></i>
+                            <span>Help Center</span>
+                        </a>
                         <a class="sf-account-tile-btn sf-tile-logout" href="login.html">
                             <i class="ri-logout-box-r-line"></i>
                             <span>Logout</span>
                         </a>
-                    </div>
+                    </nav>
 
                     <div class="row g-4">
                         <!-- Desktop Left Sticky Sidebar (No Duplicate Avatar Card) -->
                         <div class="col-lg-3 d-none d-lg-block">
                             <aside class="sf-account-sidebar">
                                 <!-- Sidebar Navigation List -->
-                                <ul class="sf-account-nav-list" role="tablist">
+                                <ul class="sf-account-nav-list">
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link active" href="#dashboard" role="tab" aria-selected="true">
+                                        <a class="sf-account-nav-link active" href="#dashboard">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-dashboard-3-line"></i>
                                                 <span>Overview</span>
@@ -380,7 +388,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#orders" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#orders">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-shopping-bag-3-line"></i>
                                                 <span>My Orders</span>
@@ -389,7 +397,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#wishlist" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#wishlist">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-heart-3-line"></i>
                                                 <span>My Wishlist</span>
@@ -398,7 +406,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#profile" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#profile">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-user-settings-line"></i>
                                                 <span>Manage Profile</span>
@@ -406,7 +414,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#addresses" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#addresses">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-map-pin-line"></i>
                                                 <span>Address Book</span>
@@ -415,7 +423,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#vouchers" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#vouchers">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-coupon-3-line"></i>
                                                 <span>Vouchers & Coupons</span>
@@ -424,7 +432,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#reviews" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#reviews">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-star-line"></i>
                                                 <span>My Reviews</span>
@@ -433,7 +441,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#returns" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#returns">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-refund-2-line"></i>
                                                 <span>Returns & Refunds</span>
@@ -441,7 +449,7 @@
                                         </a>
                                     </li>
                                     <li class="sf-account-nav-item">
-                                        <a class="sf-account-nav-link" href="#support" role="tab" aria-selected="false">
+                                        <a class="sf-account-nav-link" href="#support">
                                             <span class="sf-account-nav-link-left">
                                                 <i class="ri-customer-service-2-line"></i>
                                                 <span>Help Center</span>
@@ -463,1100 +471,150 @@
                         <!-- Right Main Content Area -->
                         <div class="col-12 col-lg-9">
                             <div class="sf-account-content">
-                                <div class="tab-content" id="sfAccountTabContent">
-                                    <!-- 1. DASHBOARD OVERVIEW -->
-                                    
-<!-- ======================================================================= -->
-<!-- TAB PANE 1: DASHBOARD OVERVIEW (#dashboard)                             -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-    <!-- 1. Executive 4-KPI Metric Cards Grid (Vuexy UI Admin Standard - Desktop/Tablet Only) -->
-    <div class="row g-2 g-sm-3 g-md-4 mb-3 mb-md-4 d-none d-md-flex">
-        <!-- KPI 1: Total Orders -->
-        <div class="col-6 col-xl-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 p-3 sf-account-tab-trigger cursor-pointer transition-all" href="#orders" role="button">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <div class="rounded-3 bg-primary-subtle text-primary p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
-                        <i class="ri-shopping-bag-3-line fs-5"></i>
-                    </div>
-                    <span class="badge rounded-pill bg-light text-muted border fs-xs">All Time</span>
-                </div>
-                <div class="fs-4 fw-bold text-dark mb-0 font-monospace">12</div>
-                <div class="text-muted small">Total Orders</div>
-                <div class="fs-xs text-primary mt-1 fw-semibold text-truncate d-block"><i class="ri-arrow-right-up-line"></i> 2 Processing</div>
-            </div>
-        </div>
+                                <div id="sfAccountTabContent">
+<section id="dashboard" class="sf-account-panel" aria-labelledby="sfHeading-dashboard">
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-dashboard">Overview</h2>
 
-        <!-- KPI 2: In Delivery -->
-        <div class="col-6 col-xl-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 p-3 sf-account-tab-trigger cursor-pointer transition-all" href="#orders" data-sf-filter-status="intransit" role="button">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <div class="rounded-3 bg-warning-subtle text-warning-emphasis p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
-                        <i class="ri-truck-line fs-5"></i>
-                    </div>
-                    <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis fs-xs d-inline-flex align-items-center gap-1">
-                        <span class="sf-pulse-dot"></span> Live
-                    </span>
-                </div>
-                <div class="fs-4 fw-bold text-dark mb-0 font-monospace">2</div>
-                <div class="text-muted small">In Delivery</div>
-                <div class="fs-xs text-warning-emphasis mt-1 fw-semibold text-truncate d-block"><i class="ri-time-line"></i> Est. Today</div>
-            </div>
-        </div>
-
-        <!-- KPI 3: Saved Wishlist -->
-        <div class="col-6 col-xl-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 p-3 sf-account-tab-trigger cursor-pointer transition-all" href="#wishlist" role="button">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <div class="rounded-3 bg-danger-subtle text-danger p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
-                        <i class="ri-heart-3-line fs-5"></i>
-                    </div>
-                    <span class="badge rounded-pill bg-danger-subtle text-danger fs-xs">Saved</span>
-                </div>
-                <div class="fs-4 fw-bold text-dark mb-0 font-monospace">5</div>
-                <div class="text-muted small">Saved Wishlist</div>
-                <div class="fs-xs text-success mt-1 fw-semibold text-truncate d-block"><i class="ri-checkbox-circle-line"></i> 5 In Stock</div>
-            </div>
-        </div>
-
-        <!-- KPI 4: Vouchers & Coupons -->
-        <div class="col-6 col-xl-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 p-3 sf-account-tab-trigger cursor-pointer transition-all" href="#vouchers" role="button">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <div class="rounded-3 bg-success-subtle text-success p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
-                        <i class="ri-coupon-3-line fs-5"></i>
-                    </div>
-                    <span class="badge rounded-pill bg-success-subtle text-success fs-xs">Coupons</span>
-                </div>
-                <div class="fs-4 fw-bold text-dark mb-0 font-monospace">3</div>
-                <div class="text-muted small">Available Vouchers</div>
-                <div class="fs-xs text-success mt-1 fw-semibold text-truncate d-block"><i class="ri-gift-line"></i> 3 Active Coupons</div>
-            </div>
-        </div>
     </div>
-
-    <!-- 2. Active In-Transit Order Card with Refined Visual Stepper -->
-    <div class="card border rounded-3 bg-white shadow-sm mb-3 mb-md-4 overflow-hidden">
-        <div class="card-header bg-white border-bottom py-2.5 py-md-3 px-3 px-md-4">
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 flex-wrap">
-                    <span class="font-monospace fw-bold text-dark fs-6">#SF-8492</span>
-                    <span class="text-muted small d-none d-sm-inline">&bull; Placed 10 Nov 2026</span>
-                    <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2.5 py-1 fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                        <span class="sf-pulse-dot"></span> Out for Delivery
-                    </span>
-                </div>
-                <div class="text-muted small d-flex align-items-center gap-1 ms-auto ms-sm-0">
-                    <i class="ri-truck-line text-warning"></i>
-                    <span>Steadfast Express &bull; Est. <strong class="text-dark">Today, 8 PM</strong></span>
-                </div>
-            </div>
+<article class="sf-panel-surface sf-panel-delivery">
+        <div class="sf-panel-delivery-head"><i class="ri-truck-line" aria-hidden="true"></i><div><h3>Out for delivery</h3><p>#SF-20261110-8492 · Steadfast Express</p></div></div>
+        <p class="sf-panel-delivery-time">Arrives <strong>today by 8 PM</strong></p>
+        <div class="sf-panel-delivery-progress" role="img" aria-label="Delivery progress: step 4 of 5"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sf-panel-actions"><a class="sf-panel-button sf-panel-primary" href="track-order.html?order=SF-20261110-8492">Track order</a> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div>
+    </article>
+    <div class="sf-panel-dashboard-grid">
+        <article class="sf-panel-surface">
+            <div class="sf-panel-section-heading"><h3>Recent orders</h3><a class="sf-panel-button sf-panel-text sf-account-tab-trigger" href="#orders">View all <i class="ri-arrow-right-line" aria-hidden="true"></i></a></div>
+        <div class="sf-panel-order-row">
+            <div><strong>#SF-20261110-8492</strong><small>10 Nov 2026</small></div><span class="sf-panel-status sf-panel-amber">Out for delivery</span><strong class="sf-panel-money">৳ 804</strong>
         </div>
-        <div class="card-body p-3 p-md-4">
-            <!-- Delivery Stepper Progress Bar (Responsive: Individual labels on Desktop, Clean Status Pill on Mobile) -->
-            <div class="position-relative mb-3 mb-md-4 px-2" style="padding-top: 6px;">
-                <!-- Stepper Progress Track Line (Precisely aligned to 30px circle center) -->
-                <div class="position-absolute start-0 end-0 bg-secondary-subtle" style="top: 20px; height: 3px; z-index: 1;">
-                    <div class="bg-primary" style="width: 86%; height: 100%;"></div>
-                </div>
-                <!-- Step Nodes Row -->
-                <div class="d-flex align-items-center justify-content-between position-relative" style="z-index: 2;">
-                    <!-- Step 1: Placed -->
-                    <div class="text-center">
-                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center mx-auto shadow-sm" style="width: 30px; height: 30px; font-size: 14px;">
-                            <i class="ri-check-line"></i>
-                        </div>
-                        <span class="d-none d-sm-block text-muted fw-medium mt-1.5 fs-xs text-nowrap">Placed</span>
-                    </div>
-                    <!-- Step 2: Confirmed -->
-                    <div class="text-center">
-                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center mx-auto shadow-sm" style="width: 30px; height: 30px; font-size: 14px;">
-                            <i class="ri-check-line"></i>
-                        </div>
-                        <span class="d-none d-sm-block text-muted fw-medium mt-1.5 fs-xs text-nowrap">Confirmed</span>
-                    </div>
-                    <!-- Step 3: Shipped -->
-                    <div class="text-center">
-                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center mx-auto shadow-sm" style="width: 30px; height: 30px; font-size: 14px;">
-                            <i class="ri-check-line"></i>
-                        </div>
-                        <span class="d-none d-sm-block text-muted fw-medium mt-1.5 fs-xs text-nowrap">Shipped</span>
-                    </div>
-                    <!-- Step 4: Out for Delivery -->
-                    <div class="text-center">
-                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto shadow-sm ring-2" style="width: 30px; height: 30px; font-size: 14px; box-shadow: 0 0 0 3px rgba(58, 78, 229, 0.2);">
-                            <i class="ri-truck-fill"></i>
-                        </div>
-                        <span class="d-none d-sm-block text-primary fw-bold mt-1.5 fs-xs text-nowrap">Delivery</span>
-                    </div>
-                </div>
-                <!-- Mobile Active Status Pill (< 576px) -->
-                <div class="d-sm-none text-center mt-2.5">
-                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1 fs-xs fw-semibold">
-                        Step 4 of 4 &bull; Out for Delivery
-                    </span>
-                </div>
-            </div>
-
-            <!-- Package Summary & Action Buttons (Aligned) -->
-            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-3 pt-3 border-top">
-                <div class="d-flex align-items-center gap-3 min-w-0">
-                    <img src="assets/img/product/1.webp" alt="Smart Watch T900 Ultra" class="rounded-3 border flex-shrink-0 object-fit-cover" width="56" height="56" />
-                    <div class="min-w-0">
-                        <h6 class="mb-1 fs-6 fw-bold text-dark lh-sm">Smart Watch T900 Ultra Series 8</h6>
-                        <div class="text-muted small mb-1">
-                            Stores: <strong class="text-dark">Ocean Crate &bull; Fashion Hub</strong> (2 items)
-                        </div>
-                        <div class="text-dark fw-bold fs-7">
-                            ৳ 804 &bull; <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill">Cash on Delivery</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                    <a href="track-order.html?order=SF-20261110-8492" class="btn btn-primary btn-sm px-4 py-2 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm text-nowrap">
-                        <i class="ri-truck-line"></i> Track Order
-                    </a>
-                    <button type="button" class="btn btn-outline-secondary btn-sm px-3.5 py-2 rounded-pill fw-medium d-inline-flex align-items-center justify-content-center gap-1 text-nowrap" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">
-                        <i class="ri-file-list-3-line"></i> Details
-                    </button>
-                </div>
-            </div>
+        <div class="sf-panel-order-row">
+            <div><strong>#SF-20261115-9921</strong><small>15 Nov 2026</small></div><span class="sf-panel-status sf-panel-blue">Processing</span><strong class="sf-panel-money">৳ 320</strong>
         </div>
+        <div class="sf-panel-order-row">
+            <div><strong>#SF-20261028-3912</strong><small>28 Oct 2026</small></div><span class="sf-panel-status sf-panel-green">Delivered</span><strong class="sf-panel-money">৳ 1,290</strong>
+        </div>
+        </article>
+        <article class="sf-panel-surface">
+            <div class="sf-panel-section-heading"><h3>Saved for later</h3><a class="sf-panel-button sf-panel-text sf-account-tab-trigger" href="#wishlist">View wishlist</a></div>
+            <div class="sf-panel-preview"><img class="sf-panel-thumb" src="assets/img/product/12.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Smart Watch T900 Ultra</strong><small>৳ 804</small></div></div>
+            <div class="sf-panel-preview"><img class="sf-panel-thumb" src="assets/img/product/account-earbuds.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Wireless Earbuds Pro</strong><small>৳ 1,290</small></div></div>
+        </article>
     </div>
+</section>
 
-    <!-- 3. Recent Orders (Desktop Table + Mobile Cards Architecture) -->
-    <div class="card border rounded-3 bg-white shadow-sm mb-3 mb-md-4">
-        <div class="card-header bg-white border-bottom py-2.5 py-md-3 px-3 px-md-4 d-flex align-items-center justify-content-between">
-            <div>
-                <h6 class="fw-bold text-dark mb-0 fs-6 d-flex align-items-center gap-2">
-                    <i class="ri-history-line text-primary"></i>
-                    Recent Orders
-                </h6>
-                <span class="text-muted fs-xs d-none d-sm-inline">Your recent purchases across verified stores</span>
-            </div>
-            <a href="#orders" class="text-primary fw-semibold fs-xs sf-account-tab-trigger text-decoration-none d-inline-flex align-items-center gap-1">
-                View All (12) <i class="ri-arrow-right-line"></i>
-            </a>
-        </div>
+<section id="orders" class="sf-account-panel" aria-labelledby="sfHeading-orders" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-orders">Orders</h2>
 
-        <!-- 3A. Mobile Native Card View (< 768px) -->
-        <div class="d-md-none p-3 d-flex flex-column gap-3">
-            <!-- Mobile Order 1: In Delivery -->
-            <div class="border rounded-3 p-3 bg-light bg-opacity-25">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <a href="track-order.html?order=SF-20261110-8492" class="font-monospace fw-bold text-primary text-decoration-none fs-7">#SF-8492</a>
-                    <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                        <span class="sf-pulse-dot"></span> In Delivery
-                    </span>
-                </div>
-                <div class="d-flex align-items-center gap-3 mb-2.5">
-                    <img src="assets/img/product/1.webp" alt="Smart Watch" class="rounded-2 border flex-shrink-0" width="48" height="48" style="object-fit: cover;" />
-                    <div class="flex-grow-1 min-w-0">
-                        <div class="text-dark fw-semibold fs-7 mb-0.5 lh-sm">Smart Watch T900 Ultra Series 8</div>
-                        <div class="text-muted fs-xs">10 Nov 2026 &bull; 1 Item &bull; <strong class="text-dark">৳ 804</strong></div>
-                    </div>
-                </div>
-                <div class="pt-2 border-top d-flex align-items-center justify-content-between">
-                    <span class="text-muted fs-xs">Cash on Delivery</span>
-                    <a href="track-order.html?order=SF-20261110-8492" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold">
-                        <i class="ri-truck-line me-1"></i> Track Order
-                    </a>
-                </div>
-            </div>
-
-            <!-- Mobile Order 2: Delivered -->
-            <div class="border rounded-3 p-3 bg-light bg-opacity-25">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="font-monospace fw-bold text-dark fs-7">#SF-3912</span>
-                    <span class="badge rounded-pill bg-success-subtle text-success fs-xs fw-semibold">
-                        <i class="ri-checkbox-circle-line me-0.5"></i> Delivered
-                    </span>
-                </div>
-                <div class="d-flex align-items-center gap-3 mb-2.5">
-                    <img src="assets/img/product/2.webp" alt="Earbuds" class="rounded-2 border flex-shrink-0" width="48" height="48" style="object-fit: cover;" />
-                    <div class="flex-grow-1 min-w-0">
-                        <div class="text-dark fw-semibold fs-7 mb-0.5 lh-sm">Wireless Earbuds Pro with ANC</div>
-                        <div class="text-muted fs-xs">28 Oct 2026 &bull; 1 Item &bull; <strong class="text-dark">৳ 1,290</strong></div>
-                    </div>
-                </div>
-                <div class="pt-2 border-top d-flex align-items-center justify-content-between">
-                    <span class="text-muted fs-xs">bKash Paid</span>
-                    <a href="cart.html" class="btn btn-light btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold text-primary border">
-                        <i class="ri-repeat-line me-1"></i> Buy Again
-                    </a>
-                </div>
-            </div>
-
-            <!-- Mobile Order 3: Processing -->
-            <div class="border rounded-3 p-3 bg-light bg-opacity-25">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <span class="font-monospace fw-bold text-dark fs-7">#SF-9921</span>
-                    <span class="badge rounded-pill bg-info-subtle text-info-emphasis fs-xs fw-semibold">
-                        <i class="ri-loader-4-line me-0.5"></i> Processing
-                    </span>
-                </div>
-                <div class="d-flex align-items-center gap-3 mb-2.5">
-                    <img src="assets/img/product/3.webp" alt="Mustard Oil" class="rounded-2 border flex-shrink-0" width="48" height="48" style="object-fit: cover;" />
-                    <div class="flex-grow-1 min-w-0">
-                        <div class="text-dark fw-semibold fs-7 mb-0.5 lh-sm">100% Pure Cold-Pressed Mustard Oil 1L</div>
-                        <div class="text-muted fs-xs">15 Nov 2026 &bull; 1 Item &bull; <strong class="text-dark">৳ 320</strong></div>
-                    </div>
-                </div>
-                <div class="pt-2 border-top d-flex align-items-center justify-content-between">
-                    <span class="text-muted fs-xs">Cash on Delivery</span>
-                    <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">
-                        <i class="ri-file-list-3-line me-1"></i> Details
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3B. Desktop Table View (>= 768px) -->
-        <div class="table-responsive d-none d-md-block">
-            <table class="table table-hover align-middle mb-0 fs-7">
-                <thead class="table-light text-muted fs-xs">
-                    <tr>
-                        <th class="ps-3 ps-md-4 py-2.5">Order</th>
-                        <th class="py-2.5">Date</th>
-                        <th class="py-2.5">Items</th>
-                        <th class="py-2.5">Total</th>
-                        <th class="py-2.5">Status</th>
-                        <th class="pe-3 pe-md-4 py-2.5 text-end">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Row 1: In-Transit -->
-                    <tr>
-                        <td class="ps-3 ps-md-4 py-3">
-                            <a href="track-order.html?order=SF-20261110-8492" class="font-monospace fw-bold text-primary text-decoration-none">#SF-8492</a>
-                        </td>
-                        <td class="py-3 text-muted fs-xs">10 Nov 2026</td>
-                        <td class="py-3">
-                            <div class="d-flex align-items-center gap-2.5">
-                                <img src="assets/img/product/1.webp" alt="Smart Watch" class="rounded border" width="36" height="36" style="object-fit: cover;" />
-                                <span class="text-dark fw-medium text-truncate">Smart Watch T900 Ultra Series 8</span>
-                            </div>
-                        </td>
-                        <td class="py-3 fw-bold text-dark">৳ 804</td>
-                        <td class="py-3">
-                            <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis fs-xs fw-semibold d-inline-flex align-items-center gap-1">
-                                <span class="sf-pulse-dot"></span> In Delivery
-                            </span>
-                        </td>
-                        <td class="pe-3 pe-md-4 py-3 text-end">
-                            <a href="track-order.html?order=SF-20261110-8492" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold">
-                                Track
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Row 2: Delivered -->
-                    <tr>
-                        <td class="ps-3 ps-md-4 py-3">
-                            <span class="font-monospace fw-bold text-dark">#SF-3912</span>
-                        </td>
-                        <td class="py-3 text-muted fs-xs">28 Oct 2026</td>
-                        <td class="py-3">
-                            <div class="d-flex align-items-center gap-2.5">
-                                <img src="assets/img/product/2.webp" alt="Earbuds" class="rounded border" width="36" height="36" style="object-fit: cover;" />
-                                <span class="text-dark fw-medium text-truncate">Wireless Earbuds Pro with ANC</span>
-                            </div>
-                        </td>
-                        <td class="py-3 fw-bold text-dark">৳ 1,290</td>
-                        <td class="py-3">
-                            <span class="badge rounded-pill bg-success-subtle text-success fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-0.5"></i> Delivered
-                            </span>
-                        </td>
-                        <td class="pe-3 pe-md-4 py-3 text-end">
-                            <a href="cart.html" class="btn btn-light btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold text-primary border">
-                                Buy Again
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Row 3: Processing -->
-                    <tr>
-                        <td class="ps-3 ps-md-4 py-3">
-                            <span class="font-monospace fw-bold text-dark">#SF-9921</span>
-                        </td>
-                        <td class="py-3 text-muted fs-xs">15 Nov 2026</td>
-                        <td class="py-3">
-                            <div class="d-flex align-items-center gap-2.5">
-                                <img src="assets/img/product/3.webp" alt="Mustard Oil" class="rounded border" width="36" height="36" style="object-fit: cover;" />
-                                <span class="text-dark fw-medium text-truncate">Pure Cold-Pressed Mustard Oil 1L</span>
-                            </div>
-                        </td>
-                        <td class="py-3 fw-bold text-dark">৳ 320</td>
-                        <td class="py-3">
-                            <span class="badge rounded-pill bg-info-subtle text-info-emphasis fs-xs fw-semibold">
-                                <i class="ri-loader-4-line me-0.5"></i> Processing
-                            </span>
-                        </td>
-                        <td class="pe-3 pe-md-4 py-3 text-end">
-                            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-1 fs-xs fw-semibold" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">
-                                Details
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-
-    <!-- 4. Wishlist Quick-Pick & Primary Address (Side-by-Side 2-Column Grid) -->
-    <div class="row g-3 g-md-4 mb-3 mb-md-4">
-        <!-- Left: Wishlist Quick-Pick Preview -->
-        <div class="col-12 col-lg-6">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 d-flex flex-column">
-                <div class="card-header bg-white border-bottom py-2.5 py-md-3 px-3 px-md-4 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="ri-heart-3-fill text-danger fs-5"></i>
-                        <h6 class="fw-bold text-dark mb-0 fs-7">Saved Wishlist (5)</h6>
-                    </div>
-                    <a href="#wishlist" class="text-primary fs-xs text-decoration-none fw-semibold sf-account-tab-trigger d-inline-flex align-items-center gap-1">
-                        View All (5) <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between flex-grow-1">
-                    <div class="d-flex flex-column gap-2.5">
-                        <!-- Item 1 -->
-                        <div class="d-flex align-items-center justify-content-between gap-3 pb-2.5 border-bottom">
-                            <div class="d-flex align-items-center gap-2.5 min-w-0 flex-grow-1">
-                                <img src="assets/img/product/1.webp" alt="Smart Watch" class="rounded border flex-shrink-0" width="46" height="46" style="object-fit: cover;" />
-                                <div class="min-w-0 flex-grow-1">
-                                    <div class="fw-semibold text-dark fs-7 line-clamp-2 lh-sm">Smart Watch T900 Ultra Series 8</div>
-                                    <div class="d-flex align-items-center gap-2 mt-0.5">
-                                        <span class="fw-bold text-dark fs-xs">৳ 804</span>
-                                        <span class="badge bg-success-subtle text-success fs-xs py-0.5 px-1.5">In Stock</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary btn-sm px-3 py-1 rounded-pill fs-xs fw-semibold flex-shrink-0 text-nowrap" onclick="if(typeof displayToast==='function') displayToast('success', {message: 'Smart Watch moved to cart!'});">
-                                <i class="ri-shopping-cart-line me-1"></i> Cart
-                            </button>
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="d-flex align-items-center justify-content-between gap-3 pb-2.5 border-bottom">
-                            <div class="d-flex align-items-center gap-2.5 min-w-0 flex-grow-1">
-                                <img src="assets/img/product/2.webp" alt="Earbuds" class="rounded border flex-shrink-0" width="46" height="46" style="object-fit: cover;" />
-                                <div class="min-w-0 flex-grow-1">
-                                    <div class="fw-semibold text-dark fs-7 line-clamp-2 lh-sm">Wireless Earbuds Pro ANC</div>
-                                    <div class="d-flex align-items-center gap-2 mt-0.5">
-                                        <span class="fw-bold text-dark fs-xs">৳ 1,290</span>
-                                        <span class="badge bg-success-subtle text-success fs-xs py-0.5 px-1.5">In Stock</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary btn-sm px-3 py-1 rounded-pill fs-xs fw-semibold flex-shrink-0 text-nowrap" onclick="if(typeof displayToast==='function') displayToast('success', {message: 'Earbuds moved to cart!'});">
-                                <i class="ri-shopping-cart-line me-1"></i> Cart
-                            </button>
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="d-flex align-items-center justify-content-between gap-3">
-                            <div class="d-flex align-items-center gap-2.5 min-w-0 flex-grow-1">
-                                <img src="assets/img/product/3.webp" alt="Polo Shirt" class="rounded border flex-shrink-0" width="46" height="46" style="object-fit: cover;" />
-                                <div class="min-w-0 flex-grow-1">
-                                    <div class="fw-semibold text-dark fs-7 line-clamp-2 lh-sm">Men's Solid Cotton Polo Shirt</div>
-                                    <div class="d-flex align-items-center gap-2 mt-0.5">
-                                        <span class="fw-bold text-dark fs-xs">৳ 450</span>
-                                        <span class="badge bg-success-subtle text-success fs-xs py-0.5 px-1.5">In Stock</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-outline-primary btn-sm px-3 py-1 rounded-pill fs-xs fw-semibold flex-shrink-0 text-nowrap" onclick="if(typeof displayToast==='function') displayToast('success', {message: 'Polo Shirt moved to cart!'});">
-                                <i class="ri-shopping-cart-line me-1"></i> Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right: Primary Address -->
-        <div class="col-12 col-lg-6">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 d-flex flex-column">
-                <div class="card-header bg-white border-bottom py-2.5 py-md-3 px-3 px-md-4 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="ri-map-pin-user-line text-primary fs-5"></i>
-                        <h6 class="fw-bold text-dark mb-0 fs-7">Primary Delivery Address</h6>
-                    </div>
-                    <span class="badge rounded-pill bg-primary px-2.5 py-1 fs-xs fw-semibold">Home</span>
-                </div>
-                <div class="card-body p-3 p-md-4 d-flex flex-column justify-content-between flex-grow-1">
-                    <div>
-                        <div class="fw-bold text-dark fs-6 mb-1">Ariful Islam <span class="text-muted fw-normal fs-7">(+880 1712-345678)</span></div>
-                        <p class="text-muted fs-7 mb-2">House 42, Road 11, Section-10, Mirpur, Dhaka-1216, Bangladesh</p>
-                        <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                            <span class="badge bg-light text-muted border fs-xs"><i class="ri-check-line text-success me-1"></i> Default Shipping</span>
-                            <span class="badge bg-light text-muted border fs-xs"><i class="ri-check-line text-success me-1"></i> Verified Location</span>
-                        </div>
-                    </div>
-                    <div class="pt-3 border-top text-end">
-                        <a href="#addresses" class="btn btn-outline-secondary btn-sm px-3 rounded-pill fs-xs fw-semibold sf-account-tab-trigger">
-                            <i class="ri-edit-line me-1"></i> Manage Address Book
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="sf-panel-toolbar">
+        <label class="sf-panel-field"><span>Search orders</span><input type="search" id="sfOrderSearchInput" placeholder="Order ID or product"></label>
+        <label class="sf-panel-field"><span>Status</span><select id="sfOrderStatusFilter">
+            <option value="">All statuses</option><option value="processing">Processing</option><option value="shipped">Out for delivery</option><option value="delivered">Delivered</option>
+        </select></label>
     </div>
-</div>
-
-
-                                    <!-- 2. MY ORDERS PANE -->
-                                    <!-- Orders Management Partial: apps/web-html/account-partials/orders.html -->
-<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-    <!-- Orders Section Header & Search/Filter Toolbar (Decluttered & Ultra-Clean) -->
-    <div class="sf-account-card mb-3 border rounded-3 p-3 bg-white shadow-sm">
-        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3">
-            <h4 class="fs-5 fw-bold text-dark mb-0 d-flex align-items-center gap-2">
-                <i class="ri-shopping-bag-3-fill text-primary"></i>
-                My Orders
-            </h4>
-            <!-- Compact Search Input -->
-            <div class="sf-order-search-box position-relative" style="min-width: 260px; max-width: 100%;">
-                <input
-                    type="text"
-                    class="form-control form-control-sm pe-4 ps-3 py-1.5 rounded-pill border-secondary-subtle"
-                    id="sfOrderSearchInput"
-                    placeholder="Search by Order # or Product..."
-                    aria-label="Search Orders" />
-                <i class="ri-search-line position-absolute top-50 end-0 translate-middle-y me-3 text-muted pointer-events-none"></i>
-            </div>
-        </div>
-
-        <!-- 1. Status Filter Pills with Clean Counters -->
-        <div class="sf-order-status-nav overflow-auto pb-1">
-            <ul class="nav nav-pills sf-status-pills flex-nowrap gap-2" id="sfOrderFilterPills" role="tablist">
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link active rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-all-btn"
-                        data-bs-toggle="pill"
-                        data-filter="all"
-                        type="button"
-                        role="tab">
-                        <span>All</span>
-                        <span class="badge rounded-pill bg-primary text-white">12</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-pending-btn"
-                        data-bs-toggle="pill"
-                        data-filter="pending"
-                        type="button"
-                        role="tab">
-                        <span>Pending</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-processing-btn"
-                        data-bs-toggle="pill"
-                        data-filter="processing"
-                        type="button"
-                        role="tab">
-                        <span>Processing</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">2</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-shipped-btn"
-                        data-bs-toggle="pill"
-                        data-filter="shipped"
-                        type="button"
-                        role="tab">
-                        <span>Shipped</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-delivered-btn"
-                        data-bs-toggle="pill"
-                        data-filter="delivered"
-                        type="button"
-                        role="tab">
-                        <span>Delivered</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">7</span>
-                    </button>
-                </li>
-                <li class="nav-item flex-shrink-0" role="presentation">
-                    <button
-                        class="nav-link rounded-pill px-3 py-1 fs-7 d-flex align-items-center gap-1.5"
-                        id="filter-cancelled-btn"
-                        data-bs-toggle="pill"
-                        data-filter="cancelled"
-                        type="button"
-                        role="tab">
-                        <span>Cancelled</span>
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary">1</span>
-                    </button>
-                </li>
+    <div class="sf-panel-stack" id="sfOrdersContainer">
+        <article class="sf-panel-surface sf-panel-order" data-order-status="shipped">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261110-8492</h3><small>Placed 10 Nov 2026</small></div><span class="sf-panel-status sf-panel-amber">Out for delivery</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/12.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Smart Watch T900 Ultra Series 8</strong><small>Matte black</small></div><span class="sf-panel-money">৳ 550 × 1</span></li>
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-polo.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Slim-fit cotton polo shirt</strong><small>Navy blue · L</small></div><span class="sf-panel-money">৳ 254 × 1</span></li>
             </ul>
-        </div>
+            <div class="sf-panel-order-foot"><div><small>Cash on delivery</small><strong class="sf-panel-money">Total ৳ 804</strong></div><div class="sf-panel-actions"><a class="sf-panel-button sf-panel-primary" href="track-order.html?order=SF-20261110-8492">Track order</a> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-order" data-order-status="processing">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261115-9921</h3><small>Placed 15 Nov 2026</small></div><span class="sf-panel-status sf-panel-blue">Processing</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-mustard-oil.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Cold-pressed mustard oil</strong><small>1 litre</small></div><span class="sf-panel-money">৳ 320 × 1</span></li>
+            </ul>
+            <div class="sf-panel-order-foot"><div><small>Cash on delivery</small><strong class="sf-panel-money">Total ৳ 320</strong></div><div class="sf-panel-actions"><button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfCancelOrderModal">Cancel order</button> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-order" data-order-status="delivered">
+            <div class="sf-panel-order-head"><div><h3>#SF-20261028-3912</h3><small>Placed 28 Oct 2026</small></div><span class="sf-panel-status sf-panel-green">Delivered</span></div>
+            <ul class="sf-panel-items">
+                <li><img class="sf-panel-thumb" src="assets/img/product/account-earbuds.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Wireless Earbuds Pro with ANC</strong><small>Pearl white</small></div><span class="sf-panel-money">৳ 1,290 × 1</span></li>
+            </ul>
+            <div class="sf-panel-order-foot"><div><small>bKash</small><strong class="sf-panel-money">Total ৳ 1,290</strong></div><div class="sf-panel-actions"><button type="button" class="sf-panel-button sf-panel-primary sf-btn-trigger-review" data-bs-toggle="modal" data-bs-target="#sfWriteReviewModal" data-product-title="Wireless Earbuds Pro" data-product-store="TechNova" data-product-img="assets/img/product/account-earbuds.webp">Write review</button> <button type="button" class="sf-panel-button sf-panel-outline" data-bs-toggle="modal" data-bs-target="#sfOrderDetailsModal">Order details</button></div></div>
+        </article>
     </div>
+    <p class="sf-panel-surface" id="sfOrdersEmptyState" hidden>No orders match your search.</p>
+</section>
 
-    <!-- 2. Slim Order Cards (Evaly/Apple Minimalism) -->
-    <div class="sf-orders-list-wrap d-flex flex-column gap-3" id="sfOrdersContainer">
-
-        <!-- CARD 1: Active In-Transit Order (Multi-Store: Ocean Crate + Fashion Hub) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="shipped">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261110-8492</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">10 Nov 2026</span>
-                </div>
-                <!-- Pulsing Orange Badge: Out for Delivery -->
-                <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <span class="spinner-grow spinner-grow-sm text-warning" style="width: 7px; height: 7px;" role="status" aria-hidden="true"></span>
-                    Out for Delivery
-                </span>
+<section id="wishlist" class="sf-account-panel" aria-labelledby="sfHeading-wishlist" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-wishlist">Wishlist</h2>
+        <a class="sf-panel-button sf-panel-outline" href="shop.html">Continue shopping</a>
+    </div>
+<div class="sf-panel-products">
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Smart Watch T900 Ultra Series 8"><img src="assets/img/product/12.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Smart Watch T900 Ultra Series 8 from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <!-- Store 1: Ocean Crate -->
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Ocean Crate
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/11.webp"
-                                alt="Smart Watch T900 Ultra"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Smart Watch T900 Ultra Series 8 Bluetooth Calling Fitness Tracker
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Matte Black</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 550</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-0 border-secondary-subtle opacity-25" />
-
-                <!-- Store 2: Fashion Hub -->
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Fashion Hub
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/27.webp"
-                                alt="Cotton Polo Shirt"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Men's Solid Slim Fit Classic Round Neck Cotton Fabric T-Shirt
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Navy Blue &bull; L</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 254</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="sf-panel-product-body"><small>Ocean Crate</small><h3><a href="product.html">Smart Watch T900 Ultra Series 8</a></h3>
+                <p class="sf-panel-money"><strong>৳ 804</strong> <del>৳ 1,200</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 804</span>
-                    <span class="text-muted fs-8">(2 Items)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-secondary border rounded-pill fs-8">Cash on Delivery</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons: Track Order & Details -->
-                <div class="d-flex align-items-center gap-2">
-                    <a
-                        href="track-order.html?order=SF-20261110-8492"
-                        class="btn btn-primary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold fs-7 shadow-sm">
-                        <i class="ri-truck-line"></i>
-                        <span>Track Order</span>
-                    </a>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal">
-                        <span>Details</span>
-                    </button>
-                </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Wireless Earbuds Pro with ANC"><img src="assets/img/product/account-earbuds.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Wireless Earbuds Pro with ANC from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-        </div>
-
-        <!-- CARD 2: Delivered Order (TechNova Store) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="delivered">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261028-3912</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">28 Oct 2026</span>
-                </div>
-                <!-- Green Badge: Delivered -->
-                <span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <i class="ri-checkbox-circle-fill text-success"></i>
-                    Delivered
-                </span>
+            <div class="sf-panel-product-body"><small>TechNova</small><h3><a href="product.html">Wireless Earbuds Pro with ANC</a></h3>
+                <p class="sf-panel-money"><strong>৳ 1,290</strong> <del>৳ 1,800</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> TechNova
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/12.webp"
-                                alt="Wireless Earbuds Pro"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        Wireless Earbuds Pro with Active Noise Cancellation
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Pearl White</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 1,290</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Slim-fit cotton polo shirt"><img src="assets/img/product/account-polo.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Slim-fit cotton polo shirt from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 1,290</span>
-                    <span class="text-muted fs-8">(1 Item)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-primary border border-primary-subtle rounded-pill fs-8">bKash</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons for Delivered Orders: Buy Again & Review (Plus Details) -->
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="btn btn-outline-warning text-dark btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfWriteReviewModal">
-                        <i class="ri-star-line text-warning"></i>
-                        <span>Review</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-primary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold fs-7 shadow-sm">
-                        <i class="ri-repeat-line"></i>
-                        <span>Buy Again</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-2.5 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal"
-                        title="Order Details">
-                        <span>Details</span>
-                    </button>
-                </div>
+            <div class="sf-panel-product-body"><small>Fashion Hub</small><h3><a href="product.html">Slim-fit cotton polo shirt</a></h3>
+                <p class="sf-panel-money"><strong>৳ 450</strong> <del>৳ 650</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-        </div>
-
-        <!-- CARD 3: Processing Order (Organic Harvest) -->
-        <div class="card sf-order-card border shadow-sm rounded-3 overflow-hidden" data-order-status="processing">
-            <!-- Slim Header Strip -->
-            <div class="card-header bg-light bg-opacity-40 py-2.5 px-3 px-md-4 border-bottom d-flex align-items-center justify-content-between gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <strong class="font-monospace text-dark">#SF-20261115-9921</strong>
-                    <span class="text-muted">&bull;</span>
-                    <span class="text-muted">15 Nov 2026</span>
-                </div>
-                <!-- Blue Badge: Processing -->
-                <span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle px-2.5 py-1 d-inline-flex align-items-center gap-1.5 fw-semibold fs-8">
-                    <i class="ri-loader-4-line spin-fast"></i>
-                    Processing
-                </span>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Cold-pressed mustard oil"><img src="assets/img/product/account-mustard-oil.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Cold-pressed mustard oil from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-
-            <!-- Card Body: Clean Store Items List -->
-            <div class="card-body p-0">
-                <div class="px-3 px-md-4 pt-2.5 pb-2">
-                    <div class="text-muted fs-8 fw-semibold text-uppercase mb-2 d-flex align-items-center gap-1.5">
-                        <i class="ri-store-2-line text-primary"></i> Organic Harvest
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between gap-3">
-                        <div class="d-flex align-items-center gap-2.5 min-w-0">
-                            <img
-                                src="assets/img/product/24.webp"
-                                alt="Pure Mustard Oil 1L"
-                                class="rounded border object-fit-cover flex-shrink-0"
-                                width="48"
-                                height="48"
-                                loading="lazy" />
-                            <div class="min-w-0">
-                                <h6 class="mb-0 fs-7 fw-semibold text-dark text-truncate">
-                                    <a href="product.html" class="text-dark text-decoration-none hover-primary">
-                                        100% Pure Cold-Pressed Mustard Oil 1L
-                                    </a>
-                                </h6>
-                                <span class="text-muted fs-8">Grade A Cold-Pressed</span>
-                            </div>
-                        </div>
-                        <div class="text-end flex-shrink-0">
-                            <span class="fw-bold text-dark fs-7">৳ 320</span>
-                            <span class="text-muted fs-8 ms-1">&times; 1</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="sf-panel-product-body"><small>Organic Harvest</small><h3><a href="product.html">Cold-pressed mustard oil</a></h3>
+                <p class="sf-panel-money"><strong>৳ 320</strong> <del>৳ 380</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
             </div>
-
-            <!-- Single Compact Footer Line -->
-            <div class="card-footer bg-white py-2.5 px-3 px-md-4 border-top d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2 fs-7">
-                    <span class="text-dark fw-bold">Total: ৳ 320</span>
-                    <span class="text-muted fs-8">(1 Item)</span>
-                    <span class="text-muted">&bull;</span>
-                    <span class="badge bg-light text-secondary border rounded-pill fs-8">Cash on Delivery</span>
-                </div>
-                <!-- 2 Clean Rounded Buttons: Cancel & Details -->
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="btn btn-outline-danger btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfCancelOrderModal">
-                        <span>Cancel</span>
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-outline-secondary btn-sm px-3 py-1 rounded-pill d-inline-flex align-items-center gap-1 fw-medium fs-7"
-                        data-bs-toggle="modal"
-                        data-bs-target="#sfOrderDetailsModal">
-                        <span>Details</span>
-                    </button>
-                </div>
+        </article>
+        <article class="sf-panel-product">
+            <div class="sf-panel-product-media">
+                <a href="product.html" aria-label="Genuine leather bifold wallet"><img src="assets/img/product/account-wallet.webp" width="160" height="160" loading="lazy" alt=""></a>
+                <button type="button" class="sf-panel-remove" aria-label="Remove Genuine leather bifold wallet from wishlist" onclick="this.closest('article').remove()"><i class="ri-close-line" aria-hidden="true"></i></button>
             </div>
-        </div>
+            <div class="sf-panel-product-body"><small>Leather Craft BD</small><h3><a href="product.html">Genuine leather bifold wallet</a></h3>
+                <p class="sf-panel-money"><strong>৳ 650</strong> <del>৳ 950</del></p>
+                <button type="button" class="sf-panel-button sf-panel-primary" onclick="if(typeof displayToast==='function') displayToast('success', {message:'Item added to cart'})">Add to cart</button>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="profile" class="sf-account-panel" aria-labelledby="sfHeading-profile" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-profile">Profile</h2>
 
     </div>
-
-    <!-- Empty State Container (for zero search or filter results) -->
-    <div class="sf-orders-empty-state d-none text-center py-5 my-4 border rounded-3 bg-white" id="sfOrdersEmptyState">
-        <div class="avatar-lg mx-auto mb-3 text-muted">
-            <i class="ri-inbox-line display-4 text-secondary"></i>
-        </div>
-        <h5 class="fw-bold text-dark mb-1">No Orders Found</h5>
-        <p class="text-muted fs-7 mb-3">You don't have any orders matching the selected filter or search keyword.</p>
-        <a href="shop.html" class="btn btn-primary btn-sm px-4 py-2 rounded-pill fw-semibold">
-            <i class="ri-shopping-basket-line me-1"></i> Start Shopping
-        </a>
-    </div>
-
-</div>
-
-                                    <!-- 2.5. MY WISHLIST PANE -->
-                                    <!-- Wishlist Partial: apps/web-html/account-partials/wishlist.html -->
-<!-- ======================================================================= -->
-<!-- TAB PANE: MY WISHLIST (#wishlist)                                       -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist-tab">
-    <!-- Wishlist Header Strip -->
-    <div class="card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-3 mb-md-4">
-        <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="rounded-circle bg-danger-subtle text-danger d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 20px;">
-                    <i class="ri-heart-3-fill"></i>
-                </div>
-                <div>
-                    <h4 class="fs-5 fw-bold text-dark mb-0 d-flex align-items-center gap-2">
-                        My Wishlist
-                        <span class="badge rounded-pill bg-danger-subtle text-danger fs-xs fw-semibold">5 Items</span>
-                    </h4>
-                    <p class="text-muted small mb-0">Your saved products. Move them to your cart or purchase anytime.</p>
-                </div>
+<div class="sf-panel-settings">
+        <article class="sf-panel-surface"><h3>Personal information</h3>
+            <div class="sf-panel-avatar-row">
+                <img width="48" height="48" id="sfProfileAvatarPreview" src="assets/img/user/1.webp" alt="Profile photo">
+                <input type="file" id="sfProfileAvatarInput" class="d-none" accept="image/png,image/jpeg,image/webp">
+                <label for="sfProfileAvatarInput" class="sf-panel-button sf-panel-outline"><i class="ri-camera-line" aria-hidden="true"></i> Change photo</label>
             </div>
-            <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-1.5 fw-semibold d-inline-flex align-items-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'All in-stock wishlist items added to cart!'});}">
-                    <i class="ri-shopping-cart-2-line"></i>
-                    <span>Add All to Cart</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Wishlist Items Grid / Card List -->
-    <div class="row g-3 g-md-4" id="sfWishlistGrid">
-        <!-- Wishlist Item 1: Smart Watch T900 Ultra -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-1">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-1'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/1.webp" alt="Smart Watch T900 Ultra Series 8" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">33% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Ocean Crate
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Store"></i>
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Smart Watch T900 Ultra Series 8 (Matte Black)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 804</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 1,200</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Smart Watch T900 Ultra added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wishlist Item 2: Wireless Earbuds Pro -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-2">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-2'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/2.webp" alt="Wireless Earbuds Pro" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">28% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> TechNova
-                            <i class="ri-verified-badge-fill text-primary" title="Verified Store"></i>
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Wireless Earbuds Pro with ANC (Pearl White)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 1,290</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 1,800</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Wireless Earbuds Pro added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wishlist Item 3: Men's Cotton Polo -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-3">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-3'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/1.webp" alt="Men's Solid Slim Fit Classic Round Neck Polo" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">30% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Fashion Hub
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Men's Solid Slim Fit Classic Round Neck Polo (Navy Blue)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 450</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 650</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Men\'s Solid Polo added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wishlist Item 4: Pure Mustard Oil -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-4">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-4'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/3.webp" alt="100% Pure Cold-Pressed Mustard Oil 1L" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">16% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Organic Harvest
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            100% Pure Cold-Pressed Mustard Oil 1L (Grade A)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 320</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 380</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Mustard Oil 1L added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Wishlist Item 5: Leather Wallet -->
-        <div class="col-12 col-md-6 col-xl-4 sf-wishlist-item" id="wishlistItem-5">
-            <div class="card border rounded-3 bg-white shadow-sm h-100 position-relative overflow-hidden transition-all">
-                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2.5 p-0 d-flex align-items-center justify-content-center shadow-sm sf-wishlist-remove-btn" style="width: 32px; height: 32px; z-index: 2;" title="Remove from wishlist" onclick="var el=document.getElementById('wishlistItem-5'); if(el){el.remove(); if(typeof displayToast==='function') displayToast('info', {message: 'Item removed from wishlist'});}">
-                    <i class="ri-close-line text-muted"></i>
-                </button>
-                <div class="position-relative bg-light text-center p-3">
-                    <img src="assets/img/product/2.webp" alt="Handcrafted Genuine Leather Bi-fold Wallet" class="img-fluid object-fit-contain" style="height: 140px;" />
-                    <span class="badge rounded-pill bg-danger position-absolute bottom-0 start-0 m-2.5 px-2 py-0.5 fs-xs fw-bold">31% OFF</span>
-                </div>
-                <div class="card-body p-3 d-flex flex-column justify-content-between">
-                    <div>
-                        <div class="text-muted fs-xs mb-1 d-flex align-items-center gap-1">
-                            <i class="ri-store-2-line text-primary"></i> Leather Craft BD
-                        </div>
-                        <h6 class="fw-semibold text-dark mb-2 text-truncate-2 fs-7" style="line-height: 1.4; min-height: 38px;">
-                            Handcrafted Genuine Leather Bi-fold Wallet (Brown)
-                        </h6>
-                        <div class="d-flex align-items-baseline gap-2 mb-2">
-                            <span class="fw-bold text-dark fs-6">৳ 650</span>
-                            <span class="text-muted text-decoration-line-through fs-xs">৳ 950</span>
-                        </div>
-                        <div class="mb-3">
-                            <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0.5 fs-xs fw-semibold">
-                                <i class="ri-checkbox-circle-line me-1"></i> In Stock
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-top">
-                        <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill fw-semibold d-inline-flex align-items-center justify-content-center gap-1.5" onclick="if(typeof displayToast==='function'){displayToast('success', {message: 'Leather Wallet added to cart!'});}">
-                            <i class="ri-shopping-cart-line"></i> Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-                                    <!-- 3. MANAGE PROFILE PANE -->
-                                    <!-- ============================================================== -->
-<!-- PROFILE PARTIAL: apps/web-html/account-partials/profile.html   -->
-<!-- Clean, Modern 2-Column Profile & Security Settings             -->
-<!-- ============================================================== -->
-
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="sf-profile-partial">
-        <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-4">
-            <div class="row g-4">
-                <!-- Column 1: Personal Information -->
-                <div class="col-12 col-lg-6 border-end-lg pe-lg-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
-                            <i class="ri-user-3-line text-primary"></i>
-                            Personal Information
-                        </h5>
-                    </div>
-
-                    <!-- Small Avatar Change Trigger (48px) + Button -->
-                    <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
-                        <div class="position-relative">
-                            <img
-                                src="assets/img/user/user.jpg"
-                                onerror="this.onerror=null; this.src='assets/img/user/1.webp';"
-                                alt="Avatar"
-                                class="rounded-circle object-fit-cover border shadow-sm sf-avatar-preview"
-                                id="sfProfileAvatarPreview"
-                                width="48"
-                                height="48" />
-                        </div>
-                        <div>
-                            <input
-                                type="file"
-                                id="sfProfileAvatarInput"
-                                class="d-none"
-                                accept="image/png, image/jpeg, image/webp"
-                                aria-label="Upload profile image" />
-                            <label for="sfProfileAvatarInput" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 cursor-pointer mb-0 fw-medium">
-                                <i class="ri-camera-line me-1"></i> Change Avatar
-                            </label>
-                        </div>
-                    </div>
-
-                    <form id="sfPersonalInfoForm" novalidate>
-                        <div class="mb-3">
+            <form id="sfPersonalInfoForm" novalidate>
+                        <div class="sf-panel-form-row">
                             <label for="sf_full_name" class="form-label small fw-semibold text-dark mb-1">Full Name</label>
                             <input
                                 type="text"
@@ -1567,7 +625,7 @@
                                 required />
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <label for="sf_phone_number" class="form-label small fw-semibold text-dark mb-0">Phone Number</label>
                                 <a
@@ -1594,7 +652,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_email_address" class="form-label small fw-semibold text-dark mb-1">Email Address</label>
                             <input
                                 type="email"
@@ -1638,19 +696,10 @@
                             <span id="sfSaveProfileText">Save Changes</span>
                         </button>
                     </form>
-                </div>
-
-                <!-- Column 2: Security & Password -->
-                <div class="col-12 col-lg-6 ps-lg-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-                        <h5 class="mb-0 fw-bold text-dark fs-6 d-flex align-items-center gap-2">
-                            <i class="ri-lock-password-line text-primary"></i>
-                            Security & Password
-                        </h5>
-                    </div>
-
-                    <form id="sfPasswordForm" novalidate>
-                        <div class="mb-3">
+        </article>
+        <article class="sf-panel-surface"><h3>Password</h3>
+            <form id="sfPasswordForm" novalidate>
+                        <div class="sf-panel-form-row">
                             <label for="sf_current_password" class="form-label small fw-semibold text-dark mb-1">Current Password</label>
                             <div class="position-relative">
                                 <input
@@ -1671,7 +720,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_new_password" class="form-label small fw-semibold text-dark mb-1">New Password</label>
                             <div class="position-relative">
                                 <input
@@ -1692,7 +741,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="sf-panel-form-row">
                             <label for="sf_confirm_password" class="form-label small fw-semibold text-dark mb-1">Confirm Password</label>
                             <div class="position-relative">
                                 <input
@@ -1721,79 +770,41 @@
                             <span id="sfUpdatePwdText">Update Password</span>
                         </button>
                     </form>
-                </div>
-            </div>
-
-            <!-- Single-line 2FA switch at the bottom -->
-            <div class="pt-3 border-top mt-4 d-flex align-items-center justify-content-between flex-wrap gap-2">
-                <div class="d-flex align-items-center gap-2">
-                    <i class="ri-shield-keyhole-line text-success fs-5"></i>
-                    <span class="fw-semibold text-dark small">Two-Factor SMS Login</span>
-                    <span class="badge rounded-pill bg-success-subtle text-success border border-success-subtle px-2 py-0.5 fs-xs fw-semibold" id="sf2FaStatusBadge">Active</span>
-                </div>
-                <div class="form-check form-switch fs-5 mb-0">
-                    <input
-                        class="form-check-input cursor-pointer"
-                        type="checkbox"
-                        role="switch"
-                        id="sf2FaToggle"
-                        checked
-                        aria-label="Toggle Two-Factor SMS Login" />
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================================================== -->
-        <!-- CHANGE PHONE NUMBER MODAL (#sfChangePhoneModal)                -->
-        <!-- ============================================================== -->
+        </article>
     </div>
-</div>
+</section>
 
-                                    <!-- 4. ADDRESS BOOK PANE -->
-                                    
-<div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
-    <!-- ============================================================== -->
-<!-- ADDRESSES PARTIAL: ShoppieFlyBD Customer Dashboard            -->
-<!-- Saved Delivery Addresses (Ultra-Clean & Minimalist)           -->
-<!-- ============================================================== -->
-
-<div class="sf-addresses-partial">
-    <!-- Header Bar -->
-    <div class="sf-pane-header d-flex flex-wrap align-items-center justify-content-between gap-3 pb-3 mb-4 border-bottom">
-        <h4 class="mb-0 fw-bold text-dark fs-5">Saved Addresses</h4>
-        <button type="button" class="btn btn-primary btn-sm d-inline-flex align-items-center gap-1.5 px-3 py-2 fw-medium rounded-3" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal" id="sfBtnAddNewAddress">
-            <i class="ri-add-line fs-6"></i>
-            <span>Add New Address</span>
-        </button>
+<section id="addresses" class="sf-account-panel" aria-labelledby="sfHeading-addresses" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-addresses">Address book</h2>
+        <button type="button" class="sf-panel-button sf-panel-primary" data-bs-toggle="modal" data-bs-target="#sfAddAddressModal" id="sfBtnAddNewAddress"><i class="ri-add-line" aria-hidden="true"></i> Add address</button>
     </div>
+<div class="sf-panel-address-grid" id="sfAddressListContainer">
 
-    <!-- Minimalist Address Cards Grid -->
-    <div class="row g-3" id="sfAddressListContainer">
-        <!-- Card 1: Home (Default) -->
-        <div class="col-12 col-md-6" id="sfAddressCard-1" data-id="1" data-tag="Home" data-name="Ariful Islam" data-phone="01712345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Mirpur" data-address="House 42, Road 11, Section-10, Mirpur, Dhaka-1216" data-landmark="Near Mirpur Benaroshi Polli" data-default-shipping="true">
-            <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
-                <!-- Top Row: Recipient Name • Phone • Tag • Default badge -->
+        <div id="sfAddressCard-1" data-id="1" data-tag="Home" data-name="Ariful Islam" data-phone="01712345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Mirpur" data-address="House 42, Road 11, Section-10, Mirpur, Dhaka-1216" data-landmark="Near Mirpur Benaroshi Polli" data-default-shipping="true">
+            <div class="sf-panel-surface sf-address-card">
+
                 <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                     <span class="fw-bold text-dark sf-card-name">Ariful Islam</span>
-                    <span class="text-muted small">&bull;</span>
+
                     <span class="text-muted small sf-card-phone">+880 1712-345678</span>
                     <span class="badge rounded-pill bg-primary-subtle text-primary px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag">Home</span>
                     <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold sf-badge-default">Default</span>
                 </div>
 
-                <!-- Address: 1-2 clean lines -->
+
                 <p class="text-secondary small mb-3 flex-grow-1 sf-card-address">House 42, Road 11, Section-10, Mirpur, Dhaka-1216</p>
 
-                <!-- Action Row: Clean text links Edit • Delete • Set as Default / Indicator -->
+
                 <div class="d-flex align-items-center gap-2 pt-2 border-top small sf-card-action-row">
                     <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(1)">
                         <i class="ri-edit-line me-1"></i>Edit
                     </button>
-                    <span class="text-muted">&bull;</span>
+
                     <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(1)">
                         <i class="ri-delete-bin-line me-1"></i>Delete
                     </button>
-                    <span class="text-muted">&bull;</span>
+
                     <span class="sf-default-action-wrap text-success fw-medium">
                         <i class="ri-check-line me-0.5"></i>Default Address
                     </span>
@@ -1801,31 +812,31 @@
             </div>
         </div>
 
-        <!-- Card 2: Office -->
-        <div class="col-12 col-md-6" id="sfAddressCard-2" data-id="2" data-tag="Office" data-name="Ariful Islam" data-phone="01812345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Tejgaon" data-address="Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215" data-landmark="Opposite to WASA Bhaban" data-default-shipping="false">
-            <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
-                <!-- Top Row: Recipient Name • Phone • Tag • Default badge (hidden) -->
+
+        <div id="sfAddressCard-2" data-id="2" data-tag="Office" data-name="Ariful Islam" data-phone="01812345678" data-division="Dhaka" data-district="Dhaka City" data-thana="Tejgaon" data-address="Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215" data-landmark="Opposite to WASA Bhaban" data-default-shipping="false">
+            <div class="sf-panel-surface sf-address-card">
+
                 <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                     <span class="fw-bold text-dark sf-card-name">Ariful Islam</span>
-                    <span class="text-muted small">&bull;</span>
+
                     <span class="text-muted small sf-card-phone">+880 1812-345678</span>
                     <span class="badge rounded-pill px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag" style="background-color: #fff3e0 !important; color: #e65100 !important;">Office</span>
                     <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold d-none sf-badge-default">Default</span>
                 </div>
 
-                <!-- Address: 1-2 clean lines -->
+
                 <p class="text-secondary small mb-3 flex-grow-1 sf-card-address">Level 5, Suite 502, BDBL Bhaban, 12 Kazi Nazrul Islam Avenue, Karwan Bazar, Dhaka-1215</p>
 
-                <!-- Action Row: Clean text links Edit • Delete • Set as Default -->
+
                 <div class="d-flex align-items-center gap-2 pt-2 border-top small sf-card-action-row">
                     <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(2)">
                         <i class="ri-edit-line me-1"></i>Edit
                     </button>
-                    <span class="text-muted">&bull;</span>
+
                     <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(2)">
                         <i class="ri-delete-bin-line me-1"></i>Delete
                     </button>
-                    <span class="text-muted">&bull;</span>
+
                     <span class="sf-default-action-wrap">
                         <button type="button" class="btn btn-link p-0 text-decoration-none text-muted fw-medium sf-btn-set-default" onclick="sfSetDefaultShipping(2)">
                             Set as Default
@@ -1836,7 +847,7 @@
         </div>
     </div>
 
-    <!-- Empty State Container (Hidden by default) -->
+
     <div id="sfAddressEmptyState" class="text-center py-5 d-none">
         <div class="avatar-lg mx-auto mb-3 bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
             <i class="ri-map-pin-line text-muted fs-2"></i>
@@ -1847,459 +858,89 @@
             <i class="ri-add-line me-1"></i> Add Address
         </button>
     </div>
-</div>
+</section>
 
-<!-- ============================================================== -->
-<!-- MODAL: Add / Edit Address Modal (#sfAddAddressModal)          -->
-<!-- ============================================================== -->
-</div>
+<section id="vouchers" class="sf-account-panel" aria-labelledby="sfHeading-vouchers" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-vouchers">Vouchers</h2>
 
-                                    <!-- 5, 6, 7. PERKS: VOUCHERS, REVIEWS & RETURNS PANES -->
-                                    <div class="tab-pane fade" id="vouchers" role="tabpanel" aria-labelledby="tab-vouchers">
-    <!-- Clean Header -->
-    <div class="d-flex align-items-center justify-content-between mb-3">
-        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">Vouchers &amp; Coupons</h4>
-        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
-            3 Available
-        </span>
     </div>
-
-    <!-- Sub-tabs: Active vs Expired -->
-    <ul class="nav sf-sub-nav" id="voucherTabNav" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button
-                class="nav-link active"
-                id="active-vouchers-pill"
-                data-bs-toggle="pill"
-                data-bs-target="#active-vouchers-pane"
-                type="button"
-                role="tab"
-                aria-controls="active-vouchers-pane"
-                aria-selected="true">
-                Active Vouchers (3)
-            </button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button
-                class="nav-link"
-                id="expired-vouchers-pill"
-                data-bs-toggle="pill"
-                data-bs-target="#expired-vouchers-pane"
-                type="button"
-                role="tab"
-                aria-controls="expired-vouchers-pane"
-                aria-selected="false">
-                Expired (2)
-            </button>
-        </li>
-    </ul>
-
-    <!-- Tab Content -->
-    <div class="tab-content" id="voucherTabContent">
-        <!-- Active Vouchers -->
-        <div class="tab-pane fade show active" id="active-vouchers-pane" role="tabpanel" aria-labelledby="active-vouchers-pill">
-            <!-- Voucher 1: ৳50 OFF -->
-            <div class="sf-coupon-row">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="sf-coupon-discount">৳50 OFF</span>
-                    <div class="sf-coupon-info">
-                        <div>
-                            <span class="sf-coupon-code-pill">SHOPPIE50</span>
-                            <span class="sf-coupon-meta">Min. Spend ৳999 &bull; Expires in 5 days</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="sf-btn-copy-code"
-                        onclick="sfCopyCode(this, 'SHOPPIE50')">
-                        <i class="ri-file-copy-line"></i>
-                        <span>Copy Code</span>
-                    </button>
-                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
-                </div>
-            </div>
-
-            <!-- Voucher 2: FREE DELIVERY -->
-            <div class="sf-coupon-row">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="sf-coupon-discount freeship">FREE SHIP</span>
-                    <div class="sf-coupon-info">
-                        <div>
-                            <span class="sf-coupon-code-pill">FREESHIP</span>
-                            <span class="sf-coupon-meta">Min. Spend ৳1,999 &bull; Expires in 12 days</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="sf-btn-copy-code"
-                        onclick="sfCopyCode(this, 'FREESHIP')">
-                        <i class="ri-file-copy-line"></i>
-                        <span>Copy Code</span>
-                    </button>
-                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
-                </div>
-            </div>
-
-            <!-- Voucher 3: 10% OFF -->
-            <div class="sf-coupon-row">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="sf-coupon-discount mega">10% OFF</span>
-                    <div class="sf-coupon-info">
-                        <div>
-                            <span class="sf-coupon-code-pill">MEGA10</span>
-                            <span class="sf-coupon-meta">Max. Discount ৳300 &bull; Expires in 2 days</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <button
-                        type="button"
-                        class="sf-btn-copy-code"
-                        onclick="sfCopyCode(this, 'MEGA10')">
-                        <i class="ri-file-copy-line"></i>
-                        <span>Copy Code</span>
-                    </button>
-                    <a href="shop.html" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px;">Shop Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expired Vouchers -->
-        <div class="tab-pane fade" id="expired-vouchers-pane" role="tabpanel" aria-labelledby="expired-vouchers-pill">
-            <div class="sf-coupon-row opacity-50">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="sf-coupon-discount text-muted">৳100 OFF</span>
-                    <div class="sf-coupon-info">
-                        <span class="sf-coupon-code-pill text-decoration-line-through">WELCOME100</span>
-                        <span class="sf-coupon-meta">Expired on 15 Oct 2026</span>
-                    </div>
-                </div>
-                <span class="badge bg-light text-muted border">Expired</span>
-            </div>
-            <div class="sf-coupon-row opacity-50">
-                <div class="d-flex align-items-center gap-3">
-                    <span class="sf-coupon-discount text-muted">15% OFF</span>
-                    <div class="sf-coupon-info">
-                        <span class="sf-coupon-code-pill text-decoration-line-through">AUTUMN15</span>
-                        <span class="sf-coupon-meta">Used on 28 Oct 2026</span>
-                    </div>
-                </div>
-                <span class="badge bg-light text-success border">Used</span>
-            </div>
-        </div>
+<div class="sf-panel-vouchers">
+        <article class="sf-panel-surface sf-panel-voucher">
+            <div class="sf-panel-voucher-offer"><i class="ri-ticket-2-line" aria-hidden="true"></i><h3>৳50 off</h3></div>
+            <div class="sf-panel-voucher-terms"><p>Min. spend ৳999</p><small>Expires in 5 days</small></div>
+            <div class="sf-panel-voucher-code"><code>SHOPPIE50</code><button type="button" class="sf-panel-button sf-panel-outline" onclick="sfCopyCode(this, 'SHOPPIE50')"><span>Copy code</span></button></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-voucher">
+            <div class="sf-panel-voucher-offer"><i class="ri-ticket-2-line" aria-hidden="true"></i><h3>Free shipping</h3></div>
+            <div class="sf-panel-voucher-terms"><p>Min. spend ৳1,999</p><small>Expires in 12 days</small></div>
+            <div class="sf-panel-voucher-code"><code>FREESHIP</code><button type="button" class="sf-panel-button sf-panel-outline" onclick="sfCopyCode(this, 'FREESHIP')"><span>Copy code</span></button></div>
+        </article>
+        <article class="sf-panel-surface sf-panel-voucher">
+            <div class="sf-panel-voucher-offer"><i class="ri-ticket-2-line" aria-hidden="true"></i><h3>10% off</h3></div>
+            <div class="sf-panel-voucher-terms"><p>Max. discount ৳300</p><small>Expires in 2 days</small></div>
+            <div class="sf-panel-voucher-code"><code>MEGA10</code><button type="button" class="sf-panel-button sf-panel-outline" onclick="sfCopyCode(this, 'MEGA10')"><span>Copy code</span></button></div>
+        </article>
     </div>
-</div>
+    <details class="sf-panel-surface sf-panel-disclosure">
+        <summary>Expired vouchers</summary>
+        <div class="sf-panel-order-row"><strong>WELCOME100</strong><small>Expired 15 Oct 2026</small></div>
+        <div class="sf-panel-order-row"><strong>AUTUMN15</strong><small>Used 28 Oct 2026</small></div>
+    </details>
+</section>
 
-<!-- ======================================================================= -->
-<!-- TAB PANE 2: MY REVIEWS (#reviews)                                       -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="tab-reviews">
-    <!-- Clean Header -->
-    <div class="d-flex align-items-center justify-content-between mb-3">
-        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">My Reviews</h4>
-        <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
-            +50 Coins / Review
-        </span>
+<section id="reviews" class="sf-account-panel" aria-labelledby="sfHeading-reviews" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-reviews">Reviews</h2>
+
     </div>
+<article class="sf-panel-surface">
+        <div class="sf-panel-section-heading"><h3>Ready to review</h3></div>
+        <div class="sf-panel-review-row"><img class="sf-panel-thumb" src="assets/img/product/12.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Smart Watch T900 Ultra</strong><small>Ocean Crate</small></div><button type="button" class="sf-panel-button sf-panel-primary sf-btn-trigger-review" data-bs-toggle="modal" data-bs-target="#sfWriteReviewModal" data-product-title="Smart Watch T900 Ultra" data-product-store="Ocean Crate" data-product-img="assets/img/product/12.webp">Write review</button></div>
+        <div class="sf-panel-review-row"><img class="sf-panel-thumb" src="assets/img/product/account-polo.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Slim-fit cotton polo shirt</strong><small>Fashion Hub</small></div><button type="button" class="sf-panel-button sf-panel-primary sf-btn-trigger-review" data-bs-toggle="modal" data-bs-target="#sfWriteReviewModal" data-product-title="Slim-fit cotton polo shirt" data-product-store="Fashion Hub" data-product-img="assets/img/product/account-polo.webp">Write review</button></div>
+    </article>
+    <article class="sf-panel-surface">
+        <div class="sf-panel-section-heading"><h3>Previous reviews</h3></div>
+        <div class="sf-panel-review-row"><img class="sf-panel-thumb" src="assets/img/product/account-earbuds.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Wireless Earbuds Pro</strong><small>29 Oct 2026 · 5 out of 5</small><p>Great sound and battery life.</p></div></div>
+        <div class="sf-panel-review-row"><img class="sf-panel-thumb" src="assets/img/product/account-keyboard.webp" width="46" height="46" alt="" loading="lazy"><div><strong>RGB mechanical keyboard</strong><small>22 Oct 2026 · 4 out of 5</small><p>Comfortable keys and a solid build.</p></div></div>
+    </article>
+</section>
 
-    <!-- Sub-tabs: To Review (2) vs History (5) -->
-    <ul class="nav sf-sub-nav" id="reviewTabNav" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button
-                class="nav-link active"
-                id="to-review-pill"
-                data-bs-toggle="pill"
-                data-bs-target="#to-review-pane"
-                type="button"
-                role="tab"
-                aria-controls="to-review-pane"
-                aria-selected="true">
-                To Review (2)
-            </button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button
-                class="nav-link"
-                id="review-history-pill"
-                data-bs-toggle="pill"
-                data-bs-target="#review-history-pane"
-                type="button"
-                role="tab"
-                aria-controls="review-history-pane"
-                aria-selected="false">
-                History (5)
-            </button>
-        </li>
-    </ul>
-
-    <!-- Review Tab Content -->
-    <div class="tab-content" id="reviewTabContent">
-        <!-- 2.1 To Review -->
-        <div class="tab-pane fade show active" id="to-review-pane" role="tabpanel" aria-labelledby="to-review-pill">
-            <!-- Row 1: Smart Watch T900 Ultra -->
-            <div class="sf-review-row">
-                <div class="d-flex align-items-center gap-3">
-                    <img src="assets/img/product/1.webp" alt="Smart Watch T900 Ultra" class="sf-review-thumb-48" />
-                    <div class="sf-review-content">
-                        <h6 class="fw-bold mb-1" style="font-size: 14px; color: #0f172a;">Smart Watch T900 Ultra</h6>
-                        <span class="text-muted" style="font-size: 12px;">Delivered 10 Nov 2026 &bull; Ocean Crate</span>
-                    </div>
-                </div>
-                <button
-                    type="button"
-                    class="btn btn-sm btn-primary rounded-3 px-3 sf-btn-trigger-review"
-                    data-bs-toggle="modal"
-                    data-bs-target="#sfWriteReviewModal"
-                    data-product-title="Smart Watch T900 Ultra"
-                    data-product-store="Ocean Crate"
-                    data-product-img="assets/img/product/1.webp">
-                    <i class="ri-pencil-line me-1"></i> Write Review
-                </button>
-            </div>
-
-            <!-- Row 2: Cotton Polo Shirt -->
-            <div class="sf-review-row">
-                <div class="d-flex align-items-center gap-3">
-                    <img src="assets/img/product/10.webp" alt="Cotton Polo Shirt" class="sf-review-thumb-48" />
-                    <div class="sf-review-content">
-                        <h6 class="fw-bold mb-1" style="font-size: 14px; color: #0f172a;">Slim-Fit Cotton Polo Shirt (Navy)</h6>
-                        <span class="text-muted" style="font-size: 12px;">Delivered 08 Nov 2026 &bull; Fashion Hub</span>
-                    </div>
-                </div>
-                <button
-                    type="button"
-                    class="btn btn-sm btn-primary rounded-3 px-3 sf-btn-trigger-review"
-                    data-bs-toggle="modal"
-                    data-bs-target="#sfWriteReviewModal"
-                    data-product-title="Slim-Fit Cotton Polo Shirt (Navy)"
-                    data-product-store="Fashion Hub"
-                    data-product-img="assets/img/product/10.webp">
-                    <i class="ri-pencil-line me-1"></i> Write Review
-                </button>
-            </div>
-        </div>
-
-        <!-- 2.2 History (5) -->
-        <div class="tab-pane fade" id="review-history-pane" role="tabpanel" aria-labelledby="review-history-pill">
-            <!-- History Row 1: Wireless Earbuds Pro -->
-            <div class="sf-review-row flex-column align-items-start">
-                <div class="d-flex align-items-center justify-content-between w-100 mb-1">
-                    <div class="d-flex align-items-center gap-3">
-                        <img src="assets/img/product/12.webp" alt="Wireless Earbuds Pro" class="sf-review-thumb-48" />
-                        <div>
-                            <h6 class="fw-bold mb-0" style="font-size: 14px; color: #0f172a;">Wireless Earbuds Pro</h6>
-                            <div class="sf-review-stars">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="text-muted" style="font-size: 11.5px;">29 Oct 2026</span>
-                </div>
-                <p class="mb-1 text-secondary" style="font-size: 13px;">
-                    Excellent sound quality and fast delivery! ANC works great on the bus and battery life is impressive.
-                </p>
-                <div class="sf-seller-reply-mini w-100">
-                    <strong>Seller (Ocean Crate):</strong> Thank you for shopping with Ocean Crate! Enjoy your music!
-                </div>
-            </div>
-
-            <!-- History Row 2: Mechanical Gaming Keyboard -->
-            <div class="sf-review-row flex-column align-items-start">
-                <div class="d-flex align-items-center justify-content-between w-100 mb-1">
-                    <div class="d-flex align-items-center gap-3">
-                        <img src="assets/img/product/14.webp" alt="Gaming Keyboard" class="sf-review-thumb-48" />
-                        <div>
-                            <h6 class="fw-bold mb-0" style="font-size: 14px; color: #0f172a;">RGB Mechanical Gaming Keyboard</h6>
-                            <div class="sf-review-stars">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="text-muted" style="font-size: 11.5px;">14 Oct 2026</span>
-                </div>
-                <p class="mb-0 text-secondary" style="font-size: 13px;">
-                    Super tactile feel, clicky switches, and bright RGB lighting. Sturdy packaging!
-                </p>
-            </div>
-        </div>
+<section id="returns" class="sf-account-panel" aria-labelledby="sfHeading-returns" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-returns">Returns &amp; refunds</h2>
+        <a class="sf-panel-button sf-panel-outline" href="return-refund-policy.html">Return policy</a>
     </div>
-</div>
+<article class="sf-panel-surface sf-panel-return">
+        <div class="sf-panel-order-head"><div><h3>Return #SF-8492</h3><small>Requested 10 Nov 2026</small></div><span class="sf-panel-status sf-panel-amber">Processing</span></div>
+        <div class="sf-panel-preview"><img class="sf-panel-thumb" src="assets/img/product/12.webp" width="46" height="46" alt="" loading="lazy"><div><strong>Smart Watch T900 Ultra</strong><small>Ocean Crate</small></div></div>
+        <div class="sf-panel-refund"><span>Refund via bKash</span><strong class="sf-panel-money">৳ 804</strong></div>
+        <ol class="sf-panel-return-steps" aria-label="Return progress">
+            <li class="done"><i class="ri-check-line" aria-hidden="true"></i><span>Requested</span></li>
+            <li class="done"><i class="ri-check-line" aria-hidden="true"></i><span>Picked up</span></li>
+            <li aria-current="step"><i class="ri-search-eye-line" aria-hidden="true"></i><span>Quality check</span></li>
+            <li><i class="ri-wallet-3-line" aria-hidden="true"></i><span>Refund</span></li>
+        </ol>
+    </article>
+</section>
 
-<!-- ======================================================================= -->
-<!-- TAB PANE 3: RETURNS & REFUNDS (#returns)                                -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade" id="returns" role="tabpanel" aria-labelledby="tab-returns">
-    <!-- Clean Header -->
-    <div class="d-flex align-items-center justify-content-between mb-3">
-        <h4 class="fw-bold mb-0" style="font-size: 18px; color: #0f172a;">Returns &amp; Refunds</h4>
-        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1" style="font-size: 12px;">
-            1 Return Case
-        </span>
+<section id="support" class="sf-account-panel" aria-labelledby="sfHeading-support" hidden>
+    <div class="sf-panel-heading">
+        <h2 id="sfHeading-support">Help center</h2>
+
     </div>
-
-    <!-- Single Clean Card -->
-    <div class="sf-return-clean-card">
-        <!-- Top Row -->
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pb-3 border-bottom">
-            <div>
-                <span class="fw-bold" style="font-size: 14.5px; color: #0f172a;">Order #SF-8492</span>
-                <span class="text-muted ms-2" style="font-size: 12.5px;">&bull; 10 Nov 2026</span>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-                <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-2 py-1" style="font-size: 11.5px;">
-                    Return Processing
-                </span>
-                <span class="fw-bold text-success" style="font-size: 14px;">
-                    Refund: ৳ 804 (bKash)
-                </span>
-            </div>
-        </div>
-
-        <!-- Progress Dots Line -->
-        <div class="sf-return-progress-dots">
-            <div class="sf-return-dot-step">
-                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
-                <span class="sf-return-dot-label">Requested</span>
-            </div>
-            <div class="sf-return-dot-step">
-                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
-                <span class="sf-return-dot-label">Picked Up</span>
-            </div>
-            <div class="sf-return-dot-step">
-                <span class="sf-return-dot"><i class="ri-check-line"></i></span>
-                <span class="sf-return-dot-label">QC Passed</span>
-            </div>
-            <div class="sf-return-dot-step">
-                <span class="sf-return-dot"><i class="ri-check-double-line"></i></span>
-                <span class="sf-return-dot-label text-success">Refunded</span>
-            </div>
-        </div>
-
-        <!-- Receipt Summary Line -->
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 text-muted" style="font-size: 12.5px;">
-            <span>Item: Smart Watch T900 Ultra (৳ 754) + Shipping (৳ 50)</span>
-            <span>bKash: <strong>017****5678</strong> &bull; TRX: <code class="text-dark">#TRX-94827104</code></span>
-        </div>
+<div class="sf-panel-contact">
+        <a class="sf-panel-surface" href="tel:+8809612000222"><i class="ri-phone-line" aria-hidden="true"></i><div><strong>Call support</strong><small>+880 9612-000222</small></div></a>
+        <a class="sf-panel-surface" href="https://wa.me/8801712345678" target="_blank" rel="noopener noreferrer"><i class="ri-whatsapp-line" aria-hidden="true"></i><div><strong>WhatsApp</strong><small>+880 1712-345678</small></div></a>
+        <a class="sf-panel-surface" href="mailto:support@shoppieflybd.com"><i class="ri-mail-line" aria-hidden="true"></i><div><strong>Email support</strong><small>support@shoppieflybd.com</small></div></a>
     </div>
-</div>
-
-<!-- ======================================================================= -->
-<!-- WRITE REVIEW MODAL (#sfWriteReviewModal)                                -->
-<!-- ======================================================================= -->
-
-                                    <!-- 8. HELP CENTER & SUPPORT PANE -->
-                                    
-<!-- ======================================================================= -->
-<!-- TAB PANE 8: HELP CENTER & DEDICATED SUPPORT (#support)                  -->
-<!-- ======================================================================= -->
-<div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
-    <div class="sf-account-card border rounded-3 p-3 p-md-4 bg-white shadow-sm mb-4">
-        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-3 pb-3 border-bottom">
-            <div>
-                <h4 class="fs-5 fw-bold text-dark mb-1 d-flex align-items-center gap-2">
-                    <i class="ri-customer-service-2-fill text-primary"></i> Help Center
-                </h4>
-                <p class="text-muted small mb-0">24/7 dedicated assistance for orders, returns, and refunds.</p>
-            </div>
-            <a href="tel:+8809612000222" class="btn btn-primary btn-sm px-3 py-1.5 rounded-pill fw-semibold d-inline-flex align-items-center gap-1.5">
-                <i class="ri-phone-fill"></i> 09612-000222
-            </a>
-        </div>
-
-        <!-- 3 Quick Contact Cards -->
-        <div class="row g-3 mb-4">
-            <div class="col-12 col-md-4">
-                <div class="border rounded-3 p-3 bg-light-subtle h-100 d-flex align-items-center gap-3">
-                    <div class="rounded-circle bg-primary-subtle text-primary p-2.5 flex-shrink-0">
-                        <i class="ri-phone-line fs-5"></i>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-dark fs-7">24/7 Hotline</div>
-                        <a href="tel:+8809612000222" class="text-primary text-decoration-none fw-semibold fs-7">+880 9612-000222</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="border rounded-3 p-3 bg-light-subtle h-100 d-flex align-items-center gap-3">
-                    <div class="rounded-circle bg-success-subtle text-success p-2.5 flex-shrink-0">
-                        <i class="ri-whatsapp-line fs-5"></i>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-dark fs-7">WhatsApp Chat</div>
-                        <a href="https://wa.me/8801712345678" target="_blank" rel="noopener noreferrer" class="text-success text-decoration-none fw-semibold fs-7">+880 1712-345678</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="border rounded-3 p-3 bg-light-subtle h-100 d-flex align-items-center gap-3">
-                    <div class="rounded-circle bg-info-subtle text-info p-2.5 flex-shrink-0">
-                        <i class="ri-mail-line fs-5"></i>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-dark fs-7">Email Support</div>
-                        <a href="mailto:support@shoppieflybd.com" class="text-info-emphasis text-decoration-none fw-semibold fs-7">support@shoppieflybd.com</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Frequently Asked Questions Accordion -->
-        <h6 class="fw-bold text-dark fs-6 mb-3 d-flex align-items-center gap-2">
-            <i class="ri-questionnaire-line text-primary"></i> Frequently Asked Questions
-        </h6>
-        <div class="accordion mb-0" id="sfFaqAccordion">
-            <div class="accordion-item border rounded-3 mb-2 overflow-hidden">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed py-2.5 fw-semibold text-dark fs-7" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        How can I track my active order in real time?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sfFaqAccordion">
-                    <div class="accordion-body text-muted fs-7 pt-0">
-                        Click the "Track Order" button in the My Orders tab or visit the Track Order page using Order #SF-20261110-8492.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border rounded-3 mb-2 overflow-hidden">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed py-2.5 fw-semibold text-dark fs-7" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        What is ShoppieFlyBD's Return & Refund policy?
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#sfFaqAccordion">
-                    <div class="accordion-body text-muted fs-7 pt-0">
-                        Hassle-free 7-day returns for damaged or incorrect items. Once QC passes, refunds are sent to your bKash or original payment method.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border rounded-3 mb-0 overflow-hidden">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed py-2.5 fw-semibold text-dark fs-7" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        How do I redeem my discount vouchers?
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#sfFaqAccordion">
-                    <div class="accordion-body text-muted fs-7 pt-0">
-                        Copy any active code from the Vouchers tab and apply it in the discount field at checkout.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+    <article class="sf-panel-surface">
+        <div class="sf-panel-section-heading"><h3>Frequently asked questions</h3></div>
+        <details class="sf-panel-disclosure"><summary>How do I track an order?</summary><p>Open Orders, choose your order and select Track order.</p></details>
+        <details class="sf-panel-disclosure"><summary>How do returns and refunds work?</summary><p>See the <a href="return-refund-policy.html">return policy</a> for eligibility and refund timing.</p></details>
+        <details class="sf-panel-disclosure"><summary>How do I use a voucher?</summary><p>Copy an active code from Vouchers and apply it at checkout.</p></details>
+    </article>
+</section>
                                 </div>
                             </div>
                         </div>
@@ -2320,11 +961,12 @@
             <div class="modal-header bg-light bg-opacity-75 py-3 px-4 border-bottom">
                 <div>
                     <h5 class="modal-title fw-bold text-dark fs-5 mb-1" id="sfOrderDetailsModalLabel">
-                        Order Details &bull; <span class="font-monospace text-primary">#SF-20261110-8492</span>
+                        Order Details <span class="sf-order-modal-separator" aria-hidden="true">&bull;</span>
+                        <span class="sf-order-modal-number font-monospace text-primary">#SF-20261110-8492</span>
                     </h5>
-                    <div class="d-flex align-items-center gap-2 fs-7 text-muted">
+                    <div class="sf-order-modal-meta d-flex align-items-center gap-2 fs-7 text-muted">
                         <span>Placed on: <strong>10 Nov 2026, 02:45 PM</strong></span>
-                        <span>&bull;</span>
+                        <span class="sf-order-separator" aria-hidden="true">&bull;</span>
                         <span class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning-subtle px-2 py-0.5">
                             Out for Delivery
                         </span>
@@ -2340,10 +982,10 @@
                     <h6 class="fs-7 text-uppercase fw-bold text-muted mb-3 d-flex align-items-center gap-2">
                         <i class="ri-radar-line text-primary"></i> Order Delivery Lifecycle
                     </h6>
-                    <div class="d-flex align-items-center justify-content-between position-relative px-2">
+                    <div class="sf-order-lifecycle d-flex justify-content-between position-relative px-2">
                         <!-- Step 1: Placed -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Placed</div>
@@ -2351,8 +993,8 @@
                         </div>
 
                         <!-- Step 2: Confirmed -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Confirmed</div>
@@ -2360,8 +1002,8 @@
                         </div>
 
                         <!-- Step 3: Shipped -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-success text-white d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-check-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-dark fs-8">Shipped</div>
@@ -2369,8 +1011,8 @@
                         </div>
 
                         <!-- Step 4: Out for Delivery (Active) -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-warning text-white d-inline-flex align-items-center justify-content-center mb-1 shadow-sm" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-warning text-white d-inline-flex align-items-center justify-content-center mb-1 shadow-sm">
                                 <i class="ri-truck-line fs-6"></i>
                             </div>
                             <div class="fw-bold text-warning-emphasis fs-8">On The Way</div>
@@ -2378,8 +1020,8 @@
                         </div>
 
                         <!-- Step 5: Delivered (Pending) -->
-                        <div class="text-center position-relative z-1" style="flex: 1;">
-                            <div class="rounded-circle bg-secondary-subtle text-muted d-inline-flex align-items-center justify-content-center mb-1" style="width: 32px; height: 32px;">
+                        <div class="sf-order-lifecycle-step text-center position-relative z-1">
+                            <div class="sf-order-lifecycle-icon rounded-circle bg-secondary-subtle text-muted d-inline-flex align-items-center justify-content-center mb-1">
                                 <i class="ri-checkbox-circle-line fs-6"></i>
                             </div>
                             <div class="fw-medium text-muted fs-8">Delivered</div>
@@ -2465,7 +1107,7 @@
                                     <td class="ps-3 py-3">
                                         <div class="d-flex align-items-center gap-2.5">
                                             <img
-                                                src="assets/img/product/11.webp"
+                                                src="assets/img/product/12.webp"
                                                 alt="Smart Watch"
                                                 class="rounded border object-fit-cover flex-shrink-0"
                                                 width="48"
@@ -2490,7 +1132,7 @@
                                     <td class="ps-3 py-3">
                                         <div class="d-flex align-items-center gap-2.5">
                                             <img
-                                                src="assets/img/product/27.webp"
+                                                src="assets/img/product/account-polo.webp"
                                                 alt="Cotton Polo"
                                                 class="rounded border object-fit-cover flex-shrink-0"
                                                 width="48"
@@ -2556,7 +1198,7 @@
                     <i class="ri-printer-line"></i>
                     <span>Print Invoice</span>
                 </a>
-                <div class="d-flex align-items-center gap-2">
+                <div class="sf-order-modal-actions d-flex align-items-center gap-2">
                     <button type="button" class="btn btn-light btn-sm px-3 py-1.5 rounded-2" data-bs-dismiss="modal">
                         Close
                     </button>
@@ -2694,7 +1336,7 @@
 
                 <!-- Address Modals (#sfAddAddressModal) -->
                 <div class="modal fade" id="sfAddAddressModal" tabindex="-1" aria-labelledby="sfAddressModalTitle" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
             <!-- Modal Header -->
             <div class="modal-header border-bottom bg-light-subtle px-4 py-3">
@@ -2902,7 +1544,7 @@
                 <div class="modal-body p-3">
                     <!-- Product Mini Summary -->
                     <div class="d-flex align-items-center gap-2 p-2 bg-light rounded-2 mb-3">
-                        <img id="sfModalProductImg" src="assets/img/product/1.webp" alt="Thumb" class="rounded border" style="width: 40px; height: 40px; object-fit: cover;" />
+                        <img id="sfModalProductImg" src="assets/img/product/12.webp" alt="" class="rounded border" style="width: 40px; height: 40px; object-fit: cover;" />
                         <div>
                             <h6 class="fw-bold mb-0" id="sfModalProductTitle" style="font-size: 13px; color: #0f172a;">Smart Watch T900 Ultra</h6>
                             <small class="text-muted" id="sfModalProductStore">Ocean Crate</small>
@@ -3899,11 +2541,10 @@
             } else {
                 const newId = Date.now();
                 const newCardHtml = `
-                    <div class="col-12 col-md-6" id="sfAddressCard-${newId}" data-id="${newId}" data-tag="${tag}" data-name="${name}" data-phone="${rawPhone}" data-division="${division}" data-district="${district}" data-thana="${thana}" data-address="${address}" data-landmark="${landmark}" data-default-shipping="${isShipping ? 'true' : 'false'}">
-                        <div class="card h-100 border rounded-3 p-3 sf-address-card shadow-sm">
+                    <div id="sfAddressCard-${newId}" data-id="${newId}" data-tag="${tag}" data-name="${name}" data-phone="${rawPhone}" data-division="${division}" data-district="${district}" data-thana="${thana}" data-address="${address}" data-landmark="${landmark}" data-default-shipping="${isShipping ? 'true' : 'false'}">
+                        <div class="sf-panel-surface sf-address-card">
                             <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
                                 <span class="fw-bold text-dark sf-card-name">${name}</span>
-                                <span class="text-muted small">&bull;</span>
                                 <span class="text-muted small sf-card-phone">${formattedPhone}</span>
                                 <span class="badge rounded-pill px-2.5 py-0.5 fs-xs fw-semibold sf-card-tag ${tag === 'Home' ? 'bg-primary-subtle text-primary' : (tag === 'Office' ? 'bg-warning-subtle text-warning-emphasis' : 'bg-secondary-subtle text-secondary')}" ${tag === 'Office' ? 'style="background-color: #fff3e0 !important; color: #e65100 !important;"' : ''}>${tag}</span>
                                 <span class="badge rounded-pill bg-success-subtle text-success px-2.5 py-0.5 fs-xs fw-semibold ${isShipping ? '' : 'd-none'} sf-badge-default">Default</span>
@@ -3913,11 +2554,9 @@
                                 <button type="button" class="btn btn-link p-0 text-decoration-none text-primary fw-medium" onclick="sfEditAddressCard(${newId})">
                                     <i class="ri-edit-line me-1"></i>Edit
                                 </button>
-                                <span class="text-muted">&bull;</span>
                                 <button type="button" class="btn btn-link p-0 text-decoration-none text-danger fw-medium" onclick="sfDeleteAddressCard(${newId})">
                                     <i class="ri-delete-bin-line me-1"></i>Delete
                                 </button>
-                                <span class="text-muted">&bull;</span>
                                 <span class="sf-default-action-wrap ${isShipping ? 'text-success fw-medium' : ''}">
                                     ${isShipping ? '<i class="ri-check-line me-0.5"></i>Default Address' : `<button type="button" class="btn btn-link p-0 text-decoration-none text-muted fw-medium sf-btn-set-default" onclick="sfSetDefaultShipping(${newId})">Set as Default</button>`}
                                 </span>

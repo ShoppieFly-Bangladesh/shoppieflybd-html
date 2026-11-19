@@ -2622,7 +2622,8 @@
        ShoppieFlyBD Customer Dashboard Controller (account.html)
        ========================================================================== */
     function sfInitCustomerDashboard() {
-        if (!$(".sf-account-sidebar, .sf-account-content, #sfAccountMainWrapper").length) {
+        var $accountPanels = $("#sfAccountTabContent > .sf-account-panel");
+        if (!$accountPanels.length) {
             return;
         }
 
@@ -2635,24 +2636,10 @@
                 targetId = "dashboard";
             }
 
-            // Update Desktop Sidebar Links
-            $(".sf-account-nav-link").removeClass("active");
-            $('.sf-account-nav-link[href="#' + targetId + '"]').addClass("active");
-
-            // Update Mobile App Grid Tiles
-            $(".sf-account-tile-btn").removeClass("active");
-            $('.sf-account-tile-btn[href="#' + targetId + '"]').addClass("active");
-
-            // Update Mobile Scroller Tabs (if any)
-            $(".sf-account-mobile-tab").removeClass("active");
-            $('.sf-account-mobile-tab[href="#' + targetId + '"]').addClass("active");
-
-            // Update Tab Panes (Direct children of #sfAccountTabContent only, preserving nested sub-tabs)
-            $("#sfAccountTabContent > .tab-pane").removeClass("show active");
-            var $targetPane = $("#sfAccountTabContent > #" + targetId);
-            if ($targetPane.length) {
-                $targetPane.addClass("show active");
-            }
+            var $navigation = $(".sf-account-nav-link, .sf-account-tile-btn");
+            $navigation.removeClass("active").removeAttr("aria-current");
+            $navigation.filter('[href="#' + targetId + '"]').addClass("active").attr("aria-current", "location");
+            $accountPanels.prop("hidden", true).filter("#" + targetId).prop("hidden", false);
 
             // Sync URL Hash
             if (updateHash !== false) {
@@ -2679,62 +2666,69 @@
                 $("#sfActiveBreadcrumb").text(tabLabelMap[targetId]);
             }
 
-            // Auto-scroll mobile pill into center
-            var $scroller = $(".sf-account-scroller-inner");
-            var $activeMobilePill = $('.sf-account-mobile-tab[href="#' + targetId + '"]');
-            if ($scroller.length && $activeMobilePill.length) {
-                var containerWidth = $scroller.width();
-                var pillLeft = $activeMobilePill.position().left + $scroller.scrollLeft();
-                var pillWidth = $activeMobilePill.outerWidth();
-                var targetScroll = pillLeft - (containerWidth / 2) + (pillWidth / 2);
-                $scroller.stop().animate({ scrollLeft: Math.max(0, targetScroll) }, 200);
-            }
         }
 
-        // Navigation Clicks (Desktop Sidebar, Mobile App Grid & Triggers)
-        $(document).on("click", ".sf-account-nav-link, .sf-account-tile-btn, .sf-account-mobile-tab, .sf-account-tab-trigger", function (e) {
+        function scrollToAccountPane(smooth) {
+            requestAnimationFrame(function () {
+                var pane = $accountPanels.filter(":not([hidden])")[0];
+                var header = document.querySelector("header");
+                if (!pane || !header) return;
+
+                var offset = Math.ceil(header.getBoundingClientRect().height + 12);
+                window.scrollTo({
+                    top: Math.max(0, pane.getBoundingClientRect().top + window.scrollY - offset),
+                    behavior: smooth && !window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "smooth" : "instant",
+                });
+            });
+        }
+
+        var $orderSearch = $("#sfOrderSearchInput");
+        var $orderStatus = $("#sfOrderStatusFilter");
+        var $orders = $("#sfOrdersContainer > [data-order-status]");
+
+        function filterOrders() {
+            var query = $orderSearch.val().trim().toLowerCase();
+            var status = $orderStatus.val();
+            var visible = $orders.filter(function () {
+                return (!status || this.dataset.orderStatus === status) && this.textContent.toLowerCase().includes(query);
+            });
+            $orders.prop("hidden", true);
+            visible.prop("hidden", false);
+            $("#sfOrdersEmptyState").prop("hidden", visible.length > 0);
+        }
+
+        $orderSearch.on("input", filterOrders);
+        $orderStatus.on("change", filterOrders);
+
+        $(document).on("click", ".sf-account-nav-link, .sf-account-tile-btn, .sf-account-tab-trigger", function (e) {
             var href = $(this).attr("href");
             if (href && href.startsWith("#")) {
                 e.preventDefault();
                 activateAccountTab(href);
+                if ($(this).data("sf-filter-status") === "intransit") {
+                    $orderStatus.val("shipped").trigger("change");
+                }
                 // On small screens, scroll smoothly down to content pane
                 if (window.innerWidth < 992 && !$(this).hasClass("sf-account-nav-link")) {
-                    var $content = $("#sfAccountTabContent");
-                    if ($content.length) {
-                        $("html, body").stop().animate({
-                            scrollTop: $content.offset().top - 80
-                        }, 250);
-                    }
+                    scrollToAccountPane(true);
                 }
-            }
-        });
-
-        // Metric Counter Cards Shortcut Click
-        $(document).on("click", "[data-sf-tab-target]", function (e) {
-            e.preventDefault();
-            var targetTab = $(this).data("sf-tab-target");
-            var filterStatus = $(this).data("sf-filter-status");
-
-            activateAccountTab(targetTab);
-
-            if (filterStatus) {
-                setTimeout(function () {
-                    var $filterBtn = $('#sfOrderFilterPills [data-sf-filter="' + filterStatus + '"], #sfOrderFilterPills [data-status="' + filterStatus + '"]');
-                    if ($filterBtn.length) {
-                        $filterBtn.trigger("click");
-                    }
-                }, 100);
             }
         });
 
         // Initial Hash Navigation on Page Load
         var initialHash = window.location.hash ? window.location.hash.replace(/^#/, "") : "dashboard";
         activateAccountTab(initialHash, false);
+        if (window.location.hash && validTabs.indexOf(initialHash) !== -1) {
+            scrollToAccountPane(false);
+        }
 
         // Listen for browser forward/backward buttons
         $(window).on("hashchange", function () {
             var currentHash = window.location.hash ? window.location.hash.replace(/^#/, "") : "dashboard";
             activateAccountTab(currentHash, false);
+            if (window.location.hash && validTabs.indexOf(currentHash) !== -1) {
+                scrollToAccountPane(false);
+            }
         });
 
         // Initialize tooltips
